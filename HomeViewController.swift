@@ -9,8 +9,10 @@
 import UIKit
 import Firebase
 import AVFoundation
+import MobileCoreServices
+import Photos
 
-class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
+class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var customTableView: UITableView!
     
@@ -50,7 +52,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         menuButton.setImage(#imageLiteral(resourceName: "addButton"),
                             for: UIControlState.normal)
-        menuButton.addTarget(self, action: "menuButtonAction:", for: UIControlEvents.touchUpInside)
+        menuButton.addTarget(self, action: "takeVideo", for: UIControlEvents.touchUpInside)
         
         self.tabBarController?.view.layoutIfNeeded()
     }
@@ -152,6 +154,29 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     }
     
     
+    func takeVideo()
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
+        
+        present(imagePicker, animated: true, completion:nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let url = info[UIImagePickerControllerMediaURL]
+        print("media url: \(url)")
+        
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url as! URL)
+            
+        }, completionHandler:nil)
+        //dissmissing the camera
+        dismiss(animated: true, completion: nil)
+        
+    }
+
     
 }
 
