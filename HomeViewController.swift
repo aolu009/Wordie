@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet weak var featuredButton: UIButton!
     
     
-    let videoArray = ["https://firebasestorage.googleapis.com/v0/b/sixth-tempo-830.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=6b860995-c0aa-4b4a-a869-bacb72dba477", "https://firebasestorage.googleapis.com/v0/b/sixth-tempo-830.appspot.com/o/IMG_4559.MOV.mov?alt=media&token=1c472a5a-6f03-4658-ba92-c986224d2457", "https://firebasestorage.googleapis.com/v0/b/sixth-tempo-830.appspot.com/o/IMG_4560.MOV.mov?alt=media&token=40f9f907-7435-4cc7-b66d-aa90c777974a"]
+    let videoArray = ["https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/Black%20Ferrari%20Enzo%20with%20Tubi%20Exhaust%20-%20LOUD%20Acceleration.mp4?alt=media&token=c3026c76-cd7e-4976-8d61-f46fdf0657b4", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4559.MOV.mov?alt=media&token=dd1435ce-cbd2-4ebc-9325-56e0550771d6", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4560.MOV.mov?alt=media&token=eeb679fa-3e0b-4331-8b08-c7567ccdfb52"]
     
     
     override func viewDidLoad() {
