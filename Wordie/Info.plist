@@ -25,10 +25,16 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We need to access the camera to capture the wrold around you.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Smile!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Smile!</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Louis.Main</string>
+	<string>Malcolm.Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
