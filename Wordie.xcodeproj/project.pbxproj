@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		425253AB1DE278E0005D3827 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425253AA1DE278E0005D3827 /* Malcolm.Main.storyboard */; };
 		BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */; };
 		BF1EA9D31DE26DC200A4B3A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9D11DE26DC200A4B3A3 /* LaunchScreen.storyboard */; };
 		BF1EA9DB1DE26DFA00A4B3A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9DA1DE26DFA00A4B3A3 /* GoogleService-Info.plist */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wordie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		209528783B87E1D71F3B93FD /* Pods-Wordie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wordie/Pods-Wordie.debug.xcconfig"; sourceTree = "<group>"; };
+		425253AA1DE278E0005D3827 /* Malcolm.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Malcolm.Main.storyboard; sourceTree = "<group>"; };
 		698B7384369BA83D54F93CAC /* Pods-Wordie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wordie/Pods-Wordie.release.xcconfig"; sourceTree = "<group>"; };
 		BF1EA9C51DE26DC200A4B3A3 /* Wordie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1EA9DF1DE26EFE00A4B3A3 /* Louis.Main.storyboard */,
+				425253AA1DE278E0005D3827 /* Malcolm.Main.storyboard */,
 			);
 			name = Storyboards;
 			path = ..;
@@ -225,6 +228,7 @@
 				BF1EA9DB1DE26DFA00A4B3A3 /* GoogleService-Info.plist in Resources */,
 				BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */,
 				BF1EA9E01DE26EFE00A4B3A3 /* Louis.Main.storyboard in Resources */,
+				425253AB1DE278E0005D3827 /* Malcolm.Main.storyboard in Resources */,
 				BF1EA9DD1DE26E2E00A4B3A3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
