@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Connect Firebase
         FIRApp.configure()
+        
+        
+        let tabBar = UITabBar.appearance()
+        tabBar.barTintColor = UIColor.clear
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = #imageLiteral(resourceName: "Line")
+        
         return true
     }
 

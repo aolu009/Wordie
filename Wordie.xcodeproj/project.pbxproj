@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		425253AB1DE278E0005D3827 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425253AA1DE278E0005D3827 /* Malcolm.Main.storyboard */; };
+		4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */; };
+		4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250867E1DE309DB00D3B202 /* HomeViewController.swift */; };
+		425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425086801DE30A1300D3B202 /* HomeTableViewCell.swift */; };
 		BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */; };
 		BF1EA9D31DE26DC200A4B3A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9D11DE26DC200A4B3A3 /* LaunchScreen.storyboard */; };
 		BF1EA9DB1DE26DFA00A4B3A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9DA1DE26DFA00A4B3A3 /* GoogleService-Info.plist */; };
@@ -28,7 +30,9 @@
 /* Begin PBXFileReference section */
 		194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wordie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		209528783B87E1D71F3B93FD /* Pods-Wordie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wordie/Pods-Wordie.debug.xcconfig"; sourceTree = "<group>"; };
-		425253AA1DE278E0005D3827 /* Malcolm.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Malcolm.Main.storyboard; sourceTree = "<group>"; };
+		4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Malcolm.Main.storyboard; sourceTree = "<group>"; };
+		4250867E1DE309DB00D3B202 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		425086801DE30A1300D3B202 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		698B7384369BA83D54F93CAC /* Pods-Wordie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wordie/Pods-Wordie.release.xcconfig"; sourceTree = "<group>"; };
 		BF1EA9C51DE26DC200A4B3A3 /* Wordie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1EA9DF1DE26EFE00A4B3A3 /* Louis.Main.storyboard */,
-				425253AA1DE278E0005D3827 /* Malcolm.Main.storyboard */,
+				4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */,
 			);
 			name = Storyboards;
 			path = ..;
@@ -130,6 +134,7 @@
 				BF1EA9E71DE2700100A4B3A3 /* NoteViewController.swift */,
 				BF1EA9E81DE2700100A4B3A3 /* DefinitionTabViewController.swift */,
 				BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */,
+				4250867E1DE309DB00D3B202 /* HomeViewController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -158,6 +163,7 @@
 			children = (
 				BF1EA9ED1DE2702100A4B3A3 /* WordTableViewCell.swift */,
 				BF1EA9EE1DE2702100A4B3A3 /* DefinitionTableViewCell.swift */,
+				425086801DE30A1300D3B202 /* HomeTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -228,9 +234,9 @@
 			files = (
 				BF1EA9D31DE26DC200A4B3A3 /* LaunchScreen.storyboard in Resources */,
 				BF1EA9DB1DE26DFA00A4B3A3 /* GoogleService-Info.plist in Resources */,
+				4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */,
 				BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */,
 				BF1EA9E01DE26EFE00A4B3A3 /* Louis.Main.storyboard in Resources */,
-				425253AB1DE278E0005D3827 /* Malcolm.Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +301,9 @@
 				BF1EA9F01DE2702100A4B3A3 /* DefinitionTableViewCell.swift in Sources */,
 				BF1EA9F81DE2864700A4B3A3 /* SearchTabViewController.swift in Sources */,
 				BF1EA9F21DE2703600A4B3A3 /* Word.swift in Sources */,
+				425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */,
 				BF1EA9EF1DE2702100A4B3A3 /* WordTableViewCell.swift in Sources */,
+				4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */,
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,
 				BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */,
 				BF1EA9E91DE2700100A4B3A3 /* WordDetailViewController.swift in Sources */,
