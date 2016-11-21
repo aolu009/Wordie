@@ -1,5 +1,5 @@
 //
-//  WordDetailViewController.swift
+//  DefinitionTabViewController.swift
 //  Dictionary
 //
 //  Created by Lu Ao on 11/19/16.

@@ -37,6 +37,7 @@ class Word: NSObject {
                 for definition in senses{
                     
                     let temp = definition as! NSDictionary
+                    print(temp)
                     let define = temp["definitions"] as! [String] //FIXME: Crashes when search "test"
                     let defineString = define[0]
                     if let exampleArrayDic = temp["examples"] as! [AnyObject]?{

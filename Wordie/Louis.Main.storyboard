@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BSt-Ea-G58">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WgB-RK-t8e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -72,7 +72,7 @@
         <!--Word Detail View Controller-->
         <scene sceneID="XQZ-Vy-NAM">
             <objects>
-                <viewController storyboardIdentifier="WordDetailViewController" id="h4h-f4-EeU" customClass="WordDetailViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordDetailViewController" id="h4h-f4-EeU" customClass="WordDetailViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fKh-SE-6zV"/>
                         <viewControllerLayoutGuide type="bottom" id="dIp-Jr-yAY"/>
@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordTableViewCell" rowHeight="98" id="WTC-HD-HZp" customClass="WordTableViewCell" customModule="Dictionary" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordTableViewCell" rowHeight="98" id="WTC-HD-HZp" customClass="WordTableViewCell" customModule="Wordie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTC-HD-HZp" id="J72-sE-rZi">
@@ -112,7 +112,7 @@
                                             <outlet property="word" destination="Gv7-6r-MP5" id="yTH-SX-EPT"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefinitionTableViewCell" rowHeight="110" id="HNv-jG-inE" customClass="DefinitionTableViewCell" customModule="Dictionary" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefinitionTableViewCell" rowHeight="110" id="HNv-jG-inE" customClass="DefinitionTableViewCell" customModule="Wordie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="126" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HNv-jG-inE" id="bwP-2Z-ReA">
@@ -194,7 +194,7 @@
         <!--Definition Tab View Controller-->
         <scene sceneID="LpD-J8-nC4">
             <objects>
-                <tabBarController storyboardIdentifier="DefinitionTabViewController" id="DWd-0H-VRw" customClass="DefinitionTabViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DefinitionTabViewController" id="DWd-0H-VRw" customClass="DefinitionTabViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="oDg-gn-UZ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -204,6 +204,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Bn-Rl-lSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1238" y="188"/>
+        </scene>
+        <!--Search Tab View Controller-->
+        <scene sceneID="8QQ-Gr-UAE">
+            <objects>
+                <tabBarController storyboardIdentifier="SearchTabViewController" id="WgB-RK-t8e" customClass="SearchTabViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ocu-RA-sQC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9R-sH-jTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1238" y="-590"/>
         </scene>
         <!--HomeScreen-->
         <scene sceneID="rnt-ds-9aO">
