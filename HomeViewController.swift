@@ -17,6 +17,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet weak var lineMenuLine: UIView!
     var lastPlayingCell:HomeTableViewCell?
     
+    @IBOutlet weak var forYouButton: UIButton!
+    
+    @IBOutlet weak var featuredButton: UIButton!
+    
     
     let videoArray = ["https://firebasestorage.googleapis.com/v0/b/sixth-tempo-830.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=6b860995-c0aa-4b4a-a869-bacb72dba477", "https://firebasestorage.googleapis.com/v0/b/sixth-tempo-830.appspot.com/o/IMG_4559.MOV.mov?alt=media&token=1c472a5a-6f03-4658-ba92-c986224d2457", "https://firebasestorage.googleapis.com/v0/b/sixth-tempo-830.appspot.com/o/IMG_4560.MOV.mov?alt=media&token=40f9f907-7435-4cc7-b66d-aa90c777974a"]
     
@@ -25,11 +29,17 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         super.viewDidLoad()
         
         view.bringSubview(toFront: lineMenuLine)
+        view.bringSubview(toFront: forYouButton)
+
+        view.bringSubview(toFront: featuredButton)
+
+        
         setupMiddleButton()
     }
     
     func setupMiddleButton() {
-        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60
+        ))
         var menuButtonFrame = menuButton.frame
         menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height
         menuButtonFrame.origin.x = self.view.bounds.width/2 - menuButtonFrame.size.width/2
