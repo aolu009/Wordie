@@ -204,7 +204,7 @@
 				TargetAttributes = {
 					BF1EA9C41DE26DC200A4B3A3 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = JC68KFVHSJ;
+						DevelopmentTeam = QF43K5VRQT;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -424,8 +424,9 @@
 			baseConfigurationReference = 209528783B87E1D71F3B93FD /* Pods-Wordie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JC68KFVHSJ;
+				DEVELOPMENT_TEAM = QF43K5VRQT;
 				INFOPLIST_FILE = Wordie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Louis.Dictionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -438,8 +439,9 @@
 			baseConfigurationReference = 698B7384369BA83D54F93CAC /* Pods-Wordie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JC68KFVHSJ;
+				DEVELOPMENT_TEAM = QF43K5VRQT;
 				INFOPLIST_FILE = Wordie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Louis.Dictionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
