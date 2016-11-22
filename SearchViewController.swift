@@ -90,6 +90,17 @@ class SearchViewController: UIViewController,UITextFieldDelegate,DefinitionTabVi
         self.errorMessage.text = ""
     }
     
+    @IBAction func touchOutsideField(_ sender: Any) {
+        self.searchTextField.resignFirstResponder()
+    }
+    
+    @IBAction func onHome(_ sender: Any) {
+        let storyboardM = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+        let vc1 = storyboardM.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+        self.present(vc1, animated: true, completion: nil)
+        
+    }
+    
    
 
 }

@@ -33,6 +33,7 @@
                                 <connections>
                                     <action selector="onEditing:" destination="dkx-z0-nzr" eventType="editingDidEnd" id="zOy-qU-qct"/>
                                     <action selector="onTextFieldTouched:" destination="BYZ-38-t0r" eventType="editingChanged" id="Q6L-j4-Vad"/>
+                                    <action selector="touchOutsideField:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="irB-rq-7vm"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc1-Z4-SgX">
@@ -57,6 +58,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O9Q-Ep-S9w">
+                        <barButtonItem key="leftBarButtonItem" image="home" id="xNW-j9-5Pp">
+                            <connections>
+                                <action selector="onHome:" destination="BYZ-38-t0r" id="J33-yv-xdb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="kjY-Vw-flZ"/>
                     </navigationItem>
                     <connections>
@@ -257,4 +263,7 @@
             <point key="canvasLocation" x="2020" y="187.55622188905548"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="27" height="26"/>
+    </resources>
 </document>
