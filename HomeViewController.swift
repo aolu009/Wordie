@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet weak var forYouButton: UIButton!
     
     @IBOutlet weak var featuredButton: UIButton!
+    var menuButton: UIButton!
     
     
     let videoArray = ["https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/Black%20Ferrari%20Enzo%20with%20Tubi%20Exhaust%20-%20LOUD%20Acceleration.mp4?alt=media&token=c3026c76-cd7e-4976-8d61-f46fdf0657b4", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4559.MOV.mov?alt=media&token=dd1435ce-cbd2-4ebc-9325-56e0550771d6", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4560.MOV.mov?alt=media&token=eeb679fa-3e0b-4331-8b08-c7567ccdfb52"]
@@ -39,7 +40,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     }
     /*
     func setupMiddleButton() {
-        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60
+        menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60
         ))
         var menuButtonFrame = menuButton.frame
         menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height
@@ -48,11 +49,12 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         menuButton.layer.cornerRadius = menuButtonFrame.height/2
         self.tabBarController?.view.addSubview(menuButton)
+        menuButton.addTarget(self, action: #selector(HomeViewController.takeVideo), for: UIControlEvents.touchUpInside)
         
         menuButton.setImage(#imageLiteral(resourceName: "addButton"),
                             for: UIControlState.normal)
     }
-    */
+ */
     
     
 
@@ -151,7 +153,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
     }
     
-    /*
+    
     func takeVideo()
     {
         let imagePicker = UIImagePickerController()
@@ -174,7 +176,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         dismiss(animated: true, completion: nil)
         
     }
-*/
+
     
 }
 

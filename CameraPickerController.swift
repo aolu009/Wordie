@@ -16,8 +16,11 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         takeVideo()
-        // Do any additional setup after loading the view.
     }
     
     func takeVideo()
@@ -40,6 +43,11 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
         }, completionHandler:nil)
         //dissmissing the camera
         dismiss(animated: true, completion: nil)
-        
     }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion:nil)
+    }
+    
+    
 }

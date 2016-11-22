@@ -135,14 +135,14 @@
 		BF1EA9E11DE26F6F00A4B3A3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */,
+				4250867E1DE309DB00D3B202 /* HomeViewController.swift */,
 				BF1EA9E51DE2700100A4B3A3 /* WordDetailViewController.swift */,
 				BF1EA9E61DE2700100A4B3A3 /* SearchViewController.swift */,
 				BF1EA9E71DE2700100A4B3A3 /* NoteViewController.swift */,
 				BF1EA9E81DE2700100A4B3A3 /* DefinitionTabViewController.swift */,
 				BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */,
-				4250867E1DE309DB00D3B202 /* HomeViewController.swift */,
 				42CCA1F71DE3B01400223D6E /* LoginViewController.swift */,
-				BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */,
 				BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */,
 			);
 			name = ViewControllers;

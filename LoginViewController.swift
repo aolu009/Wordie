@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -20,8 +21,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func onLoginButtonPressed(_ sender: UIButton) {
-//        FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
-//                               password: textFieldLoginPassword.text!)
+        FIRAuth.auth()!.signIn(withEmail: emailTextField.text!,
+                               password: passwordTextField.text!)
+        performSegue(withIdentifier: "homeSegue", sender: nil)
         
     }
     
@@ -31,19 +33,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                       message: "Register",
                                       preferredStyle: .alert)
         
-//        let saveAction = UIAlertAction(title: "Save",
-//                                       style: .default) { action in
-//                                        let emailField = alert.textFields![0]
-//                                        let passwordField = alert.textFields![1]
-//                                        
-//                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-//                                                                   password: passwordField.text!) { user, error in
-//                                                                    if error == nil {
-//                                                                        FIRAuth.auth()!.signIn(withEmail: self.textFieldLoginEmail.text!,
-//                                                                                               password: self.textFieldLoginPassword.text!)
-//                                                                    }
-//                                        }
-//        }
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) { action in
+                                        let emailField = alert.textFields![0]
+                                        let passwordField = alert.textFields![1]
+                                        
+                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+                                                                   password: passwordField.text!) { user, error in
+                                                                    if error == nil {
+                                                                        FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!,
+                                                                                               password: self.passwordTextField.text!)
+                                                                        
+                                                                        self.performSegue(withIdentifier: "homeSegue", sender: nil)
+                                                                    }
+                                        }
+        }
         
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .default)
@@ -57,13 +61,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             textPassword.placeholder = "Enter your password"
         }
         
-//        alert.addAction(saveAction)
+        alert.addAction(saveAction)
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
     }
     
-
-
-
+    
+    
+    
 }
