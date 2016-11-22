@@ -25,6 +25,8 @@
 		BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F31DE2708100A4B3A3 /* OxfordClient.swift */; };
 		BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F51DE2709400A4B3A3 /* AppDelegate.swift */; };
 		BF1EA9F81DE2864700A4B3A3 /* SearchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */; };
+		BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */; };
+		BF1EA9FE1DE3C73500A4B3A3 /* CameraPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		BF1EA9F31DE2708100A4B3A3 /* OxfordClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OxfordClient.swift; sourceTree = "<group>"; };
 		BF1EA9F51DE2709400A4B3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabViewController.swift; sourceTree = "<group>"; };
+		BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPickerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 				BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */,
 				4250867E1DE309DB00D3B202 /* HomeViewController.swift */,
 				42CCA1F71DE3B01400223D6E /* LoginViewController.swift */,
+				BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */,
+				BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -207,7 +213,7 @@
 				TargetAttributes = {
 					BF1EA9C41DE26DC200A4B3A3 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = QF43K5VRQT;
+						DevelopmentTeam = JC68KFVHSJ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -298,8 +304,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1EA9FE1DE3C73500A4B3A3 /* CameraPickerController.swift in Sources */,
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
 				BF1EA9EC1DE2700100A4B3A3 /* DefinitionTabViewController.swift in Sources */,
+				BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */,
 				BF1EA9EA1DE2700100A4B3A3 /* SearchViewController.swift in Sources */,
 				BF1EA9F01DE2702100A4B3A3 /* DefinitionTableViewCell.swift in Sources */,
 				BF1EA9F81DE2864700A4B3A3 /* SearchTabViewController.swift in Sources */,
@@ -428,7 +436,7 @@
 			baseConfigurationReference = 209528783B87E1D71F3B93FD /* Pods-Wordie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QF43K5VRQT;
+				DEVELOPMENT_TEAM = JC68KFVHSJ;
 				INFOPLIST_FILE = Wordie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -443,7 +451,7 @@
 			baseConfigurationReference = 698B7384369BA83D54F93CAC /* Pods-Wordie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QF43K5VRQT;
+				DEVELOPMENT_TEAM = JC68KFVHSJ;
 				INFOPLIST_FILE = Wordie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

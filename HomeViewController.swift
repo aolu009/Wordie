@@ -32,13 +32,12 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         view.bringSubview(toFront: lineMenuLine)
         view.bringSubview(toFront: forYouButton)
-
         view.bringSubview(toFront: featuredButton)
 
         
-        setupMiddleButton()
+        //setupMiddleButton()
     }
-    
+    /*
     func setupMiddleButton() {
         let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60
         ))
@@ -52,12 +51,11 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         menuButton.setImage(#imageLiteral(resourceName: "addButton"),
                             for: UIControlState.normal)
-        menuButton.addTarget(self, action: "takeVideo", for: UIControlEvents.touchUpInside)
-        
-        self.tabBarController?.view.layoutIfNeeded()
     }
+    */
     
     
+
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -153,7 +151,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
     }
     
-    
+    /*
     func takeVideo()
     {
         let imagePicker = UIImagePickerController()
@@ -176,7 +174,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         dismiss(animated: true, completion: nil)
         
     }
-
+*/
     
 }
 
