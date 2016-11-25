@@ -25,6 +25,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
+        
+        if LoginViewController.currentUser != nil
+        {
+            //we have a current user, show them loading then tweets view
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            
+            let loadingVC = storyboard.instantiateViewController(withIdentifier: "TRLoadingViewController") as! TRLoadingViewController
+            
+            if let currentUser = TRUser.currentUser {
+                print("User already logged in: \(currentUser.name)")
+                window = UIWindow(frame: UIScreen.main.bounds)
+                window?.rootViewController = loadingVC
+                window?.makeKeyAndVisible()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    // your code here
+                    self.animateTwitterFeedWithHamburgerMenu()
+                }
+                
+            }
+        }
+        else{
+            print("No current user logged in yet")
+            
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "TRLoginViewController") as! TRLoginViewController
+            
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = loginVC
+            window?.makeKeyAndVisible()
+            
+        }
+        
         return true
     }
 
