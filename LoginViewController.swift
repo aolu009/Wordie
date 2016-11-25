@@ -16,35 +16,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     
     var currentUserID: String?
-    
-    class var currentUser: FIRUser? {
-        get {
-            let defaults = UserDefaults.standard
-            
-            if let userData = defaults.object(forKey: kUserDefaultsCurrentUserDataKey) as? Data {
-                let dictionary = try! JSONSerialization.jsonObject(with: userData, options: [])
-                return user
-            }
-            
-            return nil
-        }
-        set(user) {
-            let defaults = UserDefaults.standard
-            
-            // Unwrap user and save serialized (dict) info to defaults
-            if let user = user {
-                // Save serialized dictionary of user
-                let data = try! JSONSerialization.data(withJSONObject: user.userDictionary, options: [])
-                defaults.set(data, forKey: kUserDefaultsCurrentUserDataKey)
-                print("Serialized current user and saving to defaults")
-            }
-            else {
-                defaults.removeObject(forKey: kUserDefaultsCurrentUserDataKey)
-            }
-            
-            defaults.synchronize()
-        }
-    }
 
     
       override func viewDidLoad() {
@@ -59,6 +30,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let user = user {
                 // User is signed in.
                 self.currentUserID = user.uid
+
                 UserDefaults.standard.setValue(self.currentUserID, forKey: "uid")
 
             } else {
