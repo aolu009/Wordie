@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         if user != nil
         {
             //we have a current user, show them home screen
-            let storyboard = UIStoryboard.init(name: "Malcolm.Main.storyboard", bundle: nil)
+            let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
             
             let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
             
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         else{
             print("No current user logged in yet")
             
-            let storyboard = UIStoryboard.init(name: "Malcolm.Main.storyboard", bundle: nil)
+            let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
             
             let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             

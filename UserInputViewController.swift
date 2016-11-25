@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserInputViewController: UIViewController, UITextFieldDelegate {
     
@@ -31,8 +32,10 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onProceedButtonPressed(_ sender: UIButton) {
         
         //create new movie entry with entered properties
+        let userID = FIRAuth.auth()?.currentUser?.uid
+
         
-        let movieSave = ["timestamp": [".sv": "timestamp"], "videoURL": movieURL ?? "", "description": captionTextField.text ?? "","is_featured": false,"likes": "0","userID": "0","word": wordTextField.text ?? ""] as [String : Any]
+        let movieSave = ["timestamp": [".sv": "timestamp"], "videoURL": movieURL ?? "", "description": captionTextField.text ?? "","is_featured": false,"likes": "0","userID": userID,"word": wordTextField.text ?? ""] as [String : Any]
 
 
 
