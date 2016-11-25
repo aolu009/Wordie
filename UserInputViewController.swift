@@ -31,9 +31,23 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onProceedButtonPressed(_ sender: UIButton) {
         
         //create new movie entry with entered properties
+        
+        let movieSave = ["timestamp": [".sv": "timestamp"], "videoURL": movieURL ?? "", "description": captionTextField.text ?? "","is_featured": false,"likes": "0","userID": "0","word": wordTextField.text ?? ""] as [String : Any]
+
+
+
         //dismiss viewcontrolelr
     }
+    
+    
+    
+    
+    
     
 
 
 }
+
+
+
+    
