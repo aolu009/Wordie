@@ -25,6 +25,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
+        let user = FIRAuth.auth()?.currentUser
+
+        
+        if user != nil
+        {
+            //we have a current user, show them home screen
+            let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
+            
+            let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+            
+            if let currentUser = user {
+                print("User already logged in: \(currentUser.uid)")
+                window = UIWindow(frame: UIScreen.main.bounds)
+                window?.rootViewController = homeVC
+                window?.makeKeyAndVisible()
+                
+            }
+        }
+        else{
+            print("No current user logged in yet")
+            
+            let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
+            
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            
+            
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = loginVC
+            window?.makeKeyAndVisible()
+            
+        }
+        
         return true
     }
 
