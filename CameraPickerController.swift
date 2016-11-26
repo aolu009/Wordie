@@ -34,8 +34,15 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         let url = info[UIImagePickerControllerMediaURL]
-        print("media url: \(url)")
+        let videoRef = FIRStorage.storage().reference(withPath: "Exapmle_Testing.mov")
+        videoRef.putFile(url as! URL).observe(.success, handler: { (snapshot) in
+            // When the image has successfully uploaded, we get it's download URL
+            let text = snapshot.metadata?.downloadURL()?.absoluteString
+            // Set the download URL to the message box, so that the user can send it to the database
+            print("media url: \(text)")
+        })
         
         PHPhotoLibrary.shared().performChanges({
             PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url as! URL)

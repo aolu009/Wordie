@@ -28,6 +28,8 @@
 		BF1EA9F81DE2864700A4B3A3 /* SearchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */; };
 		BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */; };
 		BF1EA9FE1DE3C73500A4B3A3 /* CameraPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */; };
+		BF1EAA021DE970F600A4B3A3 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */; };
+		BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA031DE9796B00A4B3A3 /* User.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabViewController.swift; sourceTree = "<group>"; };
 		BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPickerController.swift; sourceTree = "<group>"; };
+		BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
+		BF1EAA031DE9796B00A4B3A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1EA9F11DE2703600A4B3A3 /* Word.swift */,
+				BF1EAA031DE9796B00A4B3A3 /* User.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1EA9F31DE2708100A4B3A3 /* OxfordClient.swift */,
+				BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */,
 			);
 			name = API;
 			path = ..;
@@ -318,8 +324,10 @@
 				BF1EA9F21DE2703600A4B3A3 /* Word.swift in Sources */,
 				425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */,
 				BF1EA9EF1DE2702100A4B3A3 /* WordTableViewCell.swift in Sources */,
+				BF1EAA021DE970F600A4B3A3 /* FirebaseClient.swift in Sources */,
 				4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */,
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,
+				BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */,
 				BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */,
 				42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */,
 				BF1EA9E91DE2700100A4B3A3 /* WordDetailViewController.swift in Sources */,

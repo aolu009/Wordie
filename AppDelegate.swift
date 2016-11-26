@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         let user = FIRAuth.auth()?.currentUser
 
-        
+        /*
         if user != nil
         {
             //we have a current user, show them home screen
@@ -56,7 +56,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
             window?.makeKeyAndVisible()
             
         }
+        */
+        let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
         
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = loginVC
+        window?.makeKeyAndVisible()
         return true
     }
 

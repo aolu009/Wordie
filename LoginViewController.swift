@@ -63,6 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let saveAction = UIAlertAction(title: "Save",
                                        style: .default) { action in
+                                        let userName = alert.textFields![2]
                                         let emailField = alert.textFields![0]
                                         let passwordField = alert.textFields![1]
                                         
@@ -71,8 +72,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                                     if error == nil {
                                                                         FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!,
                                                                                                password: self.passwordTextField.text!)
-                                                                    
+                                                                        
                                                                         self.getCurrentUser()
+                                                                        FirebaseClient.sharedInstance.createNewUser(userEmail: emailField.text, userID: user?.uid, userName: userName.text)
                                                                         
                                                                         self.performSegue(withIdentifier: "homeSegue", sender: nil)
                                                                     }
@@ -85,11 +87,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alert.addTextField { textEmail in
             textEmail.placeholder = "Enter your email"
         }
-        
         alert.addTextField { textPassword in
             textPassword.isSecureTextEntry = true
             textPassword.placeholder = "Enter your password"
         }
+        alert.addTextField { userName in
+            userName.placeholder = "Enter your User Name"
+        }
+        
         
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
