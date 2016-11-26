@@ -34,7 +34,14 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: lineMenuLine)
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
-
+        let childRef = FIRDatabase.database().reference(withPath: "movie_posts")
+        //let text = ["TESTINGGGGGGG","ANOTHERRRRRRRR","HOW ABOUT THIS"]
+        let movieId = childRef.child("-K2ib4H77rj0LYewF7dP")
+        let movieurl = movieId.child("video_url")
+        //groceryItemRef.setValue(text)
+        movieurl.observe(.value, with: { snapshot in
+            print("Look",snapshot.value)
+        })
         
         //setupMiddleButton()
     }
