@@ -14,8 +14,12 @@ import Photos
 
 class CameraPickerController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var movieCount = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (urlArray) in
+            self.movieCount = (urlArray?.count)!
+        }
     
     }
     
@@ -28,6 +32,7 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
+        imagePicker.videoQuality = UIImagePickerControllerQualityType.typeIFrame1280x720
         imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
         
         present(imagePicker, animated: true, completion:nil)
@@ -35,17 +40,13 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        let url = info[UIImagePickerControllerMediaURL]
-        let videoRef = FIRStorage.storage().reference(withPath: "Exapmle_Testing.mov")
-        videoRef.putFile(url as! URL).observe(.success, handler: { (snapshot) in
-            // When the image has successfully uploaded, we get it's download URL
-            let text = snapshot.metadata?.downloadURL()?.absoluteString
-            // Set the download URL to the message box, so that the user can send it to the database
-            print("media url: \(text)")
-        })
+        let url = info[UIImagePickerControllerMediaURL] as! URL
+        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount)
+        
+        
         
         PHPhotoLibrary.shared().performChanges({
-            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url as! URL)
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url )
             
         }, completionHandler:nil)
         //dissmissing the camera
