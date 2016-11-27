@@ -9,6 +9,7 @@ target 'Wordie' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'MBProgressHUD'
+  pod 'Firebase/Storage'
   # Pods for Wordie
 
 end
