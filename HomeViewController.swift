@@ -95,13 +95,29 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         
         let videoURL = URL(string:videoArray[indexPath.row])
-        cell.player = AVPlayer(url: videoURL!)
-        cell.playerLayer = AVPlayerLayer(player: cell.player)
+        
+        if cell.player != nil {
+            cell.player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
+        }
+        else{
+            cell.player = AVPlayer(url: videoURL!)
+            cell.playerLayer = AVPlayerLayer(player: cell.player)
+            
+        }
+        
+        
+        
+        // Set the initial last playing cell value
+        if lastPlayingCell == nil {
+            lastPlayingCell = cell
+        }
         
         if let pL = cell.playerLayer {
             pL.frame = self.view.frame
             
             cell.contentView.layer.addSublayer(pL)
+            
+            
             
             if let player = cell.player {
                 player.actionAtItemEnd = .none
@@ -118,44 +134,14 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return customTableView.frame.height
     }
     
     
     
-    
-    /*  // The playback is weird when enable the drag you can uncommen and see
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity:
-        CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        //find next page based on scroll
-        let pageHeight = customTableView.bounds.size.height
-        let videoLength = CGFloat((videoArray.count))
-        
-        let minSpace:CGFloat = 10
-        
-        var cellToSwipe = (scrollView.contentOffset.y) / (pageHeight + minSpace) + 0.5
-        
-     
-        if cellToSwipe < 0 {
-            cellToSwipe = 0
-        }
-        else if (cellToSwipe >= videoLength){
-            cellToSwipe = videoLength - 1
-        }
-        let page = round(Double(Int(cellToSwipe)))
-        let tabBarHeight = self.tabBarController?.tabBar.frame.height
-        let y = (CGFloat(page) * customTableView.frame.size.height) + tabBarHeight! + 20
-        
-        let finalY = CGFloat(page) * y
-        
-        // set custom offset
-        
-        targetContentOffset.pointee.y = finalY
-        
-        
-        
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         // Play/Pause Video
         let visibleRect = CGRect(origin: customTableView.contentOffset, size: customTableView.bounds.size)
@@ -171,9 +157,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             self.lastPlayingCell = cell
             cell.playVideo()
         }
-        
     }
-    */
+
     
     func takeVideo()
     {
