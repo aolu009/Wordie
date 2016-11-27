@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 import AVFoundation
 
 class HomeTableViewCell: UITableViewCell {
