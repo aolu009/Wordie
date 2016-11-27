@@ -25,7 +25,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     var menuButton: UIButton!
     
     
-    var videoArray = [String]()//["https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/video_uploaded?alt=media&token=47847854-aa2d-42bf-9477-07c3d3fa6da1", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4559.MOV.mov?alt=media&token=dd1435ce-cbd2-4ebc-9325-56e0550771d6", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4560.MOV.mov?alt=media&token=eeb679fa-3e0b-4331-8b08-c7567ccdfb52","https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/Exapmle%20Testing?alt=media&token=90badc63-e5a0-4435-ace4-b874d2842380","https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/Exapmle_Testing.mov?alt=media&token=513b0537-7099-434f-8190-bb64ea13bc89"]
+    var videoArray = ["https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4559.MOV.mov?alt=media&token=dd1435ce-cbd2-4ebc-9325-56e0550771d6", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/Black%20Ferrari%20Enzo%20with%20Tubi%20Exhaust%20-%20LOUD%20Acceleration.mp4?alt=media&token=c3026c76-cd7e-4976-8d61-f46fdf0657b4","https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4560.MOV.mov?alt=media&token=eeb679fa-3e0b-4331-8b08-c7567ccdfb52"]
  
     
     
@@ -36,10 +36,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
         
-        FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (videos) in
-            self.videoArray = videos!
-            self.customTableView.reloadData()
-        }
+//        FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (videos) in
+//            self.videoArray = videos!
+//            self.customTableView.reloadData()
+//        }
         
         
         
@@ -104,8 +104,6 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
-        
-        
         
         // Set the initial last playing cell value
         if lastPlayingCell == nil {
