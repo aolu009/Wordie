@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDelegate {
@@ -27,6 +28,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         let user = FIRAuth.auth()?.currentUser
 //        UserDefaults.standard.setValue(self.currentUserID, forKey: "uid")
+        
+        let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook") as! Bool
+
+        
+        if facebookDefaults == true {
+            
+            let credential = UserDefaults.standard.value(forKey: "credential") as!     FIRAuthCredential
+            
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                // ...
+                if let error = error {
+                    // ...
+                    return
+                }
+            }
+
+            
+        }
+        else if facebookDefaults == false {
+            
+            let email =  UserDefaults.standard.value(forKey: "email") as! String
+            let password =  UserDefaults.standard.value(forKey: "password") as! String
+            
+            FIRAuth.auth()!.signIn(withEmail: email,
+                                   password: password)
+            
+        }
+        else{
+            
+        }
+
+
+
         
         if user != nil
         {

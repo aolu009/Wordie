@@ -30,8 +30,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // User is signed in.
                 self.currentUserID = user.uid
 
-                UserDefaults.standard.setValue(self.currentUserID, forKey: "uid")
-
             } else {
                 // No user is signed in.
             }
@@ -39,11 +37,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func storeUser()
+    {
+        UserDefaults.standard.setValue(false, forKey: "facebook")
+        UserDefaults.standard.setValue(emailTextField.text!, forKey: "email")
+        UserDefaults.standard.setValue(passwordTextField.text!, forKey: "password")
+
+    }
     
     
     @IBAction func onLoginButtonPressed(_ sender: UIButton) {
         FIRAuth.auth()!.signIn(withEmail: emailTextField.text!,
                                password: passwordTextField.text!)
+        storeUser()
+        
         self.getCurrentUser()
 
         performSegue(withIdentifier: "homeSegue", sender: nil)
@@ -67,6 +74,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                                     if error == nil {
                                                                         FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!,
                                                                                                password: self.passwordTextField.text!)
+                                                                        
+                                                                        self.storeUser()
                                                                         
                                                                         self.getCurrentUser()
                                                                         FirebaseClient.sharedInstance.createNewUser(userEmail: emailField.text, userID: user?.uid, userName: userName.text)
@@ -96,6 +105,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    
+    
     
     
     
