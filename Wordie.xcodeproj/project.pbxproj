@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423D6D7F1DECF35500F66EA4 /* MoviePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D6D7E1DECF35500F66EA4 /* MoviePost.swift */; };
 		4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */; };
 		4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250867E1DE309DB00D3B202 /* HomeViewController.swift */; };
 		425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425086801DE30A1300D3B202 /* HomeTableViewCell.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wordie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		209528783B87E1D71F3B93FD /* Pods-Wordie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wordie/Pods-Wordie.debug.xcconfig"; sourceTree = "<group>"; };
+		423D6D7E1DECF35500F66EA4 /* MoviePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePost.swift; sourceTree = "<group>"; };
 		4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Malcolm.Main.storyboard; sourceTree = "<group>"; };
 		4250867E1DE309DB00D3B202 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		425086801DE30A1300D3B202 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				BF1EA9F11DE2703600A4B3A3 /* Word.swift */,
 				BF1EAA031DE9796B00A4B3A3 /* User.swift */,
+				423D6D7E1DECF35500F66EA4 /* MoviePost.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -330,6 +333,7 @@
 				BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */,
 				BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */,
 				42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */,
+				423D6D7F1DECF35500F66EA4 /* MoviePost.swift in Sources */,
 				BF1EA9E91DE2700100A4B3A3 /* WordDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
