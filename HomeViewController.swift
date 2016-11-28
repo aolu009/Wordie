@@ -28,7 +28,14 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     
+    @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var reportButton: UIButton!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var featuredLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var wordButton: UIButton!
     
+    @IBOutlet weak var subtitleLabel: UILabel!
     var videoArray = [String]()
  
     
@@ -41,6 +48,14 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: featuredButton)
         view.bringSubview(toFront: likeButton)
         view.bringSubview(toFront: profilePhotoImageView)
+        view.bringSubview(toFront: likeCountLabel)
+        view.bringSubview(toFront: reportButton)
+        view.bringSubview(toFront: usernameLabel)
+        view.bringSubview(toFront: featuredLabel)
+        view.bringSubview(toFront: descriptionLabel)
+        view.bringSubview(toFront: wordButton)
+        view.bringSubview(toFront: subtitleLabel)
+
 
         FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (videos) in
             self.videoArray = videos!
