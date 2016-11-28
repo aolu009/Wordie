@@ -21,9 +21,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
       override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
     }
+    
     
     func getCurrentUser() {
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in

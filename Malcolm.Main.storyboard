@@ -241,14 +241,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8N-9i-Qvq">
-                                <rect key="frame" x="0.0" y="311" width="375" height="44"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bu5-Z0-OmW">
+                                <rect key="frame" x="290" y="293" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="apw-MQ-Jc7"/>
+                                    <constraint firstAttribute="height" constant="80" id="ijU-kI-P0f"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryn-dK-ozY">
+                                <rect key="frame" x="311" y="378" width="43" height="40"/>
+                                <state key="normal" image="likeButton"/>
+                                <connections>
+                                    <action selector="onLikeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dg8-vz-2pz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8N-9i-Qvq">
+                                <rect key="frame" x="199" y="28" width="48" height="30"/>
                                 <state key="normal" title="for you">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js2-i1-ae2">
-                                <rect key="frame" x="158" y="318" width="58" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js2-i1-ae2">
+                                <rect key="frame" x="127" y="28" width="58" height="30"/>
                                 <state key="normal" title="featured">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -269,7 +283,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JZy-U6-AqL" id="nLx-xY-x5I">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -285,9 +299,13 @@
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="2" id="GyY-Vs-QL1"/>
                             <constraint firstItem="WEf-Qx-etb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hrh-Ld-4nL"/>
                             <constraint firstAttribute="bottom" secondItem="WEf-Qx-etb" secondAttribute="bottom" id="L7F-Qu-VO5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ryn-dK-ozY" secondAttribute="trailing" constant="5" id="MIk-1V-iPb"/>
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="trailing" secondItem="JPC-md-eyZ" secondAttribute="trailing" id="NeI-aP-bGL"/>
                             <constraint firstItem="WEf-Qx-etb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QVX-wh-kpd"/>
+                            <constraint firstAttribute="trailing" secondItem="Bu5-Z0-OmW" secondAttribute="trailing" constant="5" id="b1l-J4-Er6"/>
+                            <constraint firstItem="Bu5-Z0-OmW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gQz-5n-CbY"/>
                             <constraint firstItem="JPC-md-eyZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="hBe-87-yTB"/>
+                            <constraint firstItem="Ryn-dK-ozY" firstAttribute="top" secondItem="Bu5-Z0-OmW" secondAttribute="bottom" constant="5" id="haq-Zo-0PI"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="2" id="r4h-PG-Uhc"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="leading" secondItem="JPC-md-eyZ" secondAttribute="leading" id="tbs-MN-Opl"/>
                             <constraint firstAttribute="trailing" secondItem="WEf-Qx-etb" secondAttribute="trailing" id="wEK-T3-irE"/>
@@ -299,7 +317,9 @@
                         <outlet property="customTableView" destination="WEf-Qx-etb" id="dzX-dN-ssu"/>
                         <outlet property="featuredButton" destination="js2-i1-ae2" id="9e8-E5-twl"/>
                         <outlet property="forYouButton" destination="j8N-9i-Qvq" id="zDS-fI-LrQ"/>
+                        <outlet property="likeButton" destination="Ryn-dK-ozY" id="ZKQ-9d-cu0"/>
                         <outlet property="lineMenuLine" destination="JPC-md-eyZ" id="MWb-kQ-iQu"/>
+                        <outlet property="profilePhotoImageView" destination="Bu5-Z0-OmW" id="CEB-Z9-axn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -327,5 +347,6 @@
     </scenes>
     <resources>
         <image name="home" width="27" height="26"/>
+        <image name="likeButton" width="43" height="40"/>
     </resources>
 </document>

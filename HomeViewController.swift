@@ -24,6 +24,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet weak var featuredButton: UIButton!
     var menuButton: UIButton!
     
+    @IBOutlet weak var likeButton: UIButton!
+    
+    @IBOutlet weak var profilePhotoImageView: UIImageView!
+    
     
     var videoArray = [String]()
  
@@ -35,7 +39,9 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: lineMenuLine)
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
-        
+        view.bringSubview(toFront: likeButton)
+        view.bringSubview(toFront: profilePhotoImageView)
+
         FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (videos) in
             self.videoArray = videos!
             self.customTableView.reloadData()
@@ -181,6 +187,11 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
     }
 
+    @IBAction func onLikeButtonTapped(_ sender: Any) {
+    }
+    
+    
+    
     
 }
 
