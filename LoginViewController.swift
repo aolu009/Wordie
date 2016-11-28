@@ -113,10 +113,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         UserDefaults.standard.setValue(true, forKey: "facebook")
-        UserDefaults.standard.setValue(true, forKey: "facebook")
         
         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-
 
         let dataBlob = NSKeyedArchiver.archivedDataWithRootObject(credential)
          UserDefaults.standard.setValue(dataBlob, forKey: "credential")
