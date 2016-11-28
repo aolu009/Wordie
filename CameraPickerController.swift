@@ -32,7 +32,7 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
-        imagePicker.videoQuality = UIImagePickerControllerQualityType.typeIFrame1280x720
+        imagePicker.videoQuality = UIImagePickerControllerQualityType.typeIFrame960x540//typeIFrame1280x720
         imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
         
         present(imagePicker, animated: true, completion:nil)
@@ -41,16 +41,18 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let url = info[UIImagePickerControllerMediaURL] as! URL
-        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount)
         
-        
+        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount, complete: {
+            // Dissmissing the camera after successfully upload thus use complete handle
+            // Add HUD while loading
+            self.dismiss(animated: true, completion: nil)
+        })
         
         PHPhotoLibrary.shared().performChanges({
             PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url )
             
         }, completionHandler:nil)
-        //dissmissing the camera
-        dismiss(animated: true, completion: nil)
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
