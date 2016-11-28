@@ -73,9 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
             showLogin()
         }
 
-
-    
-
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
