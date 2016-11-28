@@ -66,13 +66,22 @@
                                     <action selector="onLoginButtonPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="G5r-Yr-okf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dN-ix-FIN">
+                                <rect key="frame" x="104" y="376" width="166" height="30"/>
+                                <state key="normal" title="Login with Facebook"/>
+                                <connections>
+                                    <action selector="onFBLoginPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="LfI-9q-kbw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="4dN-ix-FIN" firstAttribute="top" secondItem="ppy-aa-W3W" secondAttribute="bottom" constant="8" id="76B-4m-qaq"/>
                             <constraint firstItem="x4b-qj-fbr" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="BfH-TN-RmZ"/>
                             <constraint firstItem="4ir-gD-QKn" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="FwY-pY-HOF"/>
                             <constraint firstItem="ppy-aa-W3W" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="R2D-h6-5KS"/>
                             <constraint firstItem="o3p-dg-rHE" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="Say-rv-t6O"/>
+                            <constraint firstItem="4dN-ix-FIN" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="Um7-dl-0Tw"/>
                             <constraint firstItem="o3p-dg-rHE" firstAttribute="centerY" secondItem="ImU-TM-IKX" secondAttribute="centerY" constant="-200" id="Xd6-1L-Pxb"/>
                             <constraint firstItem="ppy-aa-W3W" firstAttribute="top" secondItem="x4b-qj-fbr" secondAttribute="bottom" constant="8" id="Y0Q-Ym-don"/>
                             <constraint firstItem="4ir-gD-QKn" firstAttribute="top" secondItem="kVn-e8-uMH" secondAttribute="bottom" constant="23" id="Zp1-fI-sg8"/>
@@ -89,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zj2-0c-Wyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2713" y="-508"/>
+            <point key="canvasLocation" x="-2714.4000000000001" y="-508.69565217391306"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="mvN-hG-qEn">

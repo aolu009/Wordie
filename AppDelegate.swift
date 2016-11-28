@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         if facebookDefaults == true {
             
+             NSKeyedUnarchiver.unarchiveObjectWithFile(Player.getFileURL().path!) as? [Player]
+            
             let credential = UserDefaults.standard.value(forKey: "credential") as!     FIRAuthCredential
             
             FIRAuth.auth()?.signIn(with: credential) { (user, error) in

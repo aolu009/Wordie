@@ -108,6 +108,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
+    @IBAction func onFBLoginPressed(_ sender: UIButton) {
+        
+        
+        
+        UserDefaults.standard.setValue(true, forKey: "facebook")
+        UserDefaults.standard.setValue(true, forKey: "facebook")
+        
+        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+
+
+        let dataBlob = NSKeyedArchiver.archivedDataWithRootObject(credential)
+         UserDefaults.standard.setValue(dataBlob, forKey: "credential")
+
+    }
     
     
     
