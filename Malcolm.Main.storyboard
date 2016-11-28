@@ -248,12 +248,22 @@
                                     <constraint firstAttribute="height" constant="80" id="ijU-kI-P0f"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryn-dK-ozY">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryn-dK-ozY">
                                 <rect key="frame" x="311" y="378" width="43" height="40"/>
                                 <state key="normal" image="likeButton"/>
                                 <connections>
                                     <action selector="onLikeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dg8-vz-2pz"/>
                                 </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="240" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rt-v4-hgm">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dh7-Qy-sDh">
+                                <rect key="frame" x="172" y="322" width="30" height="22"/>
+                                <state key="normal" image="reportButton"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8N-9i-Qvq">
                                 <rect key="frame" x="199" y="28" width="48" height="30"/>
@@ -295,6 +305,8 @@
                             </tableView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Rt-v4-hgm" secondAttribute="trailing" constant="5" id="8Ep-0n-mKG"/>
+                            <constraint firstItem="0Rt-v4-hgm" firstAttribute="top" secondItem="Dh7-Qy-sDh" secondAttribute="bottom" constant="5" id="AZy-IG-xdh"/>
                             <constraint firstItem="JPC-md-eyZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gl8-cP-jUT"/>
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="2" id="GyY-Vs-QL1"/>
                             <constraint firstItem="WEf-Qx-etb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hrh-Ld-4nL"/>
@@ -307,8 +319,10 @@
                             <constraint firstItem="JPC-md-eyZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="hBe-87-yTB"/>
                             <constraint firstItem="Ryn-dK-ozY" firstAttribute="top" secondItem="Bu5-Z0-OmW" secondAttribute="bottom" constant="5" id="haq-Zo-0PI"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="2" id="r4h-PG-Uhc"/>
+                            <constraint firstItem="Ryn-dK-ozY" firstAttribute="top" secondItem="0Rt-v4-hgm" secondAttribute="bottom" constant="5" id="sNC-Il-mIR"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="leading" secondItem="JPC-md-eyZ" secondAttribute="leading" id="tbs-MN-Opl"/>
                             <constraint firstAttribute="trailing" secondItem="WEf-Qx-etb" secondAttribute="trailing" id="wEK-T3-irE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dh7-Qy-sDh" secondAttribute="trailing" constant="5" id="yXu-QD-cau"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" id="bJF-bW-j6N"/>
@@ -348,5 +362,6 @@
     <resources>
         <image name="home" width="27" height="26"/>
         <image name="likeButton" width="43" height="40"/>
+        <image name="reportButton" width="30" height="7"/>
     </resources>
 </document>
