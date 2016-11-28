@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -110,16 +112,60 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func onFBLoginPressed(_ sender: UIButton) {
         
+        let facebookLogin = FBSDKLoginManager()
+        print("Logging In")
         
-        
-        UserDefaults.standard.setValue(true, forKey: "facebook")
-        
-        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        facebookLogin.logIn(withReadPermissions: ["email"], from: self, handler:{(facebookResult, facebookError) -> Void in
+            if facebookError != nil {
+                print("Facebook login failed. Error \(facebookError)")
+            } else if (facebookResult?.isCancelled)! {
+                print("Facebook login was cancelled.")
+            } else {
+                print("You’re inz")
+                
+                let accessToken = FBSDKAccessToken.current().tokenString
+                let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
 
-        let dataBlob = NSKeyedArchiver.archivedDataWithRootObject(credential)
-         UserDefaults.standard.setValue(dataBlob, forKey: "credential")
+                
+                UserDefaults.standard.setValue(true, forKey: "facebook")
+    
+                let dataBlob = NSKeyedArchiver.archivedDataWithRootObject(credential)
+                UserDefaults.standard.setValue(dataBlob, forKey: "credential")
+                
+                self.fetchCurrentUserFBData
+                
+
+                
+                FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                    
+                }
+            }
+        })
 
     }
+    
+    
+    func fetchCurrentUserFBData()
+        {
+           let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large)"])
+            graphRequest.start(completionHandler: { (connection, result, error) -> Void in
+    
+                if ((error) != nil)
+               {
+                    print("Error: \(error)")
+                }
+                else
+                {
+                    let data:[String:AnyObject] = result as! [String : AnyObject]
+                    print(data)
+                    
+                    //create new user
+                    
+                    //                FirebaseClient.sharedInstance.createNewUser(userEmail: emailTextField.text, userID: user?.uid, userName: userName.text)
+
+               }
+            })
+        }
     
     
     
