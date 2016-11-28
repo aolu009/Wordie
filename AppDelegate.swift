@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         if facebookDefaults == true {
             
+            //sign in with FB
+            
             if let decodedNSDataBlob = UserDefaults.standard.object(forKey: "credential") as? NSData
             {
                 let credential = NSKeyedUnarchiver.unarchiveObject(with: decodedNSDataBlob as Data) as? FIRAuthCredential
@@ -50,10 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
  
             }
             
+            showHomeScreen()
 
             
         }
         else if facebookDefaults == false {
+            //signinwithEmail
             
             let email =  UserDefaults.standard.value(forKey: "email") as! String
             let password =  UserDefaults.standard.value(forKey: "password") as! String
@@ -61,48 +65,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
             FIRAuth.auth()!.signIn(withEmail: email,
                                    password: password)
             
+            showHomeScreen()
+            
         }
         else{
-            
+            //nothing in defaults
+            showLogin()
         }
 
 
+    
 
-        
-        if user != nil
-        {
-            //we have a current user, show them home screen
-            let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
-            
-            let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
-            
-            if let currentUser = user {
-                print("User already logged in: \(currentUser.uid)")
-                window = UIWindow(frame: UIScreen.main.bounds)
-                window?.rootViewController = homeVC
-                window?.makeKeyAndVisible()
-                
-            }
-        }
-        else{
-            print("No current user logged in yet")
-            
-            let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
-            
-            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            
-            
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = loginVC
-            window?.makeKeyAndVisible()
-            
-        }
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
+    
+    func showHomeScreen()
+    {
+        let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
+        
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+        
+        if let currentUser = user {
+            print("User already logged in: \(currentUser.uid)")
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = homeVC
+            window?.makeKeyAndVisible()
 
+    }
+    }
+
+    func showLogin()
+    {
+        print("No current user logged in yet")
+        
+        let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
+        
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = loginVC
+        window?.makeKeyAndVisible()
+        
+        }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
