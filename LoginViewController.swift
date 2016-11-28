@@ -40,10 +40,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func storeToDefaults()
-    {
-        
-    }
     
     
     @IBAction func onLoginButtonPressed(_ sender: UIButton) {
