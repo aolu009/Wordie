@@ -41,8 +41,7 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let url = info[UIImagePickerControllerMediaURL] as! URL
-        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount)
-        
+//        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount)
         
         
         PHPhotoLibrary.shared().performChanges({
@@ -51,6 +50,13 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
         }, completionHandler:nil)
         //dissmissing the camera
         dismiss(animated: true, completion: nil)
+        
+        let storyboardM = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+        let userInputVC = storyboardM.instantiateViewController(withIdentifier: "UserInputViewController") as! UserInputViewController
+        
+        present(userInputVC, animated: true, completion:nil)
+
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

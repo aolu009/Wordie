@@ -33,13 +33,14 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         
         //create new movie entry with entered properties
         let userID = FIRAuth.auth()?.currentUser?.uid
-
         
         let movieSave = ["timestamp": [".sv": "timestamp"], "videoURL": movieURL ?? "", "description": captionTextField.text ?? "","is_featured": false,"likes": "0","userID": userID,"word": wordTextField.text ?? ""] as [String : Any]
 
 
+        //save movie
+        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount)
 
-        //dismiss viewcontrolelr
+        dismiss(animated: true, completion: nil)
     }
     
     
