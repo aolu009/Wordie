@@ -124,15 +124,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print("You’re inz")
                 
                 let accessToken = FBSDKAccessToken.current().tokenString
-                let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
+                let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken!)
 
                 
                 UserDefaults.standard.setValue(true, forKey: "facebook")
     
-                let dataBlob = NSKeyedArchiver.archivedDataWithRootObject(credential)
+                let dataBlob = NSKeyedArchiver.archivedData(withRootObject: credential)
                 UserDefaults.standard.setValue(dataBlob, forKey: "credential")
                 
-                self.fetchCurrentUserFBData
+                self.fetchCurrentUserFBData()
                 
 
                 

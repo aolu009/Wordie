@@ -29,10 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         let user = FIRAuth.auth()?.currentUser
-//        UserDefaults.standard.setValue(self.currentUserID, forKey: "uid")
         
-        let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook") as! Bool
-
+        if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook") as? Bool
+        {
         
         if facebookDefaults == true {
             
@@ -72,6 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
             //nothing in defaults
             showLogin()
         }
+        }
 
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -84,14 +84,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
         
         let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = homeVC
+        window?.makeKeyAndVisible()
         
-        if let currentUser = user {
-            print("User already logged in: \(currentUser.uid)")
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = homeVC
-            window?.makeKeyAndVisible()
-
-    }
+        
     }
 
     func showLogin()
@@ -134,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
     }
 
 
