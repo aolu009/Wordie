@@ -165,9 +165,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let firstname = data["first_name"] as! String
 
                     //facebook does not provide username
-                    //storing first name as id 
-                
-                    
+                    //storing first name as idt
                     
                     //create new user
                     
