@@ -37,7 +37,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     @IBOutlet weak var subtitleLabel: UILabel!
     var videoArray = [String]()
- 
+    var currentMovieURL = videoArray[visibleIndexPath] ?? nil
+
     
     
     
@@ -166,7 +167,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let visibleRect = CGRect(origin: customTableView.contentOffset, size: customTableView.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath = customTableView.indexPathForRow(at: visiblePoint)
-        
+        currentMovieURL = videoArray[visibleIndexPath]
+
         let cell = customTableView.cellForRow(at: visibleIndexPath!) as! HomeTableViewCell
         
         
@@ -203,6 +205,45 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     }
 
     @IBAction func onLikeButtonTapped(_ sender: Any) {
+        
+        //update moviePost
+        let ref = FIRDatabase.database().reference().child("movie_posts")
+        
+       if currentMovieURL != nil
+       {
+        
+        }
+
+        
+        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
+                var stars: Dictionary<String, Bool>
+                stars = post["stars"] as? [String : Bool] ?? [:]
+                var starCount = post["starCount"] as? Int ?? 0
+                if let _ = stars[uid] {
+                    // Unstar the post and remove self from stars
+                    starCount -= 1
+                    stars.removeValue(forKey: uid)
+                } else {
+                    // Star the post and add self to stars
+                    starCount += 1
+                    stars[uid] = true
+                }
+                post["starCount"] = starCount as AnyObject?
+                post["stars"] = stars as AnyObject?
+                
+                // Set value and report transaction success
+                currentData.value = post
+                
+                return FIRTransactionResult.success(withValue: currentData)
+            }
+            return FIRTransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
     }
     
     

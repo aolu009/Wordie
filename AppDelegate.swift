@@ -28,15 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
-        let user = FIRAuth.auth()?.currentUser
-        if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook") as? Bool
-        {
-            if facebookDefaults == true {
+        if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook"){
+        
+            if facebookDefaults as? Bool == true {
                 //sign in with FB
-                if let decodedNSDataBlob = UserDefaults.standard.object(forKey: "credential") as? NSData
+                if let accessToken = UserDefaults.standard.object(forKey: "accesstoken") as? String
                 {
-                    let credential = NSKeyedUnarchiver.unarchiveObject(with: decodedNSDataBlob as Data) as? FIRAuthCredential
-                    FIRAuth.auth()?.signIn(with: credential!) { (user, error) in
+                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
+                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                         // ...
                         if let error = error {
                             // ...
@@ -50,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
                 
                 
             }
-            else if facebookDefaults == false {
+            else if facebookDefaults as? Bool == false {
                 //signinwithEmail
                 
                 let email =  UserDefaults.standard.value(forKey: "email") as! String
@@ -125,10 +124,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
-    }
+    
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let sourceApplication: String? = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceApplication, annotation: nil)
 
+    }
 
 
 }

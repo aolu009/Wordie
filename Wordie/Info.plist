@@ -46,6 +46,10 @@
     <string>1828114770805637</string>
     <key>FacebookDisplayName</key>
     <string>Wordie</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbauth2</string>
+    </array>
 	<key>UIMainStoryboardFile</key>
 	<string>Malcolm.Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
