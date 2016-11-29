@@ -161,6 +161,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let data:[String:AnyObject] = result as! [String : AnyObject]
                     print(data)
                     
+                    let userProfilePicURL = data["picture"]["data"]
+                    
+                    
+                    
                     //create new user
                     
                     //                FirebaseClient.sharedInstance.createNewUser(userEmail: emailTextField.text, userID: user?.uid, userName: userName.text)
