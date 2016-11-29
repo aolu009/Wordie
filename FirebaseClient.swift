@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 
 class FirebaseClient {
@@ -26,7 +27,7 @@ class FirebaseClient {
 
     }
     
-    func getCurrentUserId() -> String{
+    func getCurrentUserId(complete:@escaping (String)->Void){
         
         var userToReturn: String?
         
@@ -34,12 +35,14 @@ class FirebaseClient {
             if let user = user {
                 // User is signed in.
                 userToReturn = user.uid
+                complete(userToReturn!)
+                print("The user now is:",userToReturn!)
                 
             } else {
+                print("No user is signed in")
                 // No user is signed in.
             }
         }
-        return userToReturn!
     }
     
     func getUrlTokenString(url:String) -> String {
@@ -121,6 +124,75 @@ class FirebaseClient {
             complete()
         })
     }
+    
+    func getSelfDefinedDefinitionOnWord(word:String, complete:@escaping (String?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            let wordDefinition = wordToLook.child("definition")
+            wordDefinition.observe(.value, with: { snapshot in
+                // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
+                if let result = snapshot.value{
+                    let definition = result as! String
+                    complete(definition)
+                }
+            })
+        })
+    }
+    
+    func addDefinitionToWord(word:String,definition:String, complete:@escaping (String?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            let wordDefinition = wordToLook.child("definition")
+            wordDefinition.setValue(definition)
+            wordDefinition.observe(.value, with: { snapshot in
+                let definition = snapshot.value as! String
+                complete(definition)
+            })
+        
+        })
+    }
+    func upDateMovieObjectUsingUrl(urlString:String, post:MoviePost,complete:()->Void) -> Void{
+        let movieToken = FirebaseClient.sharedInstance.getUrlTokenString(url: urlString)
+        let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
+        let targetingvideoPost = videoPostRef.child(movieToken)
+        let postbody = targetingvideoPost.child("postbody")
+        postbody.setValue(post.postbody)
+        let likes = targetingvideoPost.child("likes")
+        likes.setValue(post.likes)
+        let shortDefinition = targetingvideoPost.child("shortDefinition")
+        shortDefinition.setValue(post.shortDefinition)
+        let subtitles = targetingvideoPost.child("subtitles")
+        subtitles.setValue(post.subtitles)
+        let timeStamp = targetingvideoPost.child("timeStamp")
+        timeStamp.setValue(post.timeStamp)
+        let user = targetingvideoPost.child("user")
+        user.setValue(post.user)
+        let word = targetingvideoPost.child("word")
+        word.setValue(post.word)
+        complete()
+        //We should use the following instead to be conservative 
+        //word.setValue(<#T##value: Any?##Any?#>, withCompletionBlock: <#T##(Error?, FIRDatabaseReference) -> Void#>)
+    }
+    
 }
 
+
+
+
+/*
+ // Do any additional setup after loading the view.
+ //let ref = FIRDatabase.database().reference(withPath: "grocery-items")
+ let childRef = FIRDatabase.database().reference(withPath: "grocery-items")
+ //let text = ["TESTINGGGGGGG","ANOTHERRRRRRRR","HOW ABOUT THIS"]
+ let groceryItemRef = childRef.child("Let's do this")
+ //groceryItemRef.setValue(text)
+ groceryItemRef.observe(.value, with: { snapshot in
+ })
+ */
 

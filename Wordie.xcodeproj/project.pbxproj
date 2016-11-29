@@ -31,6 +31,7 @@
 		BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */; };
 		BF1EAA021DE970F600A4B3A3 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */; };
 		BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA031DE9796B00A4B3A3 /* User.swift */; };
+		BF1EAA061DED47BC00A4B3A3 /* EditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA051DED47BC00A4B3A3 /* EditDetailViewController.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		BF1EAA031DE9796B00A4B3A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BF1EAA051DED47BC00A4B3A3 /* EditDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,9 +148,10 @@
 				BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */,
 				4250867E1DE309DB00D3B202 /* HomeViewController.swift */,
 				BF1EA9E51DE2700100A4B3A3 /* WordDetailViewController.swift */,
+				BF1EA9E81DE2700100A4B3A3 /* DefinitionTabViewController.swift */,
 				BF1EA9E61DE2700100A4B3A3 /* SearchViewController.swift */,
 				BF1EA9E71DE2700100A4B3A3 /* NoteViewController.swift */,
-				BF1EA9E81DE2700100A4B3A3 /* DefinitionTabViewController.swift */,
+				BF1EAA051DED47BC00A4B3A3 /* EditDetailViewController.swift */,
 				BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */,
 				42CCA1F71DE3B01400223D6E /* LoginViewController.swift */,
 				42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
+				BF1EAA061DED47BC00A4B3A3 /* EditDetailViewController.swift in Sources */,
 				BF1EA9EC1DE2700100A4B3A3 /* DefinitionTabViewController.swift in Sources */,
 				BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */,
 				BF1EA9EA1DE2700100A4B3A3 /* SearchViewController.swift in Sources */,
