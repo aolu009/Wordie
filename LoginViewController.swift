@@ -128,8 +128,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
                 
                 UserDefaults.standard.setValue(true, forKey: "facebook")
-    
-//                let dataBlob = NSKeyedArchiver.archivedData(withRootObject: credential)
                 UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
                 
                 self.fetchCurrentUserFBData()
@@ -149,7 +147,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func fetchCurrentUserFBData()
         {
-           let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large)"])
+           let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large), username"])
             graphRequest.start(completionHandler: { (connection, result, error) -> Void in
     
                 if ((error) != nil)
@@ -161,13 +159,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let data:[String:AnyObject] = result as! [String : AnyObject]
                     print(data)
                     
-                    let userProfilePicURL = data["picture"]["data"]
-                    
-                    
+                    let userProfilePicURL = data["picture"]?["data"]
+                    let email = data["email"]
+                    let username = data["picture"]?["data"]
+                    let userid = data["id"]
+
                     
                     //create new user
                     
-                    //                FirebaseClient.sharedInstance.createNewUser(userEmail: emailTextField.text, userID: user?.uid, userName: userName.text)
+//                    FirebaseClient.sharedInstance.createNewUser(userEmail: email, userID: id, userName: username)
 
                }
             })
