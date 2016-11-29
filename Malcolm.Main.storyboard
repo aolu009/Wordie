@@ -66,13 +66,22 @@
                                     <action selector="onLoginButtonPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="G5r-Yr-okf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dN-ix-FIN">
+                                <rect key="frame" x="104" y="376" width="166" height="30"/>
+                                <state key="normal" title="Login with Facebook"/>
+                                <connections>
+                                    <action selector="onFBLoginPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="LfI-9q-kbw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="4dN-ix-FIN" firstAttribute="top" secondItem="ppy-aa-W3W" secondAttribute="bottom" constant="8" id="76B-4m-qaq"/>
                             <constraint firstItem="x4b-qj-fbr" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="BfH-TN-RmZ"/>
                             <constraint firstItem="4ir-gD-QKn" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="FwY-pY-HOF"/>
                             <constraint firstItem="ppy-aa-W3W" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="R2D-h6-5KS"/>
                             <constraint firstItem="o3p-dg-rHE" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="Say-rv-t6O"/>
+                            <constraint firstItem="4dN-ix-FIN" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="Um7-dl-0Tw"/>
                             <constraint firstItem="o3p-dg-rHE" firstAttribute="centerY" secondItem="ImU-TM-IKX" secondAttribute="centerY" constant="-200" id="Xd6-1L-Pxb"/>
                             <constraint firstItem="ppy-aa-W3W" firstAttribute="top" secondItem="x4b-qj-fbr" secondAttribute="bottom" constant="8" id="Y0Q-Ym-don"/>
                             <constraint firstItem="4ir-gD-QKn" firstAttribute="top" secondItem="kVn-e8-uMH" secondAttribute="bottom" constant="23" id="Zp1-fI-sg8"/>
@@ -89,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zj2-0c-Wyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2713" y="-508"/>
+            <point key="canvasLocation" x="-2714.4000000000001" y="-508.69565217391306"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="mvN-hG-qEn">
@@ -248,12 +257,22 @@
                                     <constraint firstAttribute="height" constant="80" id="ijU-kI-P0f"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryn-dK-ozY">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryn-dK-ozY">
                                 <rect key="frame" x="311" y="378" width="43" height="40"/>
                                 <state key="normal" image="likeButton"/>
                                 <connections>
                                     <action selector="onLikeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dg8-vz-2pz"/>
                                 </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="240" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rt-v4-hgm">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dh7-Qy-sDh">
+                                <rect key="frame" x="172" y="322" width="30" height="22"/>
+                                <state key="normal" image="reportButton"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8N-9i-Qvq">
                                 <rect key="frame" x="199" y="28" width="48" height="30"/>
@@ -264,6 +283,38 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js2-i1-ae2">
                                 <rect key="frame" x="127" y="28" width="58" height="30"/>
                                 <state key="normal" title="featured">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="@chantellepaige" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFy-Nt-NdK">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="featured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-uj-U0E">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The were so hot my tongue caught on fire!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufr-bI-g6r">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Viv-vE-usV">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <string key="text">#hyperbole with my 
+friend outside</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egw-h5-TO9">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <state key="normal" title="hyperbole">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -295,31 +346,52 @@
                             </tableView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Rt-v4-hgm" secondAttribute="trailing" constant="5" id="8Ep-0n-mKG"/>
                             <constraint firstItem="JPC-md-eyZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gl8-cP-jUT"/>
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="2" id="GyY-Vs-QL1"/>
                             <constraint firstItem="WEf-Qx-etb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hrh-Ld-4nL"/>
+                            <constraint firstItem="NLc-uj-U0E" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="Jey-Ou-LtI"/>
+                            <constraint firstItem="Dh7-Qy-sDh" firstAttribute="top" secondItem="0Rt-v4-hgm" secondAttribute="bottom" constant="15" id="KL2-yc-tfv"/>
                             <constraint firstAttribute="bottom" secondItem="WEf-Qx-etb" secondAttribute="bottom" id="L7F-Qu-VO5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ryn-dK-ozY" secondAttribute="trailing" constant="5" id="MIk-1V-iPb"/>
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="trailing" secondItem="JPC-md-eyZ" secondAttribute="trailing" id="NeI-aP-bGL"/>
+                            <constraint firstItem="EFy-Nt-NdK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="Ntc-Vo-R0K"/>
                             <constraint firstItem="WEf-Qx-etb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QVX-wh-kpd"/>
+                            <constraint firstItem="ufr-bI-g6r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="TRm-SB-L1k"/>
+                            <constraint firstItem="0Rt-v4-hgm" firstAttribute="top" secondItem="Ryn-dK-ozY" secondAttribute="bottom" constant="5" id="Un0-XJ-vUM"/>
                             <constraint firstAttribute="trailing" secondItem="Bu5-Z0-OmW" secondAttribute="trailing" constant="5" id="b1l-J4-Er6"/>
+                            <constraint firstItem="Viv-vE-usV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="b53-74-EiL"/>
+                            <constraint firstItem="Viv-vE-usV" firstAttribute="top" secondItem="EFy-Nt-NdK" secondAttribute="bottom" constant="5" id="dKD-gy-4IO"/>
+                            <constraint firstItem="egw-h5-TO9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="ep1-XF-WkT"/>
+                            <constraint firstItem="NLc-uj-U0E" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="fXm-87-YIR"/>
                             <constraint firstItem="Bu5-Z0-OmW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gQz-5n-CbY"/>
                             <constraint firstItem="JPC-md-eyZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="hBe-87-yTB"/>
                             <constraint firstItem="Ryn-dK-ozY" firstAttribute="top" secondItem="Bu5-Z0-OmW" secondAttribute="bottom" constant="5" id="haq-Zo-0PI"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="2" id="r4h-PG-Uhc"/>
+                            <constraint firstItem="ufr-bI-g6r" firstAttribute="top" secondItem="egw-h5-TO9" secondAttribute="bottom" constant="5" id="sCV-wy-T50"/>
+                            <constraint firstItem="EFy-Nt-NdK" firstAttribute="top" secondItem="NLc-uj-U0E" secondAttribute="bottom" constant="5" id="sUh-cU-fDZ"/>
+                            <constraint firstItem="egw-h5-TO9" firstAttribute="top" secondItem="Viv-vE-usV" secondAttribute="bottom" constant="5" id="t7p-cd-y2T"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="leading" secondItem="JPC-md-eyZ" secondAttribute="leading" id="tbs-MN-Opl"/>
                             <constraint firstAttribute="trailing" secondItem="WEf-Qx-etb" secondAttribute="trailing" id="wEK-T3-irE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dh7-Qy-sDh" secondAttribute="trailing" constant="5" id="yXu-QD-cau"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" id="bJF-bW-j6N"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="customTableView" destination="WEf-Qx-etb" id="dzX-dN-ssu"/>
+                        <outlet property="descriptionLabel" destination="Viv-vE-usV" id="1AR-sW-pKu"/>
                         <outlet property="featuredButton" destination="js2-i1-ae2" id="9e8-E5-twl"/>
+                        <outlet property="featuredLabel" destination="NLc-uj-U0E" id="Okk-F5-UZX"/>
                         <outlet property="forYouButton" destination="j8N-9i-Qvq" id="zDS-fI-LrQ"/>
                         <outlet property="likeButton" destination="Ryn-dK-ozY" id="ZKQ-9d-cu0"/>
+                        <outlet property="likeCountLabel" destination="0Rt-v4-hgm" id="sY2-Hl-9cj"/>
                         <outlet property="lineMenuLine" destination="JPC-md-eyZ" id="MWb-kQ-iQu"/>
                         <outlet property="profilePhotoImageView" destination="Bu5-Z0-OmW" id="CEB-Z9-axn"/>
+                        <outlet property="reportButton" destination="Dh7-Qy-sDh" id="8eM-4S-8xS"/>
+                        <outlet property="subtitleLabel" destination="ufr-bI-g6r" id="e3n-Vl-ITJ"/>
+                        <outlet property="usernameLabel" destination="EFy-Nt-NdK" id="APM-QC-DNY"/>
+                        <outlet property="wordButton" destination="egw-h5-TO9" id="NFo-xB-wEk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -348,5 +420,6 @@
     <resources>
         <image name="home" width="27" height="26"/>
         <image name="likeButton" width="43" height="40"/>
+        <image name="reportButton" width="30" height="7"/>
     </resources>
 </document>
