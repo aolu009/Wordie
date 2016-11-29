@@ -129,15 +129,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 UserDefaults.standard.setValue(true, forKey: "facebook")
     
-                let dataBlob = NSKeyedArchiver.archivedData(withRootObject: credential)
-                UserDefaults.standard.setValue(dataBlob, forKey: "credential")
+//                let dataBlob = NSKeyedArchiver.archivedData(withRootObject: credential)
+                UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
                 
                 self.fetchCurrentUserFBData()
                 
 
                 
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-                    
+                  
+                    self.performSegue(withIdentifier: "homeSegue", sender: nil)
+
                 }
             }
         })
