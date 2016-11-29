@@ -28,7 +28,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         super.viewDidLoad()
         definitionTable.delegate = self
         definitionTable.dataSource = self
-        
+        /*
         // checking if word info load properly
         if let word = self.word{ //dataSource?.wordDetailViewController()
             for category in word.categories{
@@ -44,6 +44,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         else{
             print("Nothing Passed to hereeeeeeeeeee")
         }
+        */
         definitionTable.reloadData()
     }
     
@@ -77,6 +78,9 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
             }
             return cell
         }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     @IBAction func onSearch(_ sender: Any) {

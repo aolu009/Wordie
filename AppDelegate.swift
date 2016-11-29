@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         let user = FIRAuth.auth()?.currentUser
-
+//        UserDefaults.standard.setValue(self.currentUserID, forKey: "uid")
         
         if user != nil
         {

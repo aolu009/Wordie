@@ -25,7 +25,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     var menuButton: UIButton!
     
     
-    var videoArray = [String]()//["https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/video_uploaded?alt=media&token=47847854-aa2d-42bf-9477-07c3d3fa6da1", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4559.MOV.mov?alt=media&token=dd1435ce-cbd2-4ebc-9325-56e0550771d6", "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4560.MOV.mov?alt=media&token=eeb679fa-3e0b-4331-8b08-c7567ccdfb52","https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/Exapmle%20Testing?alt=media&token=90badc63-e5a0-4435-ace4-b874d2842380","https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/Exapmle_Testing.mov?alt=media&token=513b0537-7099-434f-8190-bb64ea13bc89"]
+    var videoArray = [String]()
  
     
     
@@ -95,13 +95,27 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         
         let videoURL = URL(string:videoArray[indexPath.row])
-        cell.player = AVPlayer(url: videoURL!)
-        cell.playerLayer = AVPlayerLayer(player: cell.player)
+        
+        if cell.player != nil {
+            cell.player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
+        }
+        else{
+            cell.player = AVPlayer(url: videoURL!)
+            cell.playerLayer = AVPlayerLayer(player: cell.player)
+            
+        }
+        
+        // Set the initial last playing cell value
+        if lastPlayingCell == nil {
+            lastPlayingCell = cell
+        }
         
         if let pL = cell.playerLayer {
             pL.frame = self.view.frame
             
             cell.contentView.layer.addSublayer(pL)
+            
+            
             
             if let player = cell.player {
                 player.actionAtItemEnd = .none
@@ -118,44 +132,14 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return customTableView.frame.height
     }
     
     
     
-    
-    /*  // The playback is weird when enable the drag you can uncommen and see
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity:
-        CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        //find next page based on scroll
-        let pageHeight = customTableView.bounds.size.height
-        let videoLength = CGFloat((videoArray.count))
-        
-        let minSpace:CGFloat = 10
-        
-        var cellToSwipe = (scrollView.contentOffset.y) / (pageHeight + minSpace) + 0.5
-        
-     
-        if cellToSwipe < 0 {
-            cellToSwipe = 0
-        }
-        else if (cellToSwipe >= videoLength){
-            cellToSwipe = videoLength - 1
-        }
-        let page = round(Double(Int(cellToSwipe)))
-        let tabBarHeight = self.tabBarController?.tabBar.frame.height
-        let y = (CGFloat(page) * customTableView.frame.size.height) + tabBarHeight! + 20
-        
-        let finalY = CGFloat(page) * y
-        
-        // set custom offset
-        
-        targetContentOffset.pointee.y = finalY
-        
-        
-        
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         // Play/Pause Video
         let visibleRect = CGRect(origin: customTableView.contentOffset, size: customTableView.bounds.size)
@@ -171,9 +155,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             self.lastPlayingCell = cell
             cell.playVideo()
         }
-        
     }
-    */
+
     
     func takeVideo()
     {

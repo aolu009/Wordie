@@ -102,38 +102,25 @@ class FirebaseClient {
     }
     
     
-    func createNewVideoObject(url:URL, movieCount: Int) -> Void {
-        let videoUploadedRef = FIRStorage.storage().reference(withPath: "video_uploaded")//videoUploadedRef
+    func createNewVideoObject(url:URL, movieCount: Int, complete:@escaping () -> Void) -> Void {
+        let videoUploadedRef = FIRStorage.storage().reference(withPath: "video_uploaded")
         
         let videoRef = videoUploadedRef.child(String(movieCount))
-        
         
         videoRef.putFile(url).observe(.success, handler: { (snapshot) in
             // When the image has successfully uploaded, we get it's download URL
             let text = snapshot.metadata?.downloadURL()?.absoluteString
-            
-            //snapshot.metadata?.downloadURLs
             // Set the download URL to the message box, so that the user can send it to the database
             let token = FirebaseClient.sharedInstance.getUrlTokenString(url: text!)
             let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
-            print(videoPostRef.description())
             let videoRef = videoPostRef.child(token)
             let videoUrlRef = videoRef.child("video_url")
             videoUrlRef.setValue(text!)
             print("media url: \(text)")
             print("Token: \(token)")
+            complete()
         })
     }
 }
 
-/*
- let childRef = FIRDatabase.database().reference(withPath: "movie_posts")
- //let text = ["TESTINGGGGGGG","ANOTHERRRRRRRR","HOW ABOUT THIS"]
- let movieId = childRef.child("-K2ib4H77rj0LYewF7dP")
- let movieurl = movieId.child("video_url")
- //groceryItemRef.setValue(text)
- movieurl.observe(.value, with: { snapshot in
- print("Look",snapshot.value)
- })
- 
- */
+

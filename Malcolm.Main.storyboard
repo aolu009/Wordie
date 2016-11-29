@@ -261,8 +261,8 @@
                                     <constraint firstAttribute="height" constant="1" id="hVJ-5M-ByG"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WEf-Qx-etb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="696"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WEf-Qx-etb">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="JZy-U6-AqL" customClass="HomeTableViewCell" customModule="Wordie" customModuleProvider="target">
@@ -284,16 +284,17 @@
                             <constraint firstItem="JPC-md-eyZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gl8-cP-jUT"/>
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="2" id="GyY-Vs-QL1"/>
                             <constraint firstItem="WEf-Qx-etb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hrh-Ld-4nL"/>
+                            <constraint firstAttribute="bottom" secondItem="WEf-Qx-etb" secondAttribute="bottom" id="L7F-Qu-VO5"/>
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="trailing" secondItem="JPC-md-eyZ" secondAttribute="trailing" id="NeI-aP-bGL"/>
                             <constraint firstItem="WEf-Qx-etb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QVX-wh-kpd"/>
                             <constraint firstItem="JPC-md-eyZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="hBe-87-yTB"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WEf-Qx-etb" secondAttribute="bottom" constant="-49" id="iE8-Kn-zwB"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="2" id="r4h-PG-Uhc"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="leading" secondItem="JPC-md-eyZ" secondAttribute="leading" id="tbs-MN-Opl"/>
                             <constraint firstAttribute="trailing" secondItem="WEf-Qx-etb" secondAttribute="trailing" id="wEK-T3-irE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" id="bJF-bW-j6N"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="customTableView" destination="WEf-Qx-etb" id="dzX-dN-ssu"/>
                         <outlet property="featuredButton" destination="js2-i1-ae2" id="9e8-E5-twl"/>
@@ -303,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1204" y="-508"/>
+            <point key="canvasLocation" x="-1204" y="-508.69565217391306"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="B9n-Sy-ByX">
