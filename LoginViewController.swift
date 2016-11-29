@@ -160,14 +160,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print(data)
                     
                     let userProfilePicURL = data["picture"]?["data"]
-                    let email = data["email"]
-                    let username = data["picture"]?["data"]
-                    let userid = data["id"]
+                    let email = data["email"] as! String
+                    let userid = data["id"] as! String
+                    let firstname = data["first_name"] as! String
 
+                    //facebook does not provide username
+                    //storing first name as id 
+                
+                    
                     
                     //create new user
                     
-//                    FirebaseClient.sharedInstance.createNewUser(userEmail: email, userID: id, userName: username)
+                    FirebaseClient.sharedInstance.createNewUser(userEmail: email, userID: userid, userName: firstname)
 
                }
             })
