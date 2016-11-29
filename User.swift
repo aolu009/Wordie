@@ -11,9 +11,10 @@ import UIKit
 
 class User: NSObject {
 
-    var userName: String!
-    var userEmail: String!
-    
+    var username: String!
+    var email: String!
+    var profilePhoto: String!
+
     
     
 }

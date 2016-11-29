@@ -10,6 +10,11 @@ target 'Wordie' do
   pod 'Firebase/Auth'
   pod 'MBProgressHUD'
   pod 'Firebase/Storage'
+
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+
   # Pods for Wordie
 
 end

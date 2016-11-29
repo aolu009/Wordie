@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDelegate {
@@ -28,38 +31,84 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         let user = FIRAuth.auth()?.currentUser
 //        UserDefaults.standard.setValue(self.currentUserID, forKey: "uid")
         
-        if user != nil
-        {
-            //we have a current user, show them home screen
-            let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
+        let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook") as! Bool
+
+        
+        if facebookDefaults == true {
             
-            let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+            //sign in with FB
             
-            if let currentUser = user {
-                print("User already logged in: \(currentUser.uid)")
-                window = UIWindow(frame: UIScreen.main.bounds)
-                window?.rootViewController = homeVC
-                window?.makeKeyAndVisible()
+            if let decodedNSDataBlob = UserDefaults.standard.object(forKey: "credential") as? NSData
+            {
+                let credential = NSKeyedUnarchiver.unarchiveObject(with: decodedNSDataBlob as Data) as? FIRAuthCredential
                 
+                FIRAuth.auth()?.signIn(with: credential!) { (user, error) in
+                    // ...
+                    if let error = error {
+                        // ...
+                        return
+                    }
+                }
+ 
             }
+            
+            showHomeScreen()
+
+            
+        }
+        else if facebookDefaults == false {
+            //signinwithEmail
+            
+            let email =  UserDefaults.standard.value(forKey: "email") as! String
+            let password =  UserDefaults.standard.value(forKey: "password") as! String
+            
+            FIRAuth.auth()!.signIn(withEmail: email,
+                                   password: password)
+            
+            showHomeScreen()
+            
         }
         else{
-            print("No current user logged in yet")
-            
-            let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
-            
-            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            
-            
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = loginVC
-            window?.makeKeyAndVisible()
-            
+            //nothing in defaults
+            showLogin()
         }
+
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
+    
+    func showHomeScreen()
+    {
+        let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
+        
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+        
+        if let currentUser = user {
+            print("User already logged in: \(currentUser.uid)")
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = homeVC
+            window?.makeKeyAndVisible()
 
+    }
+    }
+
+    func showLogin()
+    {
+        print("No current user logged in yet")
+        
+        let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
+        
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = loginVC
+        window?.makeKeyAndVisible()
+        
+        }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -76,11 +125,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+
 
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5322FA8777B7448E1E803E1B265ED3F"
+               BlueprintIdentifier = "F9CA6DA76236E1908339644D2B4F652F"
                BuildableName = "Pods_Wordie.framework"
                BlueprintName = "Pods-Wordie"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5322FA8777B7448E1E803E1B265ED3F"
+            BlueprintIdentifier = "F9CA6DA76236E1908339644D2B4F652F"
             BuildableName = "Pods_Wordie.framework"
             BlueprintName = "Pods-Wordie"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5322FA8777B7448E1E803E1B265ED3F"
-            BuildableName = "Pods_Wordie.framework"
-            BlueprintName = "Pods-Wordie"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
