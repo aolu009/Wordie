@@ -84,7 +84,15 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     }
     
     @IBAction func onSearch(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
+        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "SearchTabViewController") as! SearchTabViewController
+        //let nxtVC = nxtNVC.topViewController as! EditDetailViewController
+        //nxtVC.dataSource = self
+        self.present( nxtNVC, animated: true, completion: {
+            //self.dismiss(animated: true, completion: nil)
+            
+        })
+        //self.dismiss(animated: true, completion: nil)
     }
     
 }

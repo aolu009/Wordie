@@ -53,6 +53,9 @@ class DefinitionTabViewController: UITabBarController, UITabBarControllerDelegat
          self.viewControllers = [vc1, vc2, vc3]
         
     }
+    
+    
+
     /*
     func wordDetailViewController() -> Word {
         return (self.dataSource?.definitionTabViewController())!
