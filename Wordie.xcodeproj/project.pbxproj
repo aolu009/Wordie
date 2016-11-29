@@ -14,6 +14,7 @@
 		42C8A2701DE7B73600AC6ED9 /* UserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */; };
 		42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CCA1F71DE3B01400223D6E /* LoginViewController.swift */; };
 		42CCA1FA1DE3BAB400223D6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42CCA1F91DE3BAB400223D6E /* GoogleService-Info.plist */; };
+		42F2BE4F1DED21A60055AE27 /* CameraPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2BE4E1DED21A60055AE27 /* CameraPickerController.swift */; };
 		BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */; };
 		BF1EA9D31DE26DC200A4B3A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9D11DE26DC200A4B3A3 /* LaunchScreen.storyboard */; };
 		BF1EA9E01DE26EFE00A4B3A3 /* Louis.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9DF1DE26EFE00A4B3A3 /* Louis.Main.storyboard */; };
@@ -28,7 +29,6 @@
 		BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F51DE2709400A4B3A3 /* AppDelegate.swift */; };
 		BF1EA9F81DE2864700A4B3A3 /* SearchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */; };
 		BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */; };
-		BF1EA9FE1DE3C73500A4B3A3 /* CameraPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */; };
 		BF1EAA021DE970F600A4B3A3 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */; };
 		BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA031DE9796B00A4B3A3 /* User.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
@@ -44,6 +44,7 @@
 		42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputViewController.swift; sourceTree = "<group>"; };
 		42CCA1F71DE3B01400223D6E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		42CCA1F91DE3BAB400223D6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		42F2BE4E1DED21A60055AE27 /* CameraPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPickerController.swift; sourceTree = "<group>"; };
 		698B7384369BA83D54F93CAC /* Pods-Wordie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wordie/Pods-Wordie.release.xcconfig"; sourceTree = "<group>"; };
 		BF1EA9C51DE26DC200A4B3A3 /* Wordie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		BF1EA9F51DE2709400A4B3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabViewController.swift; sourceTree = "<group>"; };
 		BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
-		BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPickerController.swift; sourceTree = "<group>"; };
 		BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		BF1EAA031DE9796B00A4B3A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,8 +151,8 @@
 				BF1EA9E81DE2700100A4B3A3 /* DefinitionTabViewController.swift */,
 				BF1EA9F71DE2864700A4B3A3 /* SearchTabViewController.swift */,
 				42CCA1F71DE3B01400223D6E /* LoginViewController.swift */,
-				BF1EA9FD1DE3C73500A4B3A3 /* CameraPickerController.swift */,
 				42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */,
+				42F2BE4E1DED21A60055AE27 /* CameraPickerController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -226,6 +226,7 @@
 					BF1EA9C41DE26DC200A4B3A3 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = JC68KFVHSJ;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -316,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF1EA9FE1DE3C73500A4B3A3 /* CameraPickerController.swift in Sources */,
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
 				BF1EA9EC1DE2700100A4B3A3 /* DefinitionTabViewController.swift in Sources */,
 				BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */,
@@ -331,6 +331,7 @@
 				4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */,
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,
 				BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */,
+				42F2BE4F1DED21A60055AE27 /* CameraPickerController.swift in Sources */,
 				BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */,
 				42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */,
 				423D6D7F1DECF35500F66EA4 /* MoviePost.swift in Sources */,

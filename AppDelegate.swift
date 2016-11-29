@@ -29,50 +29,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         let user = FIRAuth.auth()?.currentUser
-//        UserDefaults.standard.setValue(self.currentUserID, forKey: "uid")
-        
-        let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook") as! Bool
-
-        
-        if facebookDefaults == true {
-            
-            //sign in with FB
-            
-            if let decodedNSDataBlob = UserDefaults.standard.object(forKey: "credential") as? NSData
-            {
-                let credential = NSKeyedUnarchiver.unarchiveObject(with: decodedNSDataBlob as Data) as? FIRAuthCredential
-                
-                FIRAuth.auth()?.signIn(with: credential!) { (user, error) in
-                    // ...
-                    if let error = error {
+        if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook") as? Bool
+        {
+            if facebookDefaults == true {
+                //sign in with FB
+                if let decodedNSDataBlob = UserDefaults.standard.object(forKey: "credential") as? NSData
+                {
+                    let credential = NSKeyedUnarchiver.unarchiveObject(with: decodedNSDataBlob as Data) as? FIRAuthCredential
+                    FIRAuth.auth()?.signIn(with: credential!) { (user, error) in
                         // ...
-                        return
+                        if let error = error {
+                            // ...
+                            return
+                        }
                     }
+                    
                 }
- 
+                
+                showHomeScreen()
+                
+                
             }
-            
-            showHomeScreen()
+            else if facebookDefaults == false {
+                //signinwithEmail
+                
+                let email =  UserDefaults.standard.value(forKey: "email") as! String
+                let password =  UserDefaults.standard.value(forKey: "password") as! String
+                
+                FIRAuth.auth()!.signIn(withEmail: email,
+                                       password: password)
+                
+                showHomeScreen()
+                
+            }
+        }
 
-            
-        }
-        else if facebookDefaults == false {
-            //signinwithEmail
-            
-            let email =  UserDefaults.standard.value(forKey: "email") as! String
-            let password =  UserDefaults.standard.value(forKey: "password") as! String
-            
-            FIRAuth.auth()!.signIn(withEmail: email,
-                                   password: password)
-            
-            showHomeScreen()
-            
-        }
-        else{
-            //nothing in defaults
+        if UserDefaults.standard.value(forKey: "facebook") == nil
+        {
             showLogin()
-        }
 
+        }
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -84,14 +80,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
         
         let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = homeVC
+        window?.makeKeyAndVisible()
         
-        if let currentUser = user {
-            print("User already logged in: \(currentUser.uid)")
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = homeVC
-            window?.makeKeyAndVisible()
-
-    }
     }
 
     func showLogin()
@@ -134,7 +126,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
     }
 
 

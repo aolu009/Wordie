@@ -38,7 +38,7 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
 
 
         //save movie
-        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount)
+//        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount)
 
         dismiss(animated: true, completion: nil)
     }
