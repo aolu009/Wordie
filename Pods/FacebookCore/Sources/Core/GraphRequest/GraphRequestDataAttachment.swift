@@ -22,16 +22,16 @@ import FBSDKCoreKit
 /**
  A container for data attachments so that additional metadata can be provided about the attachment (like content type or filename).
  */
-public class GraphRequestDataAttachment {
+open class GraphRequestDataAttachment {
 
   /// The attachment data.
-  public let data: Data
+  open let data: Data
 
   /// The file name of the attachment.
-  public let filename: String?
+  open let filename: String?
 
   /// The content type of the attachment.
-  public let contentType: String?
+  open let contentType: String?
 
   /**
    Initializes a data attachment

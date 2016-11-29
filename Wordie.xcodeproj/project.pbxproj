@@ -226,6 +226,7 @@
 					BF1EA9C41DE26DC200A4B3A3 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = JC68KFVHSJ;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};

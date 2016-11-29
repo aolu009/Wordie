@@ -22,11 +22,11 @@ import FBSDKShareKit
 /**
  A button for sending content with messenger.
  */
-public class SendButton<C: ContentProtocol>: UIView {
+open class SendButton<C: ContentProtocol>: UIView {
   fileprivate var sdkSendButton: FBSDKSendButton
 
   /// The content to share.
-  public var content: C? = nil {
+  open var content: C? = nil {
     didSet {
       sdkSendButton.shareContent = content.flatMap(ContentBridger.bridgeToObjC)
     }
@@ -56,7 +56,7 @@ public class SendButton<C: ContentProtocol>: UIView {
   /**
    Performs logic for laying out subviews.
    */
-  public override func layoutSubviews() {
+  open override func layoutSubviews() {
     super.layoutSubviews()
 
     sdkSendButton.frame = CGRect(origin: .zero, size: bounds.size)
@@ -65,7 +65,7 @@ public class SendButton<C: ContentProtocol>: UIView {
   /**
    Resizes and moves the receiver view so it just encloses its subviews.
    */
-  public override func sizeToFit() {
+  open override func sizeToFit() {
     bounds.size = sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
   }
 
@@ -76,7 +76,7 @@ public class SendButton<C: ContentProtocol>: UIView {
 
    - returns: A new size that fits the receiver’s subviews.
    */
-  public override func sizeThatFits(_ size: CGSize) -> CGSize {
+  open override func sizeThatFits(_ size: CGSize) -> CGSize {
     return sdkSendButton.sizeThatFits(size)
   }
 
@@ -85,7 +85,7 @@ public class SendButton<C: ContentProtocol>: UIView {
 
    - returns: A size indicating the natural size for the receiving view based on its intrinsic properties.
    */
-  public override var intrinsicContentSize: CGSize {
+  open override var intrinsicContentSize: CGSize {
     return sdkSendButton.intrinsicContentSize
   }
 }

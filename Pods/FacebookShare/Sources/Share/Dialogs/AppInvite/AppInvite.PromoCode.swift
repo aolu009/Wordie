@@ -35,7 +35,7 @@ extension AppInvite {
      - parameter string: The string to initialize from.
      */
     public init?(string: String) {
-      let truncated = PromoCode.truncate(string: string)
+      let truncated = PromoCode.truncate(string)
       if string != truncated {
         return nil
       }
@@ -71,7 +71,7 @@ extension AppInvite.PromoCode: ExpressibleByStringLiteral {
    - parameter value: The string literal to intiialize from.
    */
   public init(stringLiteral value: String) {
-    let truncated = AppInvite.PromoCode.truncate(string: value)
+    let truncated = AppInvite.PromoCode.truncate(value)
     if truncated != value {
       print("Warning: Attempted to create a PromoCode from \"\(value)\" which contained invalid characters, or was too long.")
     }
@@ -100,7 +100,7 @@ extension AppInvite.PromoCode: ExpressibleByStringLiteral {
 
 
 extension AppInvite.PromoCode {
-  fileprivate static func truncate(string: String) -> String {
+  fileprivate static func truncate(_ string: String) -> String {
     let validCharacters = CharacterSet.alphanumerics
     let cleaned = string.unicodeScalars.filter {
       validCharacters.contains(UnicodeScalar(UInt16($0.value))!)

@@ -28,7 +28,7 @@ import FBSDKCoreKit.FBSDKGraphRequestConnection
  The request settings and properties are encapsulated in a reusable `GraphRequest` or a custom `GraphRequestProtocol`.
  This object encapsulates the concerns of a single communication e.g. starting a connection, canceling a connection, or batching requests.
  */
-public class GraphRequestConnection {
+open class GraphRequestConnection {
   /// A type of the closure that could be used to track network progress of a specific connection.
   public typealias NetworkProgressHandler = (_ bytesSent: Int64, _ totalBytesSent: Int64, _ totalExpectedBytes: Int64) -> Void
 
@@ -36,7 +36,7 @@ public class GraphRequestConnection {
   public typealias NetworkFailureHandler = (Error) -> Void
 
   /// Network progress closure that is going to be called every time data is sent to the server.
-  public var networkProgressHandler: NetworkProgressHandler? = nil {
+  open var networkProgressHandler: NetworkProgressHandler? = nil {
     didSet {
       sdkDelegateBridge.networkProgressHandler = networkProgressHandler
     }
@@ -46,14 +46,14 @@ public class GraphRequestConnection {
    Network failure handler that is going to be called when a connection fails with a network error.
    Use completion on per request basis to get additional information, that is not related to network errors.
    */
-  public var networkFailureHandler: NetworkFailureHandler? = nil {
+  open var networkFailureHandler: NetworkFailureHandler? = nil {
     didSet {
       sdkDelegateBridge.networkFailureHandler = networkFailureHandler
     }
   }
 
   /// The operation queue that is used to call all network handlers.
-  public var networkHandlerQueue: OperationQueue = OperationQueue.main {
+  open var networkHandlerQueue: OperationQueue = OperationQueue.main {
     didSet {
       sdkConnection.setDelegateQueue(networkHandlerQueue)
     }

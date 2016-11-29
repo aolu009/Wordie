@@ -33,37 +33,37 @@ import FBSDKLoginKit
  `LoginButton` has a fixed height of @c 30 pixels, but you may change the width.
  Initializing the button with `nil` frame will size the button to its minimum frame.
  */
-public class LoginButton: UIView {
+open class LoginButton: UIView {
 
   fileprivate var sdkLoginButton: FBSDKLoginButton
 
   /// Delegate of the login button that can handle the result, logout events.
-  public var delegate: LoginButtonDelegate?
+  open var delegate: LoginButtonDelegate?
   fileprivate var delegateBridge: LoginButtonDelegateBridge
 
   /// The login behavior that is going to be used. Default: `.Native`.
-  public var loginBehavior = LoginBehavior.native {
+  open var loginBehavior = LoginBehavior.native {
     didSet {
       sdkLoginButton.loginBehavior = loginBehavior.sdkBehavior
     }
   }
 
   /// The default audience. Default: `.Friends`.
-  public var defaultAudience = LoginDefaultAudience.friends {
+  open var defaultAudience = LoginDefaultAudience.friends {
     didSet {
       sdkLoginButton.defaultAudience = defaultAudience.sdkAudience
     }
   }
 
   /// The desired tooltip behavior. Default: `.Automatic`.
-  public var tooltipBehavior = TooltipBehavior.automatic {
+  open var tooltipBehavior = TooltipBehavior.automatic {
     didSet {
       sdkLoginButton.tooltipBehavior = tooltipBehavior.sdkBehavior
     }
   }
 
   /// The desired tooltip color style. Default: `.FriendlyBlue`.
-  public var tooltipColorStyle = TooltipColorStyle.friendlyBlue {
+  open var tooltipColorStyle = TooltipColorStyle.friendlyBlue {
     didSet {
       sdkLoginButton.tooltipColorStyle = tooltipColorStyle.sdkColorStyle
     }
@@ -126,21 +126,21 @@ public class LoginButton: UIView {
 }
 
 extension LoginButton {
-  public override func layoutSubviews() {
+  open override func layoutSubviews() {
     super.layoutSubviews()
 
     sdkLoginButton.frame = CGRect(origin: .zero, size: bounds.size)
   }
 
-  public override func sizeToFit() {
+  open override func sizeToFit() {
     bounds.size = sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
   }
 
-  public override func sizeThatFits(_ size: CGSize) -> CGSize {
+  open override func sizeThatFits(_ size: CGSize) -> CGSize {
     return sdkLoginButton.sizeThatFits(size)
   }
 
-  public override var intrinsicContentSize: CGSize {
+  open override var intrinsicContentSize: CGSize {
     return sdkLoginButton.intrinsicContentSize
   }
 }
