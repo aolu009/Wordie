@@ -128,16 +128,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
                 
                 UserDefaults.standard.setValue(true, forKey: "facebook")
-    
-                let dataBlob = NSKeyedArchiver.archivedData(withRootObject: credential)
-                UserDefaults.standard.setValue(dataBlob, forKey: "credential")
+                UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
                 
                 self.fetchCurrentUserFBData()
                 
 
                 
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-                    
+                  
+                    self.performSegue(withIdentifier: "homeSegue", sender: nil)
+
                 }
             }
         })
@@ -147,7 +147,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func fetchCurrentUserFBData()
         {
-           let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large)"])
+           let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large), username"])
             graphRequest.start(completionHandler: { (connection, result, error) -> Void in
     
                 if ((error) != nil)
@@ -159,9 +159,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let data:[String:AnyObject] = result as! [String : AnyObject]
                     print(data)
                     
+                    let userProfilePicURL = data["picture"]?["data"]
+                    let email = data["email"] as! String
+                    let userid = data["id"] as! String
+                    let firstname = data["first_name"] as! String
+
+                    //facebook does not provide username
+                    //storing first name as idt
+                    
                     //create new user
                     
-                    //                FirebaseClient.sharedInstance.createNewUser(userEmail: emailTextField.text, userID: user?.uid, userName: userName.text)
+                    FirebaseClient.sharedInstance.createNewUser(userEmail: email, userID: userid, userName: firstname)
 
                }
             })
