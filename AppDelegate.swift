@@ -29,50 +29,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         let user = FIRAuth.auth()?.currentUser
-        
         if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook") as? Bool
         {
-        
-        if facebookDefaults == true {
-            
-            //sign in with FB
-            
-            if let decodedNSDataBlob = UserDefaults.standard.object(forKey: "credential") as? NSData
-            {
-                let credential = NSKeyedUnarchiver.unarchiveObject(with: decodedNSDataBlob as Data) as? FIRAuthCredential
-                
-                FIRAuth.auth()?.signIn(with: credential!) { (user, error) in
-                    // ...
-                    if let error = error {
+            if facebookDefaults == true {
+                //sign in with FB
+                if let decodedNSDataBlob = UserDefaults.standard.object(forKey: "credential") as? NSData
+                {
+                    let credential = NSKeyedUnarchiver.unarchiveObject(with: decodedNSDataBlob as Data) as? FIRAuthCredential
+                    FIRAuth.auth()?.signIn(with: credential!) { (user, error) in
                         // ...
-                        return
+                        if let error = error {
+                            // ...
+                            return
+                        }
                     }
+                    
                 }
- 
+                
+                showHomeScreen()
+                
+                
             }
-            
-            showHomeScreen()
+            else if facebookDefaults == false {
+                //signinwithEmail
+                
+                let email =  UserDefaults.standard.value(forKey: "email") as! String
+                let password =  UserDefaults.standard.value(forKey: "password") as! String
+                
+                FIRAuth.auth()!.signIn(withEmail: email,
+                                       password: password)
+                
+                showHomeScreen()
+                
+            }
+        }
 
-            
-        }
-        else if facebookDefaults == false {
-            //signinwithEmail
-            
-            let email =  UserDefaults.standard.value(forKey: "email") as! String
-            let password =  UserDefaults.standard.value(forKey: "password") as! String
-            
-            FIRAuth.auth()!.signIn(withEmail: email,
-                                   password: password)
-            
-            showHomeScreen()
-            
-        }
-        else{
-            //nothing in defaults
+        if UserDefaults.standard.value(forKey: "facebook") == nil
+        {
             showLogin()
-        }
-        }
 
+        }
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -87,7 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = homeVC
         window?.makeKeyAndVisible()
-        
         
     }
 
