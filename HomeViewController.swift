@@ -37,7 +37,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     @IBOutlet weak var subtitleLabel: UILabel!
     var videoArray = [String]()
- 
+    var currentMovieURL = videoArray[visibleIndexPath] ?? nil
+
     
     
     
@@ -166,7 +167,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let visibleRect = CGRect(origin: customTableView.contentOffset, size: customTableView.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath = customTableView.indexPathForRow(at: visiblePoint)
-        
+        currentMovieURL = videoArray[visibleIndexPath]
+
         let cell = customTableView.cellForRow(at: visibleIndexPath!) as! HomeTableViewCell
         
         
@@ -206,6 +208,11 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         //update moviePost
         let ref = FIRDatabase.database().reference().child("movie_posts")
+        
+       if currentMovieURL != nil
+       {
+        
+        }
 
         
         ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
