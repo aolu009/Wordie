@@ -99,13 +99,10 @@ class FirebaseClient {
             let dic = snapshot.value as! [String:NSDictionary]
             
             for moviePost in dic {
-                test.append(dic[moviePost.key]!)
-            }
-            
-            for abc in test{
-//                let moviePost = MoviePost(dictionary: aResponse as! NSDictionary)
+                let moviePost = MoviePost(dictionary: aResponse as! NSDictionary)
                 posts.append(moviePost)
             }
+
             success(posts)
             }
         })
