@@ -27,45 +27,55 @@ class MoviePost: NSObject {
     var shortDefinition: String!
     var subtitles: String!
     var timeStamp: String!
-    var user: User!
+    var user: String!
     var url: URL!
     var word: String!
 
     init(dictionary: NSDictionary) {
-        text = dictionary[kTweetTextKey] as? String
         
-        if let createdAtString = dictionary[kTweetCreatedAtKey] as? String {
-            let formatter = DateFormatter()
-            formatter.dateFormat = kTweetDateFormat
-            createdAt = formatter.date(from: createdAtString)
-        }
+//        if let createdAtString = dictionary[kTweetCreatedAtKey] as? String {
+//            let formatter = DateFormatter()
+//            formatter.dateFormat = kTweetDateFormat
+//            createdAt = formatter.date(from: createdAtString)
+//        }
         
-        if let count = dictionary[kTweetRetweetCountKey] as? Int {
-            retweetCount = count
+        if let des = dictionary[kMovieDescriptionKey] as? String {
+            postBody = des
         }
-        if let count = dictionary[kTweetFavoritesCountKey] as? Int {
-            favourtiesCount = count
-        }
-        
-        if let userDictionary = dictionary[kTweetUserKey] as? NSDictionary {
-            user = TRUser(with: userDictionary)
+        if let feat = dictionary[kMovieFeaturedKey] as? Bool {
+            featured = feat
         }
         
-        if let count = dictionary[kTweetIDKey] as? CLong {
-            id = count
+        if let def = dictionary[kMovieDefinitionKey] as? String {
+            shortDefinition = def
         }
         
-        if let string = dictionary[kTweetIDStringKey] as? String {
-            idString = string
+        if let string = dictionary[kMovieSubtitleKey] as? String {
+            subtitles = string
         }
         
-        if let fav = dictionary[kTweetFavouritedKey] as? Bool {
-            favourited = fav
+        if let fav = dictionary[kMovieTimestampKey] as? String {
+            timeStamp = fav
         }
         
-        if let movieurl = dictionary[kMovieURLKey] as? Bool {
-            url = movieurl
+        if let movieurl = dictionary[kMovieURLKey] as? String {
+            let converted = URL(string: movieurl)
+            url = converted
         }
+        
+        if let userid = dictionary[kMovieUserKey] as? String {
+            user = userid
+        }
+        
+//        if let userDictionary = dictionary[kMovieLikeKey] as? NSDictionary {
+//            user = Usr(with: userDictionary)
+//        }
+        
+        if let movieurl = dictionary[kMovieWordKey] as? String {
+            word = movieurl
+        }
+        
+        
         
     }
     
