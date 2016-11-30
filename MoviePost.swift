@@ -9,7 +9,7 @@
 import UIKit
 
 class MoviePost: NSObject {
-    var postbody: String!
+    var postBody: String!
     var featured: Bool!
     var likes: NSNumber!
     var shortDefinition: String!
@@ -19,5 +19,8 @@ class MoviePost: NSObject {
     var url: URL!
     var word: String!
 
+    
+    
+//    video_url
 
 }

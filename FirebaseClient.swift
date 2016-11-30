@@ -82,13 +82,20 @@ class FirebaseClient {
         return tokenString
     }
 
-    func getArrayOfVideosUrlFromDatabase(success: @escaping ([String]?) -> Void){
+    func fetchMoviePosts(success: @escaping ([MoviePost]?) -> Void){
         
-        var arrayOfVideoUrlString:[String] = [String]()
         let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
+        var posts = [MoviePost]()
         var test: [NSDictionary] = [NSDictionary]()
+
         
         videoPostRef.observe(.value, with: { snapshot in
+            print(snapshot)
+            print("Timeline retrieved")
+
+            if snapshot.exists() {
+            
+
             let dic = snapshot.value as! [String:NSDictionary]
             
             for moviePost in dic {
@@ -96,15 +103,16 @@ class FirebaseClient {
             }
             
             for abc in test{
-                let testingstring = abc["video_url"] as! String
-                arrayOfVideoUrlString.append(testingstring)
+//                let moviePost = MoviePost(dictionary: aResponse as! NSDictionary)
+                posts.append(moviePost)
             }
-            success(arrayOfVideoUrlString)
+            success(posts)
+            }
         })
-        
     }
     
-    
+
+
     func createNewVideoObject(url:URL, movieCount: Int, complete:@escaping () -> Void) -> Void {
         let videoUploadedRef = FIRStorage.storage().reference(withPath: "video_uploaded")
         
