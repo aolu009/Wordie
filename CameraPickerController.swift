@@ -16,7 +16,7 @@ class CameraPickerController: UIViewController, UIImagePickerControllerDelegate,
     var movieCount = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (urlArray) in
+        FirebaseClient.sharedInstance.fetchMoviePosts { (urlArray) in
             self.movieCount = (urlArray?.count)!
         }
         

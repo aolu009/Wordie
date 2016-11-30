@@ -27,7 +27,7 @@ class MoviePost: NSObject {
     var shortDefinition: String!
     var subtitles: String!
     var timeStamp: String!
-    var user: String!
+    var userID: String!
     var url: URL!
     var word: String!
 
@@ -64,7 +64,7 @@ class MoviePost: NSObject {
         }
         
         if let userid = dictionary[kMovieUserKey] as? String {
-            user = userid
+            userID = userid
         }
         
 //        if let userDictionary = dictionary[kMovieLikeKey] as? NSDictionary {

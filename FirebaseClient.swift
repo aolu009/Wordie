@@ -92,18 +92,18 @@ class FirebaseClient {
         videoPostRef.observe(.value, with: { snapshot in
             print(snapshot)
             print("Timeline retrieved")
-
+            
             if snapshot.exists() {
-            
-
-            let dic = snapshot.value as! [String:NSDictionary]
-            
-            for moviePost in dic {
-                let moviePost = MoviePost(dictionary: aResponse as! NSDictionary)
-                posts.append(moviePost)
-            }
-
-            success(posts)
+                
+                let dic = snapshot.value as! [String:NSDictionary]
+                
+                for pair in dic {
+                    let mp = pair.value
+                    let post = MoviePost(dictionary: mp as! NSDictionary)
+                    posts.append(post)
+                }
+                
+                success(posts)
             }
         })
     }
@@ -167,7 +167,7 @@ class FirebaseClient {
         let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
         let targetingvideoPost = videoPostRef.child(movieToken)
         let postbody = targetingvideoPost.child("postbody")
-        postbody.setValue(post.postbody)
+        postbody.setValue(post.postBody)
         let likes = targetingvideoPost.child("likes")
         likes.setValue(post.likes)
         let shortDefinition = targetingvideoPost.child("shortDefinition")

@@ -36,8 +36,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet weak var wordButton: UIButton!
     
     @IBOutlet weak var subtitleLabel: UILabel!
-    var videoArray = [String]()
-    var currentMovieURL = videoArray[visibleIndexPath] ?? nil
+    var videoArray = [MoviePost]()
+    var currentMovieURL: URL?
 
     
     
@@ -58,26 +58,14 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: subtitleLabel)
 
 
-        FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (videos) in
+        FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
             self.videoArray = videos!
             self.customTableView.reloadData()
         }
-        
-        
-        
-        
         
         //setupMiddleButton()
     }
-    override func viewWillAppear(_ animated: Bool){
-        videoArray = [String]()
-        FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (videos) in
-            self.videoArray = videos!
-            self.customTableView.reloadData()
-        }
-        self.customTableView.reloadData()
-        
-    }
+
     /*
     func setupMiddleButton() {
         menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60
@@ -116,7 +104,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         
-        let videoURL = URL(string:videoArray[indexPath.row])
+        let videoURL = videoArray[indexPath.row].url
         
         if cell.player != nil {
             cell.player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
@@ -167,7 +155,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let visibleRect = CGRect(origin: customTableView.contentOffset, size: customTableView.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath = customTableView.indexPathForRow(at: visiblePoint)
-        currentMovieURL = videoArray[visibleIndexPath]
+        currentMovieURL = videoArray[(visibleIndexPath?.row)!].url
 
         let cell = customTableView.cellForRow(at: visibleIndexPath!) as! HomeTableViewCell
         
