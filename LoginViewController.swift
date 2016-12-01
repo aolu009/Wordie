@@ -12,10 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import AVFoundation
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
-    
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
@@ -24,29 +21,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
       override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! InputTableViewCell
         
-
         
-        if player != nil {
-            player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
-        }
-        else{
-            player = AVPlayer(url: videoURL!)
-            playerLayer = AVPlayerLayer(player: player)
-            
-        }
-        
-        if let pL = playerLayer {
-            pL.frame = self.view.frame
-            view.layer.addSublayer(pL)
-        }
-        view.layer.insertSublayer(playerLayer!, at: 0)
-
-        player?.play()
-
-        
+        return cell
     }
     
     
@@ -198,6 +188,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                }
             })
         }
+    
+
+    
     
     
     

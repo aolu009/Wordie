@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="T97-BJ-Zxw">
             <objects>
-                <viewController id="KnZ-1p-tqV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="KnZ-1p-tqV" customClass="LoginViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bbL-be-hkz"/>
                         <viewControllerLayoutGuide type="bottom" id="q0q-pW-q0E"/>
@@ -53,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="71" width="375" height="108"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="G3n-PM-M5j" customClass="InputTableViewCell" customModule="Wordie" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inputCell" id="G3n-PM-M5j" customClass="InputTableViewCell" customModule="Wordie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G3n-PM-M5j" id="Y02-UM-c0W">
@@ -90,15 +90,19 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KnZ-1p-tqV" id="2g5-AN-x0o"/>
+                                    <outlet property="delegate" destination="KnZ-1p-tqV" id="7X3-pg-uux"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiZ-ha-L0b">
                                 <rect key="frame" x="179.5" y="50" width="16" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JPz-A4-uVM" firstAttribute="height" secondItem="UZy-4U-BhB" secondAttribute="height" id="0jr-6F-qUr"/>
                             <constraint firstAttribute="trailing" secondItem="yo1-rl-YYk" secondAttribute="trailing" id="9DE-1n-mQc"/>
@@ -125,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="-3385" y="-509"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="1vc-Qm-pjF">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="snj-8U-EOa" customClass="LoginViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="snj-8U-EOa" customClass="WelcomeViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AWQ-z8-nxa"/>
                         <viewControllerLayoutGuide type="bottom" id="tJp-b5-WFX"/>
@@ -154,6 +158,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onLoginButtonPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="G5r-Yr-okf"/>
+                                    <action selector="onLoginPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="5LN-eV-az7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppy-aa-W3W">
@@ -164,6 +169,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onSignUpButtonPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="8EE-8a-0Cu"/>
+                                    <action selector="onSignUpPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="cNM-QA-OD5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -518,10 +524,10 @@
             </objects>
             <point key="canvasLocation" x="1233" y="97"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="mxg-Nm-MAR">
             <objects>
-                <viewController id="heT-un-but" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="heT-un-but" customClass="SignUpViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K5H-Fw-o3Q"/>
                         <viewControllerLayoutGuide type="bottom" id="Wqm-cL-6D2"/>
@@ -560,7 +566,7 @@
                                 <rect key="frame" x="0.0" y="71" width="375" height="108"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0Fd-W3-OSb" customClass="InputTableViewCell" customModule="Wordie" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inputCell" id="0Fd-W3-OSb" customClass="InputTableViewCell" customModule="Wordie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Fd-W3-OSb" id="MQk-8f-yJ8">
@@ -597,15 +603,19 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="heT-un-but" id="ydG-OM-4Vy"/>
+                                    <outlet property="delegate" destination="heT-un-but" id="usw-wu-ceh"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with e-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="085-4i-9OP">
                                 <rect key="frame" x="135" y="50" width="105" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Jsd-nL-bAN" firstAttribute="top" secondItem="085-4i-9OP" secondAttribute="bottom" id="0LE-La-0aC"/>
                             <constraint firstItem="d5Y-b4-TNW" firstAttribute="leading" secondItem="085-4i-9OP" secondAttribute="trailing" constant="5" id="2Cp-rO-Zf6"/>
