@@ -49,6 +49,19 @@ class HomeTableViewCell: UITableViewCell {
         }
         
     }
+    
+    
+    override func layoutSubviews() {
+        view.bringSubview(toFront: likeButton)
+        view.bringSubview(toFront: profilePhotoImageView)
+        view.bringSubview(toFront: likeCountLabel)
+        view.bringSubview(toFront: reportButton)
+        view.bringSubview(toFront: usernameLabel)
+        view.bringSubview(toFront: featuredLabel)
+        view.bringSubview(toFront: descriptionLabel)
+        view.bringSubview(toFront: wordButton)
+        view.bringSubview(toFront: subtitleLabel)
+    }
 
 
 }
