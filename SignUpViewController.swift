@@ -13,6 +13,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "SIGN UP"
         // Do any additional setup after loading the view.
     }
 

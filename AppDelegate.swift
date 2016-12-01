@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
         
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "WelcomeNav") as! UINavigationController
         
         
         window = UIWindow(frame: UIScreen.main.bounds)

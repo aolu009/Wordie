@@ -26,6 +26,8 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c")
         
         
@@ -50,18 +52,25 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
+
+    }
+    
 
         @IBAction func onLoginPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
         let nxtNVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.present( nxtNVC, animated: true, completion: nil)
+            navigationController?.pushViewController(nxtNVC, animated: true)
 
     }
     
     @IBAction func onSignUpPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
         let nxtNVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        self.present( nxtNVC, animated: true, completion: nil)
+        navigationController?.pushViewController(nxtNVC, animated: true)
         
 
     }

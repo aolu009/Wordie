@@ -24,6 +24,12 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
       override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "LOG IN"
+        
+        self.navigationController?.isNavigationBarHidden = false
+
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -184,13 +184,14 @@
                             <constraint firstItem="x4b-qj-fbr" firstAttribute="width" secondItem="ImU-TM-IKX" secondAttribute="width" multiplier="0.5" id="gtN-yV-ues"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="PC8-KC-OpS"/>
                     <connections>
                         <segue destination="5Bv-Zm-KNf" kind="show" identifier="homeSegue" id="NyR-ZM-JkP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zj2-0c-Wyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2714.4000000000001" y="-508.69565217391306"/>
+            <point key="canvasLocation" x="-3255" y="-1171"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="mvN-hG-qEn">
@@ -311,6 +312,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAZ-Ep-pGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1954.4000000000001" y="192.95352323838082"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3J8-4n-tgk">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQ0-xt-lHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="WelcomeNav" id="2LO-Es-f2u" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="sVC-RJ-HST">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="snj-8U-EOa" kind="relationship" relationship="rootViewController" id="Mcg-ZE-Rpp"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-3923" y="-1170"/>
         </scene>
         <!--Camera Picker Controller-->
         <scene sceneID="w2x-vJ-q1m">
@@ -559,7 +576,7 @@
                                 <rect key="frame" x="245" y="60" width="40" height="1"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-nL-bAN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-nL-bAN">
                                 <rect key="frame" x="0.0" y="71" width="375" height="87"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
