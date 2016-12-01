@@ -15,12 +15,9 @@ import AVFoundation
 
 class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
-    var currentUserID: String?
     
     
     override func viewDidLoad() {
