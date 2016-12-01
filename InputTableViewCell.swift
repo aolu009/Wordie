@@ -13,6 +13,9 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var iconImageView: UIImageView!
 
+    private var resultBlock: ((_ changedText: String) -> ())? = nil
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,14 +34,18 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         self.contentView.addSubview(self.textField)
     }
     
-    func setup(initalText: String, resultBlock: (changedText: String) -> ()) {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup(initalText: String, resultBlock: @escaping (_ changedText: String) -> ()) {
         self.textField.text = initalText
         self.resultBlock = resultBlock
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         if let block = self.resultBlock, let text = textField.text {
-            block(changedText: text)
+            block(text)
         }
     }
 }

@@ -25,7 +25,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
       override func viewDidLoad() {
         super.viewDidLoad()
         
-        let videoURL = URL(string: "SFADDAFSdfsasdf")
+        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c")
+        
+        if let pL = playerLayer {
+            pL.frame = self.view.frame
+            view.layer.addSublayer(pL)
+        }
+
         
         if player != nil {
             player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
@@ -35,6 +41,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             playerLayer = AVPlayerLayer(player: player)
             
         }
+        player?.play()
+
         
     }
     
