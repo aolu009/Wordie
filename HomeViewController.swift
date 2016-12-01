@@ -104,7 +104,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         
-        let videoURL = videoArray[indexPath.row].url
+        let post = videoArray[indexPath.row]
+        let videoURL = post.url
         
         if cell.player != nil {
             cell.player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
@@ -114,6 +115,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
+        
         
         // Set the initial last playing cell value
         if lastPlayingCell == nil {
