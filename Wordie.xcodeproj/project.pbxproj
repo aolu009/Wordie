@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4200DFF41DF01E8C005D544D /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200DFF31DF01E8C005D544D /* InputTableViewCell.swift */; };
 		423D6D7F1DECF35500F66EA4 /* MoviePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D6D7E1DECF35500F66EA4 /* MoviePost.swift */; };
 		4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */; };
 		4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250867E1DE309DB00D3B202 /* HomeViewController.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wordie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		209528783B87E1D71F3B93FD /* Pods-Wordie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wordie/Pods-Wordie.debug.xcconfig"; sourceTree = "<group>"; };
+		4200DFF31DF01E8C005D544D /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
 		423D6D7E1DECF35500F66EA4 /* MoviePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePost.swift; sourceTree = "<group>"; };
 		4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Malcolm.Main.storyboard; sourceTree = "<group>"; };
 		4250867E1DE309DB00D3B202 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				BF1EA9ED1DE2702100A4B3A3 /* WordTableViewCell.swift */,
 				BF1EA9EE1DE2702100A4B3A3 /* DefinitionTableViewCell.swift */,
 				425086801DE30A1300D3B202 /* HomeTableViewCell.swift */,
+				4200DFF31DF01E8C005D544D /* InputTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
+				4200DFF41DF01E8C005D544D /* InputTableViewCell.swift in Sources */,
 				BF1EAA061DED47BC00A4B3A3 /* EditDetailViewController.swift in Sources */,
 				BF1EA9EC1DE2700100A4B3A3 /* DefinitionTabViewController.swift in Sources */,
 				BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */,

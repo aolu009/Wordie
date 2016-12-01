@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
+        UITextField.appearance().tintColor = UIColor.green
+        
         if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook"){
         
             if facebookDefaults as? Bool == true {
