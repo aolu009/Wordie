@@ -19,6 +19,9 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.textField.delegate = self
+        self.contentView.addSubview(self.textField)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,17 +30,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.textField.delegate = self
-        self.contentView.addSubview(self.textField)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     func setup(initalText: String, resultBlock: @escaping (_ changedText: String) -> ()) {
         self.textField.text = initalText
         self.resultBlock = resultBlock

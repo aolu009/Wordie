@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
 //            showLogin()
 //
 //        }
-        showLogin()
+        showWelcome()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -88,13 +88,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
     }
 
-    func showLogin()
+    func showWelcome()
     {
         print("No current user logged in yet")
         
         let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
         
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
         
         
         window = UIWindow(frame: UIScreen.main.bounds)

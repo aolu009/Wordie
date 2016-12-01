@@ -17,6 +17,9 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     var currentUserID: String?
+    
+    var emailTextField = UITextField()
+    var passwordTextField = UITextField()
 
     
       override func viewDidLoad() {
