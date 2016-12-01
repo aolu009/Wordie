@@ -27,10 +27,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c")
         
-        if let pL = playerLayer {
-            pL.frame = self.view.frame
-            view.layer.addSublayer(pL)
-        }
 
         
         if player != nil {
@@ -41,6 +37,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             playerLayer = AVPlayerLayer(player: player)
             
         }
+        
+        if let pL = playerLayer {
+            pL.frame = self.view.frame
+            view.layer.addSublayer(pL)
+        }
+        view.layer.insertSublayer(playerLayer!, at: 0)
+
         player?.play()
 
         
