@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
       override func viewDidLoad() {
         super.viewDidLoad()
         
-        let videoURL = post.url
+        let videoURL = URL(string: "SFADDAFSdfsasdf")
         
         if player != nil {
             player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
