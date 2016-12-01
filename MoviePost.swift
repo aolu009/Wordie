@@ -23,7 +23,7 @@ let kMovieWordKey = "word"
 class MoviePost: NSObject {
     var postBody: String!
     var featured: Bool!
-    var likes: NSNumber!
+    var likes: Int!
     var shortDefinition: String!
     var subtitles: String!
     var timeStamp: String!
@@ -42,8 +42,13 @@ class MoviePost: NSObject {
         if let des = dictionary[kMovieDescriptionKey] as? String {
             postBody = des
         }
-        if let feat = dictionary[kMovieFeaturedKey] as? Bool {
-            featured = feat
+        if let feat = dictionary[kMovieFeaturedKey] as? Int {
+            let ft = Bool(feat as NSNumber)
+            featured = ft
+        }
+        
+        if let like = dictionary[kMovieLikeKey] as? Int {
+            likes = like
         }
         
         if let def = dictionary[kMovieDefinitionKey] as? String {

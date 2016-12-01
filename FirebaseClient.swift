@@ -177,7 +177,7 @@ class FirebaseClient {
         let timeStamp = targetingvideoPost.child("timeStamp")
         timeStamp.setValue(post.timeStamp)
         let user = targetingvideoPost.child("user")
-        user.setValue(post.user)
+        user.setValue(post.userID)
         let word = targetingvideoPost.child("word")
         word.setValue(post.word)
         complete()
