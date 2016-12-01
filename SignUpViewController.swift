@@ -14,7 +14,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 
         title = "SIGN UP"
-        // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = false
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,6 +28,21 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! InputTableViewCell
+        
+        if indexPath.row == 0 {
+            let placeholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            cell.textField.attributedPlaceholder = placeholder
+            cell.iconImageView.image = #imageLiteral(resourceName: "email")
+            cell.iconImageView.tintColor = UIColor.white
+            
+        }
+        if indexPath.row == 1 {
+            let placeholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            cell.textField.attributedPlaceholder = placeholder
+            cell.iconImageView.image = #imageLiteral(resourceName: "password")
+            cell.iconImageView.tintColor = UIColor.white
+            
+        }
         
         
         return cell

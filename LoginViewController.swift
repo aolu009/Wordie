@@ -44,6 +44,22 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! InputTableViewCell
         
+        if indexPath.row == 0 {
+            let placeholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            cell.textField.attributedPlaceholder = placeholder
+            cell.iconImageView.image = #imageLiteral(resourceName: "email")
+            cell.iconImageView.tintColor = UIColor.white
+            
+        }
+        if indexPath.row == 1 {
+            let placeholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            cell.textField.attributedPlaceholder = placeholder
+            cell.iconImageView.image = #imageLiteral(resourceName: "password")
+            cell.iconImageView.tintColor = UIColor.white
+            
+        }
+
+        
         
         return cell
     }
