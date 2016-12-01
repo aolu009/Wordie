@@ -39,6 +39,8 @@ class HomeTableViewCell: UITableViewCell {
             plyr.actionAtItemEnd = .none
             plyr.play()
         }
+        contentView.layer.insertSublayer(playerLayer!, at: 0)
+
         
         
     }
@@ -50,10 +52,13 @@ class HomeTableViewCell: UITableViewCell {
         }
         
     }
-    
-    
+
     
     override func layoutSubviews() {
+        
+        profilePhotoImageView.layer.cornerRadius = 15
+        profilePhotoImageView.clipsToBounds = true
+        
         bringSubview(toFront: likeButton)
         bringSubview(toFront: profilePhotoImageView)
         bringSubview(toFront: likeCountLabel)

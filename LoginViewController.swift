@@ -10,18 +10,31 @@ import UIKit
 import FirebaseAuth
 import FBSDKCoreKit
 import FBSDKLoginKit
+import AVFoundation
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var player: AVPlayer?
+    var playerLayer: AVPlayerLayer?
     var currentUserID: String?
 
     
       override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let videoURL = post.url
+        
+        if player != nil {
+            player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
+        }
+        else{
+            player = AVPlayer(url: videoURL!)
+            playerLayer = AVPlayerLayer(player: player)
+            
+        }
         
     }
     

@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             self.customTableView.reloadData()
         }
         
+        
         //setupMiddleButton()
     }
 
@@ -93,6 +94,32 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
+        
+        //bring view back
+//        cell.playerLayer?.removeFromSuperlayer()
+        cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
+
+        
+//        cell.contentView.sendSubview(toBack: cell.playerLayer)
+        
+        cell.layoutSubviews()
+        
+        cell.contentView.bringSubview(toFront: cell.likeButton)
+        cell.contentView.bringSubview(toFront: cell.profilePhotoImageView)
+        cell.contentView.bringSubview(toFront: cell.likeCountLabel)
+        cell.contentView.bringSubview(toFront: cell.reportButton)
+        cell.contentView.bringSubview(toFront: cell.usernameLabel)
+        cell.contentView.bringSubview(toFront: cell.featuredLabel)
+        cell.contentView.bringSubview(toFront: cell.descriptionLabel)
+
+//        bringSubview(toFront: profilePhotoImageView)
+//        bringSubview(toFront: likeCountLabel)
+//        bringSubview(toFront: reportButton)
+//        bringSubview(toFront: usernameLabel)
+//        bringSubview(toFront: featuredLabel)
+//        bringSubview(toFront: descriptionLabel)
+//        bringSubview(toFront: wordButton)
+//        bringSubview(toFront: subtitleLabel)
         
         cell.descriptionLabel.text = post.postBody
         cell.featuredLabel.text = String(post.featured)
