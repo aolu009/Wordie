@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet weak var featuredButton: UIButton!
     var menuButton: UIButton!
 
-
     var videoArray = [MoviePost]()
     var currentMovieURL: URL?
 
@@ -36,8 +35,6 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: lineMenuLine)
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
-
-
 
         FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
             self.videoArray = videos!
@@ -96,6 +93,14 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
+        
+        cell.descriptionLabel.text = post.postBody
+        cell.featuredLabel.text = String(post.featured)
+        cell.likeCountLabel.text = String(post.likes)
+        cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
+        cell.subtitleLabel.text = post.subtitles
+        cell.wordButton.titleLabel?.text = post.word
+        cell.usernameLabel.text = "@chantellepaige"
         
         
         // Set the initial last playing cell value

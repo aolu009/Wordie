@@ -24,6 +24,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var wordButton: UIButton!
     
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var shortDefintionLabel: UILabel!
     
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -51,16 +52,17 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     
+    
     override func layoutSubviews() {
-        view.bringSubview(toFront: likeButton)
-        view.bringSubview(toFront: profilePhotoImageView)
-        view.bringSubview(toFront: likeCountLabel)
-        view.bringSubview(toFront: reportButton)
-        view.bringSubview(toFront: usernameLabel)
-        view.bringSubview(toFront: featuredLabel)
-        view.bringSubview(toFront: descriptionLabel)
-        view.bringSubview(toFront: wordButton)
-        view.bringSubview(toFront: subtitleLabel)
+        bringSubview(toFront: likeButton)
+        bringSubview(toFront: profilePhotoImageView)
+        bringSubview(toFront: likeCountLabel)
+        bringSubview(toFront: reportButton)
+        bringSubview(toFront: usernameLabel)
+        bringSubview(toFront: featuredLabel)
+        bringSubview(toFront: descriptionLabel)
+        bringSubview(toFront: wordButton)
+        bringSubview(toFront: subtitleLabel)
     }
 
 
