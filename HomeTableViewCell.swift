@@ -39,6 +39,7 @@ class HomeTableViewCell: UITableViewCell {
             plyr.actionAtItemEnd = .none
             plyr.play()
         }
+        //bring view back
         contentView.layer.insertSublayer(playerLayer!, at: 0)
 
         

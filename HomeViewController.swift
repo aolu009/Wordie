@@ -95,10 +95,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             
         }
         
-        //bring view back
-        cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
-
-        
+                
         cell.descriptionLabel.text = post.postBody
         cell.featuredLabel.text = post.featured
         cell.likeCountLabel.text = String(post.likes)
@@ -113,6 +110,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         // Set the initial last playing cell value
         if lastPlayingCell == nil {
             lastPlayingCell = cell
+
         }
         
         if let pL = cell.playerLayer {
@@ -127,7 +125,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                 
                 //play first cell
                 if indexPath.row == 0 {
+                    //bring view back
+                    cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
                     player.play()
+                    
                     
                 }
             }
