@@ -17,6 +17,9 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var passwordTextField: UITextField!
     var currentUserID: String?
 
+    var cell1: InputTableViewCell?
+    var cell2: InputTableViewCell?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +45,17 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.textField.attributedPlaceholder = placeholder
             cell.iconImageView.image = #imageLiteral(resourceName: "email")
             cell.iconImageView.tintColor = UIColor.white
-            
+            cell1 = cell
+
         }
         if indexPath.row == 1 {
             let placeholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.white])
             cell.textField.attributedPlaceholder = placeholder
             cell.iconImageView.image = #imageLiteral(resourceName: "password")
             cell.iconImageView.tintColor = UIColor.white
+            cell.textField.isSecureTextEntry = true
+            cell2 = cell
+
             
         }
         
@@ -57,6 +64,9 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func onSignUpButtonPressed(_ sender: UIButton) {
+        
+        let email = cell1!.textField.text
+        let pw = cell2!.textField.text
         
         let alert = UIAlertController(title: "Register",
                                       message: "Register",

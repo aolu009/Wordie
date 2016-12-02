@@ -20,8 +20,10 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var emailTextField = UITextField()
     var passwordTextField = UITextField()
-
     
+    var cell1: InputTableViewCell?
+    var cell2: InputTableViewCell?
+
       override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +51,8 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.textField.attributedPlaceholder = placeholder
             cell.iconImageView.image = #imageLiteral(resourceName: "email")
             cell.iconImageView.tintColor = UIColor.white
+            cell1 = cell
+            
             
         }
         if indexPath.row == 1 {
@@ -56,10 +60,12 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.textField.attributedPlaceholder = placeholder
             cell.iconImageView.image = #imageLiteral(resourceName: "password")
             cell.iconImageView.tintColor = UIColor.white
-            
+            cell.textField.isSecureTextEntry = true
+            cell2 = cell
+
         }
 
-        
+    
         
         return cell
     }
@@ -88,8 +94,13 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     @IBAction func onLoginButtonPressed(_ sender: UIButton) {
-        FIRAuth.auth()!.signIn(withEmail: emailTextField.text!,
-                               password: passwordTextField.text!)
+        print(cell1?.textField.text)
+        
+        let email = cell1!.textField.text
+        let pw = cell2!.textField.text
+
+        FIRAuth.auth()!.signIn(withEmail: email!,
+                               password: pw!)
         storeUser()
         
         self.getCurrentUser()

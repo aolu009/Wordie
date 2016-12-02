@@ -36,7 +36,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
         self.resultBlock = resultBlock
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if let block = self.resultBlock, let text = textField.text {
             block(text)
         }
