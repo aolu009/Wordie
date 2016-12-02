@@ -32,6 +32,12 @@
 		BF1EAA021DE970F600A4B3A3 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */; };
 		BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA031DE9796B00A4B3A3 /* User.swift */; };
 		BF1EAA061DED47BC00A4B3A3 /* EditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EAA051DED47BC00A4B3A3 /* EditDetailViewController.swift */; };
+		BFCED8AE1DEEBE2C00A26AB3 /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8AC1DEEBE2C00A26AB3 /* SSRadioButton.swift */; };
+		BFCED8AF1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8AD1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift */; };
+		BFCED8B11DEEC1C700A26AB3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8B01DEEC1C700A26AB3 /* RadioButton.swift */; };
+		BFCED8B51DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8B41DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift */; };
+		BFCED8B71DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8B61DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift */; };
+		BFCED8B91DEFFA3500A26AB3 /* EditDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +73,12 @@
 		BF1EAA011DE970F600A4B3A3 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		BF1EAA031DE9796B00A4B3A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF1EAA051DED47BC00A4B3A3 /* EditDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailViewController.swift; sourceTree = "<group>"; };
+		BFCED8AC1DEEBE2C00A26AB3 /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
+		BFCED8AD1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
+		BFCED8B01DEEC1C700A26AB3 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		BFCED8B41DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDefinitionTableViewCell.swift; sourceTree = "<group>"; };
+		BFCED8B61DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteExampleTableViewCell.swift; sourceTree = "<group>"; };
+		BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				42F2BE501DED43D80055AE27 /* Wordie.entitlements */,
+				BFCED8AB1DEEBE2C00A26AB3 /* SSRadioButtonController */,
 				BF1EA9DE1DE26EAF00A4B3A3 /* Storyboards */,
 				BF1EA9E21DE26F7C00A4B3A3 /* Models */,
 				BF1EA9E11DE26F6F00A4B3A3 /* ViewControllers */,
@@ -190,9 +203,22 @@
 				BF1EA9ED1DE2702100A4B3A3 /* WordTableViewCell.swift */,
 				BF1EA9EE1DE2702100A4B3A3 /* DefinitionTableViewCell.swift */,
 				425086801DE30A1300D3B202 /* HomeTableViewCell.swift */,
+				BFCED8B41DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift */,
+				BFCED8B61DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift */,
+				BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		BFCED8AB1DEEBE2C00A26AB3 /* SSRadioButtonController */ = {
+			isa = PBXGroup;
+			children = (
+				BFCED8AC1DEEBE2C00A26AB3 /* SSRadioButton.swift */,
+				BFCED8AD1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift */,
+				BFCED8B01DEEC1C700A26AB3 /* RadioButton.swift */,
+			);
+			path = SSRadioButtonController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +355,8 @@
 			files = (
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
 				BF1EAA061DED47BC00A4B3A3 /* EditDetailViewController.swift in Sources */,
+				BFCED8B51DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift in Sources */,
+				BFCED8AE1DEEBE2C00A26AB3 /* SSRadioButton.swift in Sources */,
 				BF1EA9EC1DE2700100A4B3A3 /* DefinitionTabViewController.swift in Sources */,
 				BF1EA9FA1DE3C15100A4B3A3 /* HomeTabBarController.swift in Sources */,
 				BF1EA9EA1DE2700100A4B3A3 /* SearchViewController.swift in Sources */,
@@ -343,8 +371,12 @@
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,
 				BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */,
 				42F2BE4F1DED21A60055AE27 /* CameraPickerController.swift in Sources */,
+				BFCED8B91DEFFA3500A26AB3 /* EditDetailTableViewCell.swift in Sources */,
+				BFCED8B11DEEC1C700A26AB3 /* RadioButton.swift in Sources */,
+				BFCED8AF1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift in Sources */,
 				BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */,
 				42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */,
+				BFCED8B71DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift in Sources */,
 				423D6D7F1DECF35500F66EA4 /* MoviePost.swift in Sources */,
 				BF1EA9E91DE2700100A4B3A3 /* WordDetailViewController.swift in Sources */,
 			);
