@@ -42,28 +42,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         }
         
         
-        //setupMiddleButton()
     }
-
-    /*
-    func setupMiddleButton() {
-        menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60
-        ))
-        var menuButtonFrame = menuButton.frame
-        menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height
-        menuButtonFrame.origin.x = self.view.bounds.width/2 - menuButtonFrame.size.width/2
-        menuButton.frame = menuButtonFrame
-        
-        menuButton.layer.cornerRadius = menuButtonFrame.height/2
-        self.tabBarController?.view.addSubview(menuButton)
-        menuButton.addTarget(self, action: #selector(HomeViewController.takeVideo), for: UIControlEvents.touchUpInside)
-        
-        menuButton.setImage(#imageLiteral(resourceName: "addButton"),
-                            for: UIControlState.normal)
-    }
- */
-    
-    
 
     
     override var prefersStatusBarHidden: Bool {
@@ -101,7 +80,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         cell.likeCountLabel.text = String(post.likes)
         cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
         cell.subtitleLabel.text = post.subtitles
-        cell.wordButton.titleLabel?.text = post.word
+        cell.wordButton.setTitle(post.word, for: .normal)
         cell.usernameLabel.text = "@chantellepaige"
         cell.shortDefintionLabel.text = post.shortDefinition
 

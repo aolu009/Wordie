@@ -30,47 +30,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         UITextField.appearance().tintColor = UIColor.green
         
-//        if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook"){
-//        
-//            if facebookDefaults as? Bool == true {
-//                //sign in with FB
-//                if let accessToken = UserDefaults.standard.object(forKey: "accesstoken") as? String
-//                {
-//                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
-//                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-//                        // ...
-//                        if let error = error {
-//                            // ...
-//                            return
-//                        }
-//                    }
-//                    
-//                }
-//                
-//                showHomeScreen()
-//                
-//                
-//            }
-//            else if facebookDefaults as? Bool == false {
-//                //signinwithEmail
-//                
-//                let email =  UserDefaults.standard.value(forKey: "email") as! String
-//                let password =  UserDefaults.standard.value(forKey: "password") as! String
-//                
-//                FIRAuth.auth()!.signIn(withEmail: email,
-//                                       password: password)
-//                
-//                showHomeScreen()
-//                
-//            }
-//        }
-//
-//        if UserDefaults.standard.value(forKey: "facebook") == nil
-//        {
-//            showLogin()
-//
-//        }
-        showWelcome()
+        if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook"){
+        
+            if facebookDefaults as? Bool == true {
+                //sign in with FB
+                if let accessToken = UserDefaults.standard.object(forKey: "accesstoken") as? String
+                {
+                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
+                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                        // ...
+                        if let error = error {
+                            // ...
+                            return
+                        }
+                    }
+                    
+                }
+                
+                showHomeScreen()
+                
+                
+            }
+            else if facebookDefaults as? Bool == false {
+                //signinwithEmail
+                
+                let email =  UserDefaults.standard.value(forKey: "email") as! String
+                let password =  UserDefaults.standard.value(forKey: "password") as! String
+                
+                FIRAuth.auth()!.signIn(withEmail: email,
+                                       password: password)
+                
+                showHomeScreen()
+                
+            }
+        }
+
+        if UserDefaults.standard.value(forKey: "facebook") == nil
+        {
+            showWelcome()
+
+        }
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

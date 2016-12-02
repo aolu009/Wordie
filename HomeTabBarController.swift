@@ -37,7 +37,6 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         vc2.tabBarItem.image = UIImage(named: "search")
         
         let vc3 = storyboardM.instantiateViewController(withIdentifier: "CameraPickerController") as! CameraPickerController
-        vc3.tabBarItem.title = "123"
         vc3.tabBarItem.image = UIImage(named: "addButton")
         //vc3.tabBarItem.selectedImage
         
@@ -52,12 +51,11 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         vc5.tabBarItem.image = UIImage(named: "profile")
 
         
-        
-        
         // Set up the Tab Bar Controller to have four tabs
         
         self.viewControllers = [vc1, vc2, vc3, vc4, vc5]
         
+        setupMiddleButton()
 
         
     }
@@ -73,6 +71,32 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
                     }
         
     }
+    
+    
+    func setupMiddleButton() {
+        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        var menuButtonFrame = menuButton.frame
+        menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height
+        menuButtonFrame.origin.x = self.view.bounds.width/2 - menuButtonFrame.size.width/2
+        menuButton.frame = menuButtonFrame
+        
+        menuButton.layer.cornerRadius = menuButtonFrame.height/2
+        view.addSubview(menuButton)
+        menuButton.addTarget(self, action: #selector(self.presentCameraPicker), for: UIControlEvents.touchUpInside)
+        
+        menuButton.setImage(#imageLiteral(resourceName: "addButton"),
+                            for: UIControlState.normal)
+    }
+    
+    func presentCameraPicker()
+    {
+        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "CameraPickerController") as! CameraPickerController
+        self.present( nxtNVC, animated: true, completion: nil)
+    }
+ 
+    
+
     
    
     
