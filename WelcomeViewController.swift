@@ -18,7 +18,8 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
-    
+    var playerLooper: AVPlayerLooper?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
 
 
         
-        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_4558.MOV.mov?alt=media&token=9631963d-0f0d-42c2-ba72-47ac12f1962c")
+        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_3445.mov?alt=media&token=8dfd70d0-a635-4250-abf5-eca4eae9ab8e")
         
         
         
@@ -37,16 +38,25 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         else{
             player = AVPlayer(url: videoURL!)
             playerLayer = AVPlayerLayer(player: player)
-            
+
         }
         
         if let pL = playerLayer {
             pL.frame = self.view.frame
             view.layer.addSublayer(pL)
         }
+
         view.layer.insertSublayer(playerLayer!, at: 0)
         
         player?.play()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(WelcomeViewController.playerItemDidReachEnd(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem)
+
+        
+//        NotificationCenter.default.addObserver(self,
+//                                                         selector: "playerItemDidReachEnd:",
+//                                                         name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+//                                                         object: self.player?.currentItem)
         
         
     }
@@ -55,6 +65,11 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    func playerItemDidReachEnd(notification: NSNotification) {
+        self.player?.seek(to: kCMTimeZero)
+        self.player?.play()
     }
     
 
