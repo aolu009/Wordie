@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         //Connect Firebase
         FIRApp.configure()
         
+        UIApplication.shared.statusBarStyle = .lightContent
+
         
         let tabBar = UITabBar.appearance()
         tabBar.barTintColor = UIColor.clear
