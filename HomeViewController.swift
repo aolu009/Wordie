@@ -23,21 +23,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     @IBOutlet weak var featuredButton: UIButton!
     var menuButton: UIButton!
-    
-    @IBOutlet weak var likeButton: UIButton!
-    
-    @IBOutlet weak var profilePhotoImageView: UIImageView!
-    
-    @IBOutlet weak var likeCountLabel: UILabel!
-    @IBOutlet weak var reportButton: UIButton!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var featuredLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var wordButton: UIButton!
-    
-    @IBOutlet weak var subtitleLabel: UILabel!
-    var videoArray = [String]()
-    //var currentMovieURL = videoArray[visibleIndexPath] ?? nil
+
+    var videoArray = [MoviePost]()
+    var currentMovieURL: URL?
+    let refreshControl = UIRefreshControl()
 
     
     
@@ -151,7 +140,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let visibleRect = CGRect(origin: customTableView.contentOffset, size: customTableView.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath = customTableView.indexPathForRow(at: visiblePoint)
-        //currentMovieURL = videoArray[visibleIndexPath]
+        currentMovieURL = videoArray[(visibleIndexPath?.row)!].url
 
         let cell = customTableView.cellForRow(at: visibleIndexPath!) as! HomeTableViewCell
         
@@ -193,10 +182,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         //update moviePost
         let ref = FIRDatabase.database().reference().child("movie_posts")
         
-      // if currentMovieURL != nil
-       //{
+       if currentMovieURL != nil
+       {
         
-       // }
+        }
 
         
         ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in

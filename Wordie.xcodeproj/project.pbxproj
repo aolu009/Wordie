@@ -211,6 +211,7 @@
 				BFCED8B41DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift */,
 				BFCED8B61DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift */,
 				BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */,
+				4200DFF31DF01E8C005D544D /* InputTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
