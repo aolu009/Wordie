@@ -114,13 +114,15 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         
         
         self.dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "UserInputViewController") as! UserInputViewController
+        self.present( nxtNVC, animated: true, completion: nil)
 
         FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount, complete: {
             // Dissmissing the camera after successfully upload thus use complete handle
             // Add HUD while loading
             
         })
-        
         PHPhotoLibrary.shared().performChanges({
             PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url )
             
