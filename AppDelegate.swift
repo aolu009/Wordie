@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         let tabBar = UITabBar.appearance()
         tabBar.barTintColor = UIColor.clear
+        tabBar.tintColor = UIColor.white
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
