@@ -17,10 +17,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     var currentUserID: String?
-    
-    var emailTextField = UITextField()
-    var passwordTextField = UITextField()
-    
+        
     var cell1: InputTableViewCell?
     var cell2: InputTableViewCell?
 
@@ -86,9 +83,12 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func storeUser()
     {
+        let email = cell1!.textField.text
+        let pw = cell2!.textField.text
+        
         UserDefaults.standard.setValue(false, forKey: "facebook")
-        UserDefaults.standard.setValue(emailTextField.text!, forKey: "email")
-        UserDefaults.standard.setValue(passwordTextField.text!, forKey: "password")
+        UserDefaults.standard.setValue(email!, forKey: "email")
+        UserDefaults.standard.setValue(pw!, forKey: "password")
 
     }
     

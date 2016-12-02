@@ -13,8 +13,6 @@ import Firebase
 
 class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     var currentUserID: String?
 
     var cell1: InputTableViewCell?
@@ -68,53 +66,25 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let email = cell1!.textField.text
         let pw = cell2!.textField.text
         
-        let alert = UIAlertController(title: "Register",
-                                      message: "Register",
-                                      preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default) { action in
-                                        let userName = alert.textFields![2]
-                                        let emailField = alert.textFields![0]
-                                        let passwordField = alert.textFields![1]
+        FIRAuth.auth()!.createUser(withEmail: email!,
+                                   password: pw!) { user, error in
+                                    if error == nil {
+                                        FIRAuth.auth()!.signIn(withEmail: email!,
+                                                               password: pw!)
                                         
-                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-                                                                   password: passwordField.text!) { user, error in
-                                                                    if error == nil {
-                                                                        FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!,
-                                                                                               password: self.passwordTextField.text!)
-                                                                        
-                                                                        self.storeUser()
-                                                                        
-                                                                        self.getCurrentUser()
-                                                                        FirebaseClient.sharedInstance.createNewUser(userEmail: emailField.text, userID: user?.uid, userName: userName.text)
-                                                                        
-                                                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
-                                                                    }
-                                        }
+                                        self.storeUser()
+                                        
+                                        self.getCurrentUser()
+                                        FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: "nil")
+                                        
+                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
+                                        
+                                    }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
-        
-        alert.addTextField { textEmail in
-            textEmail.placeholder = "Enter your email"
-        }
-        alert.addTextField { textPassword in
-            textPassword.isSecureTextEntry = true
-            textPassword.placeholder = "Enter your password"
-        }
-        alert.addTextField { userName in
-            userName.placeholder = "Enter your User Name"
-        }
-        
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
     }
     
+        
     
     
     @IBAction func onFBLoginPressed(_ sender: UIButton) {
@@ -166,9 +136,12 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func storeUser()
     {
+        let email = cell1!.textField.text
+        let pw = cell2!.textField.text
+        
         UserDefaults.standard.setValue(false, forKey: "facebook")
-        UserDefaults.standard.setValue(emailTextField.text!, forKey: "email")
-        UserDefaults.standard.setValue(passwordTextField.text!, forKey: "password")
+        UserDefaults.standard.setValue(email!, forKey: "email")
+        UserDefaults.standard.setValue(pw!, forKey: "password")
         
     }
     
