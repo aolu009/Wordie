@@ -109,7 +109,7 @@ class FirebaseClient {
     
 
 
-    func createNewVideoObject(url:URL, movieCount: Int, complete:@escaping () -> Void) -> Void {
+    func createNewVideoObject(url:URL, movieCount: Int, description: String, likes: Int, featured: Bool, definition: String, word: String, subtitles: String, userID: String, complete:@escaping () -> Void) -> Void {
         let videoUploadedRef = FIRStorage.storage().reference(withPath: "video_uploaded")
         
         let videoRef = videoUploadedRef.child(String(movieCount))
@@ -123,6 +123,25 @@ class FirebaseClient {
             let videoRef = videoPostRef.child(token)
             let videoUrlRef = videoRef.child("video_url")
             videoUrlRef.setValue(text!)
+            let descriptionRef = videoRef.child("description")
+            descriptionRef.setValue(description)
+            let likesRef = videoRef.child("likes")
+            likesRef.setValue(likes)
+            let featuredRef = videoRef.child("is_featured")
+            featuredRef.setValue(featured)
+            let defRef = videoRef.child("short_definition")
+            defRef.setValue(definition)
+            let subtitleRef = videoRef.child("subtitles")
+            subtitleRef.setValue(subtitles)
+            let userRef = videoRef.child("userID")
+            userRef.setValue(userID)
+            let timestampRef = videoRef.child("timestamp")
+            
+            let objectToSave: Dictionary<String, Any> = ["timestamp": [".sv": "timestamp"]]
+            timestampRef.setValue(objectToSave)
+
+          let wordRef = videoRef.child("word")
+
             print("media url: \(text)")
             print("Token: \(token)")
             complete()

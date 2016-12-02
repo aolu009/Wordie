@@ -51,6 +51,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
             self.videoArray = videos!
             self.customTableView.reloadData()
+            self.refreshControl.endRefreshing()
+
         }
     }
 
