@@ -114,8 +114,7 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         
         
         self.dismiss(animated: true, completion: nil)
-        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
-        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "UserInputViewController") as! UserInputViewController
+        let nxtVC = UserInputViewController.instantiateCustom(movieURL: url, count: movieCount)
         self.present( nxtNVC, animated: true, completion: nil)
 
         FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount, complete: {
