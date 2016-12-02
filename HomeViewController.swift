@@ -23,21 +23,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     @IBOutlet weak var featuredButton: UIButton!
     var menuButton: UIButton!
-    
-    @IBOutlet weak var likeButton: UIButton!
-    
-    @IBOutlet weak var profilePhotoImageView: UIImageView!
-    
-    @IBOutlet weak var likeCountLabel: UILabel!
-    @IBOutlet weak var reportButton: UIButton!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var featuredLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var wordButton: UIButton!
-    
-    @IBOutlet weak var subtitleLabel: UILabel!
-    var videoArray = [String]()
-    var currentMovieURL = videoArray[visibleIndexPath] ?? nil
+
+    var videoArray = [MoviePost]()
+    var currentMovieURL: URL?
+    let refreshControl = UIRefreshControl()
 
     
     
@@ -47,56 +36,23 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: lineMenuLine)
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
-        view.bringSubview(toFront: likeButton)
-        view.bringSubview(toFront: profilePhotoImageView)
-        view.bringSubview(toFront: likeCountLabel)
-        view.bringSubview(toFront: reportButton)
-        view.bringSubview(toFront: usernameLabel)
-        view.bringSubview(toFront: featuredLabel)
-        view.bringSubview(toFront: descriptionLabel)
-        view.bringSubview(toFront: wordButton)
-        view.bringSubview(toFront: subtitleLabel)
 
-
-        FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (videos) in
+        fetchTimeline()
+        
+        // Initialize a pull to refresh UIRefreshControl
+        refreshControl.addTarget(self, action: #selector(fetchTimeline), for: UIControlEvents.valueChanged)
+        // add refresh control to table view
+        customTableView.insertSubview(refreshControl, at: 0)
+        
+    }
+    
+    func fetchTimeline()
+    {
+        FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
             self.videoArray = videos!
             self.customTableView.reloadData()
         }
-        
-        
-        
-        
-        
-        //setupMiddleButton()
     }
-    override func viewWillAppear(_ animated: Bool){
-        videoArray = [String]()
-        FirebaseClient.sharedInstance.getArrayOfVideosUrlFromDatabase { (videos) in
-            self.videoArray = videos!
-            self.customTableView.reloadData()
-        }
-        self.customTableView.reloadData()
-        
-    }
-    /*
-    func setupMiddleButton() {
-        menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60
-        ))
-        var menuButtonFrame = menuButton.frame
-        menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height
-        menuButtonFrame.origin.x = self.view.bounds.width/2 - menuButtonFrame.size.width/2
-        menuButton.frame = menuButtonFrame
-        
-        menuButton.layer.cornerRadius = menuButtonFrame.height/2
-        self.tabBarController?.view.addSubview(menuButton)
-        menuButton.addTarget(self, action: #selector(HomeViewController.takeVideo), for: UIControlEvents.touchUpInside)
-        
-        menuButton.setImage(#imageLiteral(resourceName: "addButton"),
-                            for: UIControlState.normal)
-    }
- */
-    
-    
 
     
     override var prefersStatusBarHidden: Bool {
@@ -116,7 +72,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         
-        let videoURL = URL(string:videoArray[indexPath.row])
+        let post = videoArray[indexPath.row]
+        let videoURL = post.url
         
         if cell.player != nil {
             cell.player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
@@ -127,9 +84,22 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             
         }
         
+                
+        cell.descriptionLabel.text = post.postBody
+        cell.featuredLabel.text = post.featured
+        cell.likeCountLabel.text = String(post.likes)
+        cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
+        cell.subtitleLabel.text = post.subtitles
+        cell.wordButton.setTitle(post.word, for: .normal)
+        cell.usernameLabel.text = "@chantellepaige"
+        cell.shortDefintionLabel.text = post.shortDefinition
+
+        
+        
         // Set the initial last playing cell value
         if lastPlayingCell == nil {
             lastPlayingCell = cell
+
         }
         
         if let pL = cell.playerLayer {
@@ -144,7 +114,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                 
                 //play first cell
                 if indexPath.row == 0 {
+                    //bring view back
+                    cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
                     player.play()
+                    
                     
                 }
             }
@@ -167,7 +140,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let visibleRect = CGRect(origin: customTableView.contentOffset, size: customTableView.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath = customTableView.indexPathForRow(at: visiblePoint)
-        currentMovieURL = videoArray[visibleIndexPath]
+        currentMovieURL = videoArray[(visibleIndexPath?.row)!].url
 
         let cell = customTableView.cellForRow(at: visibleIndexPath!) as! HomeTableViewCell
         

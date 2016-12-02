@@ -9,12 +9,15 @@
 import UIKit
 import Firebase
 import AFNetworking
+import AVFoundation
+import MobileCoreServices
+import Photos
 
 
-
-class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINavigationControllerDelegate {
+class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    
+    var movieCount = Int()
+
     var word: Word?
     
     override func viewDidLoad() {
@@ -36,28 +39,30 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         //vc2.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.history, tag: 1)
         vc2.tabBarItem.image = UIImage(named: "search")
         
-        let vc3 = storyboardM.instantiateViewController(withIdentifier: "CameraPickerController") as! CameraPickerController
-        vc3.tabBarItem.title = "123"
+        let vc3 = storyboardM.instantiateViewController(withIdentifier: "HomeScreen") as! UIViewController
         vc3.tabBarItem.image = UIImage(named: "addButton")
         //vc3.tabBarItem.selectedImage
         
-        let vc4 = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! UINavigationController
-        vc4.delegate = self
+        let vc4 = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! UIViewController
         vc4.tabBarItem.title = ""
         vc4.tabBarItem.image = UIImage(named: "notifications")
         
-        let vc5 = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! UINavigationController
-        vc5.delegate = self
+        let vc5 = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! UIViewController
         vc5.tabBarItem.title = ""
         vc5.tabBarItem.image = UIImage(named: "profile")
 
         
-        
-        
         // Set up the Tab Bar Controller to have four tabs
         
         self.viewControllers = [vc1, vc2, vc3, vc4, vc5]
+    
         
+        FirebaseClient.sharedInstance.fetchMoviePosts { (urlArray) in
+            self.movieCount = (urlArray?.count)!
+        }
+        
+
+        setupMiddleButton()
 
         
     }
@@ -73,6 +78,60 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
                     }
         
     }
+    
+    
+    func setupMiddleButton() {
+        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        var menuButtonFrame = menuButton.frame
+        menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height
+        menuButtonFrame.origin.x = self.view.bounds.width/2 - menuButtonFrame.size.width/2
+        menuButton.frame = menuButtonFrame
+        
+        menuButton.layer.cornerRadius = menuButtonFrame.height/2
+        view.addSubview(menuButton)
+        menuButton.addTarget(self, action: #selector(self.presentCameraPicker), for: UIControlEvents.touchUpInside)
+        
+        menuButton.setImage(#imageLiteral(resourceName: "addButton"),
+                            for: UIControlState.normal)
+    }
+    
+    func presentCameraPicker()
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.videoQuality = UIImagePickerControllerQualityType.typeIFrame960x540//typeIFrame1280x720
+        imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
+        
+        present(imagePicker, animated: true, completion:nil)
+    }
+ 
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        let url = info[UIImagePickerControllerMediaURL] as! URL
+        
+        
+        self.dismiss(animated: true, completion: nil)
+
+        FirebaseClient.sharedInstance.createNewVideoObject(url: url, movieCount: self.movieCount, complete: {
+            // Dissmissing the camera after successfully upload thus use complete handle
+            // Add HUD while loading
+            
+        })
+        
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url )
+            
+        }, completionHandler:nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion:nil)
+    }
+
     
    
     

@@ -22,11 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         //Connect Firebase
         FIRApp.configure()
         
+        UIApplication.shared.statusBarStyle = .lightContent
+
         
         let tabBar = UITabBar.appearance()
         tabBar.barTintColor = UIColor.clear
+        tabBar.tintColor = UIColor.white
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
+        
+        UITextField.appearance().tintColor = UIColor.green
         
         if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook"){
         
@@ -65,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
 
         if UserDefaults.standard.value(forKey: "facebook") == nil
         {
-            showLogin()
+            showWelcome()
 
         }
         
@@ -85,13 +90,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
     }
 
-    func showLogin()
+    func showWelcome()
     {
         print("No current user logged in yet")
         
         let storyboard = UIStoryboard.init(name: "Malcolm.Main", bundle: nil)
         
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "WelcomeNav") as! UINavigationController
         
         
         window = UIWindow(frame: UIScreen.main.bounds)
