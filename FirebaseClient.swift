@@ -81,29 +81,34 @@ class FirebaseClient {
         return tokenString
     }
 
-    func getArrayOfVideosUrlFromDatabase(success: @escaping ([String]?) -> Void){
+    func fetchMoviePosts(success: @escaping ([MoviePost]?) -> Void){
         
-        var arrayOfVideoUrlString:[String] = [String]()
         let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
+        var posts = [MoviePost]()
         var test: [NSDictionary] = [NSDictionary]()
+
         
         videoPostRef.observe(.value, with: { snapshot in
-            let dic = snapshot.value as! [String:NSDictionary]
+            print(snapshot)
+            print("Timeline retrieved")
             
-            for moviePost in dic {
-                test.append(dic[moviePost.key]!)
+            if snapshot.exists() {
+                
+                let dic = snapshot.value as! [String:NSDictionary]
+                
+                for pair in dic {
+                    let mp = pair.value
+                    let post = MoviePost(dictionary: mp as! NSDictionary)
+                    posts.append(post)
+                }
+                
+                success(posts)
             }
-            
-            for abc in test{
-                let testingstring = abc["video_url"] as! String
-                arrayOfVideoUrlString.append(testingstring)
-            }
-            success(arrayOfVideoUrlString)
         })
-        
     }
     
-    
+
+
     func createNewVideoObject(url:URL, movieCount: Int, complete:@escaping () -> Void) -> Void {
         let videoUploadedRef = FIRStorage.storage().reference(withPath: "video_uploaded")
         
@@ -274,7 +279,7 @@ class FirebaseClient {
         let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
         let targetingvideoPost = videoPostRef.child(movieToken)
         let postbody = targetingvideoPost.child("postbody")
-        postbody.setValue(post.postbody)
+        postbody.setValue(post.postBody)
         let likes = targetingvideoPost.child("likes")
         likes.setValue(post.likes)
         let shortDefinition = targetingvideoPost.child("shortDefinition")
@@ -284,7 +289,7 @@ class FirebaseClient {
         let timeStamp = targetingvideoPost.child("timeStamp")
         timeStamp.setValue(post.timeStamp)
         let user = targetingvideoPost.child("user")
-        user.setValue(post.user)
+        user.setValue(post.userID)
         let word = targetingvideoPost.child("word")
         word.setValue(post.word)
         complete()

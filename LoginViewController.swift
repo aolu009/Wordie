@@ -10,19 +10,61 @@ import UIKit
 import FirebaseAuth
 import FBSDKCoreKit
 import FBSDKLoginKit
+import AVFoundation
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    
-    @IBOutlet weak var passwordTextField: UITextField!
-    
+    var player: AVPlayer?
+    var playerLayer: AVPlayerLayer?
     var currentUserID: String?
+        
+    var cell1: InputTableViewCell?
+    var cell2: InputTableViewCell?
 
-    
       override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "LOG IN"
+        
+        self.navigationController?.isNavigationBarHidden = false
+
+
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! InputTableViewCell
+        
+        if indexPath.row == 0 {
+            let placeholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            cell.textField.attributedPlaceholder = placeholder
+            cell.iconImageView.image = #imageLiteral(resourceName: "email")
+            cell.iconImageView.tintColor = UIColor.white
+            cell1 = cell
+            
+            
+        }
+        if indexPath.row == 1 {
+            let placeholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            cell.textField.attributedPlaceholder = placeholder
+            cell.iconImageView.image = #imageLiteral(resourceName: "password")
+            cell.iconImageView.tintColor = UIColor.white
+            cell.textField.isSecureTextEntry = true
+            cell2 = cell
+
+        }
+
+    
+        
+        return cell
     }
     
     
@@ -41,16 +83,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func storeUser()
     {
+        let email = cell1!.textField.text
+        let pw = cell2!.textField.text
+        
         UserDefaults.standard.setValue(false, forKey: "facebook")
-        UserDefaults.standard.setValue(emailTextField.text!, forKey: "email")
-        UserDefaults.standard.setValue(passwordTextField.text!, forKey: "password")
+        UserDefaults.standard.setValue(email!, forKey: "email")
+        UserDefaults.standard.setValue(pw!, forKey: "password")
 
     }
     
     
     @IBAction func onLoginButtonPressed(_ sender: UIButton) {
-        FIRAuth.auth()!.signIn(withEmail: emailTextField.text!,
-                               password: passwordTextField.text!)
+        print(cell1?.textField.text)
+        
+        let email = cell1!.textField.text
+        let pw = cell2!.textField.text
+
+        FIRAuth.auth()!.signIn(withEmail: email!,
+                               password: pw!)
         storeUser()
         
         self.getCurrentUser()
@@ -58,56 +108,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "homeSegue", sender: nil)
         
     }
-    
-    @IBAction func onSignUpButtonPressed(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "Register",
-                                      message: "Register",
-                                      preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default) { action in
-                                        let userName = alert.textFields![2]
-                                        let emailField = alert.textFields![0]
-                                        let passwordField = alert.textFields![1]
-                                        
-                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-                                                                   password: passwordField.text!) { user, error in
-                                                                    if error == nil {
-                                                                        FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!,
-                                                                                               password: self.passwordTextField.text!)
-                                                                        
-                                                                        self.storeUser()
-                                                                        
-                                                                        self.getCurrentUser()
-                                                                        FirebaseClient.sharedInstance.createNewUser(userEmail: emailField.text, userID: user?.uid, userName: userName.text)
-                                                                        
-                                                                        self.performSegue(withIdentifier: "homeSegue", sender: nil)
-                                                                    }
-                                        }
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
-        
-        alert.addTextField { textEmail in
-            textEmail.placeholder = "Enter your email"
-        }
-        alert.addTextField { textPassword in
-            textPassword.isSecureTextEntry = true
-            textPassword.placeholder = "Enter your password"
-        }
-        alert.addTextField { userName in
-            userName.placeholder = "Enter your User Name"
-        }
-        
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
     
     
     @IBAction func onFBLoginPressed(_ sender: UIButton) {
@@ -174,6 +174,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                }
             })
         }
+    
+
+    
     
     
     
