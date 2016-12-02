@@ -26,6 +26,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
 
     var videoArray = [MoviePost]()
     var currentMovieURL: URL?
+    let refreshControl = UIRefreshControl()
 
     
     
@@ -36,12 +37,21 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
 
+        fetchTimeline()
+        
+        // Initialize a pull to refresh UIRefreshControl
+        refreshControl.addTarget(self, action: #selector(fetchTimeline), for: UIControlEvents.valueChanged)
+        // add refresh control to table view
+        customTableView.insertSubview(refreshControl, at: 0)
+        
+    }
+    
+    func fetchTimeline()
+    {
         FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
             self.videoArray = videos!
             self.customTableView.reloadData()
         }
-        
-        
     }
 
     

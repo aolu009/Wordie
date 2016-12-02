@@ -337,10 +337,10 @@
             </objects>
             <point key="canvasLocation" x="-3923" y="-1170"/>
         </scene>
-        <!--Camera Picker Controller-->
+        <!--View Controller-->
         <scene sceneID="w2x-vJ-q1m">
             <objects>
-                <viewController storyboardIdentifier="CameraPickerController" id="Ynq-tt-Jcw" customClass="CameraPickerController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScreen" id="Ynq-tt-Jcw" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a9b-e0-yBR"/>
                         <viewControllerLayoutGuide type="bottom" id="f69-Co-bwV"/>
