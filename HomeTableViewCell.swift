@@ -47,6 +47,10 @@ class HomeTableViewCell: UITableViewCell {
             plyr.actionAtItemEnd = .none
             plyr.play()
         }
+//        MBProgressHUD.hide(MBProgressHUD)
+//        MBProgressHUD.hide(loadingNotification)
+        MBProgressHUD.hide(for: self.contentView, animated: true)
+
         loadingNotification?.isHidden = true
         (loadingNotification?.removeFromSuperViewOnHide)!
 

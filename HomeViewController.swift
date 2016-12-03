@@ -118,7 +118,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                 if indexPath.row == 0 {
                     //bring view back
                     cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
-                    player.play()
+                    cell.playVideo()
                     
                     
                 }
