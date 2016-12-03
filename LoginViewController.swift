@@ -121,14 +121,15 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
             } else if (facebookResult?.isCancelled)! {
                 print("Facebook login was cancelled.")
             } else {
-                print("You’re inz")
                 
                 let accessToken = FBSDKAccessToken.current().tokenString
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken!)
 
                 
                 UserDefaults.standard.setValue(true, forKey: "facebook")
-                UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
+                UserDefaults.standard.setValue(accessToken, forKey: "accesstoken")
+                
+                print(UserDefaults.standard.data(forKey: "accesstoken"))
                 
                 self.fetchCurrentUserFBData()
                 

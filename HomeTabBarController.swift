@@ -115,7 +115,7 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         
         self.dismiss(animated: true, completion: nil)
         let nxtVC = UserInputViewController.instantiateCustom(movieURL: url, count: movieCount)
-        self.present( nxtNVC, animated: true, completion: nil)
+        self.present( nxtVC, animated: true, completion:nil)
 
         PHPhotoLibrary.shared().performChanges({
             PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url )

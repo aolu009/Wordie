@@ -14,9 +14,9 @@
 		4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */; };
 		4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250867E1DE309DB00D3B202 /* HomeViewController.swift */; };
 		425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425086801DE30A1300D3B202 /* HomeTableViewCell.swift */; };
+		4258BEE91DF277AC00418750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4258BEE81DF277AC00418750 /* GoogleService-Info.plist */; };
 		42C8A2701DE7B73600AC6ED9 /* UserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */; };
 		42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CCA1F71DE3B01400223D6E /* LoginViewController.swift */; };
-		42CCA1FA1DE3BAB400223D6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42CCA1F91DE3BAB400223D6E /* GoogleService-Info.plist */; };
 		BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */; };
 		BF1EA9D31DE26DC200A4B3A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9D11DE26DC200A4B3A3 /* LaunchScreen.storyboard */; };
 		BF1EA9E01DE26EFE00A4B3A3 /* Louis.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9DF1DE26EFE00A4B3A3 /* Louis.Main.storyboard */; };
@@ -53,9 +53,9 @@
 		4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Malcolm.Main.storyboard; sourceTree = "<group>"; };
 		4250867E1DE309DB00D3B202 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		425086801DE30A1300D3B202 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		4258BEE81DF277AC00418750 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputViewController.swift; sourceTree = "<group>"; };
 		42CCA1F71DE3B01400223D6E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		42CCA1F91DE3BAB400223D6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42F2BE501DED43D80055AE27 /* Wordie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wordie.entitlements; sourceTree = "<group>"; };
 		698B7384369BA83D54F93CAC /* Pods-Wordie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wordie/Pods-Wordie.release.xcconfig"; sourceTree = "<group>"; };
 		BF1EA9C51DE26DC200A4B3A3 /* Wordie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,10 +143,10 @@
 				BF1EA9E41DE26F9700A4B3A3 /* Views */,
 				BF1EA9E31DE26F8E00A4B3A3 /* API */,
 				BF1EA9F51DE2709400A4B3A3 /* AppDelegate.swift */,
-				42CCA1F91DE3BAB400223D6E /* GoogleService-Info.plist */,
 				BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */,
 				BF1EA9D11DE26DC200A4B3A3 /* LaunchScreen.storyboard */,
 				BF1EA9DC1DE26E2E00A4B3A3 /* Info.plist */,
+				4258BEE81DF277AC00418750 /* GoogleService-Info.plist */,
 			);
 			path = Wordie;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 				TargetAttributes = {
 					BF1EA9C41DE26DC200A4B3A3 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = QF43K5VRQT;
+						DevelopmentTeam = JC68KFVHSJ;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -298,7 +298,7 @@
 			files = (
 				BF1EA9D31DE26DC200A4B3A3 /* LaunchScreen.storyboard in Resources */,
 				4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */,
-				42CCA1FA1DE3BAB400223D6E /* GoogleService-Info.plist in Resources */,
+				4258BEE91DF277AC00418750 /* GoogleService-Info.plist in Resources */,
 				BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */,
 				BF1EA9E01DE26EFE00A4B3A3 /* Louis.Main.storyboard in Resources */,
 			);
@@ -379,7 +379,6 @@
 				4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */,
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,
 				BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */,
-				42F2BE4F1DED21A60055AE27 /* CameraPickerController.swift in Sources */,
 				BFCED8B91DEFFA3500A26AB3 /* EditDetailTableViewCell.swift in Sources */,
 				BFCED8B11DEEC1C700A26AB3 /* RadioButton.swift in Sources */,
 				BFCED8AF1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift in Sources */,
@@ -506,11 +505,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Wordie/Wordie.entitlements;
-				DEVELOPMENT_TEAM = QF43K5VRQT;
+				DEVELOPMENT_TEAM = JC68KFVHSJ;
 				INFOPLIST_FILE = Wordie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = parry.1010a;
+				PRODUCT_BUNDLE_IDENTIFIER = Louis.Wordie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -522,11 +521,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Wordie/Wordie.entitlements;
-				DEVELOPMENT_TEAM = QF43K5VRQT;
+				DEVELOPMENT_TEAM = JC68KFVHSJ;
 				INFOPLIST_FILE = Wordie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = parry.1010a;
+				PRODUCT_BUNDLE_IDENTIFIER = Louis.Wordie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
