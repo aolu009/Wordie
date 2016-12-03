@@ -16,7 +16,8 @@ class HomeTableViewCell: UITableViewCell {
 
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
-    
+    var loadingNotification: MBProgressHUD?
+
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     
     @IBOutlet weak var likeCountLabel: UILabel!
@@ -34,6 +35,11 @@ class HomeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
+        loadingNotification?.mode = MBProgressHUDMode.indeterminate
+        loadingNotification?.label.text = "fetching :)"
+        sendSubview(toBack: loadingNotification!)
     }
     
     func playVideo() {
@@ -41,9 +47,12 @@ class HomeTableViewCell: UITableViewCell {
             plyr.actionAtItemEnd = .none
             plyr.play()
         }
-        //bring view back
-        contentView.layer.insertSublayer(playerLayer!, at: 0)
+        loadingNotification?.isHidden = true
+        (loadingNotification?.removeFromSuperViewOnHide)!
 
+
+        //bring view back
+        contentView.layer.insertSublayer(playerLayer!, at: 1)
         
         
     }
@@ -73,9 +82,6 @@ class HomeTableViewCell: UITableViewCell {
         bringSubview(toFront: subtitleLabel)
         
         
-        let loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.indeterminate
-        loadingNotification.labelText = "Loading"
     }
 
 

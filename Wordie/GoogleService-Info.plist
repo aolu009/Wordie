@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>958656582468-t62j93m4j026tr0lup4l1flf0q81gj31.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.958656582468-t62j93m4j026tr0lup4l1flf0q81gj31</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBfUJ6a7uEmYSmV4iTeCGA08KbdSg36KiI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>958656582468</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Louis.Wordie</string>
+	<key>PROJECT_ID</key>
+	<string>wordie-fd9cb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wordie-fd9cb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:958656582468:ios:38312d97de26a30a</string>
+	<key>DATABASE_URL</key>
+	<string>https://wordie-fd9cb.firebaseio.com</string>
+</dict>
+</plist>

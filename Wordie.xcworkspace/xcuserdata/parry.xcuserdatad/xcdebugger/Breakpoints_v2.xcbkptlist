@@ -74,12 +74,12 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/FirebaseClient.swift"
-                  timestampString = "502427043.4994"
+                  timestampString = "502432119.415338"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
                   endingLineNumber = "117"
-                  offsetFromSymbolStart = "544">
+                  offsetFromSymbolStart = "791">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -89,12 +89,12 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/FirebaseClient.swift"
-                  timestampString = "502427043.500737"
+                  timestampString = "502432119.41846"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"
                   endingLineNumber = "119"
-                  offsetFromSymbolStart = "136">
+                  offsetFromSymbolStart = "208">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -145,6 +145,38 @@
             endingLineNumber = "41"
             landmarkName = "onProceedButtonPressed(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.UserInputViewController.onProceedButtonPressed (__ObjC.UIButton) -&gt; ()"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/UserInputViewController.swift"
+                  timestampString = "502432119.433572"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "402">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.UserInputViewController.(onProceedButtonPressed (__ObjC.UIButton) -&gt; ()).(closure #1)"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/UserInputViewController.swift"
+                  timestampString = "502432119.436349"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -169,14 +201,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppDelegate.swift"
-            timestampString = "502425274.026194"
+            filePath = "LoginViewController.swift"
+            timestampString = "502429688.090476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "onFBLoginPressed(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.LoginViewController.(onFBLoginPressed (__ObjC.UIButton) -&gt; ()).(closure #1)"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/LoginViewController.swift"
+                  timestampString = "502432119.450201"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "2615">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.LoginViewController.(onFBLoginPressed (__ObjC.UIButton) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/LoginViewController.swift"
+                  timestampString = "502432119.453346"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,13 +250,141 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginViewController.swift"
-            timestampString = "502425461.399414"
+            timestampString = "502429688.971896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "onFBLoginPressed(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SignUpViewController.swift"
+            timestampString = "502429942.829059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "onSignUpButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SignUpViewController.swift"
+            timestampString = "502429950.272852"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "onFBLoginPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.SignUpViewController.(onFBLoginPressed (__ObjC.UIButton) -&gt; ()).(closure #1)"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
+                  timestampString = "502432119.467718"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "2325">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.SignUpViewController.(onFBLoginPressed (__ObjC.UIButton) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
+                  timestampString = "502432119.470969"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SignUpViewController.swift"
+            timestampString = "502429951.667652"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "onFBLoginPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SignUpViewController.swift"
+            timestampString = "502429954.861531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "onFBLoginPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.SignUpViewController.onFBLoginPressed (__ObjC.UIButton) -&gt; ()"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
+                  timestampString = "502432119.490106"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "209">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.SignUpViewController.(onFBLoginPressed (__ObjC.UIButton) -&gt; ()).(closure #1)"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
+                  timestampString = "502432119.493245"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
