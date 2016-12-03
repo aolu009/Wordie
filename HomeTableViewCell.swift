@@ -9,6 +9,8 @@
 import UIKit
 import AVKit
 import AVFoundation
+import MBProgressHUD
+
 
 class HomeTableViewCell: UITableViewCell {
 
@@ -69,6 +71,11 @@ class HomeTableViewCell: UITableViewCell {
         bringSubview(toFront: descriptionLabel)
         bringSubview(toFront: wordButton)
         bringSubview(toFront: subtitleLabel)
+        
+        
+        let loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.labelText = "Loading"
     }
 
 
