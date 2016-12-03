@@ -74,7 +74,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/LoginViewController.swift"
-                  timestampString = "502497957.276029"
+                  timestampString = "502498090.755744"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "138"
@@ -89,7 +89,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/LoginViewController.swift"
-                  timestampString = "502497957.278183"
+                  timestampString = "502498090.757216"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "140"
@@ -154,7 +154,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
-                  timestampString = "502497957.290472"
+                  timestampString = "502498090.765812"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "114"
@@ -169,7 +169,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
-                  timestampString = "502497957.292909"
+                  timestampString = "502498090.768198"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
@@ -218,7 +218,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
-                  timestampString = "502497957.298482"
+                  timestampString = "502498090.784494"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "95"
@@ -233,7 +233,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
-                  timestampString = "502497957.299807"
+                  timestampString = "502498090.785866"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
@@ -241,86 +241,6 @@
                   offsetFromSymbolStart = "28">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HomeViewController.swift"
-            timestampString = "502497437.423278"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "LoadObserver()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HomeViewController.swift"
-            timestampString = "502497505.447683"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "LoadObserver()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Wordie.HomeViewController.LoadObserver () -&gt; ()"
-                  moduleName = "Wordie"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/HomeViewController.swift"
-                  timestampString = "502497957.305078"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Wordie.HomeViewController.(LoadObserver () -&gt; ()).(closure #1)"
-                  moduleName = "Wordie"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/HomeViewController.swift"
-                  timestampString = "502497957.306392"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HomeViewController.swift"
-            timestampString = "502497581.931245"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "LoadObserver()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
