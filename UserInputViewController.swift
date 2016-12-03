@@ -15,14 +15,14 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var subtitleTextField: UITextField!
     @IBOutlet weak var captionTextField: UILabel!
     
-    var movieURL:String?
+    var movieURL:URL?
     var movieCount:Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    static func instantiateCustom(movieURL: String, count: Int) -> UserInputViewController
+    static func instantiateCustom(movieURL: URL, count: Int) -> UserInputViewController
     {
         let inputVC = UIStoryboard(name: "Malcolm.Main", bundle: nil).instantiateViewController(withIdentifier: "UserInputViewController") as! UserInputViewController
         inputVC.movieURL = movieURL
@@ -37,7 +37,7 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         let userID = FIRAuth.auth()?.currentUser?.uid
         
     
-        FirebaseClient.sharedInstance.createNewVideoObject(url: movieURL, movieCount: movieCount, description: captionTextField.text, word: wordTextField.text, likes: 0, featured: 0, definition: "fsggsfsgf", subtitles: subtitleTextField.text, userID: userID, complete: {
+        FirebaseClient.sharedInstance.createNewVideoObject(url: movieURL!, movieCount: movieCount!, description: captionTextField.text!, likes: 0, featured: false, definition: "fsggsfsgf", word: wordTextField.text!, subtitles: subtitleTextField.text!, userID: userID!, complete: {
             // Dissmissing the camera after successfully upload thus use complete handle
             // Add HUD while loading
             

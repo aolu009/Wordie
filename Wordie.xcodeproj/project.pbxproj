@@ -379,7 +379,6 @@
 				4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */,
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,
 				BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */,
-				42F2BE4F1DED21A60055AE27 /* CameraPickerController.swift in Sources */,
 				BFCED8B91DEFFA3500A26AB3 /* EditDetailTableViewCell.swift in Sources */,
 				BFCED8B11DEEC1C700A26AB3 /* RadioButton.swift in Sources */,
 				BFCED8AF1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift in Sources */,
@@ -510,7 +509,7 @@
 				INFOPLIST_FILE = Wordie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = parry.1010a;
+				PRODUCT_BUNDLE_IDENTIFIER = addfasfdas.dabu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -526,7 +525,7 @@
 				INFOPLIST_FILE = Wordie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = parry.1010a;
+				PRODUCT_BUNDLE_IDENTIFIER = addfasfdas.dabu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

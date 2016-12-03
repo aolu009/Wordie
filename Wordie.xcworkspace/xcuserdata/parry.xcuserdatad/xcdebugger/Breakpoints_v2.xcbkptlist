@@ -67,5 +67,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseClient.swift"
+            timestampString = "502424002.741974"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "createNewVideoObject(url:movieCount:description:likes:featured:definition:word:subtitles:userID:complete:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.FirebaseClient.createNewVideoObject (url : Foundation.URL, movieCount : Swift.Int, description : Swift.String, likes : Swift.Int, featured : Swift.Bool, definition : Swift.String, word : Swift.String, subtitles : Swift.String, userID : Swift.String, complete : () -&gt; ()) -&gt; ()"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/FirebaseClient.swift"
+                  timestampString = "502424035.32653"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "544">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wordie.FirebaseClient.(createNewVideoObject (url : Foundation.URL, movieCount : Swift.Int, description : Swift.String, likes : Swift.Int, featured : Swift.Bool, definition : Swift.String, word : Swift.String, subtitles : Swift.String, userID : Swift.String, complete : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "Wordie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parry/Desktop/CodePath/Wordie/FirebaseClient.swift"
+                  timestampString = "502424035.329579"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseClient.swift"
+            timestampString = "502424003.769797"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "createNewVideoObject(url:movieCount:description:likes:featured:definition:word:subtitles:userID:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseClient.swift"
+            timestampString = "502424008.317358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "createNewVideoObject(url:movieCount:description:likes:featured:definition:word:subtitles:userID:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
