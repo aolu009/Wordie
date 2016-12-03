@@ -38,6 +38,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
         view.bringSubview(toFront: progressView)
+        
+        progressView.isHidden = true
 
         
 
@@ -55,13 +57,21 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     func LoadObserver()
     {
+        progressView.isHidden = false
         let observer = FirebaseClient.sharedInstance.uploadTask?.observe(.progress) { snapshot in
             // A progress event occurred
             let progress = snapshot.progress?.fractionCompleted
             print(snapshot.progress)
             // NSProgress object
-            self.progressView.progress = Float(progress!)
+            let convertedProgress = Float(progress!)
+            self.progressView.progress = convertedProgress
             
+        }
+        
+        let successObserver = FirebaseClient.sharedInstance.uploadTask?.observe(.success) { snapshot in
+            print("success")
+            self.progressView.isHidden = true
+
         }
     }
     
