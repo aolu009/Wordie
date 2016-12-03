@@ -14,7 +14,7 @@
 		4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */; };
 		4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250867E1DE309DB00D3B202 /* HomeViewController.swift */; };
 		425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425086801DE30A1300D3B202 /* HomeTableViewCell.swift */; };
-		4258BEE31DF26A5000418750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4258BEE21DF26A5000418750 /* GoogleService-Info.plist */; };
+		4258BEE51DF26B5300418750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4258BEE41DF26B5300418750 /* GoogleService-Info.plist */; };
 		42C8A2701DE7B73600AC6ED9 /* UserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */; };
 		42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CCA1F71DE3B01400223D6E /* LoginViewController.swift */; };
 		BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */; };
@@ -53,7 +53,7 @@
 		4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Malcolm.Main.storyboard; sourceTree = "<group>"; };
 		4250867E1DE309DB00D3B202 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		425086801DE30A1300D3B202 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		4258BEE21DF26A5000418750 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Pictures/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4258BEE41DF26B5300418750 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputViewController.swift; sourceTree = "<group>"; };
 		42CCA1F71DE3B01400223D6E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		42F2BE501DED43D80055AE27 /* Wordie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wordie.entitlements; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */,
 				BF1EA9D11DE26DC200A4B3A3 /* LaunchScreen.storyboard */,
 				BF1EA9DC1DE26E2E00A4B3A3 /* Info.plist */,
-				4258BEE21DF26A5000418750 /* GoogleService-Info.plist */,
+				4258BEE41DF26B5300418750 /* GoogleService-Info.plist */,
 			);
 			path = Wordie;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 			files = (
 				BF1EA9D31DE26DC200A4B3A3 /* LaunchScreen.storyboard in Resources */,
 				4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */,
-				4258BEE31DF26A5000418750 /* GoogleService-Info.plist in Resources */,
+				4258BEE51DF26B5300418750 /* GoogleService-Info.plist in Resources */,
 				BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */,
 				BF1EA9E01DE26EFE00A4B3A3 /* Louis.Main.storyboard in Resources */,
 			);
