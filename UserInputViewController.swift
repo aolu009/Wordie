@@ -36,7 +36,8 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         //create new movie entry with entered properties
         let userID = FIRAuth.auth()?.currentUser?.uid
         
-    
+        //FIXME: not gettig a user id
+        
         FirebaseClient.sharedInstance.createNewVideoObject(url: movieURL!, movieCount: movieCount!, description: captionTextField.text!, likes: 0, featured: false, definition: "fsggsfsgf", word: wordTextField.text!, subtitles: subtitleTextField.text!, userID: userID!, complete: {
             // Dissmissing the camera after successfully upload thus use complete handle
             // Add HUD while loading
