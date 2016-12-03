@@ -15,6 +15,7 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var subtitleTextField: UITextField!
     @IBOutlet weak var captionTextField: UILabel!
     
+    @IBOutlet weak var progressView: UIProgressView!
     var movieURL:URL?
     var movieCount:Int?
 
@@ -33,28 +34,33 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func onProceedButtonPressed(_ sender: UIButton) {
         
+
+        uploadToFirebase()
+        dismiss(animated: true, completion: {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Upload"), object: nil)
+
+        })
+    }
+    
+    func uploadToFirebase()
+    {
         //create new movie entry with entered properties
         let userID = FIRAuth.auth()?.currentUser?.uid
         
         //FIXME: not gettig a user id
         
         FirebaseClient.sharedInstance.createNewVideoObject(url: movieURL!, movieCount: movieCount!, description: captionTextField.text!, likes: 0, featured: false, definition: "fsggsfsgf", word: wordTextField.text!, subtitles: subtitleTextField.text!, userID: userID!, complete: {
+            
             // Dissmissing the camera after successfully upload thus use complete handle
             // Add HUD while loading
             
         })
-
-        dismiss(animated: true, completion: nil)
     }
     
     
     
-    
-    
-    
-
-
 }
+
 
 
 

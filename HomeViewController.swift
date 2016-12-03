@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     let refreshControl = UIRefreshControl()
 
     
+    @IBOutlet weak var progressView: UIProgressView!
     
     
     override func viewDidLoad() {
@@ -36,6 +37,9 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: lineMenuLine)
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
+        view.bringSubview(toFront: progressView)
+
+        
 
         fetchTimeline()
         
@@ -44,7 +48,24 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         // add refresh control to table view
         customTableView.insertSubview(refreshControl, at: 0)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.LoadObserver), name: NSNotification.Name(rawValue: "Upload"), object: nil)
+
+        
     }
+    
+    func LoadObserver()
+    {
+        let observer = FirebaseClient.sharedInstance.uploadTask?.observe(.progress) { snapshot in
+            // A progress event occurred
+            let progress = snapshot.progress?.fractionCompleted
+            print(snapshot.progress)
+            // NSProgress object
+            self.progressView.progress = Float(progress!)
+            
+        }
+    }
+    
+
     
     func fetchTimeline()
     {
