@@ -129,7 +129,7 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
         case "Definition":
             
             if let definitions = self.dataSource?.editDetailViewControllerGetDefinition(){
-                return (definitions.count + 1)
+                return (definitions.count + 1)//
             }
             else{
                 return 0
@@ -173,7 +173,10 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
                 self.displayList?.append(selected)
                 print("Select:",self.displayList?.count)
             }
-            FirebaseClient.sharedInstance.addDefinitionToWord(word: self.word.text!, definition: self.definitions!,displayList: self.displayList!, complete: {(newDefinition, newDisplayList) in
+            FirebaseClient.sharedInstance.addDefinitionToWord(word: self.word.text!, definition: self.definitions!, complete: {(newDefinition) in
+                print("Select.size:",newDefinition?.count)
+            })
+            FirebaseClient.sharedInstance.addDefinitionDisplyList(word: self.word.text!, displayList: self.displayList!, complete: {(newDisplayList) in
                 print("Select.size:",newDisplayList?.count)
             })
         case "Example":

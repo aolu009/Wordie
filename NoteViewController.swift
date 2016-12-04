@@ -76,18 +76,19 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
                 if let definitionsDisplay = definitionsToDisplay{
                     self.definitionsToDisplay = definitionsDisplay
                 }
+                
+                //self.definitionTable.reloadData()
+            })
+            FirebaseClient.sharedInstance.getDefinitionDisplayList(word: vocabulary, complete: {(definitionsToDisplay) in
                 var idx = 0
                 self.definitionOnScreen = [String]()
+                
                 for definition in self.definitions!{
-                    if  idx < (self.definitionsToDisplay?.count)! && (self.definitionsToDisplay?[idx])! == true{
-                        self.definitionOnScreen.append(definition)
-                    }
-                    else{
+                    if  (idx < (self.definitionsToDisplay?.count)! && (self.definitionsToDisplay?[idx])! == true){ //idx < (self.definitionsToDisplay?.count)! &&
                         self.definitionOnScreen.append(definition)
                     }
                     idx+=1
                 }
-                
                 self.definitionTable.reloadData()
             })
             FirebaseClient.sharedInstance.getSelfDefinedExampleOnWord(word: vocabulary, complete: {(examples,examplesToDisplay) in
