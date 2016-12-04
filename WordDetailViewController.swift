@@ -28,6 +28,8 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         super.viewDidLoad()
         definitionTable.delegate = self
         definitionTable.dataSource = self
+        definitionTable.estimatedRowHeight = 300
+        definitionTable.rowHeight = UITableViewAutomaticDimension
         /*
         // checking if word info load properly
         if let word = self.word{ //dataSource?.wordDetailViewController()
@@ -74,7 +76,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
             if let word = self.word{
                 cell.categoryText.text = word.categories[indexPath.row]
                 cell.definitionText.text = word.definition[indexPath.row]
-                cell.exampleText.text = word.definitionAndExample[word.definition[indexPath.row]]
+                cell.exampleText.text = "Example:\n" + word.definitionAndExample[word.definition[indexPath.row]]!
             }
             return cell
         }

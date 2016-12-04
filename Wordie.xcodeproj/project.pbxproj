@@ -40,6 +40,8 @@
 		BFCED8B51DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8B41DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift */; };
 		BFCED8B71DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8B61DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift */; };
 		BFCED8B91DEFFA3500A26AB3 /* EditDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */; };
+		BFCED8BF1DF40CFB00A26AB3 /* SynonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8BE1DF40CFB00A26AB3 /* SynonymTableViewCell.swift */; };
+		BFCED8C11DF40D5200A26AB3 /* AntonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		BFCED8B41DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDefinitionTableViewCell.swift; sourceTree = "<group>"; };
 		BFCED8B61DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteExampleTableViewCell.swift; sourceTree = "<group>"; };
 		BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewCell.swift; sourceTree = "<group>"; };
+		BFCED8BE1DF40CFB00A26AB3 /* SynonymTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymTableViewCell.swift; sourceTree = "<group>"; };
+		BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntonymTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,8 @@
 				BFCED8B61DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift */,
 				BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */,
 				4200DFF31DF01E8C005D544D /* InputTableViewCell.swift */,
+				BFCED8BE1DF40CFB00A26AB3 /* SynonymTableViewCell.swift */,
+				BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -383,6 +389,8 @@
 				BFCED8B11DEEC1C700A26AB3 /* RadioButton.swift in Sources */,
 				BFCED8AF1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift in Sources */,
 				BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */,
+				BFCED8C11DF40D5200A26AB3 /* AntonymTableViewCell.swift in Sources */,
+				BFCED8BF1DF40CFB00A26AB3 /* SynonymTableViewCell.swift in Sources */,
 				42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */,
 				BFCED8B71DEFEACF00A26AB3 /* NoteExampleTableViewCell.swift in Sources */,
 				423D6D7F1DECF35500F66EA4 /* MoviePost.swift in Sources */,

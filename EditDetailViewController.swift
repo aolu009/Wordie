@@ -15,11 +15,13 @@ import Firebase
     @objc func editDetailViewControllerGetWord() -> String
     @objc func editDetailViewControllerGetDefinition() -> [String]
     @objc func editDetailViewControllerGetEditType() -> String
-    @objc func editDetailViewControllerGetSynonym() -> String
-    @objc func editDetailViewControllerGetAntonym() -> String
+    @objc func editDetailViewControllerGetSynonym() -> [String]
+    @objc func editDetailViewControllerGetAntonym() -> [String]
     @objc func editDetailViewControllerGetExample() -> [String]
     @objc func editDetailViewControllerGetDisplayList() -> [Bool]
     @objc func editDetailViewControllerGetExampleDisplayList() -> [Bool]
+    @objc func editDetailViewControllerGetSynonymDisplayList() -> [Bool]
+    @objc func editDetailViewControllerGetAntonymDisplayList() -> [Bool]
 }
 
 class EditDetailViewController: UIViewController,UITextViewDelegate, UITableViewDataSource,UITableViewDelegate,EditDetailTableViewCellDelegate {
@@ -28,13 +30,15 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
     var definition: String?
     @IBOutlet weak var word: UILabel!
     @IBOutlet weak var type: UILabel!
-    @IBOutlet weak var definitionTextfield: UITextView!
-    
     @IBOutlet weak var editDetailTable: UITableView!
+    
+    var rowNumber = Int()
     
     
     var definitions: [String]?
     var examples: [String]?
+    var synonyms: [String]?
+    var antonyms: [String]?
     var editType: String?
     var displayList: [Bool]?
     
@@ -56,6 +60,7 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
                 if let displayList = self.dataSource?.editDetailViewControllerGetDisplayList(){
                     self.displayList = displayList
                 }
+                self.rowNumber = (self.definitions?.count)!
                 self.type.text = "Definition:"
             case "Example":
                 if let examples = self.dataSource?.editDetailViewControllerGetExample(){
@@ -64,32 +69,38 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
                 if let displayList = self.dataSource?.editDetailViewControllerGetExampleDisplayList(){
                     self.displayList = displayList
                 }
+                self.rowNumber = (self.examples?.count)!
                 self.type.text = "Example:"
             case "Synonym":
-                self.definitionTextfield.text = self.dataSource?.editDetailViewControllerGetSynonym()
+                if let synonym = self.dataSource?.editDetailViewControllerGetSynonym(){
+                    self.synonyms = synonym
+                }
+                if let displayList = self.dataSource?.editDetailViewControllerGetSynonymDisplayList(){
+                    self.displayList = displayList
+                }
+                self.rowNumber = (self.synonyms?.count)!
                 self.type.text = "Synonym:"
             case "Antonym":
-                self.definitionTextfield.text = self.dataSource?.editDetailViewControllerGetAntonym()
+                //self.definitionTextfield.text = self.dataSource?.editDetailViewControllerGetAntonym()
+                if let antonym = self.dataSource?.editDetailViewControllerGetAntonym(){
+                    self.antonyms = antonym
+                }
+                if let displayList = self.dataSource?.editDetailViewControllerGetAntonymDisplayList(){
+                    self.displayList = displayList
+                }
+                self.rowNumber = (self.antonyms?.count)!
                 self.type.text = "Antonym:"
-            default : self.definitionTextfield.text = "It is empty"
+            default : print("It is empty")
         }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        self.definition = textView.text
-    }
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        return true
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EditDetailTableViewCell") as! EditDetailTableViewCell
         cell.delegate = self
-        
         switch  self.editType!{
             
         case "Definition":
@@ -106,12 +117,48 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
                     cell.radioButton.isSelected = true
                     cell.detailEditField.text = ""
                 }
-                            }
+            }
         case "Example":
             if let examples = self.examples{
-                cell.detailEditField.text = examples[indexPath.row]
-                if let displayOn = self.displayList?[indexPath.row]{
-                    cell.radioButton.isSelected = displayOn
+                if indexPath.row < examples.count{
+                    cell.detailEditField.text = examples[indexPath.row]
+                    if let displayOn = self.displayList?[indexPath.row]{
+                        cell.radioButton.isSelected = displayOn
+                    }
+                    
+                }
+                else{
+                    
+                    cell.radioButton.isSelected = true
+                    cell.detailEditField.text = ""
+                }
+            }
+        case "Synonym":
+            if let synonyms = self.synonyms{
+                if indexPath.row < synonyms.count{
+                    cell.detailEditField.text = synonyms[indexPath.row]
+                    if let displayOn = self.displayList?[indexPath.row]{
+                        cell.radioButton.isSelected = displayOn
+                    }
+                }
+                else{
+                    
+                    cell.radioButton.isSelected = true
+                    cell.detailEditField.text = ""
+                }
+            }
+        case "Antonym":
+            if let antonyms = self.antonyms{
+                if indexPath.row < antonyms.count{
+                    cell.detailEditField.text = antonyms[indexPath.row]
+                    if let displayOn = self.displayList?[indexPath.row]{
+                        cell.radioButton.isSelected = displayOn
+                    }
+                }
+                else{
+                    
+                    cell.radioButton.isSelected = true
+                    cell.detailEditField.text = ""
                 }
             }
         default :
@@ -123,39 +170,22 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        switch  self.editType!{
-            
-        case "Definition":
-            
-            if let definitions = self.dataSource?.editDetailViewControllerGetDefinition(){
-                return (definitions.count + 1)//
-            }
-            else{
-                return 0
-            }
-        case "Example":
-            if let examples = self.dataSource?.editDetailViewControllerGetExample(){
-                return examples.count
-            }
-            else{
-                return 0
-            }
-        case "Synonym":
-            self.definitionTextfield.text = self.dataSource?.editDetailViewControllerGetSynonym()
-            self.type.text = "Synonym:"
-            return 0
-        case "Antonym":
-            self.definitionTextfield.text = self.dataSource?.editDetailViewControllerGetAntonym()
-            self.type.text = "Antonym:"
-            return 0
-        default : return 0
+        if self.rowNumber > 0{
+            return self.rowNumber
         }
+        else{
+            return 0
+        }
+    }
+    @IBAction func onAddNew(_ sender: Any) {
+        self.rowNumber+=1
+        self.editDetailTable.reloadData()
     }
     
     @IBAction func onBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     func editDetailTableViewCellGiveIdxNMessage(indexPath: IndexPath, text: String, selected:Bool) {
         
         let editType = self.dataSource?.editDetailViewControllerGetEditType()
@@ -168,27 +198,51 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
             }
             else{
                 self.definitions?.append(text)
-                //if select = select
-                print("Select:",selected)
                 self.displayList?.append(selected)
-                print("Select:",self.displayList?.count)
             }
             FirebaseClient.sharedInstance.addDefinitionToWord(word: self.word.text!, definition: self.definitions!, complete: {(newDefinition) in
-                print("Select.size:",newDefinition?.count)
             })
             FirebaseClient.sharedInstance.addDefinitionDisplyList(word: self.word.text!, displayList: self.displayList!, complete: {(newDisplayList) in
-                print("Select.size:",newDisplayList?.count)
             })
         case "Example":
-            self.examples?[indexPath.row] = text
-            self.displayList?[indexPath.row] = selected
-            FirebaseClient.sharedInstance.addExampleToWord(word: self.word.text!, example: self.examples!,displayList: self.displayList! , complete: {(newDefinition) in
+            if indexPath.row < (self.examples?.count)!{
+                self.examples?[indexPath.row] = text
+                self.displayList?[indexPath.row] = selected
+            }
+            else{
+                self.examples?.append(text)
+                self.displayList?.append(selected)
+            }
+            FirebaseClient.sharedInstance.addExampleToWord(word: self.word.text!, example: self.examples!, complete: {(newDefinition) in
+            })
+            FirebaseClient.sharedInstance.addExampleDisplyList(word: self.word.text!, displayList: self.displayList!, complete: {(newDisplayList) in
             })
         case "Synonym":
-            FirebaseClient.sharedInstance.addSynonymToWord(word: self.word.text!, synonym: self.definition!, complete: {(newDefinition) in
+            if indexPath.row < (self.synonyms?.count)!{
+                self.synonyms?[indexPath.row] = text
+                self.displayList?[indexPath.row] = selected
+            }
+            else{
+                self.synonyms?.append(text)
+                self.displayList?.append(selected)
+            }
+            FirebaseClient.sharedInstance.addSynonymToWord(word: self.word.text!, synonym: self.synonyms!, complete: {(newDefinition) in
             })
+            FirebaseClient.sharedInstance.addSynonymDisplyList(word: self.word.text!, displayList: self.displayList!, complete:{(newDisplayList) in
+            })
+
         case "Antonym":
-            FirebaseClient.sharedInstance.addAntonymToWord(word: self.word.text!, antonym: self.definition!, complete: {(newDefinition) in
+            if indexPath.row < (self.antonyms?.count)!{
+                self.antonyms?[indexPath.row] = text
+                self.displayList?[indexPath.row] = selected
+            }
+            else{
+                self.antonyms?.append(text)
+                self.displayList?.append(selected)
+            }
+            FirebaseClient.sharedInstance.addAntonymToWord(word: self.word.text!, antonym: self.antonyms!, complete: {(newDefinition) in
+            })
+            FirebaseClient.sharedInstance.addAntonymDisplyList(word: self.word.text!, displayList: self.displayList!, complete:{(newDisplayList) in
             })
         default : self.dismiss(animated: true, completion: nil)
         }
