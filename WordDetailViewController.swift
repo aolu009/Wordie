@@ -184,7 +184,6 @@ extension WordDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! VideoCollectionViewCell
         
-        cell.backgroundColor = UIColor.yellow
 //        cell.placeholderImageView.image = finalarray[indexPath.row]
         cell.placeholderImageView.image = testImage
 
