@@ -126,6 +126,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         cell.wordButton.setTitle(post.word, for: .normal)
         cell.usernameLabel.text = "@chantellepaige"
         cell.shortDefintionLabel.text = post.shortDefinition
+        cell.delegate = self
+
 
         
         
@@ -176,7 +178,6 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         currentMovieURL = videoArray[(visibleIndexPath?.row)!].url
 
         let cell = customTableView.cellForRow(at: visibleIndexPath!) as! HomeTableViewCell
-        cell.delegate = self
         
         
         if (cell != self.lastPlayingCell) {
@@ -269,7 +270,14 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             if let result = oxfordWord.dictionary{
                 wordObject = Word(dictionary: result)
                 let vc = WordDetailViewController.instantiateCustom(word: wordObject!)
-                self.present(vc, animated: true, completion: nil)
+                
+                let nav = UINavigationController()
+                nav.viewControllers = [vc]
+//
+//               nav.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItemStyle.done, target: self, action: #selector(addTapped))
+//                Th
+//                
+                self.present(nav, animated: true, completion: nil)
             }
             
             

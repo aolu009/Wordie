@@ -91,6 +91,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBAction func onWordButtonPressed(_ sender: UIButton) {
         
         let word = wordButton.titleLabel?.text
+        //delegate sometimes nil
         self.delegate?.wordButtonTapped(word: word!)
         
     }
