@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nmR-yQ-ghb">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="453"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordTableViewCell" rowHeight="59" id="WTC-HD-HZp" customClass="WordTableViewCell" customModule="Wordie" customModuleProvider="target">
@@ -179,10 +179,10 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GdR-SN-7d3">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="ANZ-3F-bbo"/>
+                                    <constraint firstAttribute="height" constant="150" id="ANZ-3F-bbo"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeableTableViewCell" rowHeight="110" id="Ed4-dq-eFK" userLabel="Test" customClass="SwipeableTableViewCell" customModule="Wordie" customModuleProvider="target">
@@ -248,7 +248,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dIp-Jr-yAY" firstAttribute="top" secondItem="nmR-yQ-ghb" secondAttribute="bottom" id="58T-gK-rKS"/>
                             <constraint firstItem="dIp-Jr-yAY" firstAttribute="top" secondItem="ffU-ur-pAG" secondAttribute="bottom" id="5Q0-Cc-uhR"/>
                             <constraint firstItem="nmR-yQ-ghb" firstAttribute="top" secondItem="fKh-SE-6zV" secondAttribute="bottom" id="8T2-UM-qHg"/>
                             <constraint firstItem="ffU-ur-pAG" firstAttribute="leading" secondItem="wIH-il-ltv" secondAttribute="leading" id="CMG-qM-o2q"/>
@@ -257,6 +256,7 @@
                             <constraint firstItem="nmR-yQ-ghb" firstAttribute="leading" secondItem="wIH-il-ltv" secondAttribute="leading" id="OqA-0y-ter"/>
                             <constraint firstItem="ffU-ur-pAG" firstAttribute="top" secondItem="fKh-SE-6zV" secondAttribute="bottom" id="fkF-SY-KOu"/>
                             <constraint firstAttribute="trailing" secondItem="nmR-yQ-ghb" secondAttribute="trailing" id="fpI-8g-tL6"/>
+                            <constraint firstItem="nmR-yQ-ghb" firstAttribute="bottom" secondItem="GdR-SN-7d3" secondAttribute="top" id="n3B-CM-eYC"/>
                             <constraint firstItem="dIp-Jr-yAY" firstAttribute="top" secondItem="GdR-SN-7d3" secondAttribute="bottom" id="sQG-f3-KtU"/>
                             <constraint firstItem="GdR-SN-7d3" firstAttribute="leading" secondItem="wIH-il-ltv" secondAttribute="leading" id="vhl-N5-er0"/>
                         </constraints>

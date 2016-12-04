@@ -11,12 +11,19 @@ import AVKit
 import AVFoundation
 import MBProgressHUD
 
+protocol HomeCellDelegate: class {
+    func wordButtonTapped(word: String)
+}
+
 
 class HomeTableViewCell: UITableViewCell {
 
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     var loadingNotification: MBProgressHUD?
+    
+    weak var delegate: HomeCellDelegate?
+
 
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     
@@ -40,6 +47,18 @@ class HomeTableViewCell: UITableViewCell {
         loadingNotification?.mode = MBProgressHUDMode.indeterminate
         loadingNotification?.label.text = "fetching :)"
         sendSubview(toBack: loadingNotification!)
+        
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            MBProgressHUD.hide(for: self.contentView, animated: true)
+            self.loadingNotification?.isHidden = true
+            (self.loadingNotification?.removeFromSuperViewOnHide)!
+
+            
+        }
+        
+
+
     }
     
     func playVideo() {
@@ -48,22 +67,12 @@ class HomeTableViewCell: UITableViewCell {
             plyr.play()
         }
         
-        if loadingNotification != nil {
-            
-            loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
-            loadingNotification?.mode = MBProgressHUDMode.indeterminate
-            loadingNotification?.label.text = "fetching :)"
-            sendSubview(toBack: loadingNotification!)
-            
-            let deadlineTime = DispatchTime.now() + .seconds(1)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-                MBProgressHUD.hide(for: self.contentView, animated: true)
-                
-            }
-        }
-
-        loadingNotification?.isHidden = true
-        (loadingNotification?.removeFromSuperViewOnHide)!
+//        loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
+//        loadingNotification?.mode = MBProgressHUDMode.indeterminate
+//        loadingNotification?.label.text = "fetching :)"
+//        sendSubview(toBack: loadingNotification!)
+        
+        
 
 
         //bring view back
@@ -79,6 +88,12 @@ class HomeTableViewCell: UITableViewCell {
         
     }
 
+    @IBAction func onWordButtonPressed(_ sender: UIButton) {
+        
+        let word = wordButton.titleLabel?.text
+        self.delegate?.wordButtonTapped(word: word!)
+        
+    }
     
     override func layoutSubviews() {
         

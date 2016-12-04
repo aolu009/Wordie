@@ -12,7 +12,7 @@ import AVFoundation
 import MobileCoreServices
 import Photos
 
-class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
     
     @IBOutlet weak var customTableView: UITableView!
     
@@ -176,6 +176,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         currentMovieURL = videoArray[(visibleIndexPath?.row)!].url
 
         let cell = customTableView.cellForRow(at: visibleIndexPath!) as! HomeTableViewCell
+        cell.delegate = self
         
         
         if (cell != self.lastPlayingCell) {
@@ -253,7 +254,33 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     }
     
     
+
     
+    func wordButtonTapped(word: String) {
+        presentDetailView(word: word)
+    }
     
+
+    func presentDetailView(word: String)
+    {
+        var wordObject: Word?
+        
+        OxfordClient.sharedInstance.searchFromOxford(searchInput: word, success: {(oxfordWord) in
+            if let result = oxfordWord.dictionary{
+                wordObject = Word(dictionary: result)
+                let vc = WordDetailViewController.instantiateCustom(word: wordObject!)
+                self.present(vc, animated: true, completion: nil)
+            }
+            
+            
+        }, failure: {(Error) in
+        })
+        
+       
+    }
+
+
+
+
 }
 

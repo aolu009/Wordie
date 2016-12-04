@@ -35,6 +35,15 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     
     var imageArray:[String]?
     
+    static func instantiateCustom(word: Word) -> WordDetailViewController
+    {
+        let vc = UIStoryboard(name: "Louis.Main", bundle: nil).instantiateViewController(withIdentifier: "WordDetailViewController") as! WordDetailViewController
+        vc.word = word
+    
+        return vc
+    }
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
