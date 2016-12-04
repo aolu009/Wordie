@@ -16,6 +16,8 @@ class FirebaseClient {
     static let sharedInstance = FirebaseClient()
     private init() {}
     
+    var uploadTask: FIRStorageUploadTask?
+    
     func createNewUser(userEmail: String!, userID: String!, userName: String!){//, success: @escaping (Word) -> Void, failure: @escaping (String) -> Void){
         let userRef = FIRDatabase.database().reference(withPath: "users")
         let user = userRef.child(userID)
@@ -114,38 +116,48 @@ class FirebaseClient {
         
         let videoRef = videoUploadedRef.child(String(movieCount))
         
-        videoRef.putFile(url).observe(.success, handler: { (snapshot) in
-            // When the image has successfully uploaded, we get it's download URL
-            let text = snapshot.metadata?.downloadURL()?.absoluteString
-            // Set the download URL to the message box, so that the user can send it to the database
-            let token = FirebaseClient.sharedInstance.getUrlTokenString(url: text!)
-            let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
-            let videoRef = videoPostRef.child(token)
-            let videoUrlRef = videoRef.child("video_url")
-            videoUrlRef.setValue(text!)
-            let descriptionRef = videoRef.child("description")
-            descriptionRef.setValue(description)
-            let likesRef = videoRef.child("likes")
-            likesRef.setValue(likes)
-            let featuredRef = videoRef.child("is_featured")
-            featuredRef.setValue(featured)
-            let defRef = videoRef.child("short_definition")
-            defRef.setValue(definition)
-            let subtitleRef = videoRef.child("subtitles")
-            subtitleRef.setValue(subtitles)
-            let userRef = videoRef.child("userID")
-            userRef.setValue(userID)
-            let timestampRef = videoRef.child("timestamp")
+        uploadTask = videoRef.putFile(url, metadata: nil) { metadata, error in
+            if (error != nil) {
+                // Uh-oh, an error occurred!
+            } else {
+                // Metadata contains file metadata such as size, content-type, and download URL.
+                let text = metadata!.downloadURL()?.absoluteString
+                
+                let token = FirebaseClient.sharedInstance.getUrlTokenString(url: text!)
+                let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
+                let videoRef = videoPostRef.child(token)
+                let videoUrlRef = videoRef.child("video_url")
+                videoUrlRef.setValue(text!)
+                let descriptionRef = videoRef.child("description")
+                descriptionRef.setValue(description)
+                let likesRef = videoRef.child("likes")
+                likesRef.setValue(likes)
+                let featuredRef = videoRef.child("is_featured")
+                featuredRef.setValue(featured)
+                let defRef = videoRef.child("short_definition")
+                defRef.setValue(definition)
+                let subtitleRef = videoRef.child("subtitles")
+                subtitleRef.setValue(subtitles)
+                let userRef = videoRef.child("userID")
+                userRef.setValue(userID)
+                let timestampRef = videoRef.child("timestamp")
+                
+                let objectToSave: Dictionary<String, Any> = ["timestamp": [".sv": "timestamp"]]
+                timestampRef.setValue(objectToSave)
+                
+                let wordRef = videoRef.child("word")
+                wordRef.setValue(word)
+                
+                print("media url: \(text)")
+                print("Token: \(token)")
+                complete()
+            }
+        }
+        let observer = uploadTask?.observe(.progress) { snapshot in
+            // A progress event occurred
+//            print(snapshot.progress) // NSProgress object
             
-            let objectToSave: Dictionary<String, Any> = ["timestamp": [".sv": "timestamp"]]
-            timestampRef.setValue(objectToSave)
-
-          let wordRef = videoRef.child("word")
-
-            print("media url: \(text)")
-            print("Token: \(token)")
-            complete()
-        })
+        }
     }
     
     //  Make Every info of a word arrays

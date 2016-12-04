@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     let refreshControl = UIRefreshControl()
 
     
+    @IBOutlet weak var progressView: UIProgressView!
     
     
     override func viewDidLoad() {
@@ -36,6 +37,11 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: lineMenuLine)
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
+        view.bringSubview(toFront: progressView)
+        
+        progressView.isHidden = true
+
+        
 
         fetchTimeline()
         
@@ -44,7 +50,32 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         // add refresh control to table view
         customTableView.insertSubview(refreshControl, at: 0)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.LoadObserver), name: NSNotification.Name(rawValue: "Upload"), object: nil)
+
+        
     }
+    
+    func LoadObserver()
+    {
+        progressView.isHidden = false
+        let observer = FirebaseClient.sharedInstance.uploadTask?.observe(.progress) { snapshot in
+            // A progress event occurred
+            let progress = snapshot.progress?.fractionCompleted
+            print(snapshot.progress)
+            // NSProgress object
+            let convertedProgress = Float(progress!)
+            self.progressView.progress = convertedProgress
+            
+        }
+        
+        let successObserver = FirebaseClient.sharedInstance.uploadTask?.observe(.success) { snapshot in
+            print("success")
+            self.progressView.isHidden = true
+
+        }
+    }
+    
+
     
     func fetchTimeline()
     {
@@ -118,7 +149,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                 if indexPath.row == 0 {
                     //bring view back
                     cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
-                    player.play()
+                    cell.playVideo()
                     
                     
                 }

@@ -37,9 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
             if facebookDefaults as? Bool == true {
                 //sign in with FB
-                if let accessToken = UserDefaults.standard.object(forKey: "accesstoken") as? String
+                let accessToken = UserDefaults.standard.object(forKey: "accesstoken") as? String
+                print(accessToken)
+                if let poop = UserDefaults.standard.object(forKey: "accesstoken") as? String
                 {
-                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
+                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken!)
                     FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                         // ...
                         if let error = error {

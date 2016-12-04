@@ -28,7 +28,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
 
 
         
-        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-363ae.appspot.com/o/IMG_3445.mov?alt=media&token=8dfd70d0-a635-4250-abf5-eca4eae9ab8e")
+        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-fd9cb.appspot.com/o/IMG_3445.mov?alt=media&token=d686e5c5-6f3a-4f99-a02c-fe530c7745fe")
         
         
         
