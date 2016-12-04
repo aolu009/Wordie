@@ -187,6 +187,33 @@ class FirebaseClient {
             
         })
     }
+    func getDefinitionDisplayList( word:String, complete:@escaping ([Bool]?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            wordToLook.observe(.value, with: { snapshot in
+                // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
+                // When no one loggin or the user is not in the database
+                let definitions = snapshot.childSnapshot(forPath: "definition").value as! [String]
+                let displayList = snapshot.childSnapshot(forPath: "definitionToDisplay").value as! [Bool]
+                /*
+                if snapshot.childSnapshot(forPath: "definitionToDisplay").exists(){
+                    displayList = snapshot.childSnapshot(forPath: "definitionToDisplay").value as! [Bool]
+                }
+                else{
+                    for _ in definitions{
+                        displayList.append(true)
+                    }
+                }
+*/
+                complete(displayList)
+            })
+            
+        })
+    }
+    
     func getSelfDefinedExampleOnWord( word:String, complete:@escaping ([String]?,[Bool]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
@@ -244,23 +271,33 @@ class FirebaseClient {
         })
     }
     
-    func addDefinitionToWord(word:String,definition:[String],displayList:[Bool], complete:@escaping ([String]?,[Bool]?) -> Void) -> Void {
+    func addDefinitionToWord(word:String,definition:[String], complete:@escaping ([String]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
             let user = users.child(uid)
             let wordList = user.child("word_list")
             let wordToLook = wordList.child(word)
             let wordDefinition = wordToLook.child("definition")
-            let definitionToDisplay = wordToLook.child("definitionToDisplay")
             wordDefinition.setValue(definition)
-            definitionToDisplay.setValue(displayList)
             wordToLook.observe(.value, with: { snapshot in
                 let definition = snapshot.childSnapshot(forPath: "definition").value as! [String]
-                let definitionToDisplay = snapshot.childSnapshot(forPath: "definitionToDisplay").value as! [Bool]
-                complete(definition,definitionToDisplay)
+                complete(definition)
             })
         })
     }
+    func addDefinitionDisplyList(word:String,displayList:[Bool], complete:@escaping ([Bool]?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            let definitionToDisplay = wordToLook.child("definitionToDisplay")
+            definitionToDisplay.setValue(displayList)
+            
+            
+        })
+    }
+    
     func addExampleToWord(word:String,example:[String],displayList:[Bool],complete:@escaping ([String]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
