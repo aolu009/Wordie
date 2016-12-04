@@ -145,7 +145,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjI-eq-fxs">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjI-eq-fxs">
                                                     <rect key="frame" x="8" y="5" width="71" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="Chk-H1-Glu"/>
@@ -158,11 +158,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="PjI-eq-fxs" firstAttribute="top" secondItem="bwP-2Z-ReA" secondAttribute="topMargin" constant="-3" id="0wW-pZ-YnD"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="cd2-xh-PXb" secondAttribute="trailing" id="7UD-FR-uu6"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="PjI-eq-fxs" secondAttribute="leading" id="CqH-sW-HXg"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="cd2-xh-PXb" secondAttribute="leading" id="Lzm-Zd-zsW"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="K5m-T3-WHe" secondAttribute="leading" id="Q18-78-uHB"/>
                                                 <constraint firstItem="K5m-T3-WHe" firstAttribute="top" secondItem="PjI-eq-fxs" secondAttribute="bottom" constant="8" id="hbm-sO-qri"/>
                                                 <constraint firstItem="cd2-xh-PXb" firstAttribute="top" secondItem="K5m-T3-WHe" secondAttribute="bottom" constant="25" id="nGZ-WH-AyJ"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="K5m-T3-WHe" secondAttribute="trailing" id="r9U-X5-Axo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -188,14 +190,28 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3Ed-PP-7mu">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3Ed-PP-7mu" customClass="VideoCollectionViewCell" customModule="Wordie" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="11" width="83" height="72"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="83" height="72"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXA-8B-ziH">
+                                                                        <rect key="frame" x="8" y="8" width="67" height="56"/>
+                                                                    </imageView>
+                                                                </subviews>
                                                             </view>
                                                             <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="eXA-8B-ziH" secondAttribute="trailing" id="4bN-nX-JFS"/>
+                                                                <constraint firstItem="eXA-8B-ziH" firstAttribute="leading" secondItem="3Ed-PP-7mu" secondAttribute="leadingMargin" id="S0P-Le-6GM"/>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="eXA-8B-ziH" secondAttribute="bottom" id="hQB-YV-07W"/>
+                                                                <constraint firstItem="eXA-8B-ziH" firstAttribute="top" secondItem="3Ed-PP-7mu" secondAttribute="topMargin" id="rAB-rw-Xao"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="placeholderImageView" destination="eXA-8B-ziH" id="KP0-aI-APa"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>

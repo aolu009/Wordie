@@ -10,6 +10,8 @@
 import UIKit
 import Firebase
 import AFNetworking
+import AVFoundation
+import AVKit
 
 protocol WordDetailViewControllerDataSource {
     func wordDetailViewController() -> Word
@@ -24,6 +26,8 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     var word: Word?
     var dataSource: WordDetailViewControllerDataSource?
     var storedOffsets = [Int: CGFloat]()
+    
+    var testImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +51,8 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         }
         */
         definitionTable.reloadData()
+        
+       testImage = generatePlaceHolderImage()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -126,14 +132,44 @@ extension WordDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! VideoCollectionViewCell
         
         cell.backgroundColor = UIColor.yellow
+        cell.placeholderImageView.image = testImage
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        
+        //
+        launchAVPlayerController()
     }
+    
+    func generatePlaceHolderImage() -> UIImage
+    {
+        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-fd9cb.appspot.com/o/IMG_3445.mov?alt=media&token=d686e5c5-6f3a-4f99-a02c-fe530c7745fe")
+        
+        
+        var sourceURL = videoURL
+        var asset = AVAsset(url: sourceURL!)
+        var imageGenerator = AVAssetImageGenerator(asset: asset)
+        var time = CMTimeMake(1, 1)
+        var imageRef = try! imageGenerator.copyCGImage(at: time, actualTime: nil)
+        var thumbnail = UIImage(cgImage:imageRef)
+        return thumbnail
+    }
+    
+    func launchAVPlayerController() {
+        let videoURL = NSURL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+        let player = AVPlayer(url: videoURL! as URL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+            
+        }
+    }
+
 }
