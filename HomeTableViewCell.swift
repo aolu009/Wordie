@@ -47,9 +47,34 @@ class HomeTableViewCell: UITableViewCell {
             plyr.actionAtItemEnd = .none
             plyr.play()
         }
-//        MBProgressHUD.hide(MBProgressHUD)
-//        MBProgressHUD.hide(loadingNotification)
-        MBProgressHUD.hide(for: self.contentView, animated: true)
+        
+        if loadingNotification != nil {
+            
+            loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
+            loadingNotification?.mode = MBProgressHUDMode.indeterminate
+            loadingNotification?.label.text = "fetching :)"
+            sendSubview(toBack: loadingNotification!)
+            
+            let deadlineTime = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                MBProgressHUD.hide(for: self.contentView, animated: true)
+                
+            }
+
+        }
+        else{
+            loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
+            loadingNotification?.mode = MBProgressHUDMode.indeterminate
+            loadingNotification?.label.text = "fetching :)"
+            sendSubview(toBack: loadingNotification!)
+            
+            let deadlineTime = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                MBProgressHUD.hide(for: self.contentView, animated: true)
+
+            
+        }
+        
 
         loadingNotification?.isHidden = true
         (loadingNotification?.removeFromSuperViewOnHide)!
