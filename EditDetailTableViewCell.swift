@@ -35,7 +35,9 @@ class EditDetailTableViewCell: UITableViewCell,UITextViewDelegate {
     }
     func textViewDidChange(_ textView: UITextView) {
         //print(self.in)
+        
     }
+    
     
     func textViewDidEndEditing(_ textView: UITextView) {
         let cell: EditDetailTableViewCell = textView.superview!.superview as! EditDetailTableViewCell

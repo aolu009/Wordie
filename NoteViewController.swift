@@ -21,12 +21,10 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
     
     @IBOutlet weak var exampleTable: UITableView!
     @IBOutlet weak var definitionTable: UITableView!
-    
+    @IBOutlet weak var synonymTable: UITableView!
+    @IBOutlet weak var antonymTable: UITableView!
     @IBOutlet weak var pronounceButton: UIButton!
     @IBOutlet weak var buttonOutlet: UIView!
-    @IBOutlet weak var Synonym: UILabel!
-    @IBOutlet weak var Antonym: UILabel!
-    
     @IBOutlet weak var wordText: UILabel!
     
     
@@ -35,10 +33,17 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
     var editType:String?
     var definitions: [String]?
     var definitionsToDisplay: [Bool]?
+    var definitionOnScreen = [String]()
     var examplesToDisplay: [Bool]?
     var examples: [String]?
-    var definitionOnScreen = [String]()
     var exampleOnScreen = [String]()
+    var synonymToDisplay: [Bool]?
+    var synonymWord: [String]?
+    var synonymOnScreen = [String]()
+    var antonymToDisplay: [Bool]?
+    var antonymWord: [String]?
+    var antonymOnScreen = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +53,10 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
         self.exampleTable.delegate = self
         self.exampleTable.dataSource = self
         self.exampleTable.rowHeight = 20
+        self.synonymTable.delegate = self
+        self.synonymTable.dataSource = self
+        self.antonymTable.delegate = self
+        self.antonymTable.dataSource = self
         
         pronounceButton.backgroundColor = UIColor.white
         pronounceButton.layer.cornerRadius = 0.5 * pronounceButton.bounds.size.width
@@ -59,9 +68,8 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
             self.wordText.text = word.word
         }
         else{
-            print("Nothing Passed to hereeeeeeeeeee")
+            print("Error:Nothing Passed to here")
         }
-        print("Loaded2")
     }
     
     
@@ -69,6 +77,7 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
     override func viewDidAppear(_ animated: Bool) {
         
         if let vocabulary = self.word?.word{
+            
             FirebaseClient.sharedInstance.getSelfDefinedDefinitionOnWord(word: vocabulary, complete: {(definitions,definitionsToDisplay) in
                 if let definitions = definitions{
                     self.definitions = definitions
@@ -76,15 +85,14 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
                 if let definitionsDisplay = definitionsToDisplay{
                     self.definitionsToDisplay = definitionsDisplay
                 }
-                
-                //self.definitionTable.reloadData()
+                self.definitionTable.reloadData()
             })
             FirebaseClient.sharedInstance.getDefinitionDisplayList(word: vocabulary, complete: {(definitionsToDisplay) in
                 var idx = 0
                 self.definitionOnScreen = [String]()
                 
                 for definition in self.definitions!{
-                    if  (idx < (self.definitionsToDisplay?.count)! && (self.definitionsToDisplay?[idx])! == true){ //idx < (self.definitionsToDisplay?.count)! &&
+                    if  (idx < (self.definitionsToDisplay?.count)! && (self.definitionsToDisplay?[idx])! == true){
                         self.definitionOnScreen.append(definition)
                     }
                     idx+=1
@@ -98,61 +106,98 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
                 if let examplesToDisplay = examplesToDisplay{
                     self.examplesToDisplay = examplesToDisplay
                 }
+            })
+            FirebaseClient.sharedInstance.getExampleDisplayList(word: vocabulary, complete: {(examplesToDisplay) in
                 var idx = 0
                 self.exampleOnScreen = [String]()
-                for examples in self.examples!{
-                    if (self.examplesToDisplay?[idx])! == true{
-                        self.exampleOnScreen.append(examples)
+                
+                for example in self.examples!{
+                    if  (idx < (self.examplesToDisplay?.count)! && (self.examplesToDisplay?[idx])! == true){
+                        self.exampleOnScreen.append(example)
                     }
                     idx+=1
                 }
                 self.exampleTable.reloadData()
+                
             })
-            FirebaseClient.sharedInstance.getSelfDefinedSynonymOnWord(word: vocabulary, complete: {(definitions) in
-                if let definitions = definitions{
-                    for definition in definitions{
-                        self.Synonym.text =  self.Synonym.text! + definition + "\n"
-                    }
+            FirebaseClient.sharedInstance.getSelfDefinedSynonymOnWord(word: vocabulary, complete: {(synonyms,synonymToDisplay) in
+                if let synonyms = synonyms{
+                    self.synonymWord = synonyms
+                    
                 }
                 else{
-                    self.Synonym.text = "Please Enter Synonym"
+                    print("Please Enter Synonym")
                 }
+                if let synonymToDisplay = synonymToDisplay{
+                    self.synonymToDisplay = synonymToDisplay
+                }
+
             })
-            FirebaseClient.sharedInstance.getSelfDefinedAntonymOnWord(word: vocabulary, complete: {(definitions) in
-                if let definitions = definitions{
-                    for definition in definitions{
-                        self.Antonym.text =  self.Antonym.text! + definition + "\n"
+            FirebaseClient.sharedInstance.getSynonymDisplayList(word: vocabulary, complete: {(synonymToDisplay) in
+                var idx = 0
+                self.synonymOnScreen = [String]()
+                for synonym in self.synonymWord!{
+                    if  (idx < (self.synonymToDisplay?.count)! && (self.synonymToDisplay?[idx])! == true){
+                        self.synonymOnScreen.append(synonym)
                     }
+                    idx+=1
+                }
+                self.synonymTable.reloadData()
+            })
+            
+            FirebaseClient.sharedInstance.getSelfDefinedAntonymOnWord(word: vocabulary, complete: {(antonyms,antonymToDisplay) in
+                if let antonyms = antonyms{
+                    self.antonymWord = antonyms
+                    
                 }
                 else{
-                    self.Antonym.text = "Please Enter Antonym"
+                    print("Please Enter Antonym")
+                }
+                if let antonymToDisplay = antonymToDisplay{
+                    self.antonymToDisplay = antonymToDisplay
                 }
             })
-            self.definitionTable.reloadData()
+            FirebaseClient.sharedInstance.getAntonymDisplayList(word: vocabulary, complete: {(antonymToDisplay) in
+                var idx = 0
+                self.antonymOnScreen = [String]()
+                for antonym in self.antonymWord!{
+                    if  (idx < (self.antonymToDisplay?.count)! && (self.antonymToDisplay?[idx])! == true){
+                        self.antonymOnScreen.append(antonym)
+                    }
+                    idx+=1
+                }
+                self.antonymTable.reloadData()
+            })
+            
         }
         
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
+        let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
+        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "EditDetailNavController") as! UINavigationController
+        let nxtVC = nxtNVC.topViewController as! EditDetailViewController
+        nxtVC.dataSource = self
         if tableView == self.definitionTable{
-            let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
-            let nxtNVC = storyboard.instantiateViewController(withIdentifier: "EditDetailNavController") as! UINavigationController
-            let nxtVC = nxtNVC.topViewController as! EditDetailViewController
-            nxtVC.dataSource = self
             self.editType = "Definition"
             self.present( nxtNVC, animated: true, completion: nil)
         }
-        else{
-            let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
-            let nxtNVC = storyboard.instantiateViewController(withIdentifier: "EditDetailNavController") as! UINavigationController
-            let nxtVC = nxtNVC.topViewController as! EditDetailViewController
-            nxtVC.dataSource = self
+        else if tableView == self.exampleTable{
             self.editType = "Example"
             self.present( nxtNVC, animated: true, completion: nil)
         }
+        else if tableView == self.synonymTable{
+            self.editType = "Synonym"
+            self.present( nxtNVC, animated: true, completion: nil)
+        }
+        else{
+            self.editType = "Antonym"
+            self.present( nxtNVC, animated: true, completion: nil)
+        }
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.definitionTable{
             if let rowNumber = self.definitions?.count{
@@ -160,7 +205,48 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
                     return self.definitionOnScreen.count
                 }
                 else{
-                    return rowNumber
+                    if rowNumber == 0{
+                        return 1
+                    }
+                    else{
+                        return rowNumber
+                    }
+                }
+            }
+            else{
+                return 1
+            }
+        }
+        else if tableView == self.exampleTable{
+            if let rowNumber = self.examples?.count{
+                if self.exampleOnScreen.count > 0{
+                    return self.exampleOnScreen.count
+                }
+                else{
+                    if rowNumber == 0{
+                        return 1
+                    }
+                    else{
+                        return rowNumber
+                    }
+                }
+            }
+            else{
+                return 1
+            }
+        }
+        else if tableView == self.synonymTable{
+            if let rowNumber = self.synonymWord?.count{
+                if self.synonymOnScreen.count > 0{
+                    return self.synonymOnScreen.count
+                }
+                else{
+                    if rowNumber == 0{
+                        return 1
+                    }
+                    else{
+                        return rowNumber
+                    }
                 }
             }
             else{
@@ -168,12 +254,17 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
             }
         }
         else{
-            if let rowNumber = self.examples?.count{
-                if self.exampleOnScreen.count > 0{
-                    return self.exampleOnScreen.count
+            if let rowNumber = self.antonymWord?.count{
+                if self.antonymOnScreen.count > 0{
+                    return self.antonymOnScreen.count
                 }
                 else{
-                    return rowNumber
+                    if rowNumber == 0{
+                        return 1
+                    }
+                    else{
+                        return rowNumber
+                    }
                 }
             }
             else{
@@ -186,25 +277,48 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoteDefinitionTableViewCell") as! NoteDefinitionTableViewCell
             if self.definitionOnScreen.count > 0{
                 cell.textLabel?.text = self.definitionOnScreen[indexPath.row]
+                cell.textLabel?.numberOfLines = 0
             }
             else{
                 cell.textLabel?.text = self.word?.definition[0]
             }
-            
             return cell
         }
-         else{
+         else if tableView == self.exampleTable{
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoteExampleTableViewCell") as! NoteExampleTableViewCell
             if self.exampleOnScreen.count > 0{
                 cell.textLabel?.text = self.exampleOnScreen[indexPath.row]
+                
             }
             else{
-                cell.textLabel?.text = self.word?.definition[0]
+                cell.textLabel?.text = self.word?.definitionAndExample[(self.word?.definition[0])!]
             }
             
             return cell
         }
-        
+         else if tableView == self.synonymTable{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SynonymTableViewCell") as! SynonymTableViewCell
+            if self.synonymOnScreen.count > 0{
+                print("self.synonymOnScreen.count:",self.synonymOnScreen.count )
+                cell.synonym?.text = self.synonymOnScreen[indexPath.row]
+            }
+            else{
+                cell.synonym?.text = "Tab here to add"
+            }
+            
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AntonymTableViewCell") as! AntonymTableViewCell
+            if self.antonymOnScreen.count > 0{
+                cell.antonym?.text = self.antonymOnScreen[indexPath.row]
+            }
+            else{
+                cell.antonym?.text = "Tab here to add"
+            }
+            
+            return cell
+        }
     }
     
     
@@ -217,34 +331,15 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
             //self.dismiss(animated: true, completion: nil)
         
         })
-    }
-    @IBAction func onEditSynonym(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
-        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "EditDetailNavController") as! UINavigationController
-        let nxtVC = nxtNVC.topViewController as! EditDetailViewController
-        nxtVC.dataSource = self
-        self.editType = "Synonym"
-        self.present( nxtNVC, animated: true, completion: nil)
-    }
-    @IBAction func onEditAntonym(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
-        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "EditDetailNavController") as! UINavigationController
-        let nxtVC = nxtNVC.topViewController as! EditDetailViewController
-        nxtVC.dataSource = self
-        self.editType = "Antonym"
-        self.present( nxtNVC, animated: true, completion: nil)
+        
     }
     
     
-   
-    
-    
-    
-    func editDetailViewControllerGetSynonym() -> String {
-        return self.Synonym.text!
+    func editDetailViewControllerGetSynonym() -> [String] {
+        return self.synonymWord!
     }
-    func editDetailViewControllerGetAntonym() -> String {
-        return self.Antonym.text!
+    func editDetailViewControllerGetAntonym() -> [String] {
+        return self.antonymWord!
     }
     func editDetailViewControllerGetExample() -> [String] {
         return self.examples!
@@ -264,8 +359,12 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
     func editDetailViewControllerGetExampleDisplayList() -> [Bool]{
         return self.examplesToDisplay!
     }
-        
-    
+    func editDetailViewControllerGetSynonymDisplayList() -> [Bool]{
+        return self.synonymToDisplay!
+    }
+    func editDetailViewControllerGetAntonymDisplayList() -> [Bool]{
+        return self.antonymToDisplay!
+    }
     
     
 }

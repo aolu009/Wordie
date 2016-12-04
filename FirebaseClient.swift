@@ -168,21 +168,28 @@ class FirebaseClient {
             let user = users.child(uid)
             let wordList = user.child("word_list")
             let wordToLook = wordList.child(word)
-            
             wordToLook.observe(.value, with: { snapshot in
                 // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
                 // When no one loggin or the user is not in the database
-                let definitions = snapshot.childSnapshot(forPath: "definition").value as! [String]
-                var displayList = [Bool]()
-                if snapshot.childSnapshot(forPath: "definitionToDisplay").exists(){
-                    displayList = snapshot.childSnapshot(forPath: "definitionToDisplay").value as! [Bool]
+                if snapshot.childSnapshot(forPath: "definition").exists() {
+                    let definitions = snapshot.childSnapshot(forPath: "definition").value as! [String]
+                    var displayList = [Bool]()
+                    if snapshot.childSnapshot(forPath: "definitionToDisplay").exists(){
+                        displayList = snapshot.childSnapshot(forPath: "definitionToDisplay").value as! [Bool]
+                    }
+                    else{
+                        for _ in definitions{
+                            displayList.append(true)
+                        }
+                    }
+                    complete(definitions,displayList)
                 }
                 else{
-                    for _ in definitions{
-                        displayList.append(true)
-                    }
+                    let definitions = [String]()
+                    let displayList = [Bool]()
+                    complete(definitions,displayList)
                 }
-                complete(definitions,displayList)
+                
             })
             
         })
@@ -196,24 +203,41 @@ class FirebaseClient {
             wordToLook.observe(.value, with: { snapshot in
                 // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
                 // When no one loggin or the user is not in the database
-                let definitions = snapshot.childSnapshot(forPath: "definition").value as! [String]
-                let displayList = snapshot.childSnapshot(forPath: "definitionToDisplay").value as! [Bool]
-                /*
                 if snapshot.childSnapshot(forPath: "definitionToDisplay").exists(){
-                    displayList = snapshot.childSnapshot(forPath: "definitionToDisplay").value as! [Bool]
+                    let displayList = snapshot.childSnapshot(forPath: "definitionToDisplay").value as! [Bool]
+                    complete(displayList)
                 }
                 else{
-                    for _ in definitions{
-                        displayList.append(true)
-                    }
+                    let displayList = [Bool]()
+                    complete(displayList)
                 }
-*/
-                complete(displayList)
+                
             })
             
         })
     }
-    
+    func getExampleDisplayList( word:String, complete:@escaping ([Bool]?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            wordToLook.observe(.value, with: { snapshot in
+                // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
+                // When no one loggin or the user is not in the database
+                if snapshot.childSnapshot(forPath: "exampleToDisplay").exists(){
+                    let displayList = snapshot.childSnapshot(forPath: "exampleToDisplay").value as! [Bool]
+                    complete(displayList)
+                }
+                else{
+                    let displayList = [Bool]()
+                    complete(displayList)
+                }
+                
+            })
+            
+        })
+    }
     func getSelfDefinedExampleOnWord( word:String, complete:@escaping ([String]?,[Bool]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
@@ -223,49 +247,120 @@ class FirebaseClient {
             wordToLook.observe(.value, with: { snapshot in
                 // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
                 // When no one loggin or the user is not in the database
-                let examples = snapshot.childSnapshot(forPath: "example").value as! [String]
-                var displayList = [Bool]()
-                if snapshot.childSnapshot(forPath: "exampleToDisplay").exists(){
-                    displayList = snapshot.childSnapshot(forPath: "exampleToDisplay").value as! [Bool]
+                if snapshot.childSnapshot(forPath: "example").exists(){
+                    let examples = snapshot.childSnapshot(forPath: "example").value as! [String]
+                    var displayList = [Bool]()
+                    if snapshot.childSnapshot(forPath: "exampleToDisplay").exists(){
+                        displayList = snapshot.childSnapshot(forPath: "exampleToDisplay").value as! [Bool]
+                    }
+                    else{
+                        for _ in examples{
+                            displayList.append(true)
+                        }
+                    }
+                    complete(examples,displayList)
                 }
                 else{
-                    for _ in examples{
-                        displayList.append(true)
-                    }
+                    let examples = [String]()
+                    let displayList = [Bool]()
+                    complete(examples,displayList)
                 }
-                complete(examples,displayList)
             })
             
         })
     }
-    func getSelfDefinedSynonymOnWord( word:String, complete:@escaping ([String]?) -> Void) -> Void {
+    func getSelfDefinedSynonymOnWord( word:String, complete:@escaping ([String]?,[Bool]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
             let user = users.child(uid)
             let wordList = user.child("word_list")
             let wordToLook = wordList.child(word)
-            let wordDefinition = wordToLook.child("synonym")
-            wordDefinition.observe(.value, with: { snapshot in
+            wordToLook.observe(.value, with: { snapshot in
                 // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
-                if let result = snapshot.value{
-                    let synonym = result as! [String]
-                    complete(synonym)
+                if snapshot.childSnapshot(forPath: "synonym").exists(){
+                    let synonyms = snapshot.childSnapshot(forPath: "synonym").value as! [String]
+                    var displayList = [Bool]()
+                    if snapshot.childSnapshot(forPath: "synonymToDisplay").exists(){
+                        displayList = snapshot.childSnapshot(forPath: "synonymToDisplay").value as! [Bool]
+                    }
+                    else{
+                        for _ in synonyms{
+                            displayList.append(true)
+                        }
+                    }
+                    complete(synonyms,displayList)
+                }
+                else{
+                    let synonyms = [String]()
+                    let displayList = [Bool]()
+                    complete(synonyms,displayList)
                 }
             })
         })
     }
-    func getSelfDefinedAntonymOnWord( word:String, complete:@escaping ([String]?) -> Void) -> Void {
+    func getSynonymDisplayList( word:String, complete:@escaping ([Bool]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
             let user = users.child(uid)
             let wordList = user.child("word_list")
             let wordToLook = wordList.child(word)
-            let wordDefinition = wordToLook.child("antonym")
-            wordDefinition.observe(.value, with: { snapshot in
+            wordToLook.observe(.value, with: { snapshot in
                 // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
-                if let result = snapshot.value{
-                    let antonym = result as! [String]
-                    complete(antonym)
+                if snapshot.childSnapshot(forPath: "synonymToDisplay").exists(){
+                    let synonymToDisplay = snapshot.childSnapshot(forPath: "synonymToDisplay").value as! [Bool]
+                    complete(synonymToDisplay)
+                }
+                else{
+                    let displayList = [Bool]()
+                    complete(displayList)
+                }
+            })
+        })
+    }
+    func getSelfDefinedAntonymOnWord( word:String, complete:@escaping ([String]?,[Bool]?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            wordToLook.observe(.value, with: { snapshot in
+                // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
+                if snapshot.childSnapshot(forPath: "antonym").exists(){
+                    let antonyms = snapshot.childSnapshot(forPath: "antonym").value as! [String]
+                    var displayList = [Bool]()
+                    if snapshot.childSnapshot(forPath: "antonymToDisplay").exists(){
+                        displayList = snapshot.childSnapshot(forPath: "antonymToDisplay").value as! [Bool]
+                    }
+                    else{
+                        for _ in antonyms{
+                            displayList.append(true)
+                        }
+                    }
+                    complete(antonyms,displayList)
+                }
+                else{
+                    let antonyms = [String]()
+                    let displayList = [Bool]()
+                    complete(antonyms,displayList)
+                }
+            })
+        })
+    }
+    func getAntonymDisplayList( word:String, complete:@escaping ([Bool]?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            wordToLook.observe(.value, with: { snapshot in
+                // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
+                if snapshot.childSnapshot(forPath: "antonymToDisplay").exists(){
+                    let antonymToDisplay = snapshot.childSnapshot(forPath: "antonymToDisplay").value as! [Bool]
+                    complete(antonymToDisplay)
+                }
+                else{
+                    let displayList = [Bool]()
+                    complete(displayList)
                 }
             })
         })
@@ -298,23 +393,27 @@ class FirebaseClient {
         })
     }
     
-    func addExampleToWord(word:String,example:[String],displayList:[Bool],complete:@escaping ([String]?) -> Void) -> Void {
+    func addExampleToWord(word:String,example:[String],complete:@escaping ([String]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
             let user = users.child(uid)
             let wordList = user.child("word_list")
             let wordToLook = wordList.child(word)
             let wordDefinition = wordToLook.child("example")
-            let definitionToDisplay = wordToLook.child("exampleToDisplay")
-            definitionToDisplay.setValue(displayList)
             wordDefinition.setValue(example)
-            wordDefinition.observe(.value, with: { snapshot in
-                let examples = snapshot.value as! [String]
-                complete(examples)
-            })
         })
     }
-    func addSynonymToWord(word:String,synonym:String, complete:@escaping (String?) -> Void) -> Void {
+    func addExampleDisplyList(word:String,displayList:[Bool],complete:@escaping ([String]?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            let definitionToDisplay = wordToLook.child("exampleToDisplay")
+            definitionToDisplay.setValue(displayList)
+        })
+    }
+    func addSynonymToWord(word:String,synonym:[String], complete:@escaping ([String]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
             let user = users.child(uid)
@@ -323,12 +422,22 @@ class FirebaseClient {
             let wordDefinition = wordToLook.child("synonym")
             wordDefinition.setValue(synonym)
             wordDefinition.observe(.value, with: { snapshot in
-                let synonyms = snapshot.value as! String
+                let synonyms = snapshot.value as! [String]
                 complete(synonyms)
             })
         })
     }
-    func addAntonymToWord(word:String,antonym:String, complete:@escaping (String?) -> Void) -> Void {
+    func addSynonymDisplyList(word:String,displayList:[Bool], complete:@escaping (String?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            let wordDefinition = wordToLook.child("synonymToDisplay")
+            wordDefinition.setValue(displayList)
+        })
+    }
+    func addAntonymToWord(word:String,antonym:[String], complete:@escaping ([String]?) -> Void) -> Void {
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
             let user = users.child(uid)
@@ -337,9 +446,19 @@ class FirebaseClient {
             let wordDefinition = wordToLook.child("antonym")
             wordDefinition.setValue(antonym)
             wordDefinition.observe(.value, with: { snapshot in
-                let antonyms = snapshot.value as! String
+                let antonyms = snapshot.value as! [String]
                 complete(antonyms)
             })
+        })
+    }
+    func addAntonymDisplyList(word:String,displayList:[Bool], complete:@escaping (String?) -> Void) -> Void {
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            let wordDefinition = wordToLook.child("antonymToDisplay")
+            wordDefinition.setValue(displayList)
         })
     }
     func upDateMovieObjectUsingUrl(urlString:String, post:MoviePost,complete:()->Void) -> Void{
@@ -361,12 +480,33 @@ class FirebaseClient {
         let word = targetingvideoPost.child("word")
         word.setValue(post.word)
         complete()
+        
         //We should use the following instead to be conservative 
         //word.setValue(<#T##value: Any?##Any?#>, withCompletionBlock: <#T##(Error?, FIRDatabaseReference) -> Void#>)
     }
     
 }
 
+extension String {
+    func regex (pattern: String) -> [String] {
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options(rawValue: 0))
+            let nsstr = self as NSString
+            let all = NSRange(location: 0, length: nsstr.length)
+            var matches : [String] = [String]()
+            regex.enumerateMatches(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: all) {
+                (result : NSTextCheckingResult?, _, _) in
+                if let r = result {
+                    let result = nsstr.substring(with: r.range) as String
+                    matches.append(result)
+                }
+            }
+            return matches
+        } catch {
+            return [String]()
+        }
+    }
+}
 
 
 
