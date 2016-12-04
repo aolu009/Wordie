@@ -176,8 +176,17 @@
                                             <outlet property="exampleText" destination="cd2-xh-PXb" id="FUc-Cn-IWn"/>
                                         </connections>
                                     </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GdR-SN-7d3">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ANZ-3F-bbo"/>
+                                </constraints>
+                                <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeableTableViewCell" rowHeight="110" id="Ed4-dq-eFK" userLabel="Test" customClass="SwipeableTableViewCell" customModule="Wordie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="197" width="375" height="110"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ed4-dq-eFK" id="myq-e0-eyS">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
@@ -201,7 +210,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXA-8B-ziH">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="63"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
@@ -231,6 +240,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="h4h-f4-EeU" id="7lW-vt-ZDM"/>
+                                    <outlet property="delegate" destination="h4h-f4-EeU" id="aOC-vA-fQc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -239,10 +252,13 @@
                             <constraint firstItem="dIp-Jr-yAY" firstAttribute="top" secondItem="ffU-ur-pAG" secondAttribute="bottom" id="5Q0-Cc-uhR"/>
                             <constraint firstItem="nmR-yQ-ghb" firstAttribute="top" secondItem="fKh-SE-6zV" secondAttribute="bottom" id="8T2-UM-qHg"/>
                             <constraint firstItem="ffU-ur-pAG" firstAttribute="leading" secondItem="wIH-il-ltv" secondAttribute="leading" id="CMG-qM-o2q"/>
+                            <constraint firstAttribute="trailing" secondItem="GdR-SN-7d3" secondAttribute="trailing" id="GRc-hr-uj0"/>
                             <constraint firstAttribute="trailing" secondItem="ffU-ur-pAG" secondAttribute="trailing" id="O3u-HY-TZC"/>
                             <constraint firstItem="nmR-yQ-ghb" firstAttribute="leading" secondItem="wIH-il-ltv" secondAttribute="leading" id="OqA-0y-ter"/>
                             <constraint firstItem="ffU-ur-pAG" firstAttribute="top" secondItem="fKh-SE-6zV" secondAttribute="bottom" id="fkF-SY-KOu"/>
                             <constraint firstAttribute="trailing" secondItem="nmR-yQ-ghb" secondAttribute="trailing" id="fpI-8g-tL6"/>
+                            <constraint firstItem="dIp-Jr-yAY" firstAttribute="top" secondItem="GdR-SN-7d3" secondAttribute="bottom" id="sQG-f3-KtU"/>
+                            <constraint firstItem="GdR-SN-7d3" firstAttribute="leading" secondItem="wIH-il-ltv" secondAttribute="leading" id="vhl-N5-er0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="83z-24-T8q">
@@ -254,6 +270,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="definitionTable" destination="nmR-yQ-ghb" id="LOd-bl-B29"/>
+                        <outlet property="viewTableView" destination="GdR-SN-7d3" id="C0U-yp-f6J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MP8-lc-Wid" userLabel="First Responder" sceneMemberID="firstResponder"/>

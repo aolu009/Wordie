@@ -29,6 +29,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     var videoArray = [MoviePost]()
     var finalarray = [UIImage]()
 
+    @IBOutlet weak var viewTableView: UITableView!
     
     var testImage: UIImage?
     
@@ -97,19 +98,32 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        
+        if tableView == definitionTable {
+            return 2
+        }
+        else{
+            return 1
+        }
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0{
-            return 1
+        if tableView == definitionTable {
+            if section == 0{
+                return 1
+            }
+            else{
+                return (word?.definition.count)!
+            }
+            
         }
-        else if section == 1{
-            return (word?.definition.count)!
-        }
+        
+        
         else {
             return 1
         }
+        
         
     }
     
@@ -120,42 +134,46 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WordTableViewCell") as! WordTableViewCell
-            if let word = self.word{
-                cell.word.text = word.word
+        
+        if tableView == definitionTable {
+            if indexPath.section == 0{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "WordTableViewCell") as! WordTableViewCell
+                if let word = self.word{
+                    cell.word.text = word.word
+                }
+                return cell
             }
-            return cell
-        }
-        else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DefinitionTableViewCell") as! DefinitionTableViewCell
-            if let word = self.word{
-                cell.categoryText.text = word.categories[indexPath.row]
-                cell.definitionText.text = word.definition[indexPath.row]
-                cell.exampleText.text = word.definitionAndExample[word.definition[indexPath.row]]
+            else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DefinitionTableViewCell") as! DefinitionTableViewCell
+                if let word = self.word{
+                    cell.categoryText.text = word.categories[indexPath.row]
+                    cell.definitionText.text = word.definition[indexPath.row]
+                    cell.exampleText.text = word.definitionAndExample[word.definition[indexPath.row]]
+                }
+                return cell
             }
-            return cell
-        }
-        else {
+        }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SwipeableTableViewCell") as! SwipeableTableViewCell
             cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
             cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
 
             return cell
-
         }
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 2{
+        
+        if tableView == viewTableView {
             guard let tableViewCell = cell as? SwipeableTableViewCell else { return }
             
             storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
         }
+    
     }
 
     
