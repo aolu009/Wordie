@@ -58,7 +58,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         */
         definitionTable.reloadData()
         
-//       testImage = generatePlaceHolderImage()
+       testImage = generatePlaceHolderImage()
         setImageArray()
         
         
@@ -112,6 +112,13 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         }
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+
+    }
+    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "WordTableViewCell") as! WordTableViewCell
@@ -169,15 +176,18 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
 
 extension WordDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videoArray.count ?? 0
+//        return videoArray.count ?? 0
+        return 40
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! VideoCollectionViewCell
         
         cell.backgroundColor = UIColor.yellow
-        cell.placeholderImageView.image = finalarray[indexPath.row]
-        
+//        cell.placeholderImageView.image = finalarray[indexPath.row]
+        cell.placeholderImageView.image = testImage
+
         return cell
     }
     
