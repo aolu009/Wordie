@@ -49,6 +49,8 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         super.viewDidLoad()
         definitionTable.delegate = self
         definitionTable.dataSource = self
+        viewTableView.tableFooterView = UIView()
+
         /*
         // checking if word info load properly
         if let word = self.word{ //dataSource?.wordDetailViewController()
@@ -173,6 +175,13 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
+//    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+//    {
+//        if tableView == viewTableView {
+//        return 100.0
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         

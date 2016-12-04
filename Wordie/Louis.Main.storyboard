@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nmR-yQ-ghb">
-                                <rect key="frame" x="0.0" y="64" width="375" height="453"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="503"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordTableViewCell" rowHeight="59" id="WTC-HD-HZp" customClass="WordTableViewCell" customModule="Wordie" customModuleProvider="target">
@@ -178,22 +178,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GdR-SN-7d3">
-                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GdR-SN-7d3">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="ANZ-3F-bbo"/>
+                                    <constraint firstAttribute="height" constant="100" id="ANZ-3F-bbo"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeableTableViewCell" rowHeight="110" id="Ed4-dq-eFK" userLabel="Test" customClass="SwipeableTableViewCell" customModule="Wordie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="110"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeableTableViewCell" rowHeight="150" id="Ed4-dq-eFK" userLabel="Test" customClass="SwipeableTableViewCell" customModule="Wordie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ed4-dq-eFK" id="myq-e0-eyS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UiW-Kr-2aF">
-                                                    <rect key="frame" x="8" y="8" width="359" height="94"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="133.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gZx-D5-UNI">
                                                         <size key="itemSize" width="72" height="63"/>
@@ -203,14 +203,14 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3Ed-PP-7mu" customClass="VideoCollectionViewCell" customModule="Wordie" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="12" width="70" height="70"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="133"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="133"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXA-8B-ziH">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="132"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
@@ -220,7 +220,7 @@
                                                                 <constraint firstItem="eXA-8B-ziH" firstAttribute="top" secondItem="3Ed-PP-7mu" secondAttribute="top" id="Rej-Qc-zee"/>
                                                                 <constraint firstAttribute="trailing" secondItem="eXA-8B-ziH" secondAttribute="trailing" id="wtX-b3-SI8"/>
                                                             </constraints>
-                                                            <size key="customSize" width="70" height="70"/>
+                                                            <size key="customSize" width="150" height="133"/>
                                                             <connections>
                                                                 <outlet property="placeholderImageView" destination="eXA-8B-ziH" id="KP0-aI-APa"/>
                                                             </connections>
