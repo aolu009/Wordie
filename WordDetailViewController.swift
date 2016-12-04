@@ -98,3 +98,6 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     }
     
 }
+
+
+

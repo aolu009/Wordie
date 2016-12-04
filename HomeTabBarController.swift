@@ -40,7 +40,10 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         vc2.tabBarItem.image = UIImage(named: "search")
         
         let vc3 = storyboardM.instantiateViewController(withIdentifier: "HomeScreen") as! UIViewController
-        vc3.tabBarItem.image = UIImage(named: "addButton")
+        //vc3.tabBarItem.image = UIImage(named: "addButton")?.imageWithRenderingMode.(UIImageRenderingModeAlwaysOriginal)
+        let customTabBarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "addButton2")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), selectedImage: UIImage(named: "addButton2"))
+        vc3.tabBarItem = customTabBarItem
+        
         //vc3.tabBarItem.selectedImage
         
         let vc4 = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! UIViewController
@@ -62,13 +65,14 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         }
         
 
-        setupMiddleButton()
+        
 
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.selectedIndex = 0
+        setupMiddleButton()
+        
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -91,8 +95,11 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         view.addSubview(menuButton)
         menuButton.addTarget(self, action: #selector(self.presentCameraPicker), for: UIControlEvents.touchUpInside)
         
-        menuButton.setImage(#imageLiteral(resourceName: "addButton"),
-                            for: UIControlState.normal)
+        //menuButton.setImage(#imageLiteral(resourceName: "addButton"),
+                          //  for: UIControlState.normal)
+        
+        //menuButton.isHidden = true
+        
     }
     
     func presentCameraPicker()

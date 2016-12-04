@@ -288,6 +288,7 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoteExampleTableViewCell") as! NoteExampleTableViewCell
             if self.exampleOnScreen.count > 0{
                 cell.textLabel?.text = self.exampleOnScreen[indexPath.row]
+                
             }
             else{
                 cell.textLabel?.text = self.word?.definitionAndExample[(self.word?.definition[0])!]
