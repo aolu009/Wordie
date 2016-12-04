@@ -171,6 +171,46 @@
                                             <outlet property="exampleText" destination="cd2-xh-PXb" id="FUc-Cn-IWn"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeableTableViewCell" rowHeight="110" id="Ed4-dq-eFK" userLabel="Test" customClass="SwipeableTableViewCell" customModule="Wordie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="236" width="375" height="110"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ed4-dq-eFK" id="myq-e0-eyS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UiW-Kr-2aF">
+                                                    <rect key="frame" x="8" y="8" width="359" height="94"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gZx-D5-UNI">
+                                                        <size key="itemSize" width="83" height="72"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3Ed-PP-7mu">
+                                                            <rect key="frame" x="0.0" y="0.0" width="83" height="72"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="83" height="72"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </view>
+                                                            <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UiW-Kr-2aF" secondAttribute="trailing" id="Dy0-3d-BJw"/>
+                                                <constraint firstItem="UiW-Kr-2aF" firstAttribute="top" secondItem="myq-e0-eyS" secondAttribute="topMargin" id="Pxh-A6-MgE"/>
+                                                <constraint firstItem="UiW-Kr-2aF" firstAttribute="centerY" secondItem="myq-e0-eyS" secondAttribute="centerY" id="ZPc-W3-Ln4"/>
+                                                <constraint firstItem="UiW-Kr-2aF" firstAttribute="leading" secondItem="myq-e0-eyS" secondAttribute="leadingMargin" id="ix4-Eh-XIa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="UiW-Kr-2aF" id="m95-Fh-U8P"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>

@@ -84,6 +84,7 @@ class HomeTableViewCell: UITableViewCell {
         contentView.layer.insertSublayer(playerLayer!, at: 1)
         
         
+        }
     }
     
     func pauseVideo() {
