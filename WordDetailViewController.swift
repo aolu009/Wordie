@@ -26,8 +26,14 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
     var word: Word?
     var dataSource: WordDetailViewControllerDataSource?
     var storedOffsets = [Int: CGFloat]()
+    var videoArray = [MoviePost]()
+    var finalarray = [UIImage]()
+
     
     var testImage: UIImage?
+    
+    var imageArray:[String]?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +59,38 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         definitionTable.reloadData()
         
        testImage = generatePlaceHolderImage()
+        
+        
+    }
+    
+    func setImageArray() {
+        //fetchtimeline
+        //iteratethroughmovies to find one wiht right word
+        //create array of those converted urls
+        var array = [URL]()
+        fetchTimeline()
+        for movie in videoArray{
+            if movie.word == "word" {
+                array.append(movie.url)
+                
+            }
+        }
+        
+
+        for url in array{
+            let testimage = generatePlaceHolderImage()
+            finalarray.append(testImage!)
+            
+        }
+        
+    }
+    
+    func fetchTimeline()
+    {
+        FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
+            self.videoArray = videos!
+            
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -128,7 +166,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
 
 extension WordDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return videoArray.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -158,6 +196,8 @@ extension WordDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         var time = CMTimeMake(1, 1)
         var imageRef = try! imageGenerator.copyCGImage(at: time, actualTime: nil)
         var thumbnail = UIImage(cgImage:imageRef)
+        
+        
         return thumbnail
     }
     

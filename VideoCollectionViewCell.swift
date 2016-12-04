@@ -10,5 +10,7 @@ import UIKit
 
 class VideoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var placeholderImageView: UIImageView!
+    var url: URL?
+    
     
 }
