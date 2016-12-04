@@ -58,7 +58,8 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         */
         definitionTable.reloadData()
         
-       testImage = generatePlaceHolderImage()
+//       testImage = generatePlaceHolderImage()
+        setImageArray()
         
         
     }
@@ -69,18 +70,20 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         //create array of those converted urls
         var array = [URL]()
         fetchTimeline()
-        for movie in videoArray{
-            if movie.word == "word" {
-                array.append(movie.url)
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            for movie in self.videoArray{
+                if movie.word == "word" {
+                    array.append(movie.url)
+                    
+                }
+            }
+            
+            for url in array{
+                let testimage = self.generatePlaceHolderImage()
+                self.finalarray.append(self.testImage!)
                 
             }
-        }
-        
-
-        for url in array{
-            let testimage = generatePlaceHolderImage()
-            finalarray.append(testImage!)
-            
         }
         
     }
@@ -173,7 +176,7 @@ extension WordDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! VideoCollectionViewCell
         
         cell.backgroundColor = UIColor.yellow
-        cell.placeholderImageView.image = testImage
+        cell.placeholderImageView.image = finalarray[indexPath.row]
         
         return cell
     }

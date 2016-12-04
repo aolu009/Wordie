@@ -74,7 +74,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/LoginViewController.swift"
-                  timestampString = "502527730.298149"
+                  timestampString = "502530376.748509"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "138"
@@ -89,7 +89,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/LoginViewController.swift"
-                  timestampString = "502527730.300253"
+                  timestampString = "502530376.749952"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "140"
@@ -154,7 +154,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
-                  timestampString = "502527730.313363"
+                  timestampString = "502530376.763535"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "114"
@@ -169,7 +169,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
-                  timestampString = "502527730.316276"
+                  timestampString = "502530376.766186"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
@@ -218,7 +218,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
-                  timestampString = "502527730.327467"
+                  timestampString = "502530376.775876"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "95"
@@ -233,7 +233,7 @@
                   moduleName = "Wordie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/parry/Desktop/CodePath/Wordie/SignUpViewController.swift"
-                  timestampString = "502527730.3308"
+                  timestampString = "502530376.77824"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
@@ -241,6 +241,70 @@
                   offsetFromSymbolStart = "23">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordDetailViewController.swift"
+            timestampString = "502530216.707279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "setImageArray()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordDetailViewController.swift"
+            timestampString = "502530189.835359"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "setImageArray()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordDetailViewController.swift"
+            timestampString = "502530361.456945"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "setImageArray()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordDetailViewController.swift"
+            timestampString = "502530379.217623"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "setImageArray()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

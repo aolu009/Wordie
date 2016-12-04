@@ -60,21 +60,7 @@ class HomeTableViewCell: UITableViewCell {
                 MBProgressHUD.hide(for: self.contentView, animated: true)
                 
             }
-
         }
-        else{
-            loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
-            loadingNotification?.mode = MBProgressHUDMode.indeterminate
-            loadingNotification?.label.text = "fetching :)"
-            sendSubview(toBack: loadingNotification!)
-            
-            let deadlineTime = DispatchTime.now() + .seconds(1)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-                MBProgressHUD.hide(for: self.contentView, animated: true)
-
-            
-        }
-        
 
         loadingNotification?.isHidden = true
         (loadingNotification?.removeFromSuperViewOnHide)!
@@ -83,8 +69,6 @@ class HomeTableViewCell: UITableViewCell {
         //bring view back
         contentView.layer.insertSublayer(playerLayer!, at: 1)
         
-        
-        }
     }
     
     func pauseVideo() {
