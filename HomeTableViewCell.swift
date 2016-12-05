@@ -11,13 +11,20 @@ import AVKit
 import AVFoundation
 import MBProgressHUD
 
+protocol HomeCellDelegate: class {
+    func wordButtonTapped(word: String)
+}
+
 
 class HomeTableViewCell: UITableViewCell {
-
+    
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     var loadingNotification: MBProgressHUD?
-
+    
+    weak var delegate: HomeCellDelegate?
+    
+    
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     
     @IBOutlet weak var likeCountLabel: UILabel!
@@ -40,6 +47,18 @@ class HomeTableViewCell: UITableViewCell {
         loadingNotification?.mode = MBProgressHUDMode.indeterminate
         loadingNotification?.label.text = "fetching :)"
         sendSubview(toBack: loadingNotification!)
+        
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            MBProgressHUD.hide(for: self.contentView, animated: true)
+            self.loadingNotification?.isHidden = true
+            (self.loadingNotification?.removeFromSuperViewOnHide)!
+            
+            
+        }
+        
+        
+        
     }
     
     func playVideo() {
@@ -47,17 +66,17 @@ class HomeTableViewCell: UITableViewCell {
             plyr.actionAtItemEnd = .none
             plyr.play()
         }
-//        MBProgressHUD.hide(MBProgressHUD)
-//        MBProgressHUD.hide(loadingNotification)
-        MBProgressHUD.hide(for: self.contentView, animated: true)
-
-        loadingNotification?.isHidden = true
-        (loadingNotification?.removeFromSuperViewOnHide)!
-
-
+        
+        //        loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
+        //        loadingNotification?.mode = MBProgressHUDMode.indeterminate
+        //        loadingNotification?.label.text = "fetching :)"
+        //        sendSubview(toBack: loadingNotification!)
+        
+        
+        
+        
         //bring view back
         contentView.layer.insertSublayer(playerLayer!, at: 1)
-        
         
     }
     
@@ -68,7 +87,14 @@ class HomeTableViewCell: UITableViewCell {
         }
         
     }
-
+    
+    @IBAction func onWordButtonPressed(_ sender: UIButton) {
+        
+        let word = wordButton.titleLabel?.text
+        //delegate sometimes nil
+        self.delegate?.wordButtonTapped(word: word!)
+        
+    }
     
     override func layoutSubviews() {
         
@@ -87,6 +113,6 @@ class HomeTableViewCell: UITableViewCell {
         
         
     }
-
-
+    
+    
 }
