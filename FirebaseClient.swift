@@ -124,6 +124,7 @@ class FirebaseClient {
                 let text = metadata!.downloadURL()?.absoluteString
                 
                 let token = FirebaseClient.sharedInstance.getUrlTokenString(url: text!)
+                
                 let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
                 let videoRef = videoPostRef.child(token)
                 let videoUrlRef = videoRef.child("video_url")
@@ -148,6 +149,23 @@ class FirebaseClient {
                 let wordRef = videoRef.child("word")
                 wordRef.setValue(word)
                 
+                    let users = FIRDatabase.database().reference(withPath: "users")
+                    let user = users.child(userID)
+                    let wordList = user.child("word_list")
+                    let wordToLook = wordList.child(word)
+                    var userWordVideos = [[String:String]]()
+                    wordToLook.observe(.value, with: { snapshot in
+                         if snapshot.childSnapshot(forPath: "videos").exists() {
+                            userWordVideos = (snapshot.childSnapshot(forPath: "videos").value as? [[String:String]])!
+                        }
+                        var newNoteVideo = [String:String]()
+                        newNoteVideo["video"] = token
+                        newNoteVideo["subtitle"] = subtitles
+                        userWordVideos.append(newNoteVideo)
+                        let userwordvideoref = wordToLook.child("videos")
+                        userwordvideoref.setValue(userWordVideos)
+                    })
+ 
                 print("media url: \(text)")
                 print("Token: \(token)")
                 complete()
@@ -461,8 +479,8 @@ class FirebaseClient {
             wordDefinition.setValue(displayList)
         })
     }
-    /*
-    func getUserWordVideoArray(word:String, complete:@escaping ([String]?) -> Void)-> Void{
+    
+    func getUserWordVideoArray(word:String, complete:@escaping ([[String:String]]?) -> Void)-> Void{
         FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
             let users = FIRDatabase.database().reference(withPath: "users")
             let user = users.child(uid)
@@ -470,18 +488,14 @@ class FirebaseClient {
             let wordToLook = wordList.child(word)
             wordToLook.observe(.value, with: { snapshot in
                 // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
-                if snapshot.childSnapshot(forPath: "antonymToDisplay").exists(){
-                    let antonymToDisplay = snapshot.childSnapshot(forPath: "antonymToDisplay").value as! [Bool]
-                    complete(antonymToDisplay)
-                }
-                else{
-                    let displayList = [Bool]()
-                    complete(displayList)
+                if snapshot.childSnapshot(forPath: "videos").exists(){
+                    let videos = snapshot.childSnapshot(forPath: "antonymToDisplay").value as! [[String:String]]
+                    complete(videos)
                 }
             })
         })
     }
-    */
+    
     func upDateMovieObjectUsingUrl(urlString:String, post:MoviePost,complete:()->Void) -> Void{
         let movieToken = FirebaseClient.sharedInstance.getUrlTokenString(url: urlString)
         let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
