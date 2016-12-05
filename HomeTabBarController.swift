@@ -19,6 +19,7 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
     var movieCount = Int()
 
     var word: Word?
+    var menuButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +42,8 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         
         let vc3 = storyboardM.instantiateViewController(withIdentifier: "HomeScreen") as! UIViewController
         //vc3.tabBarItem.image = UIImage(named: "addButton")?.imageWithRenderingMode.(UIImageRenderingModeAlwaysOriginal)
-        let customTabBarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "addButton2")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), selectedImage: UIImage(named: "addButton2"))
-        vc3.tabBarItem = customTabBarItem
+        //let customTabBarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "addButton2")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), selectedImage: UIImage(named: "addButton2"))
+        //vc3.tabBarItem = customTabBarItem
         
         //vc3.tabBarItem.selectedImage
         
@@ -78,6 +79,7 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if viewController == self.viewControllers?[1]{
             self.tabBar.isHidden = true
+            self.menuButton?.isHidden = true
             
                     }
         
@@ -85,18 +87,17 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
     
     
     func setupMiddleButton() {
-        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        var menuButtonFrame = menuButton.frame
-        menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height
-        menuButtonFrame.origin.x = self.view.bounds.width/2 - menuButtonFrame.size.width/2
-        menuButton.frame = menuButtonFrame
+        menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        var menuButtonFrame = menuButton?.frame
+        menuButtonFrame?.origin.y = self.view.bounds.height - (menuButtonFrame?.height)!
+        menuButtonFrame?.origin.x = self.view.bounds.width/2 - (menuButtonFrame?.size.width)!/2
+        menuButton?.frame = menuButtonFrame!
         
-        menuButton.layer.cornerRadius = menuButtonFrame.height/2
-        view.addSubview(menuButton)
-        menuButton.addTarget(self, action: #selector(self.presentCameraPicker), for: UIControlEvents.touchUpInside)
+        menuButton?.layer.cornerRadius = (menuButtonFrame?.height)!/2
+        view.addSubview(menuButton!)
+        menuButton?.addTarget(self, action: #selector(self.presentCameraPicker), for: UIControlEvents.touchUpInside)
         
-        //menuButton.setImage(#imageLiteral(resourceName: "addButton"),
-                          //  for: UIControlState.normal)
+        menuButton?.setImage(#imageLiteral(resourceName: "addButton2"),for: UIControlState.normal)
         
         //menuButton.isHidden = true
         

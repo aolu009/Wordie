@@ -34,6 +34,7 @@ class DefinitionTabViewController: UITabBarController, UITabBarControllerDelegat
          //vc1top.dataSource = self
          vc1.delegate = self
          vc1.tabBarItem.title = "Definition"
+         vc1.tabBarItem.image = UIImage(named: "Definition")
          //vc1.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 0)
          
          // Set up the second View Controller
@@ -43,12 +44,14 @@ class DefinitionTabViewController: UITabBarController, UITabBarControllerDelegat
          //vc2top.dataSource = self
          vc2.delegate = self
          vc2.tabBarItem.title = "Note"
+         vc2.tabBarItem.image = UIImage(named: "Note")
          //vc2.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.history, tag: 1)
          
-         let vc3 = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! UINavigationController
+         let vc3 = storyboard.instantiateViewController(withIdentifier: "VideoForNoteNViewController") as! UINavigationController
          vc3.delegate = self
          vc3.tabBarItem.title = "Video"
-         vc3.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.favorites, tag: 2)
+         //vc3.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.favorites, tag: 2)
+         vc3.tabBarItem.image = UIImage(named: "NoteVideo")
          
          self.viewControllers = [vc1, vc2, vc3]
         

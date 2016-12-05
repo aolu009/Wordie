@@ -35,7 +35,6 @@ class Word: NSObject {
             let pronunciations = temp["pronunciations"] as! [AnyObject]
             let audiourlDic = pronunciations[0]
             self.audiourl.append(audiourlDic["audioFile"]! as! String)
-            //self.categories.append(category)
             let tempEntry = temp["entries"] as! [AnyObject]
             for sense in tempEntry{
                 senses = sense["senses"] as! [NSDictionary]

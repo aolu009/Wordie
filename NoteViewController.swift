@@ -10,6 +10,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import AVFoundation
 
 @objc protocol NoteViewControllerDataSource {
     @objc optional func noteViewController() -> Word
@@ -43,7 +44,8 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
     var antonymToDisplay: [Bool]?
     var antonymWord: [String]?
     var antonymOnScreen = [String]()
-    
+    var soundUrl = String()
+    var player: AVPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +68,8 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
         
         if let word = self.word{
             self.wordText.text = word.word
+            self.soundUrl = word.audiourl[0]
+            self.pronounceButton.setTitle(word.categories[0], for: .normal)
         }
         else{
             print("Error:Nothing Passed to here")
@@ -333,6 +337,11 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
         })
         
     }
+    @IBAction func onPronounce(_ sender: Any) {
+        
+        play(url: self.soundUrl)
+    }
+    
     
     
     func editDetailViewControllerGetSynonym() -> [String] {
@@ -366,6 +375,22 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
         return self.antonymToDisplay!
     }
     
+    func play(url:String) {  
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+        do {
+            
+            let playerItem = AVPlayerItem(url: URL(string:url)!)
+            self.player = try AVPlayer(playerItem:playerItem)
+            player!.volume = 1.0
+            player!.play()
+        } catch let error as NSError {
+            self.player = nil
+            print(error.localizedDescription)
+        } catch {
+            print("AVAudioPlayer init failed")
+        }
+    }
     
 }
 

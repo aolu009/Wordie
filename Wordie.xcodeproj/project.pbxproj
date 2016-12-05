@@ -42,6 +42,7 @@
 		BFCED8B91DEFFA3500A26AB3 /* EditDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */; };
 		BFCED8BF1DF40CFB00A26AB3 /* SynonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8BE1DF40CFB00A26AB3 /* SynonymTableViewCell.swift */; };
 		BFCED8C11DF40D5200A26AB3 /* AntonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */; };
+		BFCED8C31DF4B57400A26AB3 /* VideoForNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewCell.swift; sourceTree = "<group>"; };
 		BFCED8BE1DF40CFB00A26AB3 /* SynonymTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymTableViewCell.swift; sourceTree = "<group>"; };
 		BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntonymTableViewCell.swift; sourceTree = "<group>"; };
+		BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoForNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */,
 				4200DFF51DF02170005D544D /* SignUpViewController.swift */,
 				4200DFF71DF0218B005D544D /* WelcomeViewController.swift */,
+				BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -381,6 +384,7 @@
 				BF1EA9F21DE2703600A4B3A3 /* Word.swift in Sources */,
 				425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */,
 				BF1EA9EF1DE2702100A4B3A3 /* WordTableViewCell.swift in Sources */,
+				BFCED8C31DF4B57400A26AB3 /* VideoForNoteViewController.swift in Sources */,
 				BF1EAA021DE970F600A4B3A3 /* FirebaseClient.swift in Sources */,
 				4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */,
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,

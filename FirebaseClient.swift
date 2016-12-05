@@ -8,7 +8,7 @@
 
 import Foundation
 import Firebase
-
+import AVFoundation
 import FirebaseAuth
 
 
@@ -461,6 +461,27 @@ class FirebaseClient {
             wordDefinition.setValue(displayList)
         })
     }
+    /*
+    func getUserWordVideoArray(word:String, complete:@escaping ([String]?) -> Void)-> Void{
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            wordToLook.observe(.value, with: { snapshot in
+                // Need to be able to avoid "Could not cast value of type 'NSNull' (0x1a86e5588) to 'NSString' (0x1a86f0398)."
+                if snapshot.childSnapshot(forPath: "antonymToDisplay").exists(){
+                    let antonymToDisplay = snapshot.childSnapshot(forPath: "antonymToDisplay").value as! [Bool]
+                    complete(antonymToDisplay)
+                }
+                else{
+                    let displayList = [Bool]()
+                    complete(displayList)
+                }
+            })
+        })
+    }
+    */
     func upDateMovieObjectUsingUrl(urlString:String, post:MoviePost,complete:()->Void) -> Void{
         let movieToken = FirebaseClient.sharedInstance.getUrlTokenString(url: urlString)
         let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
