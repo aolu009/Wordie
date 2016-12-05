@@ -233,6 +233,18 @@ extension WordDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         launchAVPlayerController()
     }
     
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        
+        let size = CGSize(width: 80, height: 72)
+        return size
+    }
+
     func generatePlaceHolderImage() -> UIImage
     {
         let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-fd9cb.appspot.com/o/IMG_3445.mov?alt=media&token=d686e5c5-6f3a-4f99-a02c-fe530c7745fe")

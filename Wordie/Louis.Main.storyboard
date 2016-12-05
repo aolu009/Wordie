@@ -180,7 +180,7 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GdR-SN-7d3">
                                 <rect key="frame" x="0.0" y="567" width="375" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ANZ-3F-bbo"/>
                                 </constraints>
@@ -194,7 +194,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UiW-Kr-2aF">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gZx-D5-UNI">
                                                         <size key="itemSize" width="72" height="63"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -203,14 +203,14 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3Ed-PP-7mu" customClass="VideoCollectionViewCell" customModule="Wordie" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="-17" width="150" height="133"/>
+                                                            <rect key="frame" x="0.0" y="5" width="100" height="90"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="133"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXA-8B-ziH">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="133"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="63"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
@@ -220,7 +220,7 @@
                                                                 <constraint firstItem="eXA-8B-ziH" firstAttribute="top" secondItem="3Ed-PP-7mu" secondAttribute="top" id="Rej-Qc-zee"/>
                                                                 <constraint firstAttribute="trailing" secondItem="eXA-8B-ziH" secondAttribute="trailing" id="wtX-b3-SI8"/>
                                                             </constraints>
-                                                            <size key="customSize" width="150" height="133"/>
+                                                            <size key="customSize" width="100" height="90"/>
                                                             <connections>
                                                                 <outlet property="placeholderImageView" destination="eXA-8B-ziH" id="KP0-aI-APa"/>
                                                             </connections>
@@ -235,7 +235,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="UiW-Kr-2aF" secondAttribute="trailing" id="u0d-I4-dOW"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="collectionView" destination="UiW-Kr-2aF" id="m95-Fh-U8P"/>
                                         </connections>
