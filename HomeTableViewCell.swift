@@ -57,6 +57,10 @@ class HomeTableViewCell: UITableViewCell {
             
         }
         
+        let longGesture = UILongPressGestureRecognizer(target: self, action: "Long") //Long function will call when user long press on button.
+        wordButton.addGestureRecognizer(longGesture)
+
+        
         
         
     }
@@ -114,5 +118,10 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     
+    
+    func Long() {
+        
+        print("Long press")
+    }
     
 }
