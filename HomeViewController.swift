@@ -12,7 +12,7 @@ import AVFoundation
 import MobileCoreServices
 import Photos
 
-class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
     
     @IBOutlet weak var customTableView: UITableView!
     
@@ -23,11 +23,11 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     @IBOutlet weak var featuredButton: UIButton!
     var menuButton: UIButton!
-
+    
     var videoArray = [MoviePost]()
     var currentMovieURL: URL?
     let refreshControl = UIRefreshControl()
-
+    
     
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -40,9 +40,9 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: progressView)
         
         progressView.isHidden = true
-
         
-
+        
+        
         fetchTimeline()
         
         // Initialize a pull to refresh UIRefreshControl
@@ -51,7 +51,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         customTableView.insertSubview(refreshControl, at: 0)
         
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.LoadObserver), name: NSNotification.Name(rawValue: "Upload"), object: nil)
-
+        
         
     }
     
@@ -71,11 +71,11 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let successObserver = FirebaseClient.sharedInstance.uploadTask?.observe(.success) { snapshot in
             print("success")
             self.progressView.isHidden = true
-
+            
         }
     }
     
-
+    
     
     func fetchTimeline()
     {
@@ -83,10 +83,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             self.videoArray = videos!
             self.customTableView.reloadData()
             self.refreshControl.endRefreshing()
-
+            
         }
     }
-
+    
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -117,7 +117,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             
         }
         
-                
+        
         cell.descriptionLabel.text = post.postBody
         cell.featuredLabel.text = post.featured
         cell.likeCountLabel.text = String(post.likes)
@@ -126,13 +126,15 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         cell.wordButton.setTitle(post.word, for: .normal)
         cell.usernameLabel.text = "@chantellepaige"
         cell.shortDefintionLabel.text = post.shortDefinition
-
+        cell.delegate = self
+        
+        
         
         
         // Set the initial last playing cell value
         if lastPlayingCell == nil {
             lastPlayingCell = cell
-
+            
         }
         
         if let pL = cell.playerLayer {
@@ -174,7 +176,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath = customTableView.indexPathForRow(at: visiblePoint)
         currentMovieURL = videoArray[(visibleIndexPath?.row)!].url
-
+        
         let cell = customTableView.cellForRow(at: visibleIndexPath!) as! HomeTableViewCell
         
         
@@ -185,7 +187,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             cell.playVideo()
         }
     }
-
+    
     
     func takeVideo()
     {
@@ -209,17 +211,17 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         dismiss(animated: true, completion: nil)
         
     }
-
+    
     @IBAction func onLikeButtonTapped(_ sender: Any) {
         
         //update moviePost
         let ref = FIRDatabase.database().reference().child("movie_posts")
         
-       if currentMovieURL != nil
-       {
-        
+        if currentMovieURL != nil
+        {
+            
         }
-
+        
         
         ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
@@ -255,5 +257,37 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     
     
+    func wordButtonTapped(word: String) {
+        presentDetailView(word: word)
+    }
+    
+    
+    func presentDetailView(word: String)
+    {
+        var wordObject: Word?
+        
+        OxfordClient.sharedInstance.searchFromOxford(searchInput: word, success: {(oxfordWord) in
+            if let result = oxfordWord.dictionary{
+                wordObject = Word(dictionary: result)
+                let vc = WordDetailViewController.instantiateCustom(word: wordObject!)
+                
+                let nav = UINavigationController()
+                nav.viewControllers = [vc]
+                //
+                //               nav.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItemStyle.done, target: self, action: #selector(addTapped))
+                //                Th
+                //
+                self.present(nav, animated: true, completion: nil)
+            }
+            
+            
+        }, failure: {(Error) in
+        })
+        
+        
+    }
+    
+    
+    
+    
 }
-
