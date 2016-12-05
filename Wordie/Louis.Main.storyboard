@@ -206,7 +206,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Mbj-g9-gTd" customClass="VideoCollectionViewCell" customModule="Wordie" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="-3.5" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="-3" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -231,6 +231,7 @@
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="JLB-FY-ipQ" secondAttribute="trailing" id="DN2-uU-nL5"/>
                                                 <constraint firstAttribute="bottom" secondItem="JLB-FY-ipQ" secondAttribute="bottom" id="KxG-aS-wc0"/>
