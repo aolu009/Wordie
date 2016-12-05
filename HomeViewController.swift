@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet weak var lineMenuLine: UIView!
     var lastPlayingCell:HomeTableViewCell?
     
+    @IBOutlet weak var noticationImageView: UIImageView!
+    @IBOutlet weak var bottomLineMenu: UIView!
     @IBOutlet weak var forYouButton: UIButton!
     
     @IBOutlet weak var featuredButton: UIButton!
@@ -38,6 +40,9 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
         view.bringSubview(toFront: progressView)
+        view.bringSubview(toFront: bottomLineMenu)
+        view.bringSubview(toFront: noticationImageView)
+
         
         progressView.isHidden = true
         
