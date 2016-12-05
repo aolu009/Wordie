@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet weak var lineMenuLine: UIView!
     var lastPlayingCell:HomeTableViewCell?
     
+    @IBOutlet weak var noticationImageView: UIImageView!
+    @IBOutlet weak var bottomLineMenu: UIView!
     @IBOutlet weak var forYouButton: UIButton!
     
     @IBOutlet weak var featuredButton: UIButton!
@@ -38,6 +40,10 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: forYouButton)
         view.bringSubview(toFront: featuredButton)
         view.bringSubview(toFront: progressView)
+        view.bringSubview(toFront: bottomLineMenu)
+        view.bringSubview(toFront: noticationImageView)
+
+        
         
         progressView.isHidden = true
         
@@ -117,6 +123,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             
         }
         
+        cell.shortDefintionLabel.isHidden = true
         
         cell.descriptionLabel.text = post.postBody
         cell.featuredLabel.text = post.featured
@@ -260,6 +267,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     func wordButtonTapped(word: String) {
         presentDetailView(word: word)
     }
+    
+    
     
     
     func presentDetailView(word: String)
