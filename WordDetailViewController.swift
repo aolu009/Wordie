@@ -65,6 +65,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         setImageArray()
         
         
+        
     }
     
     func setImageArray() {
@@ -183,6 +184,19 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
             storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        if tableView == definitionTable {
+            return 100.0
+        }
+        else
+        {
+            return 80
+        }
+       
+
     }
     
     
