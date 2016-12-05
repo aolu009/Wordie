@@ -16,8 +16,11 @@ class VideoForNoteViewController: UIViewController, UITabBarControllerDelegate, 
 
 
     
-//    @IBOutlet weak var userNoteVideoTableView: UITableView!
     @IBOutlet weak var wordVideoTableView: UITableView!
+    
+    @IBOutlet weak var userNoteVideoTableView: UITableView!
+  
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
