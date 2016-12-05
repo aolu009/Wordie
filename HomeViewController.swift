@@ -44,6 +44,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         view.bringSubview(toFront: noticationImageView)
 
         
+        
         progressView.isHidden = true
         
         
@@ -122,6 +123,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             
         }
         
+        cell.shortDefintionLabel.isHidden = true
         
         cell.descriptionLabel.text = post.postBody
         cell.featuredLabel.text = post.featured
