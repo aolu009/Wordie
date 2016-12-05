@@ -180,21 +180,21 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GdR-SN-7d3">
                                 <rect key="frame" x="0.0" y="567" width="375" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ANZ-3F-bbo"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeableTableViewCell" rowHeight="150" id="Ed4-dq-eFK" userLabel="Test" customClass="SwipeableTableViewCell" customModule="Wordie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwipeableTableViewCell" rowHeight="100" id="Ed4-dq-eFK" userLabel="Test" customClass="SwipeableTableViewCell" customModule="Wordie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ed4-dq-eFK" id="myq-e0-eyS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UiW-Kr-2aF">
-                                                    <rect key="frame" x="8" y="8" width="359" height="133.5"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gZx-D5-UNI">
                                                         <size key="itemSize" width="72" height="63"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -203,14 +203,14 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3Ed-PP-7mu" customClass="VideoCollectionViewCell" customModule="Wordie" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="133"/>
+                                                            <rect key="frame" x="0.0" y="-17" width="150" height="133"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="133"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXA-8B-ziH">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="132"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="133"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
@@ -229,12 +229,13 @@
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="UiW-Kr-2aF" secondAttribute="trailing" id="Dy0-3d-BJw"/>
-                                                <constraint firstItem="UiW-Kr-2aF" firstAttribute="top" secondItem="myq-e0-eyS" secondAttribute="topMargin" id="Pxh-A6-MgE"/>
-                                                <constraint firstItem="UiW-Kr-2aF" firstAttribute="centerY" secondItem="myq-e0-eyS" secondAttribute="centerY" id="ZPc-W3-Ln4"/>
-                                                <constraint firstItem="UiW-Kr-2aF" firstAttribute="leading" secondItem="myq-e0-eyS" secondAttribute="leadingMargin" id="ix4-Eh-XIa"/>
+                                                <constraint firstItem="UiW-Kr-2aF" firstAttribute="top" secondItem="myq-e0-eyS" secondAttribute="top" id="6dE-kn-zq2"/>
+                                                <constraint firstItem="UiW-Kr-2aF" firstAttribute="leading" secondItem="myq-e0-eyS" secondAttribute="leading" id="8Zj-b1-8hN"/>
+                                                <constraint firstAttribute="bottom" secondItem="UiW-Kr-2aF" secondAttribute="bottom" id="aYA-IB-leR"/>
+                                                <constraint firstAttribute="trailing" secondItem="UiW-Kr-2aF" secondAttribute="trailing" id="u0d-I4-dOW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="collectionView" destination="UiW-Kr-2aF" id="m95-Fh-U8P"/>
                                         </connections>
@@ -249,6 +250,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dIp-Jr-yAY" firstAttribute="top" secondItem="ffU-ur-pAG" secondAttribute="bottom" id="5Q0-Cc-uhR"/>
+                            <constraint firstItem="dIp-Jr-yAY" firstAttribute="top" secondItem="GdR-SN-7d3" secondAttribute="bottom" id="76o-e3-B60"/>
                             <constraint firstItem="nmR-yQ-ghb" firstAttribute="top" secondItem="fKh-SE-6zV" secondAttribute="bottom" id="8T2-UM-qHg"/>
                             <constraint firstItem="ffU-ur-pAG" firstAttribute="leading" secondItem="wIH-il-ltv" secondAttribute="leading" id="CMG-qM-o2q"/>
                             <constraint firstAttribute="trailing" secondItem="GdR-SN-7d3" secondAttribute="trailing" id="GRc-hr-uj0"/>
@@ -257,7 +259,6 @@
                             <constraint firstItem="ffU-ur-pAG" firstAttribute="top" secondItem="fKh-SE-6zV" secondAttribute="bottom" id="fkF-SY-KOu"/>
                             <constraint firstAttribute="trailing" secondItem="nmR-yQ-ghb" secondAttribute="trailing" id="fpI-8g-tL6"/>
                             <constraint firstItem="nmR-yQ-ghb" firstAttribute="bottom" secondItem="GdR-SN-7d3" secondAttribute="top" id="n3B-CM-eYC"/>
-                            <constraint firstItem="dIp-Jr-yAY" firstAttribute="top" secondItem="GdR-SN-7d3" secondAttribute="bottom" id="sQG-f3-KtU"/>
                             <constraint firstItem="GdR-SN-7d3" firstAttribute="leading" secondItem="wIH-il-ltv" secondAttribute="leading" id="vhl-N5-er0"/>
                         </constraints>
                     </view>
