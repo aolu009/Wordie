@@ -47,11 +47,11 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         
         //vc3.tabBarItem.selectedImage
         
-        let vc4 = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! UIViewController
+        let vc4 = storyboardM.instantiateViewController(withIdentifier: "HomeScreen") as! UIViewController
         vc4.tabBarItem.title = ""
         vc4.tabBarItem.image = UIImage(named: "notifications")
         
-        let vc5 = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController  
+        let vc5 = storyboardM.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController  
         vc5.tabBarItem.title = ""
         vc5.tabBarItem.image = UIImage(named: "profile")
 

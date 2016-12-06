@@ -26,10 +26,19 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
         profilePhotoImageView.layer.cornerRadius = 10
         profilePhotoImageView.clipsToBounds = true
         
-      user = FirebaseClient.sharedInstance.getUserFromID()
-    usernameLabel.text = user?.username
-     profilePhotoImageView.setImageWith(URL(user?.profilePhoto))
+        FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
+            self.user = User
+            self.usernameLabel.text = self.user?.username
 
+        })
+        
+        if let url = user?.profilePhoto {
+            let converted = URL(string: url)
+            profilePhotoImageView.setImageWith(converted!)
+            usernameLabel.text = user?.username
+
+        }
+        
         // Do any additional setup after loading the view.
     }
 

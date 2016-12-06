@@ -75,6 +75,7 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
             unHideProceed()
 
     }
+    }
 
 
 }

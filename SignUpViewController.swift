@@ -62,7 +62,6 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.textField.attributedPlaceholder = placeholder
             cell.iconImageView.image = #imageLiteral(resourceName: "user")
             cell.iconImageView.tintColor = UIColor.white
-            cell.textField.isSecureTextEntry = true
             cell3 = cell
             
             
