@@ -10,6 +10,8 @@ import UIKit
 import AVKit
 import AVFoundation
 import MBProgressHUD
+import NVActivityIndicatorView
+
 
 protocol HomeCellDelegate: class {
     func wordButtonTapped(word: String)
@@ -18,13 +20,16 @@ protocol HomeCellDelegate: class {
 
 class HomeTableViewCell: UITableViewCell {
     
+    var playerHasObserver = false
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     var loadingNotification: MBProgressHUD?
-    
+    var activityIndicatorView: NVActivityIndicatorView?
+
     weak var delegate: HomeCellDelegate?
     
     
+    @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     
     @IBOutlet weak var likeCountLabel: UILabel!
@@ -39,30 +44,55 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var subtitleLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
-        loadingNotification?.mode = MBProgressHUDMode.indeterminate
-        loadingNotification?.label.text = "fetching :)"
-        sendSubview(toBack: loadingNotification!)
-        
-        let deadlineTime = DispatchTime.now() + .seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            MBProgressHUD.hide(for: self.contentView, animated: true)
-            self.loadingNotification?.isHidden = true
-            (self.loadingNotification?.removeFromSuperViewOnHide)!
-            
-            
-        }
+      
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: "Long") //Long function will call when user long press on button.
         wordButton.addGestureRecognizer(longGesture)
+        
+        setupActivityIndicator()
+        controlsContainerView.alpha = 0
+    }
+    
+    func setupActivityIndicator()
+    {
+        let frame = CGRect(x: 100, y: 250, width: 150, height: 150)
+        
+        activityIndicatorView = NVActivityIndicatorView(frame: frame,
+                                                        type: (rawValue: NVActivityIndicatorType.ballPulseSync))
+        activityIndicatorView?.padding = 20
+        self.contentView.addSubview(activityIndicatorView!)
+        activityIndicatorView?.startAnimating()
 
-        
-        
-        
+    }
+    
+    
+    func pauseActivityIndicator()
+    {
+        activityIndicatorView?.stopAnimating()
+        activityIndicatorView?.isHidden = true
+    }
+    
+    func startActivityIndicator()
+    {
+        activityIndicatorView?.startAnimating()
+        activityIndicatorView?.isHidden = false
+    }
+    
+    func showControls() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.controlsContainerView.alpha = 1.0
+        })
+    }
+    
+    func hideControls() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.controlsContainerView.alpha = 0.0
+        })
     }
     
     func playVideo() {
@@ -70,14 +100,6 @@ class HomeTableViewCell: UITableViewCell {
             plyr.actionAtItemEnd = .none
             plyr.play()
         }
-        
-        //        loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
-        //        loadingNotification?.mode = MBProgressHUDMode.indeterminate
-        //        loadingNotification?.label.text = "fetching :)"
-        //        sendSubview(toBack: loadingNotification!)
-        
-        
-        
         
         //bring view back
         contentView.layer.insertSublayer(playerLayer!, at: 1)
@@ -114,7 +136,9 @@ class HomeTableViewCell: UITableViewCell {
         bringSubview(toFront: descriptionLabel)
         bringSubview(toFront: wordButton)
         bringSubview(toFront: subtitleLabel)
-        
+        bringSubview(toFront: controlsContainerView)
+
+        activityIndicatorView?.center = contentView.center
         
     }
     
@@ -124,4 +148,14 @@ class HomeTableViewCell: UITableViewCell {
         print("Long press")
     }
     
+    deinit {
+        // perform the deinitialization
+        self.player?.removeObserver(self, forKeyPath: "status", context: nil)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        controlsContainerView.alpha = 0
+    }
 }

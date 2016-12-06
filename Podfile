@@ -10,6 +10,7 @@ target 'Wordie' do
   pod 'Firebase/Auth'
   pod 'MBProgressHUD'
   pod 'Firebase/Storage'
+  pod 'NVActivityIndicatorView'
 
 # Pods for FB
 pod 'FacebookCore'
