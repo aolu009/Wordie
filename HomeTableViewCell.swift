@@ -20,6 +20,7 @@ protocol HomeCellDelegate: class {
 
 class HomeTableViewCell: UITableViewCell {
     
+    var playerHasObserver = false
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     var loadingNotification: MBProgressHUD?
@@ -52,12 +53,12 @@ class HomeTableViewCell: UITableViewCell {
         let longGesture = UILongPressGestureRecognizer(target: self, action: "Long") //Long function will call when user long press on button.
         wordButton.addGestureRecognizer(longGesture)
         
-        
+        setupActivityIndicator()
     }
     
     func setupActivityIndicator()
     {
-        let frame = CGRect(x: 100, y: 100, width: 200, height: 200)
+        let frame = CGRect(x: 100, y: 250, width: 150, height: 150)
         
         activityIndicatorView = NVActivityIndicatorView(frame: frame,
                                                         type: (rawValue: NVActivityIndicatorType.ballPulseSync))
@@ -67,10 +68,17 @@ class HomeTableViewCell: UITableViewCell {
 
     }
     
+    
     func pauseActivityIndicator()
     {
+        activityIndicatorView?.stopAnimating()
+        activityIndicatorView?.isHidden = true
+    }
+    
+    func startActivityIndicator()
+    {
         activityIndicatorView?.startAnimating()
-
+        activityIndicatorView?.isHidden = false
     }
     
     func playVideo() {
@@ -115,6 +123,7 @@ class HomeTableViewCell: UITableViewCell {
         bringSubview(toFront: wordButton)
         bringSubview(toFront: subtitleLabel)
         
+        activityIndicatorView?.center = contentView.center
         
     }
     
@@ -124,4 +133,8 @@ class HomeTableViewCell: UITableViewCell {
         print("Long press")
     }
     
+    deinit {
+        // perform the deinitialization
+        self.player?.removeObserver(self, forKeyPath: "status", context: nil)
+    }
 }

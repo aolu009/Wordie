@@ -908,6 +908,9 @@
                                                                 <constraint firstItem="MMi-7g-j5W" firstAttribute="top" secondItem="r0i-xU-DsT" secondAttribute="top" id="wUT-0E-2dW"/>
                                                                 <constraint firstAttribute="bottom" secondItem="MMi-7g-j5W" secondAttribute="bottom" id="xMt-yg-4SE"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="placeholderImageView" destination="MMi-7g-j5W" id="oEU-ql-w4L"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>

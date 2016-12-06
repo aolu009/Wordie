@@ -89,6 +89,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     {
         FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
             self.videoArray = videos!
+//            self.videoArray.reverse()
             self.customTableView.reloadData()
             self.refreshControl.endRefreshing()
             
@@ -110,9 +111,9 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     }
     
 
-    
-     func observeValue(forKeyPath keyPath: String?, of object: AVPlayer?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if object == lastPlayingCell?.player && keyPath == "status"
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if let object = object as? AVPlayer, object == lastPlayingCell?.player && keyPath == "status"
         {
             if cellForAnimationView?.player?.status == AVPlayerStatus.readyToPlay
             {
@@ -134,10 +135,16 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         }
         else{
             cell.player = AVPlayer(url: videoURL!)
-
-            cell.player?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
+            if cell.playerHasObserver == false {
+                cell.player?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
+            }
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
+        }
+        
+        // Check the status and if the video is not ready to play, show activity indicator
+        if cellForAnimationView?.player?.status != AVPlayerStatus.readyToPlay {
+            cellForAnimationView?.startActivityIndicator()
         }
         
         cell.shortDefintionLabel.isHidden = true
@@ -313,10 +320,23 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
     }
     
+    func getRidOfObserver(cell:HomeTableViewCell) {
+        cell.player?.removeObserver(self, forKeyPath: "status", context: nil)
+    }
+    
     
     deinit {
         // perform the deinitialization
         cellForAnimationView?.player?.removeObserver(self, forKeyPath: "status", context: nil)
+        
+        // Remove the observer
+        for view in customTableView.subviews {
+            if let cell = view as? HomeTableViewCell {
+                if cell.playerHasObserver {
+                    getRidOfObserver(cell: cell)
+                }
+            }
+        }
     }
     
     

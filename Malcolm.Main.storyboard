@@ -630,8 +630,11 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-nL-bAN">
-                                <rect key="frame" x="0.0" y="67" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="67" width="375" height="132"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" id="0A5-1e-09v"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inputCell" id="0Fd-W3-OSb" customClass="InputTableViewCell" customModule="Wordie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -676,7 +679,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-Hi-gz4">
-                                <rect key="frame" x="0.0" y="197" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="199" width="375" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="SIGN UP">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -700,7 +703,6 @@
                             <constraint firstItem="085-4i-9OP" firstAttribute="centerX" secondItem="w7k-Wr-Bc8" secondAttribute="centerX" id="WTe-9U-dLg"/>
                             <constraint firstItem="YSa-NH-Gat" firstAttribute="centerY" secondItem="085-4i-9OP" secondAttribute="centerY" id="YD4-XS-ITh"/>
                             <constraint firstItem="d5Y-b4-TNW" firstAttribute="width" secondItem="YSa-NH-Gat" secondAttribute="width" id="bLz-jU-M3z"/>
-                            <constraint firstItem="Wqm-cL-6D2" firstAttribute="top" secondItem="iW5-Hi-gz4" secondAttribute="bottom" constant="440" id="qC8-3c-hfI"/>
                             <constraint firstItem="d5Y-b4-TNW" firstAttribute="height" secondItem="YSa-NH-Gat" secondAttribute="height" id="rTQ-Ua-Hjt"/>
                             <constraint firstItem="085-4i-9OP" firstAttribute="top" secondItem="K5H-Fw-o3Q" secondAttribute="bottom" constant="30" id="rXt-ud-y2U"/>
                             <constraint firstAttribute="trailing" secondItem="x2A-q1-Q5X" secondAttribute="trailing" id="rsg-7U-1I1"/>
