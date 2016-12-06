@@ -70,14 +70,13 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if wordTextField.text != "" && subtitleTextField.text != "" && captionTextField.text != ""  {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if definitionTextField.text != ""  {
             unHideProceed()
-        }
+
     }
-    
-    
-    
+
+
 }
 
 

@@ -63,7 +63,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.iconImageView.image = #imageLiteral(resourceName: "user")
             cell.iconImageView.tintColor = UIColor.white
             cell.textField.isSecureTextEntry = true
-            cell2 = cell
+            cell3 = cell
             
             
         }
@@ -78,7 +78,8 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let email = cell1!.textField.text
         let pw = cell2!.textField.text
-        
+        let username = cell3!.textField.text
+
         FIRAuth.auth()!.createUser(withEmail: email!,
                                    password: pw!) { user, error in
                                     if error == nil {
@@ -88,7 +89,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                         self.storeUser()
                                         
                                         self.getCurrentUser()
-                                        FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: "nil")
+                                        FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: username)
                                         
                                         self.performSegue(withIdentifier: "homeSegue2", sender: nil)
                                         
