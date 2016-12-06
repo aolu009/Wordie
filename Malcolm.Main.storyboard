@@ -403,19 +403,19 @@
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="ZF4-Ff-DwI">
-                                <rect key="frame" x="112" y="168" width="150" height="150"/>
+                                <rect key="frame" x="87" y="168" width="200" height="200"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="XIr-3a-sxF"/>
-                                    <constraint firstAttribute="width" constant="150" id="vYq-Vi-1Br"/>
+                                    <constraint firstAttribute="height" constant="200" id="XIr-3a-sxF"/>
+                                    <constraint firstAttribute="width" constant="200" id="vYq-Vi-1Br"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="JN5-ED-oUi" appends="YES" id="cBr-32-vNy"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kn-Ed-p7G">
-                                <rect key="frame" x="166" y="334" width="42" height="21"/>
+                                <rect key="frame" x="166" y="384" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>

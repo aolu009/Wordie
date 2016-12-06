@@ -46,6 +46,15 @@ class FirebaseClient {
         }
     }
     
+    func updateUserProfilePic(photoURL: String)
+    {
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference()
+        var user:User?
+        self.ref.child("users").child(user.uid).setValue(["profile_photo_url": photoURL])
+
+    }
+    
     func getUserFromID(success: @escaping (User) -> Void)
     {
         let userID = FIRAuth.auth()?.currentUser?.uid

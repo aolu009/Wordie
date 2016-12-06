@@ -23,21 +23,25 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profilePhotoImageView.layer.cornerRadius = 10
+        profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height/2
         profilePhotoImageView.clipsToBounds = true
-        
-        FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
-            self.user = User
-            self.usernameLabel.text = self.user?.username
+        profilePhotoImageView.image = #imageLiteral(resourceName: "French_Bulldog-pup")
 
-        })
         
-        if let url = user?.profilePhoto {
-            let converted = URL(string: url)
-            profilePhotoImageView.setImageWith(converted!)
-            usernameLabel.text = user?.username
-
-        }
+//        FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
+//            self.user = User
+//            self.usernameLabel.text = self.user?.username
+//
+//        })
+        
+//        if let usr = self.user {
+//            if let url = usr.profilePhoto {
+//            let converted = URL(string: url)
+//            profilePhotoImageView.setImageWith(converted!)
+//            usernameLabel.text = user?.username
+//
+//        }
+//        }
         
         // Do any additional setup after loading the view.
     }
@@ -56,7 +60,7 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
 
-        imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
+        imagePicker.mediaTypes = [kUTTypeImage as String]
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: self)
         
@@ -69,7 +73,11 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
         
         
         imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage
-        profilePhotoImageView.image = imagePicked   
+        let url = info[UIImagePickerControllerMediaURL] as? String
+        //sendURL up to server
+        
+        profilePhotoImageView.image = imagePicked
+        
         self.dismiss(animated: true, completion: nil)
         
     }
