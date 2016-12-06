@@ -31,7 +31,6 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         //vc1.tabBarItem.title = "Add Word"
         //vc1.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 0)
         vc1.tabBarItem.image = UIImage(named: "home")
-        self.delegate = vc1
         
         // Set up the second View Controller
         let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
@@ -82,7 +81,9 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
             self.tabBar.isHidden = true
             self.menuButton?.isHidden = true
             
-                    }
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: self)
         
     }
     

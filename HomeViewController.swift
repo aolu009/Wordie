@@ -12,7 +12,7 @@ import AVFoundation
 import MobileCoreServices
 import Photos
 
-class HomeViewController: UIViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
     
     @IBOutlet weak var customTableView: UITableView!
     
@@ -58,9 +58,9 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate, UITableV
         // add refresh control to table view
         customTableView.insertSubview(refreshControl, at: 0)
         
+        // Observe
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.LoadObserver), name: NSNotification.Name(rawValue: "Upload"), object: nil)
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.tabBarControllerDidSelect), name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: nil)
     }
     
     func LoadObserver()
@@ -338,8 +338,10 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate, UITableV
     }
     
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    func tabBarControllerDidSelect(notification: NSNotification) {
         pauseVideos()
+        
+        
     }
     
     
