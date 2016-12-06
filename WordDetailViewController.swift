@@ -41,31 +41,9 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         definitionTable.delegate = self
         definitionTable.dataSource = self
         viewTableView.tableFooterView = UIView()
-        
-        /*
-         // checking if word info load properly
-         if let word = self.word{ //dataSource?.wordDetailViewController()
-         for category in word.categories{
-         print("\(category):")
-         for definition in word.definition{
-         print("Definition:",definition)
-         if let ex = word.testing[category]?[definition]{
-         print(ex)
-         }
-         }
-         }
-         }
-         else{
-         print("Nothing Passed to hereeeeeeeeeee")
-         }
-         */
         definitionTable.reloadData()
-        
         testImage = generatePlaceHolderImage()
-        setImageArray()
-        
-        
-        
+        //setImageArray()
     }
     
     func setImageArray() {
@@ -73,6 +51,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
         //iteratethroughmovies to find one wiht right word
         //create array of those converted urls
         var array = [URL]()
+        
         fetchTimeline()
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
@@ -82,12 +61,12 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
                     
                 }
             }
-            
+            /*
             for url in array{
                 let testimage = self.generatePlaceHolderImage()
                 self.finalarray.append(self.testImage!)
                 
-            }
+            }*/
         }
         
     }

@@ -125,9 +125,6 @@ class FirebaseClient {
         
         let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
         var posts = [MoviePost]()
-        var test: [NSDictionary] = [NSDictionary]()
-
-        
         videoPostRef.observe(.value, with: { snapshot in
             print(snapshot)
             print("Timeline retrieved")
@@ -138,7 +135,7 @@ class FirebaseClient {
                 
                 for pair in dic {
                     let mp = pair.value
-                    let post = MoviePost(dictionary: mp as! NSDictionary)
+                    let post = MoviePost(dictionary: mp)
                     posts.append(post)
                 }
                 
@@ -146,11 +143,45 @@ class FirebaseClient {
             }
         })
     }
-    
-
+    func fetchWordVideos(word:String,success: @escaping ([NoteVideo]?) -> Void){
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let users = FIRDatabase.database().reference(withPath: "users")
+            let user = users.child(uid)
+            let wordList = user.child("word_list")
+            let wordToLook = wordList.child(word)
+            let videoPostRef = wordToLook.child("videos")
+            var posts = [NoteVideo]()
+            videoPostRef.observe(.value, with: { snapshot in
+                print("User Word",snapshot)
+                if snapshot.exists() {
+                    let dic = snapshot.value as! [String:NSDictionary]
+                    print("User Word",dic)
+                    for pair in dic {
+                        let mp = pair.value
+                        let post = NoteVideo(dictionary: mp )
+                        posts.append(post)
+                    }
+                    success(posts)
+                }
+            })
+        })
+        
+    }
+    func generatePlaceHolderImage(url:String) -> UIImage
+    {
+        let imageUrl = URL(string:url)
+        let asset = AVAsset(url: imageUrl!)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+        let time = CMTimeMake(1, 1)
+        let imageRef = try! imageGenerator.copyCGImage(at: time, actualTime: nil)
+        let thumbnail = UIImage(cgImage:imageRef)
+        return thumbnail
+    }
 
     func createNewVideoObject(url:URL, movieCount: Int, description: String, likes: Int, featured: Bool, definition: String, word: String, subtitles: String, userID: String, complete:@escaping () -> Void) -> Void {
+        
         let videoUploadedRef = FIRStorage.storage().reference(withPath: "video_uploaded")
+        let videoPicsRef = FIRStorage.storage().reference(withPath:"place_holder_pics")
         
         let videoRef = videoUploadedRef.child(String(movieCount))
         
@@ -160,11 +191,19 @@ class FirebaseClient {
             } else {
                 // Metadata contains file metadata such as size, content-type, and download URL.
                 let text = metadata!.downloadURL()?.absoluteString
-                
                 let token = FirebaseClient.sharedInstance.getUrlTokenString(url: text!)
+                let videoImage = self.generatePlaceHolderImage(url: text!)
+                let imageData = UIImagePNGRepresentation(videoImage)
+                let picRef = videoPicsRef.child(token)
                 
+                picRef.put(imageData! as Data, metadata: nil, completion: { (metadata, error) in
+                    print("image uploaded!!")
+                
+                let imageUrl = metadata!.downloadURL()?.absoluteString
                 let videoPostRef = FIRDatabase.database().reference(withPath: "movie_posts")
                 let videoRef = videoPostRef.child(token)
+                
+                    
                 let videoUrlRef = videoRef.child("video_url")
                 videoUrlRef.setValue(text!)
                 let descriptionRef = videoRef.child("description")
@@ -187,26 +226,23 @@ class FirebaseClient {
                 let wordRef = videoRef.child("word")
                 wordRef.setValue(word)
                 
-                    let users = FIRDatabase.database().reference(withPath: "users")
-                    let user = users.child(userID)
-                    let wordList = user.child("word_list")
-                    let wordToLook = wordList.child(word)
-                    var userWordVideos = [[String:String]]()
-                    wordToLook.observe(.value, with: { snapshot in
-                         if snapshot.childSnapshot(forPath: "videos").exists() {
-                            userWordVideos = (snapshot.childSnapshot(forPath: "videos").value as? [[String:String]])!
-                        }
-                        var newNoteVideo = [String:String]()
-                        newNoteVideo["video"] = token
-                        newNoteVideo["subtitle"] = subtitles
-                        userWordVideos.append(newNoteVideo)
-                        let userwordvideoref = wordToLook.child("videos")
-                        userwordvideoref.setValue(userWordVideos)
-                    })
- 
-                print("media url: \(text)")
-                print("Token: \(token)")
+                
+                let users = FIRDatabase.database().reference(withPath: "users")
+                let user = users.child(userID)
+                let wordList = user.child("word_list")
+                let wordToLook = wordList.child(word)
+                let wordVideos = wordToLook.child("videos")
+                let newVideo = wordVideos.child(token)
+                let videoToken = newVideo.child("token")
+                let videoSubtitle = newVideo.child("subtitle")
+                let videoUrl = newVideo.child("url")
+                let picUrl = newVideo.child("imageUrl")
+                videoToken.setValue(token)
+                videoSubtitle.setValue(subtitles)
+                videoUrl.setValue(text!)
+                picUrl.setValue(imageUrl)
                 complete()
+                })
             }
         }
         let observer = uploadTask?.observe(.progress) { snapshot in

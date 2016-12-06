@@ -31,7 +31,6 @@ class DefinitionTabViewController: UITabBarController, UITabBarControllerDelegat
          let vc1 = storyboard.instantiateViewController(withIdentifier: "WordDetailNavController") as! UINavigationController
          let vc1top = vc1.topViewController as! WordDetailViewController
          vc1top.word = self.dataSource?.definitionTabViewController()
-         //vc1top.dataSource = self
          vc1.delegate = self
          vc1.tabBarItem.title = "Definition"
          vc1.tabBarItem.image = UIImage(named: "Definition")
@@ -41,13 +40,15 @@ class DefinitionTabViewController: UITabBarController, UITabBarControllerDelegat
          let vc2 = storyboard.instantiateViewController(withIdentifier: "NoteNavController") as! UINavigationController
          let vc2top = vc2.topViewController as! NoteViewController
          vc2top.word = self.dataSource?.definitionTabViewController()
-         //vc2top.dataSource = self
          vc2.delegate = self
          vc2.tabBarItem.title = "Note"
          vc2.tabBarItem.image = UIImage(named: "Note")
          //vc2.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.history, tag: 1)
          
          let vc3 = storyboard.instantiateViewController(withIdentifier: "VideoForNoteNViewController") as! UINavigationController
+         let vc3top = vc3.topViewController as! VideoForNoteViewController
+         vc3top.word = self.dataSource?.definitionTabViewController().word
+         vc3top.pronounce = self.dataSource?.definitionTabViewController().audiourl[0]
          vc3.delegate = self
          vc3.tabBarItem.title = "Video"
          //vc3.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.favorites, tag: 2)
