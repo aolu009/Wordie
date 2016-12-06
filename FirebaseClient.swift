@@ -46,6 +46,44 @@ class FirebaseClient {
         }
     }
     
+    func updateUserProfilePic(photoURL: String)
+    {
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference()
+        var user:User?
+        ref.child("users").child(userID!).setValue(["profile_photo_url": photoURL])
+
+    }
+    
+    func updateUsername(username: String)
+    {
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference()
+        var user:User?
+        ref.child("users").child(userID!).setValue(["username": username])
+        
+    }
+    
+    func getUserFromID(success: @escaping (User) -> Void)
+    {
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference()
+        var user:User?
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["username"] as? String ?? ""
+            user = User.init(dictionary: value!)
+            success(user!)
+
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     func getUrlTokenString(url:String) -> String {
         var tokenString: String = String()
         var startAppend: Bool = false

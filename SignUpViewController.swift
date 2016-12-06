@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var cell1: InputTableViewCell?
     var cell2: InputTableViewCell?
+    var cell3: InputTableViewCell?
 
     
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,6 +57,17 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             
         }
+        if indexPath.row == 2 {
+            let placeholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            cell.textField.attributedPlaceholder = placeholder
+            cell.iconImageView.image = #imageLiteral(resourceName: "user")
+            cell.iconImageView.tintColor = UIColor.white
+            cell3 = cell
+            
+            
+        }
+        
+        
         
         
         return cell
@@ -65,7 +77,8 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let email = cell1!.textField.text
         let pw = cell2!.textField.text
-        
+        let username = cell3!.textField.text
+
         FIRAuth.auth()!.createUser(withEmail: email!,
                                    password: pw!) { user, error in
                                     if error == nil {
@@ -75,10 +88,11 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                         self.storeUser()
                                         
                                         self.getCurrentUser()
-                                        FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: "nil")
+                                        FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: username)
                                         
-                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
-                                        
+                                        self.performSegue(withIdentifier: "homeSegue3", sender: nil)
+//                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
+
                                     }
         }
         
