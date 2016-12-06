@@ -12,7 +12,7 @@ import AVFoundation
 import MobileCoreServices
 import Photos
 
-class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
+class HomeViewController: UIViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
     
     @IBOutlet weak var customTableView: UITableView!
     
@@ -329,6 +329,19 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     func getRidOfObserver(cell:HomeTableViewCell) {
         cell.player?.removeObserver(self, forKeyPath: "status", context: nil)
     }
+    
+    func pauseVideos()
+    {
+        cellForAnimationView?.pauseVideo()
+        lastPlayingCell?.pauseVideo()
+
+    }
+    
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        pauseVideos()
+    }
+    
     
     
     deinit {
