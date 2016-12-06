@@ -29,6 +29,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     var videoArray = [MoviePost]()
     var currentMovieURL: URL?
     let refreshControl = UIRefreshControl()
+    var cellForAnimationView:HomeTableViewCell?
+
     
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -107,10 +109,23 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         return videoArray.count
     }
     
+
+    
+     func observeValue(forKeyPath keyPath: String?, of object: AVPlayer?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if object == lastPlayingCell?.player && keyPath == "status"
+        {
+            if cellForAnimationView?.player?.status == AVPlayerStatus.readyToPlay
+            {
+               cellForAnimationView?.pauseActivityIndicator()
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         
+        cellForAnimationView = cell
         let post = videoArray[indexPath.row]
         let videoURL = post.url
         
@@ -119,6 +134,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         }
         else{
             cell.player = AVPlayer(url: videoURL!)
+
+            cell.player?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
@@ -296,6 +313,11 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
     }
     
+    
+    deinit {
+        // perform the deinitialization
+        cellForAnimationView?.player?.removeObserver(self, forKeyPath: "status", context: nil)
+    }
     
     
     

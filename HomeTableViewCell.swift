@@ -10,6 +10,8 @@ import UIKit
 import AVKit
 import AVFoundation
 import MBProgressHUD
+import NVActivityIndicatorView
+
 
 protocol HomeCellDelegate: class {
     func wordButtonTapped(word: String)
@@ -21,7 +23,8 @@ class HomeTableViewCell: UITableViewCell {
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     var loadingNotification: MBProgressHUD?
-    
+    var activityIndicatorView: NVActivityIndicatorView?
+
     weak var delegate: HomeCellDelegate?
     
     
@@ -39,30 +42,35 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var subtitleLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
-        loadingNotification?.mode = MBProgressHUDMode.indeterminate
-        loadingNotification?.label.text = "fetching :)"
-        sendSubview(toBack: loadingNotification!)
-        
-        let deadlineTime = DispatchTime.now() + .seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            MBProgressHUD.hide(for: self.contentView, animated: true)
-            self.loadingNotification?.isHidden = true
-            (self.loadingNotification?.removeFromSuperViewOnHide)!
-            
-            
-        }
+      
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: "Long") //Long function will call when user long press on button.
         wordButton.addGestureRecognizer(longGesture)
+        
+        
+    }
+    
+    func setupActivityIndicator()
+    {
+        let frame = CGRect(x: 100, y: 100, width: 200, height: 200)
+        
+        activityIndicatorView = NVActivityIndicatorView(frame: frame,
+                                                        type: (rawValue: NVActivityIndicatorType.ballPulseSync))
+        activityIndicatorView?.padding = 20
+        self.contentView.addSubview(activityIndicatorView!)
+        activityIndicatorView?.startAnimating()
 
-        
-        
-        
+    }
+    
+    func pauseActivityIndicator()
+    {
+        activityIndicatorView?.startAnimating()
+
     }
     
     func playVideo() {
@@ -70,14 +78,6 @@ class HomeTableViewCell: UITableViewCell {
             plyr.actionAtItemEnd = .none
             plyr.play()
         }
-        
-        //        loadingNotification = MBProgressHUD.showAdded(to: self.contentView, animated: true)
-        //        loadingNotification?.mode = MBProgressHUDMode.indeterminate
-        //        loadingNotification?.label.text = "fetching :)"
-        //        sendSubview(toBack: loadingNotification!)
-        
-        
-        
         
         //bring view back
         contentView.layer.insertSublayer(playerLayer!, at: 1)
