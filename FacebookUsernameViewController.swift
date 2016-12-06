@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FacebookUsernameViewController: UIViewController {
+class FacebookUsernameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     
@@ -23,7 +23,10 @@ class FacebookUsernameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+      let username = self.usernameTextField.text
+    FirebaseClient.sharedInstance.updateUsername(username: username)
+    }
     
 
     /*
