@@ -12,7 +12,7 @@ import AVFoundation
 import MobileCoreServices
 import Photos
 
-class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
     
     @IBOutlet weak var customTableView: UITableView!
     
@@ -29,6 +29,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     var videoArray = [MoviePost]()
     var currentMovieURL: URL?
     let refreshControl = UIRefreshControl()
+    var cellForAnimationView:HomeTableViewCell?
+
     
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -56,9 +58,9 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         // add refresh control to table view
         customTableView.insertSubview(refreshControl, at: 0)
         
+        // Observe
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.LoadObserver), name: NSNotification.Name(rawValue: "Upload"), object: nil)
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.tabBarControllerDidSelect), name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: nil)
     }
     
     func LoadObserver()
@@ -87,6 +89,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     {
         FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
             self.videoArray = videos!
+            self.videoArray.reverse()
             self.customTableView.reloadData()
             self.refreshControl.endRefreshing()
             
@@ -107,10 +110,24 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         return videoArray.count
     }
     
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if let object = object as? AVPlayer, object == lastPlayingCell?.player && keyPath == "status"
+        {
+            if cellForAnimationView?.player?.status == AVPlayerStatus.readyToPlay
+            {
+               cellForAnimationView?.pauseActivityIndicator()
+                cellForAnimationView?.showControls()
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         
+        cellForAnimationView = cell
         let post = videoArray[indexPath.row]
         let videoURL = post.url
         
@@ -119,6 +136,9 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         }
         else{
             cell.player = AVPlayer(url: videoURL!)
+            if cell.playerHasObserver == false {
+                cell.player?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
+            }
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
@@ -148,7 +168,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             pL.frame = self.view.frame
             
             cell.contentView.layer.addSublayer(pL)
-            
+            cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
+
             
             
             if let player = cell.player {
@@ -157,12 +178,21 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                 //play first cell
                 if indexPath.row == 0 {
                     //bring view back
-                    cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
+//                    cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
                     cell.playVideo()
                     
                     
                 }
             }
+        }
+        
+        
+        
+        // Check the status and if the video is not ready to play, show activity indicator
+        if cellForAnimationView?.player?.status != AVPlayerStatus.readyToPlay {
+            cellForAnimationView?.startActivityIndicator()
+        } else {
+            cell.showControls()
         }
         
         
@@ -296,6 +326,39 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
     }
     
+    func getRidOfObserver(cell:HomeTableViewCell) {
+        cell.player?.removeObserver(self, forKeyPath: "status", context: nil)
+    }
+    
+    func pauseVideos()
+    {
+        cellForAnimationView?.pauseVideo()
+        lastPlayingCell?.pauseVideo()
+
+    }
+    
+    
+    func tabBarControllerDidSelect(notification: NSNotification) {
+        pauseVideos()
+        
+        
+    }
+    
+    
+    
+    deinit {
+        // perform the deinitialization
+        cellForAnimationView?.player?.removeObserver(self, forKeyPath: "status", context: nil)
+        
+        // Remove the observer
+        for view in customTableView.subviews {
+            if let cell = view as? HomeTableViewCell {
+                if cell.playerHasObserver {
+                    getRidOfObserver(cell: cell)
+                }
+            }
+        }
+    }
     
     
     
