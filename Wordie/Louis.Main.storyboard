@@ -826,15 +826,9 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TUm-0c-tN5" id="BRe-Fo-jSI">
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
-=======
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
-=======
+
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
->>>>>>> master
->>>>>>> master
+
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-it-8i3">
@@ -878,23 +872,12 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GfM-Xs-kpV" id="ALm-Og-9uu">
-<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-1i-mxe">
                                                     <rect key="frame" x="8" y="8" width="359" height="116.5"/>
-=======
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
-=======
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>
->>>>>>> master
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-1i-mxe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
->>>>>>> master
+
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B4N-dH-xKo">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -923,11 +906,7 @@
                                                                 <constraint firstAttribute="bottom" secondItem="MMi-7g-j5W" secondAttribute="bottom" constant="3" id="xMt-yg-4SE"/>
                                                             </constraints>
                                                             <connections>
-<<<<<<< HEAD
                                                                 <outlet property="placeholderImageView" destination="MMi-7g-j5W" id="Uzv-Q4-1fo"/>
-=======
-                                                                <outlet property="placeholderImageView" destination="MMi-7g-j5W" id="oEU-ql-w4L"/>
->>>>>>> master
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -968,13 +947,10 @@
                             <constraint firstAttribute="trailing" secondItem="dbz-Hi-icQ" secondAttribute="trailing" id="Y8P-7m-M6l"/>
                             <constraint firstAttribute="trailing" secondItem="ebS-C5-EV9" secondAttribute="trailing" id="aDu-bk-P9M"/>
                             <constraint firstItem="eH6-Fg-Yr7" firstAttribute="top" secondItem="G72-lQ-ZyV" secondAttribute="bottom" constant="541" id="aOL-P7-XXU"/>
-<<<<<<< HEAD
+
                             <constraint firstItem="eH6-Fg-Yr7" firstAttribute="top" secondItem="ebS-C5-EV9" secondAttribute="bottom" id="dEe-fX-xAL"/>
                             <constraint firstItem="eAy-qA-qLk" firstAttribute="top" secondItem="G72-lQ-ZyV" secondAttribute="bottom" constant="415" id="dgR-2l-K9L"/>
-=======
-                            <constraint firstItem="eAy-qA-qLk" firstAttribute="top" secondItem="G72-lQ-ZyV" secondAttribute="bottom" constant="380" id="dgR-2l-K9L"/>
-                            <constraint firstAttribute="bottom" secondItem="ebS-C5-EV9" secondAttribute="bottom" id="hJl-n4-f6f"/>
->>>>>>> master
+
                             <constraint firstItem="ebS-C5-EV9" firstAttribute="top" secondItem="nHZ-vv-nkG" secondAttribute="bottom" id="iML-df-BFN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JvG-r8-8OU" secondAttribute="trailing" id="t9k-bi-nVd"/>
                             <constraint firstItem="eAy-qA-qLk" firstAttribute="leading" secondItem="xp2-QR-XVJ" secondAttribute="leading" id="tAl-1y-Y1Q"/>
