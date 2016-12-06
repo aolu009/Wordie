@@ -21,7 +21,6 @@
 		42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CCA1F71DE3B01400223D6E /* LoginViewController.swift */; };
 		BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */; };
 		BF1EA9D31DE26DC200A4B3A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9D11DE26DC200A4B3A3 /* LaunchScreen.storyboard */; };
-		BF1EA9E01DE26EFE00A4B3A3 /* Louis.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9DF1DE26EFE00A4B3A3 /* Louis.Main.storyboard */; };
 		BF1EA9E91DE2700100A4B3A3 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9E51DE2700100A4B3A3 /* WordDetailViewController.swift */; };
 		BF1EA9EA1DE2700100A4B3A3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9E61DE2700100A4B3A3 /* SearchViewController.swift */; };
 		BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1EA9E71DE2700100A4B3A3 /* NoteViewController.swift */; };
@@ -47,6 +46,7 @@
 		BFCED8C31DF4B57400A26AB3 /* VideoForNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */; };
 		BFCED8CA1DF673B300A26AB3 /* VideoForNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C91DF673B300A26AB3 /* VideoForNoteTableViewCell.swift */; };
 		BFCED8CC1DF6B87700A26AB3 /* NoteVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */; };
+		BFCED8CE1DF77B9000A26AB3 /* Louis.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCED8CD1DF77B9000A26AB3 /* Louis.Main.storyboard */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,6 @@
 		BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1EA9D21DE26DC200A4B3A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF1EA9DC1DE26E2E00A4B3A3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF1EA9DF1DE26EFE00A4B3A3 /* Louis.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Louis.Main.storyboard; path = Wordie/Louis.Main.storyboard; sourceTree = "<group>"; };
 		BF1EA9E51DE2700100A4B3A3 /* WordDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
 		BF1EA9E61DE2700100A4B3A3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BF1EA9E71DE2700100A4B3A3 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoForNoteViewController.swift; sourceTree = "<group>"; };
 		BFCED8C91DF673B300A26AB3 /* VideoForNoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoForNoteTableViewCell.swift; sourceTree = "<group>"; };
 		BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteVideo.swift; sourceTree = "<group>"; };
+		BFCED8CD1DF77B9000A26AB3 /* Louis.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Louis.Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 		BF1EA9DE1DE26EAF00A4B3A3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				BF1EA9DF1DE26EFE00A4B3A3 /* Louis.Main.storyboard */,
+				BFCED8CD1DF77B9000A26AB3 /* Louis.Main.storyboard */,
 				4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */,
 			);
 			name = Storyboards;
@@ -321,7 +321,7 @@
 				4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */,
 				4258BEE91DF277AC00418750 /* GoogleService-Info.plist in Resources */,
 				BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */,
-				BF1EA9E01DE26EFE00A4B3A3 /* Louis.Main.storyboard in Resources */,
+				BFCED8CE1DF77B9000A26AB3 /* Louis.Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -175,7 +175,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if let usr = user {
             cell.usernameLabel.text = usr.username
-            cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto))
+            cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto)!)
 
         }
     

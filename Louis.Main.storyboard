@@ -807,10 +807,16 @@
                                     <constraint firstAttribute="width" constant="51" id="sek-PW-ST9"/>
                                 </constraints>
                                 <state key="normal" title="Upload" image="Upload"/>
+                                <connections>
+                                    <action selector="onUpload:" destination="aZA-gb-lmh" eventType="touchUpInside" id="Mkp-Lr-PKB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiQ-r6-C1F">
                                 <rect key="frame" x="153" y="92" width="30" height="30"/>
                                 <state key="normal" image="pronounce"/>
+                                <connections>
+                                    <action selector="onPronounce:" destination="aZA-gb-lmh" eventType="touchUpInside" id="iZO-vx-yLQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G72-lQ-ZyV">
                                 <rect key="frame" x="16" y="89" width="100" height="37"/>
@@ -826,19 +832,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TUm-0c-tN5" id="BRe-Fo-jSI">
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
-=======
-<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
-=======
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
-=======
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
->>>>>>> master
->>>>>>> master
->>>>>>> Louis_1206
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-it-8i3">
@@ -874,25 +868,6 @@
                                     <outlet property="delegate" destination="aZA-gb-lmh" id="ohI-2l-IOq"/>
                                 </connections>
                             </tableView>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvG-r8-8OU">
-                                <rect key="frame" x="308" y="92" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Upload" image="Upload"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiQ-r6-C1F">
-                                <rect key="frame" x="153" y="92" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="pronounce"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G72-lQ-ZyV">
-                                <rect key="frame" x="16" y="89" width="100" height="37"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-=======
->>>>>>> Louis_1206
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eAy-qA-qLk">
                                 <rect key="frame" x="0.0" y="541" width="375" height="126"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -901,27 +876,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GfM-Xs-kpV" id="ALm-Og-9uu">
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
-=======
-<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-1i-mxe">
                                                     <rect key="frame" x="8" y="8" width="359" height="116.5"/>
-=======
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
-=======
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>
->>>>>>> master
->>>>>>> Louis_1206
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-1i-mxe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
->>>>>>> master
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B4N-dH-xKo">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -950,11 +909,7 @@
                                                                 <constraint firstAttribute="bottom" secondItem="MMi-7g-j5W" secondAttribute="bottom" constant="3" id="xMt-yg-4SE"/>
                                                             </constraints>
                                                             <connections>
-<<<<<<< HEAD
                                                                 <outlet property="placeholderImageView" destination="MMi-7g-j5W" id="Uzv-Q4-1fo"/>
-=======
-                                                                <outlet property="placeholderImageView" destination="MMi-7g-j5W" id="oEU-ql-w4L"/>
->>>>>>> master
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -995,13 +950,8 @@
                             <constraint firstAttribute="trailing" secondItem="dbz-Hi-icQ" secondAttribute="trailing" id="Y8P-7m-M6l"/>
                             <constraint firstAttribute="trailing" secondItem="ebS-C5-EV9" secondAttribute="trailing" id="aDu-bk-P9M"/>
                             <constraint firstItem="eH6-Fg-Yr7" firstAttribute="top" secondItem="G72-lQ-ZyV" secondAttribute="bottom" constant="541" id="aOL-P7-XXU"/>
-<<<<<<< HEAD
                             <constraint firstItem="eH6-Fg-Yr7" firstAttribute="top" secondItem="ebS-C5-EV9" secondAttribute="bottom" id="dEe-fX-xAL"/>
                             <constraint firstItem="eAy-qA-qLk" firstAttribute="top" secondItem="G72-lQ-ZyV" secondAttribute="bottom" constant="415" id="dgR-2l-K9L"/>
-=======
-                            <constraint firstItem="eAy-qA-qLk" firstAttribute="top" secondItem="G72-lQ-ZyV" secondAttribute="bottom" constant="380" id="dgR-2l-K9L"/>
-                            <constraint firstAttribute="bottom" secondItem="ebS-C5-EV9" secondAttribute="bottom" id="hJl-n4-f6f"/>
->>>>>>> master
                             <constraint firstItem="ebS-C5-EV9" firstAttribute="top" secondItem="nHZ-vv-nkG" secondAttribute="bottom" id="iML-df-BFN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JvG-r8-8OU" secondAttribute="trailing" id="t9k-bi-nVd"/>
                             <constraint firstItem="eAy-qA-qLk" firstAttribute="leading" secondItem="xp2-QR-XVJ" secondAttribute="leading" id="tAl-1y-Y1Q"/>
