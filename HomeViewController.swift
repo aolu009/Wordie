@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     {
         FirebaseClient.sharedInstance.fetchMoviePosts { (videos) in
             self.videoArray = videos!
-//            self.videoArray.reverse()
+            self.videoArray.reverse()
             self.customTableView.reloadData()
             self.refreshControl.endRefreshing()
             
@@ -118,6 +118,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             if cellForAnimationView?.player?.status == AVPlayerStatus.readyToPlay
             {
                cellForAnimationView?.pauseActivityIndicator()
+                cellForAnimationView?.showControls()
             }
         }
     }
@@ -140,11 +141,6 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             }
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
-        }
-        
-        // Check the status and if the video is not ready to play, show activity indicator
-        if cellForAnimationView?.player?.status != AVPlayerStatus.readyToPlay {
-            cellForAnimationView?.startActivityIndicator()
         }
         
         cell.shortDefintionLabel.isHidden = true
@@ -172,7 +168,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             pL.frame = self.view.frame
             
             cell.contentView.layer.addSublayer(pL)
-            
+            cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
+
             
             
             if let player = cell.player {
@@ -181,12 +178,21 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                 //play first cell
                 if indexPath.row == 0 {
                     //bring view back
-                    cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
+//                    cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
                     cell.playVideo()
                     
                     
                 }
             }
+        }
+        
+        
+        
+        // Check the status and if the video is not ready to play, show activity indicator
+        if cellForAnimationView?.player?.status != AVPlayerStatus.readyToPlay {
+            cellForAnimationView?.startActivityIndicator()
+        } else {
+            cell.showControls()
         }
         
         

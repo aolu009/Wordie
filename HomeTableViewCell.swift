@@ -29,6 +29,7 @@ class HomeTableViewCell: UITableViewCell {
     weak var delegate: HomeCellDelegate?
     
     
+    @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     
     @IBOutlet weak var likeCountLabel: UILabel!
@@ -54,6 +55,7 @@ class HomeTableViewCell: UITableViewCell {
         wordButton.addGestureRecognizer(longGesture)
         
         setupActivityIndicator()
+        controlsContainerView.alpha = 0
     }
     
     func setupActivityIndicator()
@@ -79,6 +81,18 @@ class HomeTableViewCell: UITableViewCell {
     {
         activityIndicatorView?.startAnimating()
         activityIndicatorView?.isHidden = false
+    }
+    
+    func showControls() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.controlsContainerView.alpha = 1.0
+        })
+    }
+    
+    func hideControls() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.controlsContainerView.alpha = 0.0
+        })
     }
     
     func playVideo() {
@@ -122,7 +136,8 @@ class HomeTableViewCell: UITableViewCell {
         bringSubview(toFront: descriptionLabel)
         bringSubview(toFront: wordButton)
         bringSubview(toFront: subtitleLabel)
-        
+        bringSubview(toFront: controlsContainerView)
+
         activityIndicatorView?.center = contentView.center
         
     }
@@ -136,5 +151,11 @@ class HomeTableViewCell: UITableViewCell {
     deinit {
         // perform the deinitialization
         self.player?.removeObserver(self, forKeyPath: "status", context: nil)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        controlsContainerView.alpha = 0
     }
 }
