@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var cell1: InputTableViewCell?
     var cell2: InputTableViewCell?
+    var cell3: InputTableViewCell?
 
     
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,6 +57,18 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             
         }
+        if indexPath.row == 2 {
+            let placeholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            cell.textField.attributedPlaceholder = placeholder
+            cell.iconImageView.image = #imageLiteral(resourceName: "user")
+            cell.iconImageView.tintColor = UIColor.white
+            cell.textField.isSecureTextEntry = true
+            cell2 = cell
+            
+            
+        }
+        
+        
         
         
         return cell

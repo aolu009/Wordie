@@ -71,7 +71,7 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if wordTextField.text != "" {
+        if wordTextField.text != "" && subtitleTextField.text != "" && captionTextField.text != ""  {
             unHideProceed()
         }
     }

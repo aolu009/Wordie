@@ -113,6 +113,9 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         imagePicker.videoQuality = UIImagePickerControllerQualityType.typeIFrame960x540//typeIFrame1280x720
         imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
         
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: self)
+
+        
         present(imagePicker, animated: true, completion:nil)
     }
  

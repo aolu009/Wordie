@@ -52,8 +52,11 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IJO-Rg-ut2">
-                                <rect key="frame" x="0.0" y="67" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="67" width="375" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="XDT-YQ-fpT"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inputCell" id="G3n-PM-M5j" customClass="InputTableViewCell" customModule="Wordie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -98,7 +101,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oE-2h-4SV">
-                                <rect key="frame" x="0.0" y="197" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="155" width="375" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="LOG IN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,7 +129,6 @@
                             <constraint firstItem="JPz-A4-uVM" firstAttribute="leading" secondItem="FiZ-ha-L0b" secondAttribute="trailing" constant="5" id="rNE-lj-RXL"/>
                             <constraint firstItem="JPz-A4-uVM" firstAttribute="width" secondItem="UZy-4U-BhB" secondAttribute="width" id="sgP-Ll-zhm"/>
                             <constraint firstItem="UZy-4U-BhB" firstAttribute="centerY" secondItem="FiZ-ha-L0b" secondAttribute="centerY" id="sl6-0g-51g"/>
-                            <constraint firstItem="q0q-pW-q0E" firstAttribute="top" secondItem="1oE-2h-4SV" secondAttribute="bottom" constant="440" id="tL7-dH-eN7"/>
                             <constraint firstItem="1oE-2h-4SV" firstAttribute="leading" secondItem="7WG-S5-UIp" secondAttribute="leading" id="zzd-2g-zSk"/>
                         </constraints>
                     </view>
@@ -394,10 +396,10 @@
             </objects>
             <point key="canvasLocation" x="-3923" y="-1170"/>
         </scene>
-        <!--View Controller-->
+        <!--Facebook Username View Controller-->
         <scene sceneID="w2x-vJ-q1m">
             <objects>
-                <viewController storyboardIdentifier="HomeScreen" id="Ynq-tt-Jcw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FacebookUsernameViewController" id="Ynq-tt-Jcw" customClass="FacebookUsernameViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a9b-e0-yBR"/>
                         <viewControllerLayoutGuide type="bottom" id="f69-Co-bwV"/>
@@ -405,12 +407,58 @@
                     <view key="view" contentMode="scaleToFill" id="r3e-OO-vsY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailbackground" translatesAutoresizingMaskIntoConstraints="NO" id="e0r-Ps-p23">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for logging in with Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYr-dA-dNF">
+                                <rect key="frame" x="19.5" y="110" width="336.5" height="26"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We'll just need you to create a username to continue :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iex-Cm-CQE">
+                                <rect key="frame" x="53.5" y="144" width="268.5" height="15.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Xi-HS-a37">
+                                <rect key="frame" x="76" y="251" width="223" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lr-Lv-pAW">
+                                <rect key="frame" x="150" y="219" width="74.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e0r-Ps-p23" firstAttribute="leading" secondItem="r3e-OO-vsY" secondAttribute="leading" id="5X7-Gg-V6B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Xi-HS-a37" secondAttribute="trailing" constant="60" id="7a8-2L-Fb8"/>
+                            <constraint firstItem="bYr-dA-dNF" firstAttribute="centerX" secondItem="r3e-OO-vsY" secondAttribute="centerX" id="Iux-Zk-FeV"/>
+                            <constraint firstItem="e0r-Ps-p23" firstAttribute="top" secondItem="r3e-OO-vsY" secondAttribute="top" id="OW3-Uf-SPY"/>
+                            <constraint firstItem="iex-Cm-CQE" firstAttribute="top" secondItem="bYr-dA-dNF" secondAttribute="bottom" constant="8" id="Q6n-uL-sXW"/>
+                            <constraint firstAttribute="trailing" secondItem="e0r-Ps-p23" secondAttribute="trailing" id="RDB-tw-p4c"/>
+                            <constraint firstItem="9lr-Lv-pAW" firstAttribute="top" secondItem="iex-Cm-CQE" secondAttribute="bottom" constant="59.5" id="UDC-6f-3GI"/>
+                            <constraint firstItem="bYr-dA-dNF" firstAttribute="top" secondItem="a9b-e0-yBR" secondAttribute="bottom" constant="90" id="ZDP-Pu-UNM"/>
+                            <constraint firstItem="iex-Cm-CQE" firstAttribute="centerX" secondItem="r3e-OO-vsY" secondAttribute="centerX" id="ZrI-jY-jQk"/>
+                            <constraint firstItem="f69-Co-bwV" firstAttribute="top" secondItem="e0r-Ps-p23" secondAttribute="bottom" id="adD-bq-LZ2"/>
+                            <constraint firstItem="9lr-Lv-pAW" firstAttribute="centerX" secondItem="r3e-OO-vsY" secondAttribute="centerX" id="bso-GA-Xvq"/>
+                            <constraint firstItem="6Xi-HS-a37" firstAttribute="top" secondItem="9lr-Lv-pAW" secondAttribute="bottom" constant="8" id="e0Y-a8-b8m"/>
+                            <constraint firstItem="6Xi-HS-a37" firstAttribute="centerX" secondItem="e0r-Ps-p23" secondAttribute="centerX" id="sah-pE-FrW"/>
+                            <constraint firstItem="6Xi-HS-a37" firstAttribute="leading" secondItem="r3e-OO-vsY" secondAttribute="leadingMargin" constant="60" id="vaB-F9-WCK"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIb-Im-c0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1954" y="-1209"/>
+            <point key="canvasLocation" x="-2596" y="-509.59520239880067"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -826,6 +874,6 @@
         <image name="reportButton" width="30" height="7"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BaB-cf-eJz"/>
+        <segue reference="gQt-jC-9wf"/>
     </inferredMetricsTieBreakers>
 </document>

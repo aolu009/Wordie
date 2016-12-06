@@ -143,20 +143,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        let ref = FIRDatabase.database().reference(withPath: "users")
-        var user:User?
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            let username = value?["username"] as? String ?? ""
-            user = User.init(dictionary: snapshot)
-            
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
+//        let userID = FIRAuth.auth()?.currentUser?.uid
+//        let ref = FIRDatabase.database().reference(withPath: "users")
+//        var user:User?
+//        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let username = value?["username"] as? String ?? ""
+//            user = User.init(dictionary: value!)
+//            
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//        
         cell.shortDefintionLabel.isHidden = true
         
         cell.descriptionLabel.text = post.postBody
