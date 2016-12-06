@@ -46,6 +46,25 @@ class FirebaseClient {
         }
     }
     
+    func getUserFromID() -> User
+    {
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference(withPath: "users")
+        var user:User?
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["username"] as? String ?? ""
+            user = User.init(dictionary: value!)
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        return user!
+    }
+    
     func getUrlTokenString(url:String) -> String {
         var tokenString: String = String()
         var startAppend: Bool = false
