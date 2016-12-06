@@ -13,14 +13,18 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var wordTextField: UITextField!
     @IBOutlet weak var subtitleTextField: UITextField!
-    @IBOutlet weak var captionTextField: UILabel!
+    @IBOutlet weak var captionTextField: UITextField!
+    @IBOutlet weak var definitionTextField: UITextField!
     
+    @IBOutlet weak var proceedButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
     var movieURL:URL?
     var movieCount:Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.proceedButton.alpha = 0
     }
 
     static func instantiateCustom(movieURL: URL, count: Int) -> UserInputViewController
@@ -30,6 +34,15 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         inputVC.movieCount = count
 
         return inputVC
+    }
+    
+    func unHideProceed()
+    {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.proceedButton.alpha = 1
+
+        })
     }
 
     @IBAction func onProceedButtonPressed(_ sender: UIButton) {
@@ -49,7 +62,7 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         
         //FIXME: not gettig a user id
         
-        FirebaseClient.sharedInstance.createNewVideoObject(url: movieURL!, movieCount: movieCount!, description: captionTextField.text!, likes: 0, featured: false, definition: "fsggsfsgf", word: wordTextField.text!, subtitles: subtitleTextField.text!, userID: userID!, complete: {
+        FirebaseClient.sharedInstance.createNewVideoObject(url: movieURL!, movieCount: movieCount!, description: captionTextField.text!, likes: 0, featured: false, definition:definitionTextField.text! , word: wordTextField.text!, subtitles: subtitleTextField.text!, userID: userID!, complete: {
             
             // Dissmissing the camera after successfully upload thus use complete handle
             // Add HUD while loading
@@ -57,8 +70,14 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if definitionTextField.text != ""  {
+            unHideProceed()
+
+    }
+    }
+
+
 }
 
 
