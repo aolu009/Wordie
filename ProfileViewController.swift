@@ -7,23 +7,67 @@
 //
 
 import UIKit
+import AVFoundation
+import MobileCoreServices
+import Photos
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    var user: User?
     
+    @IBOutlet weak var profilePhotoImageView: UIImageView!
+    var imagePicked: UIImage?
     
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profilePhotoImageView.layer.cornerRadius = 10
+        profilePhotoImageView.clipsToBounds = true
+        
+      user = FirebaseClient.sharedInstance.getUserFromID()
+    usernameLabel.text = user?.username
+     profilePhotoImageView.setImageWith(URL(user?.profilePhoto))
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    @IBAction func onProfilePhotoImageViewTapped(_ sender: UITapGestureRecognizer) {
+    
+    presentCameraPicker()
+        
     }
     
+    func presentCameraPicker()
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+
+        imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: self)
+        
+        
+        present(imagePicker, animated: true, completion:nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage
+        profilePhotoImageView.image = imagePicked   
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true, completion:nil)
+    }
 
     /*
     // MARK: - Navigation
