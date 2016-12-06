@@ -90,8 +90,9 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                         self.getCurrentUser()
                                         FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: username)
                                         
-                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
-                                        
+                                        self.performSegue(withIdentifier: "homeSegue3", sender: nil)
+//                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
+
                                     }
         }
         

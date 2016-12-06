@@ -134,6 +134,7 @@
                     </view>
                     <connections>
                         <segue destination="5Bv-Zm-KNf" kind="presentation" identifier="homeSegue" id="gQt-jC-9wf"/>
+                        <segue destination="Ynq-tt-Jcw" kind="show" identifier="homeSegue3" id="paR-Eh-e4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiP-N3-eD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -525,6 +526,9 @@
                             <constraint firstItem="6Xi-HS-a37" firstAttribute="leading" secondItem="r3e-OO-vsY" secondAttribute="leadingMargin" constant="60" id="vaB-F9-WCK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="usernameTextField" destination="6Xi-HS-a37" id="yKg-Kk-xgz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIb-Im-c0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

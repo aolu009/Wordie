@@ -51,8 +51,17 @@ class FirebaseClient {
         let userID = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
         var user:User?
-        self.ref.child("users").child(user.uid).setValue(["profile_photo_url": photoURL])
+        ref.child("users").child(userID!).setValue(["profile_photo_url": photoURL])
 
+    }
+    
+    func updateUsername(username: String)
+    {
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference()
+        var user:User?
+        ref.child("users").child(userID!).setValue(["username": username])
+        
     }
     
     func getUserFromID(success: @escaping (User) -> Void)
