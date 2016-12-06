@@ -48,6 +48,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
 
         view.layer.insertSublayer(playerLayer!, at: 0)
         
+        player?.isMuted = true
         player?.play()
         
         NotificationCenter.default.addObserver(self, selector: #selector(WelcomeViewController.playerItemDidReachEnd(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem)
@@ -74,6 +75,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
 
         @IBAction func onLoginPressed(_ sender: UIButton) {
+            pauseVideos()
         let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
         let nxtNVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             navigationController?.pushViewController(nxtNVC, animated: true)
@@ -81,6 +83,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onSignUpPressed(_ sender: UIButton) {
+        pauseVideos()
         let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
         let nxtNVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         navigationController?.pushViewController(nxtNVC, animated: true)
@@ -88,5 +91,10 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
 
     }
     
+    func pauseVideos()
+    {
+        player?.pause()
+        
+    }
     
 }

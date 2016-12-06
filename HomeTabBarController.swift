@@ -81,7 +81,9 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
             self.tabBar.isHidden = true
             self.menuButton?.isHidden = true
             
-                    }
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: self)
         
     }
     
