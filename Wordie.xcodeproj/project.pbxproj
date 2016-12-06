@@ -10,6 +10,8 @@
 		4200DFF41DF01E8C005D544D /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200DFF31DF01E8C005D544D /* InputTableViewCell.swift */; };
 		4200DFF61DF02170005D544D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200DFF51DF02170005D544D /* SignUpViewController.swift */; };
 		4200DFF81DF0218B005D544D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200DFF71DF0218B005D544D /* WelcomeViewController.swift */; };
+		42215D9F1DF50877001B90C4 /* SwipeableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42215D9E1DF50877001B90C4 /* SwipeableTableViewCell.swift */; };
+		42215DA11DF508EC001B90C4 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42215DA01DF508EC001B90C4 /* VideoCollectionViewCell.swift */; };
 		423D6D7F1DECF35500F66EA4 /* MoviePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D6D7E1DECF35500F66EA4 /* MoviePost.swift */; };
 		4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */; };
 		4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250867E1DE309DB00D3B202 /* HomeViewController.swift */; };
@@ -52,6 +54,8 @@
 		4200DFF31DF01E8C005D544D /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
 		4200DFF51DF02170005D544D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4200DFF71DF0218B005D544D /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		42215D9E1DF50877001B90C4 /* SwipeableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableTableViewCell.swift; sourceTree = "<group>"; };
+		42215DA01DF508EC001B90C4 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		423D6D7E1DECF35500F66EA4 /* MoviePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePost.swift; sourceTree = "<group>"; };
 		4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Malcolm.Main.storyboard; sourceTree = "<group>"; };
 		4250867E1DE309DB00D3B202 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 				BFCED8B81DEFFA3500A26AB3 /* EditDetailTableViewCell.swift */,
 				4200DFF31DF01E8C005D544D /* InputTableViewCell.swift */,
 				BFCED8BE1DF40CFB00A26AB3 /* SynonymTableViewCell.swift */,
+				42215D9E1DF50877001B90C4 /* SwipeableTableViewCell.swift */,
+				42215DA01DF508EC001B90C4 /* VideoCollectionViewCell.swift */,
 				BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */,
 			);
 			name = Views;
@@ -368,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42215DA11DF508EC001B90C4 /* VideoCollectionViewCell.swift in Sources */,
 				4200DFF61DF02170005D544D /* SignUpViewController.swift in Sources */,
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
 				4200DFF41DF01E8C005D544D /* InputTableViewCell.swift in Sources */,
@@ -390,6 +397,7 @@
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,
 				BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */,
 				BFCED8B91DEFFA3500A26AB3 /* EditDetailTableViewCell.swift in Sources */,
+				42215D9F1DF50877001B90C4 /* SwipeableTableViewCell.swift in Sources */,
 				BFCED8B11DEEC1C700A26AB3 /* RadioButton.swift in Sources */,
 				BFCED8AF1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift in Sources */,
 				BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */,

@@ -17,9 +17,23 @@ class SearchTabViewController: UITabBarController, UITabBarControllerDelegate, U
     
     var word: Word?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        let tabBar = self.tabBar
+        tabBar.barTintColor = UIColor.clear
+        tabBar.tintColor = UIColor.white
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = #imageLiteral(resourceName: "Line")
+
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // Set up the first View Controller
         let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
         let vc1 = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! UINavigationController
