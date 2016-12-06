@@ -804,7 +804,6 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="243"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TUm-0c-tN5" id="BRe-Fo-jSI">
-<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
 =======
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
@@ -876,7 +875,6 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GfM-Xs-kpV" id="ALm-Og-9uu">
-<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
 =======
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>

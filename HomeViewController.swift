@@ -11,6 +11,7 @@ import Firebase
 import AVFoundation
 import MobileCoreServices
 import Photos
+import AFNetworking
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
     
@@ -142,6 +143,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference(withPath: "users")
+        var user:User?
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["username"] as? String ?? ""
+            user = User.init(dictionary: snapshot)
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
         cell.shortDefintionLabel.isHidden = true
         
@@ -149,9 +163,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.featuredLabel.text = post.featured
         cell.likeCountLabel.text = String(post.likes)
         cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
+//        cell.profilePhotoImageView.setImageWith(user?.profilePhoto)
+
+
         cell.subtitleLabel.text = post.subtitles
         cell.wordButton.setTitle(post.word, for: .normal)
         cell.usernameLabel.text = "@chantellepaige"
+//        cell.usernameLabel.text = user?.username
         cell.shortDefintionLabel.text = post.shortDefinition
         cell.delegate = self
         
