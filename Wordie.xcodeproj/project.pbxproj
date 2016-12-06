@@ -45,6 +45,8 @@
 		BFCED8BF1DF40CFB00A26AB3 /* SynonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8BE1DF40CFB00A26AB3 /* SynonymTableViewCell.swift */; };
 		BFCED8C11DF40D5200A26AB3 /* AntonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */; };
 		BFCED8C31DF4B57400A26AB3 /* VideoForNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */; };
+		BFCED8CA1DF673B300A26AB3 /* VideoForNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C91DF673B300A26AB3 /* VideoForNoteTableViewCell.swift */; };
+		BFCED8CC1DF6B87700A26AB3 /* NoteVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		BFCED8BE1DF40CFB00A26AB3 /* SynonymTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymTableViewCell.swift; sourceTree = "<group>"; };
 		BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntonymTableViewCell.swift; sourceTree = "<group>"; };
 		BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoForNoteViewController.swift; sourceTree = "<group>"; };
+		BFCED8C91DF673B300A26AB3 /* VideoForNoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoForNoteTableViewCell.swift; sourceTree = "<group>"; };
+		BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteVideo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,7 @@
 				BF1EA9F11DE2703600A4B3A3 /* Word.swift */,
 				BF1EAA031DE9796B00A4B3A3 /* User.swift */,
 				423D6D7E1DECF35500F66EA4 /* MoviePost.swift */,
+				BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -227,6 +232,7 @@
 				42215D9E1DF50877001B90C4 /* SwipeableTableViewCell.swift */,
 				42215DA01DF508EC001B90C4 /* VideoCollectionViewCell.swift */,
 				BFCED8C01DF40D5200A26AB3 /* AntonymTableViewCell.swift */,
+				BFCED8C91DF673B300A26AB3 /* VideoForNoteTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -374,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFCED8CC1DF6B87700A26AB3 /* NoteVideo.swift in Sources */,
 				42215DA11DF508EC001B90C4 /* VideoCollectionViewCell.swift in Sources */,
 				4200DFF61DF02170005D544D /* SignUpViewController.swift in Sources */,
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
@@ -393,6 +400,7 @@
 				BF1EA9EF1DE2702100A4B3A3 /* WordTableViewCell.swift in Sources */,
 				BFCED8C31DF4B57400A26AB3 /* VideoForNoteViewController.swift in Sources */,
 				BF1EAA021DE970F600A4B3A3 /* FirebaseClient.swift in Sources */,
+				BFCED8CA1DF673B300A26AB3 /* VideoForNoteTableViewCell.swift in Sources */,
 				4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */,
 				BF1EA9EB1DE2700100A4B3A3 /* NoteViewController.swift in Sources */,
 				BF1EAA041DE9796B00A4B3A3 /* User.swift in Sources */,

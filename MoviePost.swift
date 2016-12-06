@@ -19,7 +19,7 @@ let kMovieTimestampKey = "timestamp"
 let kMovieUserKey = "userID"
 let kMovieURLKey = "video_url"
 let kMovieWordKey = "word"
-
+let kMovieImageKey = "imageUrl"
 class MoviePost: NSObject {
     var postBody: String!
     var featured: String!
@@ -30,6 +30,7 @@ class MoviePost: NSObject {
     var userID: String!
     var url: URL!
     var word: String!
+    var imageUrl: URL!
 
     init(dictionary: NSDictionary) {
         
@@ -70,7 +71,10 @@ class MoviePost: NSObject {
             let converted = URL(string: movieurl)
             url = converted
         }
-        
+        if let movieurl = dictionary[kMovieImageKey] as? String {
+            let converted = URL(string: movieurl)
+            url = converted
+        }
         if let userid = dictionary[kMovieUserKey] as? String {
             userID = userid
         }

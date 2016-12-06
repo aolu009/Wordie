@@ -43,6 +43,7 @@ class OxfordClient {
                 }
                 else{
                     print("Error: no such word!")
+                    print(error)
                     /*
                      if (not in self library){
                         let errorMessage = "No such word found in Oxford. Please check your spelling or add it manually"

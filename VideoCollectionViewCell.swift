@@ -9,15 +9,16 @@
 import UIKit
 
 class VideoCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var placeholderImageView: UIImageView!
+    
     var url: URL?
  
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
-        
         self.contentView.layer.cornerRadius = 2
-        self.contentView.layer.masksToBounds = true;
+        self.contentView.layer.masksToBounds = false
     }
     
     
