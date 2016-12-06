@@ -31,6 +31,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var currentMovieURL: URL?
     let refreshControl = UIRefreshControl()
     var cellForAnimationView:HomeTableViewCell?
+    var user: User?
 
     
     
@@ -97,6 +98,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    func fetchUser()
+    {
+    let user: User?
+    
+    FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
+    self.user = User
+    
+    })
+    
+    }
+    
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -152,7 +164,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
 //        cell.profilePhotoImageView.setImageWith(user?.profilePhoto)
 
-
+        
+        
         cell.subtitleLabel.text = post.subtitles
         cell.wordButton.setTitle(post.word, for: .normal)
         cell.usernameLabel.text = "@chantellepaige"
@@ -160,6 +173,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.shortDefintionLabel.text = post.shortDefinition
         cell.delegate = self
         
+        if let usr = user {
+            cell.usernameLabel.text = usr.username
+            cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto))
+
+        }
+    
         
         
         
