@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiP-N3-eD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3281" y="-510"/>
+            <point key="canvasLocation" x="-3340" y="-508"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="1vc-Qm-pjF">
@@ -941,6 +941,6 @@
         <image name="reportButton" width="30" height="7"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cNs-8W-n0x"/>
+        <segue reference="gQt-jC-9wf"/>
     </inferredMetricsTieBreakers>
 </document>
