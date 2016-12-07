@@ -18,6 +18,7 @@
 		425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425086801DE30A1300D3B202 /* HomeTableViewCell.swift */; };
 		4258BEE91DF277AC00418750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4258BEE81DF277AC00418750 /* GoogleService-Info.plist */; };
 		4287B4271DF7BA5900A2B06D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287B4261DF7BA5900A2B06D /* ProfileViewController.swift */; };
+		4287B4291DF7BF4600A2B06D /* FacebookUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287B4281DF7BF4600A2B06D /* FacebookUsernameViewController.swift */; };
 		42C8A2701DE7B73600AC6ED9 /* UserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */; };
 		42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CCA1F71DE3B01400223D6E /* LoginViewController.swift */; };
 		BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		425086801DE30A1300D3B202 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		4258BEE81DF277AC00418750 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4287B4261DF7BA5900A2B06D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4287B4281DF7BF4600A2B06D /* FacebookUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUsernameViewController.swift; sourceTree = "<group>"; };
 		42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputViewController.swift; sourceTree = "<group>"; };
 		42CCA1F71DE3B01400223D6E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		42F2BE501DED43D80055AE27 /* Wordie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wordie.entitlements; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				4200DFF71DF0218B005D544D /* WelcomeViewController.swift */,
 				4287B4261DF7BA5900A2B06D /* ProfileViewController.swift */,
 				BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */,
+				4287B4281DF7BF4600A2B06D /* FacebookUsernameViewController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -399,6 +402,7 @@
 				BF1EA9F01DE2702100A4B3A3 /* DefinitionTableViewCell.swift in Sources */,
 				42C8A2701DE7B73600AC6ED9 /* UserInputViewController.swift in Sources */,
 				BF1EA9F81DE2864700A4B3A3 /* SearchTabViewController.swift in Sources */,
+				4287B4291DF7BF4600A2B06D /* FacebookUsernameViewController.swift in Sources */,
 				BF1EA9F21DE2703600A4B3A3 /* Word.swift in Sources */,
 				425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */,
 				BF1EA9EF1DE2702100A4B3A3 /* WordTableViewCell.swift in Sources */,
