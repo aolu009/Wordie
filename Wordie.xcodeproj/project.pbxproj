@@ -17,6 +17,7 @@
 		4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250867E1DE309DB00D3B202 /* HomeViewController.swift */; };
 		425086811DE30A1300D3B202 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425086801DE30A1300D3B202 /* HomeTableViewCell.swift */; };
 		4258BEE91DF277AC00418750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4258BEE81DF277AC00418750 /* GoogleService-Info.plist */; };
+		4287B4271DF7BA5900A2B06D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287B4261DF7BA5900A2B06D /* ProfileViewController.swift */; };
 		42C8A2701DE7B73600AC6ED9 /* UserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */; };
 		42CCA1F81DE3B01400223D6E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CCA1F71DE3B01400223D6E /* LoginViewController.swift */; };
 		BF1EA9D01DE26DC200A4B3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1EA9CF1DE26DC200A4B3A3 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		4250867E1DE309DB00D3B202 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		425086801DE30A1300D3B202 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		4258BEE81DF277AC00418750 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4287B4261DF7BA5900A2B06D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputViewController.swift; sourceTree = "<group>"; };
 		42CCA1F71DE3B01400223D6E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		42F2BE501DED43D80055AE27 /* Wordie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wordie.entitlements; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				42C8A26F1DE7B73600AC6ED9 /* UserInputViewController.swift */,
 				4200DFF51DF02170005D544D /* SignUpViewController.swift */,
 				4200DFF71DF0218B005D544D /* WelcomeViewController.swift */,
+				4287B4261DF7BA5900A2B06D /* ProfileViewController.swift */,
 				BFCED8C21DF4B57400A26AB3 /* VideoForNoteViewController.swift */,
 			);
 			name = ViewControllers;
@@ -386,6 +389,7 @@
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
 				4200DFF41DF01E8C005D544D /* InputTableViewCell.swift in Sources */,
 				BF1EAA061DED47BC00A4B3A3 /* EditDetailViewController.swift in Sources */,
+				4287B4271DF7BA5900A2B06D /* ProfileViewController.swift in Sources */,
 				BFCED8B51DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift in Sources */,
 				BFCED8AE1DEEBE2C00A26AB3 /* SSRadioButton.swift in Sources */,
 				BF1EA9EC1DE2700100A4B3A3 /* DefinitionTabViewController.swift in Sources */,
