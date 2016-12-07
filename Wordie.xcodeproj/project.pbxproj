@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,7 @@
 		BFCED8CA1DF673B300A26AB3 /* VideoForNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C91DF673B300A26AB3 /* VideoForNoteTableViewCell.swift */; };
 		BFCED8CC1DF6B87700A26AB3 /* NoteVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */; };
 		BFCED8CE1DF77B9000A26AB3 /* Louis.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCED8CD1DF77B9000A26AB3 /* Louis.Main.storyboard */; };
+		BFCED8D01DF7844000A26AB3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8CF1DF7844000A26AB3 /* ProfileViewController.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		BFCED8C91DF673B300A26AB3 /* VideoForNoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoForNoteTableViewCell.swift; sourceTree = "<group>"; };
 		BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteVideo.swift; sourceTree = "<group>"; };
 		BFCED8CD1DF77B9000A26AB3 /* Louis.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Louis.Main.storyboard; sourceTree = "<group>"; };
+		BFCED8CF1DF7844000A26AB3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		BF1EA9E11DE26F6F00A4B3A3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BFCED8CF1DF7844000A26AB3 /* ProfileViewController.swift */,
 				BF1EA9F91DE3C15100A4B3A3 /* HomeTabBarController.swift */,
 				4250867E1DE309DB00D3B202 /* HomeViewController.swift */,
 				BF1EA9E51DE2700100A4B3A3 /* WordDetailViewController.swift */,
@@ -301,7 +304,7 @@
 				};
 			};
 			buildConfigurationList = BF1EA9C01DE26DC200A4B3A3 /* Build configuration list for PBXProject "Wordie" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
