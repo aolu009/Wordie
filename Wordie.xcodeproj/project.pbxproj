@@ -395,7 +395,7 @@
 				BF1EA9F41DE2708100A4B3A3 /* OxfordClient.swift in Sources */,
 				4200DFF41DF01E8C005D544D /* InputTableViewCell.swift in Sources */,
 				BF1EAA061DED47BC00A4B3A3 /* EditDetailViewController.swift in Sources */,
-				BFCED8D01DF7844000A26AB3 /* ProfileViewController.swift in Sources */,
+				4287B4271DF7BA5900A2B06D /* ProfileViewController.swift in Sources */,
 				BFCED8B51DEFCCE000A26AB3 /* NoteDefinitionTableViewCell.swift in Sources */,
 				BFCED8AE1DEEBE2C00A26AB3 /* SSRadioButton.swift in Sources */,
 				BF1EA9EC1DE2700100A4B3A3 /* DefinitionTabViewController.swift in Sources */,
