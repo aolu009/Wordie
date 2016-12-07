@@ -7,27 +7,47 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class FacebookUsernameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var checkmarkButton: UIButton!
     
+    var email: String?
+    var photoURL: String?
+    var userID: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        checkmarkButton.isHidden = true
+        userID = FIRAuth.auth()?.currentUser?.uid
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        checkmarkButton.isHidden = false
+
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-      let username = self.usernameTextField.text
-    FirebaseClient.sharedInstance.updateUsername(username: username)
-    }
     
+    func onProceedPressed(_ sender: UIButton) {
+        
+        let username = self.usernameTextField.text
+        
+        FirebaseClient.sharedInstance.createNewUser(userEmail: email, userID: userID, userName: username, photoURL: photoURL)
+        
+        self.performSegue(withIdentifier: "homeSegue4", sender: nil)
+        
+        let presentingVC = self.presentingViewController as! SignUpViewController
+
+        self.dismiss(animated: true, completion: {presentingVC.performSegue(withIdentifier: "homeSegue2", sender: nil)})
+//        dismiss(animated: true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation

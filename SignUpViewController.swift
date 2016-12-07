@@ -18,7 +18,11 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var cell1: InputTableViewCell?
     var cell2: InputTableViewCell?
     var cell3: InputTableViewCell?
-
+    
+    
+    var email: String?
+    var userID: String?
+    var userProfilePicURL: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,10 +92,9 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                         self.storeUser()
                                         
                                         self.getCurrentUser()
-                                        FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: username)
+                                        FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: username, photoURL: nil)
                                         
-                                        self.performSegue(withIdentifier: "homeSegue3", sender: nil)
-//                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
+                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
 
                                     }
         }
@@ -127,7 +130,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     
-                    self.performSegue(withIdentifier: "homeSegue2", sender: nil)
+                    self.performSegue(withIdentifier: "homeSegue3", sender: nil)
                     
                 }
             }
@@ -161,7 +164,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func fetchCurrentUserFBData()
     {
-        let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large), username"])
+        let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large)"])
         graphRequest.start(completionHandler: { (connection, result, error) -> Void in
             
             if ((error) != nil)
@@ -173,20 +176,23 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let data:[String:AnyObject] = result as! [String : AnyObject]
                 print(data)
                 
-                let userProfilePicURL = data["picture"]?["data"]
-                let email = data["email"] as! String
-                let userid = data["id"] as! String
-                let firstname = data["first_name"] as! String
-                
-                //facebook does not provide username
-                //storing first name as idt
-                
-                //create new user
-                
-                FirebaseClient.sharedInstance.createNewUser(userEmail: email, userID: userid, userName: firstname)
+                let dummy = data["picture"]?["data"] as! NSDictionary
+                self.userProfilePicURL = dummy["url"] as! String?
+                 self.email = data["email"] as! String
+
                 
             }
         })
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeSegue3" {
+            let destinationVC = segue.destination as! FacebookUsernameViewController
+            destinationVC.email = email
+            destinationVC.photoURL = userProfilePicURL
+
+        }
     }
     
 

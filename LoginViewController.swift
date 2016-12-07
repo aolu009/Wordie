@@ -160,17 +160,6 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     let data:[String:AnyObject] = result as! [String : AnyObject]
                     print(data)
                     
-                    let userProfilePicURL = data["picture"]?["data"]
-                    let email = data["email"] as! String
-                    let userid = data["id"] as! String
-                    let firstname = data["first_name"] as! String
-
-                    //facebook does not provide username
-                    //storing first name as idt
-                    
-                    //create new user
-                    
-                    FirebaseClient.sharedInstance.createNewUser(userEmail: email, userID: userid, userName: firstname)
 
                }
             })

@@ -18,7 +18,7 @@ class FirebaseClient {
     
     var uploadTask: FIRStorageUploadTask?
     
-    func createNewUser(userEmail: String!, userID: String!, userName: String!){//, success: @escaping (Word) -> Void, failure: @escaping (String) -> Void){
+    func createNewUser(userEmail: String!, userID: String!, userName: String!, photoURL: String!){//, success: @escaping (Word) -> Void, failure: @escaping (String) -> Void){
         let userRef = FIRDatabase.database().reference(withPath: "users")
         let user = userRef.child(userID)
         let userNameRef = user.child("username")
@@ -26,7 +26,7 @@ class FirebaseClient {
         userNameRef.setValue(userName)
         userEmailRef.setValue(userEmail)
         let userProfilePic = user.child("profile_photo_url")
-        userProfilePic.setValue("N/A")
+        userProfilePic.setValue(photoURL)
 
     }
     

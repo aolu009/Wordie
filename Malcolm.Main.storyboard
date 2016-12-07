@@ -62,7 +62,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G3n-PM-M5j" id="Y02-UM-c0W">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ID2-4x-m5N">
@@ -134,12 +134,11 @@
                     </view>
                     <connections>
                         <segue destination="5Bv-Zm-KNf" kind="presentation" identifier="homeSegue" id="gQt-jC-9wf"/>
-                        <segue destination="Ynq-tt-Jcw" kind="show" identifier="homeSegue3" id="paR-Eh-e4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiP-N3-eD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3255" y="-510"/>
+            <point key="canvasLocation" x="-3281" y="-510"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="1vc-Qm-pjF">
@@ -507,19 +506,33 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lr-Lv-pAW">
                                 <rect key="frame" x="150" y="219" width="74.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbI-4e-B8I">
+                                <rect key="frame" x="157" y="304" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="HAP-dX-O33"/>
+                                    <constraint firstAttribute="height" constant="60" id="cap-BR-ZRj"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="checkmark"/>
+                                <connections>
+                                    <action selector="onProceedPressed:" destination="Ynq-tt-Jcw" eventType="touchUpInside" id="H0d-DR-5b6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="e0r-Ps-p23" firstAttribute="leading" secondItem="r3e-OO-vsY" secondAttribute="leading" id="5X7-Gg-V6B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Xi-HS-a37" secondAttribute="trailing" constant="60" id="7a8-2L-Fb8"/>
                             <constraint firstItem="bYr-dA-dNF" firstAttribute="centerX" secondItem="r3e-OO-vsY" secondAttribute="centerX" id="Iux-Zk-FeV"/>
+                            <constraint firstItem="YbI-4e-B8I" firstAttribute="centerX" secondItem="r3e-OO-vsY" secondAttribute="centerX" id="KMt-ao-qh2"/>
                             <constraint firstItem="e0r-Ps-p23" firstAttribute="top" secondItem="r3e-OO-vsY" secondAttribute="top" id="OW3-Uf-SPY"/>
                             <constraint firstItem="iex-Cm-CQE" firstAttribute="top" secondItem="bYr-dA-dNF" secondAttribute="bottom" constant="8" id="Q6n-uL-sXW"/>
                             <constraint firstAttribute="trailing" secondItem="e0r-Ps-p23" secondAttribute="trailing" id="RDB-tw-p4c"/>
                             <constraint firstItem="9lr-Lv-pAW" firstAttribute="top" secondItem="iex-Cm-CQE" secondAttribute="bottom" constant="59.5" id="UDC-6f-3GI"/>
+                            <constraint firstItem="YbI-4e-B8I" firstAttribute="top" secondItem="6Xi-HS-a37" secondAttribute="bottom" constant="23" id="Wh7-mD-FVE"/>
                             <constraint firstItem="bYr-dA-dNF" firstAttribute="top" secondItem="a9b-e0-yBR" secondAttribute="bottom" constant="90" id="ZDP-Pu-UNM"/>
                             <constraint firstItem="iex-Cm-CQE" firstAttribute="centerX" secondItem="r3e-OO-vsY" secondAttribute="centerX" id="ZrI-jY-jQk"/>
                             <constraint firstItem="f69-Co-bwV" firstAttribute="top" secondItem="e0r-Ps-p23" secondAttribute="bottom" id="adD-bq-LZ2"/>
@@ -530,7 +543,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkmarkButton" destination="YbI-4e-B8I" id="2La-EP-UWN"/>
                         <outlet property="usernameTextField" destination="6Xi-HS-a37" id="yKg-Kk-xgz"/>
+                        <segue destination="5Bv-Zm-KNf" kind="presentation" identifier="homeSegue4" id="cNs-8W-n0x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIb-Im-c0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -836,7 +851,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Fd-W3-OSb" id="MQk-8f-yJ8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WyT-fW-6kP">
@@ -908,6 +923,7 @@
                     </view>
                     <connections>
                         <segue destination="5Bv-Zm-KNf" kind="presentation" identifier="homeSegue2" id="BaB-cf-eJz"/>
+                        <segue destination="Ynq-tt-Jcw" kind="presentation" identifier="homeSegue3" id="XOM-Ub-Bom"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upG-uB-EEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -925,6 +941,6 @@
         <image name="reportButton" width="30" height="7"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gQt-jC-9wf"/>
+        <segue reference="cNs-8W-n0x"/>
     </inferredMetricsTieBreakers>
 </document>
