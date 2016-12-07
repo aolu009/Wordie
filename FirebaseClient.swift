@@ -165,7 +165,7 @@ class FirebaseClient {
             let profilePics = FIRStorage.storage().reference(withPath: "profilePics")
             let userProfilePic = profilePics.child(uid)
             print("Got user Id")
-            userProfilePic.put(url, metadata: nil, completion: { (metadata, error) in
+            userProfilePic.put(image, metadata: nil, completion: { (metadata, error) in
                 print("Put file into storage")
                 let users = FIRDatabase.database().reference(withPath: "users")
                 let user = users.child(uid)
