@@ -46,14 +46,7 @@ class FirebaseClient {
         }
     }
     
-    func updateUserProfilePic(photoURL: String)
-    {
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        let ref = FIRDatabase.database().reference()
-        var user:User?
-        ref.child("users").child(userID!).setValue(["profile_photo_url": photoURL])
-
-    }
+    
     
     func updateUsername(username: String)
     {
@@ -167,6 +160,29 @@ class FirebaseClient {
         })
         
     }
+    func updateUserProfilePic(image: Data, complete:@escaping (String?)->Void) -> Void{
+        FirebaseClient.sharedInstance.getCurrentUserId(complete: {(uid) in
+            let profilePics = FIRStorage.storage().reference(withPath: "profilePics")
+            let userProfilePic = profilePics.child(uid)
+            print("Got user Id")
+            userProfilePic.put(url, metadata: nil, completion: { (metadata, error) in
+                print("Put file into storage")
+                let users = FIRDatabase.database().reference(withPath: "users")
+                let user = users.child(uid)
+                let profilePicRef = user.child("profile_photo_url")
+                let picDownloadUrl = metadata?.downloadURL()?.absoluteString
+                profilePicRef.setValue(picDownloadUrl, withCompletionBlock: { (error, reference) in
+                    complete(picDownloadUrl)
+                    print("update Complete")
+                })
+                
+            })
+        })
+        
+    }
+    
+    
+    
     func generatePlaceHolderImage(url:String) -> UIImage
     {
         let imageUrl = URL(string:url)

@@ -73,14 +73,19 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
         
         
         imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage
-        let url = info[UIImagePickerControllerMediaURL] as? String
+        var data = Data()
+        data = UIImageJPEGRepresentation(imagePicked!, 1.0)!
+        FirebaseClient.sharedInstance.updateUserProfilePic(image: data, complete: {(profilePicUrl) in
+            self.profilePhotoImageView.image = self.imagePicked
+            print("Update Pic Complete")
+            self.dismiss(animated: true, completion: nil)
+            
+        })
         
+                
         //sendURL up to server
-        FirebaseClient.sharedInstance.updateUserProfilePic(photoURL: url!)
         
-        profilePhotoImageView.image = imagePicked
         
-        self.dismiss(animated: true, completion: nil)
         
     }
     
