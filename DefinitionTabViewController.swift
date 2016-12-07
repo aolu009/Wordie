@@ -48,7 +48,9 @@ class DefinitionTabViewController: UITabBarController, UITabBarControllerDelegat
          let vc3 = storyboard.instantiateViewController(withIdentifier: "VideoForNoteNViewController") as! UINavigationController
          let vc3top = vc3.topViewController as! VideoForNoteViewController
          vc3top.word = self.dataSource?.definitionTabViewController().word
+        print("OMGGG:",self.dataSource?.definitionTabViewController().word)
          vc3top.pronounce = self.dataSource?.definitionTabViewController().audiourl[0]
+        print("OMGGG:",self.dataSource?.definitionTabViewController().audiourl[0])
          vc3.delegate = self
          vc3.tabBarItem.title = "Video"
          //vc3.tabBarItem = UITabBarItem.init(tabBarSystemItem: UITabBarSystemItem.favorites, tag: 2)

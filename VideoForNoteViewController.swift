@@ -11,10 +11,11 @@ import Firebase
 import AFNetworking
 import AVFoundation
 import AVKit
+import MobileCoreServices
+import Photos
 
 
-
-class VideoForNoteViewController: UIViewController, UITabBarControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class VideoForNoteViewController: UIViewController, UITabBarControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
 
     @IBOutlet weak var wordText: UILabel!
@@ -24,13 +25,18 @@ class VideoForNoteViewController: UIViewController, UITabBarControllerDelegate, 
     var videoArray = [NoteVideo]()
     var word: String?
     var pronounce: String?
+    var player: AVPlayer?
+    var image: UIImage?
     
     override func viewDidLoad() {
         self.wordText.text = self.word
+        
+        self.image = generatePlaceHolderImage()
         FirebaseClient.sharedInstance.fetchWordVideos(word: word!, success:{ (videos) in
             self.videoArray = videos!
             self.userNoteVideoTableView.reloadData()
         })
+        print("OMGGG:",self.word)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,7 +57,7 @@ class VideoForNoteViewController: UIViewController, UITabBarControllerDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == userNoteVideoTableView{
             let cell = tableView.dequeueReusableCell(withIdentifier: "VideoForNoteTableViewCell") as! VideoForNoteTableViewCell
-            cell.videoPreview.image = generatePlaceHolderImage()
+            cell.videoPreview.image = self.image
             cell.videoSentence.text = self.videoArray[indexPath.row].videoSubtitle
             return cell
         }
@@ -70,12 +76,56 @@ class VideoForNoteViewController: UIViewController, UITabBarControllerDelegate, 
             
         }
     }
+    @IBAction func onPronounce(_ sender: Any) {
+        play(url:self.pronounce!)
+    }
+    @IBAction func onUpload(_ sender: Any) {
+    }
     
+    func play(url:String) {
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+        do {
+            
+            let playerItem = AVPlayerItem(url: URL(string:url)!)
+            self.player = try AVPlayer(playerItem:playerItem)
+            player!.volume = 1.0
+            player!.play()
+        } catch let error as NSError {
+            self.player = nil
+            print(error.localizedDescription)
+        } catch {
+            print("AVAudioPlayer init failed")
+        }
+    }
+    func takeVideo()
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
+        
+        present(imagePicker, animated: true, completion:nil)
+    }
     
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let url = info[UIImagePickerControllerMediaURL]
+        print("media url: \(url)")
+        
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url as! URL)
+            
+        }, completionHandler:nil)
+        //dissmissing the camera
+        dismiss(animated: true, completion: nil)
+        
+    }
     
     
 }
+
+
+
 
 extension VideoForNoteViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -88,7 +138,7 @@ extension VideoForNoteViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoteCell", for: indexPath) as! VideoCollectionViewCell
-        cell.placeholderImageView.image = generatePlaceHolderImage()
+        cell.placeholderImageView.image = self.image
         return cell
     }
     
