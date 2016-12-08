@@ -110,7 +110,8 @@ class HomeTabBarController: UITabBarController, UITabBarControllerDelegate, UINa
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
-        imagePicker.videoQuality = UIImagePickerControllerQualityType.typeIFrame960x540//typeIFrame1280x720
+        imagePicker.videoQuality = .typeLow
+//        imagePicker.videoQuality = UIImagePickerControllerQualityType.typeIFrame960x540//typeIFrame1280x720
         imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
         imagePicker.videoQuality = .typeLow
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: self)

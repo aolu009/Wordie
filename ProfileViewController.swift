@@ -25,25 +25,27 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
         
         profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height/2
         profilePhotoImageView.clipsToBounds = true
-        profilePhotoImageView.image = #imageLiteral(resourceName: "French_Bulldog-pup")
-
+        profilePhotoImageView.image = #imageLiteral(resourceName: "frenchie")
         
-//        FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
-//            self.user = User
-//            self.usernameLabel.text = self.user?.username
-//
-//        })
+        self.usernameLabel.isHidden = true
         
-//        if let usr = self.user {
-//            if let url = usr.profilePhoto {
-//            let converted = URL(string: url)
-//            profilePhotoImageView.setImageWith(converted!)
-//            usernameLabel.text = user?.username
-//
-//        }
-//        }
+        fetchUser()
         
-        // Do any additional setup after loading the view.
+    }
+    
+    func fetchUser()
+    {
+        FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
+            self.user = User
+            self.usernameLabel.text = "@" + (self.user?.username)!
+            self.usernameLabel.isHidden = false
+            if let url = self.user?.profilePhoto {
+                let converted = URL(string: url)
+                self.profilePhotoImageView.setImageWith(converted!)
+            }
+            
+        })
+        
     }
 
 
