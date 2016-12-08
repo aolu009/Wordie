@@ -76,10 +76,12 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
         if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             let croppedImage = cropToBounds(image: chosenImage, width: 150, height: 150)
             let imageData = UIImagePNGRepresentation(croppedImage) as NSData?
+
             FirebaseClient.sharedInstance.updateUserProfilePic(image: imageData as! Data, complete: {(profilePicUrl) in
-                self.profilePhotoImageView.image = self.imagePicked
-                print("Update Pic Complete")
+                self.profilePhotoImageView.image = croppedImage
                 self.dismiss(animated: true, completion: nil)
+
+                print("Update Pic Complete")
                 
             })
             
