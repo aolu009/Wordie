@@ -279,16 +279,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo3-cy-6gj">
+                                <rect key="frame" x="311" y="32" width="48" height="33"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogoutButtonPressed:" destination="hB8-St-gO9" eventType="touchUpInside" id="5cw-ss-Qrt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="OFc-LS-r2a" secondAttribute="trailing" id="2EX-0O-G5j"/>
+                            <constraint firstItem="uo3-cy-6gj" firstAttribute="top" secondItem="Xr9-KO-QhP" secondAttribute="bottom" constant="12" id="5Du-Uk-Meo"/>
                             <constraint firstItem="OFc-LS-r2a" firstAttribute="leading" secondItem="zfI-XS-IIt" secondAttribute="leading" id="A9d-QP-LaZ"/>
                             <constraint firstItem="ZF4-Ff-DwI" firstAttribute="centerX" secondItem="zfI-XS-IIt" secondAttribute="centerX" id="CLx-Kx-lEb"/>
                             <constraint firstItem="vcT-fz-K6f" firstAttribute="top" secondItem="Xr9-KO-QhP" secondAttribute="bottom" constant="148" id="Nkn-gB-dxH"/>
                             <constraint firstItem="3Kn-Ed-p7G" firstAttribute="centerX" secondItem="zfI-XS-IIt" secondAttribute="centerX" id="T3D-ba-Vjz"/>
                             <constraint firstItem="ZF4-Ff-DwI" firstAttribute="top" secondItem="Xr9-KO-QhP" secondAttribute="bottom" constant="148" id="YM8-YG-4GD"/>
                             <constraint firstItem="vcT-fz-K6f" firstAttribute="centerX" secondItem="zfI-XS-IIt" secondAttribute="centerX" id="aLL-4g-F40"/>
+                            <constraint firstItem="uo3-cy-6gj" firstAttribute="trailing" secondItem="zfI-XS-IIt" secondAttribute="trailingMargin" id="cj2-B6-y5j"/>
                             <constraint firstAttribute="bottom" secondItem="OFc-LS-r2a" secondAttribute="bottom" id="fnV-OJ-qIS"/>
                             <constraint firstItem="OFc-LS-r2a" firstAttribute="top" secondItem="zfI-XS-IIt" secondAttribute="top" id="jQi-GC-7XW"/>
                             <constraint firstItem="3Kn-Ed-p7G" firstAttribute="top" secondItem="ZF4-Ff-DwI" secondAttribute="bottom" constant="16" id="qGZ-oj-ekM"/>

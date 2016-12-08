@@ -150,7 +150,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //once users start making posts
         FirebaseClient.sharedInstance.getUserWithID(id: userID!, success: { (User) in
             postUser = User
-            cell.usernameLabel.text = postUser?.username
+            cell.usernameLabel.text = "@" + (postUser?.username)!
             cell.profilePhotoImageView.setImageWith(URL(string: (postUser?.profilePhoto)!)!)
 
             
