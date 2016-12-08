@@ -434,7 +434,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SimpleBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Txi-pn-nqU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailbackground" translatesAutoresizingMaskIntoConstraints="NO" id="Txi-pn-nqU">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QuT-Pl-7FC">
@@ -524,6 +524,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eh4-KX-Dyc">
                                                             <rect key="frame" x="309" y="323" width="43" height="40"/>
                                                             <state key="normal" image="likeButton"/>
+                                                            <connections>
+                                                                <action selector="onLikeButtonTapped:" destination="JZy-U6-AqL" eventType="touchUpInside" id="iw4-nf-mdW"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THt-1Q-49m">
                                                             <rect key="frame" x="315" y="403.5" width="30" height="22"/>
@@ -820,6 +823,7 @@
     <resources>
         <image name="SimpleBackground" width="375" height="667"/>
         <image name="checkmark" width="80" height="80"/>
+        <image name="detailbackground" width="375" height="667"/>
         <image name="home" width="27" height="26"/>
         <image name="likeButton" width="43" height="40"/>
         <image name="notification" width="7" height="7"/>

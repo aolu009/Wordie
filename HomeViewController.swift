@@ -239,7 +239,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
        var cell:HomeTableViewCell = cell as! HomeTableViewCell
-        
+//        cell.testlabel.labelize = false
+//        cell.testlabel.restartLabel()
+
 
     }
     
@@ -272,7 +274,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
      func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // Re-labelize all scrolling labels on tableview scroll
         for cell in customTableView.visibleCells as! [HomeTableViewCell] {
-//            cell.subtitleLabel.labelize = true
+            cell.testlabel.labelize = true
         }
     }
     
