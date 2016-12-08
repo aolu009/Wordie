@@ -89,7 +89,6 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                         FIRAuth.auth()!.signIn(withEmail: email!,
                                                                password: pw!)
                                         
-                                        self.storeUser()
                                         
                                         self.getCurrentUser()
                                         FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: username, photoURL: nil)
@@ -121,9 +120,6 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken!)
                 
                 
-                UserDefaults.standard.setValue(true, forKey: "facebook")
-                UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
-                
                 self.fetchCurrentUserFBData()
                 
                 
@@ -151,16 +147,7 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    func storeUser()
-    {
-        let email = cell1!.textField.text
-        let pw = cell2!.textField.text
-        
-        UserDefaults.standard.setValue(false, forKey: "facebook")
-        UserDefaults.standard.setValue(email!, forKey: "email")
-        UserDefaults.standard.setValue(pw!, forKey: "password")
-        
-    }
+
     
     func fetchCurrentUserFBData()
     {

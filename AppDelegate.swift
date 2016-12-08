@@ -33,47 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         UITextField.appearance().tintColor = UIColor.green
         
-        if let facebookDefaults =  UserDefaults.standard.value(forKey: "facebook"){
-        
-            if facebookDefaults as? Bool == true {
-                //sign in with FB
-                let accessToken = UserDefaults.standard.object(forKey: "accesstoken") as? String
-                print(accessToken)
-                if let poop = UserDefaults.standard.object(forKey: "accesstoken") as? String
-                {
-                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken!)
-                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-                        // ...
-                        if let error = error {
-                            // ...
-                            return
-                        }
-                    }
-                    
-                }
-                
-                showHomeScreen()
-                
+        FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
+            if user != nil {
+                self.showHomeScreen()
+
                 
             }
-            else if facebookDefaults as? Bool == false {
-                //signinwithEmail
-                
-                let email =  UserDefaults.standard.value(forKey: "email") as! String
-                let password =  UserDefaults.standard.value(forKey: "password") as! String
-                
-                FIRAuth.auth()!.signIn(withEmail: email,
-                                       password: password)
-                
-                showHomeScreen()
-                
+            else{
+                self.showWelcome()
+
             }
-        }
-
-        if UserDefaults.standard.value(forKey: "facebook") == nil
-        {
-            showWelcome()
-
         }
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
