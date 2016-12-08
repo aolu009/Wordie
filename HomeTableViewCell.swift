@@ -42,8 +42,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var shortDefintionLabel: UILabel!
     
-    @IBOutlet weak var subtitleLabel: UILabel!
     
+    @IBOutlet weak var subtitleLabel: MarqueeLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

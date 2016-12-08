@@ -514,11 +514,16 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whp-mB-Gk0">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whp-mB-Gk0" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                             <rect key="frame" x="20" y="495.5" width="39" height="22"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hpa-Os-wEQ">
                                                             <rect key="frame" x="305" y="263" width="50" height="50"/>
@@ -601,7 +606,7 @@
                                             <outlet property="profilePhotoImageView" destination="Hpa-Os-wEQ" id="kRR-0M-Xfc"/>
                                             <outlet property="reportButton" destination="THt-1Q-49m" id="xWD-ih-7SF"/>
                                             <outlet property="shortDefintionLabel" destination="By1-70-GAE" id="BoE-Ld-PwW"/>
-                                            <outlet property="subtitleLabel" destination="Whp-mB-Gk0" id="hEV-xC-T8m"/>
+                                            <outlet property="subtitleLabel" destination="Whp-mB-Gk0" id="yKS-8F-yXF"/>
                                             <outlet property="usernameLabel" destination="QNp-NO-wCa" id="NVn-VQ-PpB"/>
                                             <outlet property="wordButton" destination="R2h-0o-o5a" id="HLa-tK-nVV"/>
                                         </connections>

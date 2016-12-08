@@ -12,6 +12,7 @@ import AVFoundation
 import MobileCoreServices
 import Photos
 import AFNetworking
+import MarqueeLabel
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
     
@@ -64,6 +65,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Observe
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.LoadObserver), name: NSNotification.Name(rawValue: "Upload"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.tabBarControllerDidSelect), name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: nil)
+        
     }
     
     func LoadObserver()
@@ -232,6 +234,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+       var cell:HomeTableViewCell = cell as! HomeTableViewCell
+        
+        cell.subtitleLabel.restartLabel()
+        
+        
+
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return customTableView.frame.height
@@ -255,6 +267,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.lastPlayingCell?.pauseVideo()
             self.lastPlayingCell = cell
             cell.playVideo()
+        }
+    }
+    
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Re-labelize all scrolling labels on tableview scroll
+        for cell in customTableView.visibleCells as! [HomeTableViewCell] {
+            cell.subtitleLabel.labelize = true
         }
     }
     
