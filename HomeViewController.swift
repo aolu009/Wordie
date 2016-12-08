@@ -103,6 +103,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     {
         FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
             self.user = User
+            self.customTableView.reloadData()
+
             
         })
         
