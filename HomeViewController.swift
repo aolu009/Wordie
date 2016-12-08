@@ -54,6 +54,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         fetchTimeline()
+        fetchUser()
         
         // Initialize a pull to refresh UIRefreshControl
         refreshControl.addTarget(self, action: #selector(fetchTimeline), for: UIControlEvents.valueChanged)
@@ -100,13 +101,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func fetchUser()
     {
-    let user: User?
-    
-    FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
-    self.user = User
-    
-    })
-    
+        FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
+            self.user = User
+            
+        })
+        
     }
     
     
@@ -143,6 +142,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cellForAnimationView = cell
         let post = videoArray[indexPath.row]
         let videoURL = post.url
+        let userID = post.userID
+        let postUser: User?
+        
+        //once users start making posts
+//        FirebaseClient.sharedInstance.getUserWithID(id: userID!, success: { (User) in
+//            postUser = User
+//            
+//        })
+
         
         if cell.player != nil {
             cell.player?.replaceCurrentItem(with: AVPlayerItem(url: videoURL!))
@@ -162,24 +170,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.featuredLabel.text = post.featured
         cell.likeCountLabel.text = String(post.likes)
         cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
-//        cell.profilePhotoImageView.setImageWith(user?.profilePhoto)
 
         
         
         cell.subtitleLabel.text = post.subtitles
         cell.wordButton.setTitle(post.word, for: .normal)
         cell.usernameLabel.text = "@chantellepaige"
-//        cell.usernameLabel.text = user?.username
         cell.shortDefintionLabel.text = post.shortDefinition
         cell.delegate = self
         
-        if let usr = user {
+        //once users start making posts
+//        if let usr = postUser {
+//            cell.usernameLabel.text = usr.username
+//            cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto)!)
+//
+//        }
+//    
+        if let usr = self.user {
             cell.usernameLabel.text = usr.username
             cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto)!)
-
+            
         }
-    
-        
         
         
         // Set the initial last playing cell value

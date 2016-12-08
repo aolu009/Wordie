@@ -39,14 +39,11 @@ class FacebookUsernameViewController: UIViewController, UITextFieldDelegate {
         let username = self.usernameTextField.text
         
         FirebaseClient.sharedInstance.createNewUser(userEmail: email, userID: userID, userName: username, photoURL: photoURL)
-        
-//        self.performSegue(withIdentifier: "homeSegue4", sender: nil)
-        
+                
         let navVC = self.presentingViewController as! UINavigationController
         let signUpVC = navVC.viewControllers[1] as! SignUpViewController
 
         self.dismiss(animated: true, completion: {signUpVC.performSegue(withIdentifier: "homeSegue2", sender: nil)})
-//        dismiss(animated: true, completion: nil)
         
     }
 
