@@ -302,7 +302,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailbackground" translatesAutoresizingMaskIntoConstraints="NO" id="cAQ-Mc-z0Y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoteImage" translatesAutoresizingMaskIntoConstraints="NO" id="cAQ-Mc-z0Y">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vocabulary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGc-12-jwr">
@@ -315,7 +315,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definition:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE5-9q-DqC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE5-9q-DqC">
                                 <rect key="frame" x="16" y="147" width="96" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="meS-bL-Stz"/>
@@ -325,7 +325,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="synonym" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNm-aL-LLG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNm-aL-LLG">
                                 <rect key="frame" x="15" y="269" width="69" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9b5-vh-o4F"/>
@@ -335,7 +335,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="antoym" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dD7-zE-nBS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dD7-zE-nBS">
                                 <rect key="frame" x="302" y="269" width="57" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="57" id="mpf-6l-Zuu"/>
@@ -345,8 +345,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-I3-KsD">
-                                <rect key="frame" x="16" y="490" width="74" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-I3-KsD">
+                                <rect key="frame" x="16" y="436" width="74" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="8Pq-9F-zNS"/>
                                     <constraint firstAttribute="height" constant="21" id="uDq-Pi-0dZ"/>
@@ -356,18 +356,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtO-QP-BeJ">
-                                <rect key="frame" x="120" y="350" width="135" height="135"/>
+                                <rect key="frame" x="120" y="296" width="135" height="135"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAD-1b-Anl">
                                         <rect key="frame" x="3" y="3" width="129" height="129"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" backgroundImage="pronounce"/>
                                         <connections>
                                             <action selector="onPronounce:" destination="iRm-tU-PZe" eventType="touchUpInside" id="5zY-89-5Ye"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="lAD-1b-Anl" secondAttribute="trailing" constant="3" id="FaJ-kL-TJP"/>
                                     <constraint firstAttribute="height" constant="135" id="aB4-Be-Dn5"/>
@@ -382,7 +380,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t3R-3W-s19">
                                         <rect key="frame" x="3" y="3" width="165" height="129"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SynonymTableViewCell" id="eTX-dp-A0k" customClass="SynonymTableViewCell" customModule="Wordie" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="165" height="44"/>
@@ -412,7 +410,6 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="135" id="4HB-tc-xNW"/>
                                     <constraint firstItem="t3R-3W-s19" firstAttribute="top" secondItem="jse-NA-9zi" secondAttribute="top" constant="3" id="DB9-2d-N1F"/>
@@ -427,7 +424,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="46y-0C-bR9">
                                         <rect key="frame" x="3" y="3" width="165" height="129"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AntonymTableViewCell" id="lko-mO-dW1" customClass="AntonymTableViewCell" customModule="Wordie" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="165" height="44"/>
@@ -457,7 +454,6 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="135" id="AfB-v4-Uc9"/>
                                     <constraint firstAttribute="bottom" secondItem="46y-0C-bR9" secondAttribute="bottom" constant="3" id="IkE-TW-CyN"/>
@@ -484,7 +480,7 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hdg-zI-zw4">
-                                <rect key="frame" x="15" y="519" width="344" height="148"/>
+                                <rect key="frame" x="15" y="465" width="344" height="202"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteExampleTableViewCell" id="4jZ-Ox-4Tf" customClass="NoteExampleTableViewCell" customModule="Wordie" customModuleProvider="target">
@@ -521,7 +517,7 @@
                             <constraint firstItem="JE5-9q-DqC" firstAttribute="top" secondItem="uGc-12-jwr" secondAttribute="bottom" constant="34" id="XSN-7T-O2W"/>
                             <constraint firstItem="CSU-L1-7d4" firstAttribute="top" secondItem="hdg-zI-zw4" secondAttribute="bottom" id="a5d-pi-JJg"/>
                             <constraint firstItem="uGc-12-jwr" firstAttribute="top" secondItem="MeF-GU-S96" secondAttribute="bottom" constant="24" id="cgy-61-zv9"/>
-                            <constraint firstItem="CSU-L1-7d4" firstAttribute="top" secondItem="qtO-QP-BeJ" secondAttribute="bottom" constant="182" id="cse-hQ-6xu"/>
+                            <constraint firstItem="CSU-L1-7d4" firstAttribute="top" secondItem="qtO-QP-BeJ" secondAttribute="bottom" constant="236" id="cse-hQ-6xu"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="uGc-12-jwr" secondAttribute="trailing" constant="241" id="ctN-a4-iLP"/>
                             <constraint firstItem="RD2-I3-KsD" firstAttribute="top" secondItem="qtO-QP-BeJ" secondAttribute="bottom" constant="5" id="hN3-qG-UD7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hdg-zI-zw4" secondAttribute="trailing" id="hPd-WD-kgq"/>
@@ -998,6 +994,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NoteImage" width="375" height="667"/>
         <image name="OnButton" width="68" height="69"/>
         <image name="Upload" width="45" height="30"/>
         <image name="detailbackground" width="375" height="667"/>

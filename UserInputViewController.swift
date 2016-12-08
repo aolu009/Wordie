@@ -28,7 +28,7 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         self.subtitleTextField.delegate = self
         self.captionTextField.delegate = self
         self.proceedButton.alpha = 0
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UserInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     

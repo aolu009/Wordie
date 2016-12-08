@@ -76,7 +76,17 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
                     self.synonyms = synonym
                 }
                 if let displayList = self.dataSource?.editDetailViewControllerGetSynonymDisplayList(){
-                    self.displayList = displayList
+                    if (self.synonyms?.count)! > displayList.count{
+                        var displayListTemp = [Bool]()
+                        for _ in self.synonyms!{
+                            displayListTemp.append(true)
+                        }
+                        self.displayList = displayListTemp
+                    }
+                    else{
+                        self.displayList = displayList
+                    }
+                    
                 }
                 self.rowNumber = (self.synonyms?.count)!
                 self.type.text = "Synonym:"
@@ -86,7 +96,16 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
                     self.antonyms = antonym
                 }
                 if let displayList = self.dataSource?.editDetailViewControllerGetAntonymDisplayList(){
-                    self.displayList = displayList
+                    if (self.antonyms?.count)! > displayList.count{
+                        var displayListTemp = [Bool]()
+                        for _ in self.antonyms!{
+                            displayListTemp.append(true)
+                        }
+                        self.displayList = displayListTemp
+                    }
+                    else{
+                        self.displayList = displayList
+                    }
                 }
                 self.rowNumber = (self.antonyms?.count)!
                 self.type.text = "Antonym:"
@@ -151,7 +170,7 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
             if let antonyms = self.antonyms{
                 if indexPath.row < antonyms.count{
                     cell.detailEditField.text = antonyms[indexPath.row]
-                    if let displayOn = self.displayList?[indexPath.row]{
+                    if let displayOn = self.displayList?[indexPath.row]{//index out of range
                         cell.radioButton.isSelected = displayOn
                     }
                 }
