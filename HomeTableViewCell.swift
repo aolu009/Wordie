@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 import MBProgressHUD
 import NVActivityIndicatorView
-
+import MarqueeLabel
 
 protocol HomeCellDelegate: class {
     func wordButtonTapped(word: String)
@@ -28,6 +28,7 @@ class HomeTableViewCell: UITableViewCell {
 
     weak var delegate: HomeCellDelegate?
     
+    @IBOutlet weak var testlabel: MarqueeLabel!
     
     @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var profilePhotoImageView: UIImageView!
@@ -43,7 +44,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var shortDefintionLabel: UILabel!
     
     
-    @IBOutlet weak var subtitleLabel: MarqueeLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -86,6 +86,10 @@ class HomeTableViewCell: UITableViewCell {
     func showControls() {
         UIView.animate(withDuration: 0.3, animations: {
             self.controlsContainerView.alpha = 1.0
+            
+        }, completion: { finished in
+            self.testlabel.restartLabel()
+
         })
     }
     
@@ -135,8 +139,8 @@ class HomeTableViewCell: UITableViewCell {
         bringSubview(toFront: featuredLabel)
         bringSubview(toFront: descriptionLabel)
         bringSubview(toFront: wordButton)
-        bringSubview(toFront: subtitleLabel)
         bringSubview(toFront: controlsContainerView)
+        bringSubview(toFront: testlabel)
 
         activityIndicatorView?.center = contentView.center
         

@@ -179,7 +179,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
 
         
-        cell.subtitleLabel.text = post.subtitles
+        cell.testlabel.text = post.subtitles
+//        cell.subtitleLabel.labelize = true
+
         cell.wordButton.setTitle(post.word, for: .normal)
 //        cell.usernameLabel.text = "@chantellepaige"
         cell.shortDefintionLabel.text = post.shortDefinition
@@ -238,9 +240,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
        var cell:HomeTableViewCell = cell as! HomeTableViewCell
         
-        cell.subtitleLabel.restartLabel()
-        
-        
 
     }
     
@@ -273,7 +272,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
      func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // Re-labelize all scrolling labels on tableview scroll
         for cell in customTableView.visibleCells as! [HomeTableViewCell] {
-            cell.subtitleLabel.labelize = true
+//            cell.subtitleLabel.labelize = true
         }
     }
     
