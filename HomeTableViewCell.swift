@@ -124,7 +124,7 @@ class HomeTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         
-        profilePhotoImageView.layer.cornerRadius = 15
+        profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
         profilePhotoImageView.clipsToBounds = true
         
         bringSubview(toFront: likeButton)
