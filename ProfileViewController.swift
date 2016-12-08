@@ -29,13 +29,15 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
         
         self.usernameLabel.isHidden = true
         
+        fetchUser()
+        
     }
     
     func fetchUser()
     {
         FirebaseClient.sharedInstance.getUserFromID(success: { (User) in
             self.user = User
-            self.usernameLabel.text = self.user?.username
+            self.usernameLabel.text = "@" + (self.user?.username)!
             self.usernameLabel.isHidden = false
             if let url = self.user?.profilePhoto {
                 let converted = URL(string: url)

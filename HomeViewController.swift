@@ -189,7 +189,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        }
 //    
         if let usr = self.user {
-            cell.usernameLabel.text = usr.username
+            cell.usernameLabel.text = "@" + (usr.username)!
             cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto)!)
             
         }
