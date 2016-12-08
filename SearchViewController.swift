@@ -26,9 +26,14 @@ class SearchViewController: UIViewController,UITextFieldDelegate,DefinitionTabVi
         self.searchTextField.delegate = self
         self.searchTextField.becomeFirstResponder()
         self.errorMessage.isHidden = true
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
-    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     // Search and fetch entered word on Search Key hit
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -90,9 +95,6 @@ class SearchViewController: UIViewController,UITextFieldDelegate,DefinitionTabVi
         self.errorMessage.text = ""
     }
     
-    @IBAction func touchOutsideField(_ sender: Any) {
-        self.searchTextField.resignFirstResponder()
-    }
     
     @IBAction func onHome(_ sender: Any) {
         let storyboardM = UIStoryboard(name: "Malcolm.Main", bundle: nil)

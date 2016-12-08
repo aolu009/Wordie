@@ -74,6 +74,13 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
         else{
             print("Error:Nothing Passed to here")
         }
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     

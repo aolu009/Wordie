@@ -80,6 +80,7 @@ class VideoForNoteViewController: UIViewController, UITabBarControllerDelegate, 
         play(url:self.pronounce!)
     }
     @IBAction func onUpload(_ sender: Any) {
+        takeVideo()
     }
     
     func play(url:String) {
@@ -103,22 +104,38 @@ class VideoForNoteViewController: UIViewController, UITabBarControllerDelegate, 
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
+        imagePicker.videoQuality = UIImagePickerControllerQualityType.typeIFrame960x540//typeIFrame1280x720
         imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
+        imagePicker.videoQuality = .typeMedium
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: self)
+        
         
         present(imagePicker, animated: true, completion:nil)
     }
     
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let url = info[UIImagePickerControllerMediaURL]
-        print("media url: \(url)")
+        
+        var movieCount = Int()
+        FirebaseClient.sharedInstance.fetchMoviePosts { (urlArray) in
+             movieCount = (urlArray?.count)!
+        }
+        let url = info[UIImagePickerControllerMediaURL] as! URL
+        
+        
+        self.dismiss(animated: true, completion: nil)
+        let nxtVC = UserInputViewController.instantiateCustom(movieURL: url, count: movieCount)
+        self.present( nxtVC, animated: true, completion:nil)
         
         PHPhotoLibrary.shared().performChanges({
-            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url as! URL)
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url )
             
         }, completionHandler:nil)
-        //dissmissing the camera
-        dismiss(animated: true, completion: nil)
         
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion:nil)
     }
     
     
