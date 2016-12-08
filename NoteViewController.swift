@@ -59,7 +59,10 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
         self.synonymTable.dataSource = self
         self.antonymTable.delegate = self
         self.antonymTable.dataSource = self
-        
+        self.antonymTable.estimatedRowHeight = 400
+        self.antonymTable.rowHeight = UITableViewAutomaticDimension
+        self.synonymTable.estimatedRowHeight = 400
+        self.synonymTable.rowHeight = UITableViewAutomaticDimension
         //pronounceButton.backgroundColor = UIColor.white
         pronounceButton.layer.cornerRadius = 0.5 * pronounceButton.bounds.size.width
         pronounceButton.layer.borderColor = UIColor.black.cgColor

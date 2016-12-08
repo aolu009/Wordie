@@ -13,6 +13,7 @@ class AntonymTableViewCell: UITableViewCell {
     @IBOutlet weak var antonym: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor.clear
         // Initialization code
     }
 

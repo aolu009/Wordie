@@ -37,8 +37,11 @@ class SynonymAntonym: NSObject {
                     if let define = temp["synonyms"]{
                         let defineArray = define as! [NSDictionary]
                         for defineString in defineArray{
-                            let defineStringIn = defineString as! [String:String]
-                            self.synonym.append(defineStringIn["text"]!)
+                            let defineStringIn = defineString as? [String:String]
+                            if let defineStringIn = defineStringIn{
+                            self.synonym.append((defineStringIn["text"]!))
+                            }
+                            
                         }
                     }
                 }
