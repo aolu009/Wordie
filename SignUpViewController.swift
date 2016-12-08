@@ -123,7 +123,6 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.fetchCurrentUserFBData()
                 
                 
-                
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     
                     self.performSegue(withIdentifier: "homeSegue3", sender: nil)

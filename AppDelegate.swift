@@ -33,17 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         UITextField.appearance().tintColor = UIColor.green
         
-        FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
-            if user != nil {
-                self.showHomeScreen()
-
-                
-            }
-            else{
-                self.showWelcome()
-
-            }
+        if FIRAuth.auth()?.currentUser != nil {
+            // User is signed in.
+            self.showHomeScreen()
+        } else {
+            // No user is signed in.
+            self.showWelcome()
         }
+        
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
