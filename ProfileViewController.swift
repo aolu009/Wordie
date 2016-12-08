@@ -73,36 +73,58 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        
-        imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage
-        var data = Data()
-        data = UIImageJPEGRepresentation(imagePicked!, 1.0)!
-        FirebaseClient.sharedInstance.updateUserProfilePic(image: data, complete: {(profilePicUrl) in
-            self.profilePhotoImageView.image = self.imagePicked
-            print("Update Pic Complete")
-            self.dismiss(animated: true, completion: nil)
-            
-        })
-        
+        if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            let croppedImage = cropToBounds(image: chosenImage, width: 150, height: 150)
+            let imageData = UIImagePNGRepresentation(croppedImage) as NSData?
+
+            FirebaseClient.sharedInstance.updateUserProfilePic(image: imageData as! Data, complete: {(profilePicUrl) in
+                self.profilePhotoImageView.image = croppedImage
+                self.dismiss(animated: true, completion: nil)
+
+                print("Update Pic Complete")
                 
-        //sendURL up to server
-        
-        
-        
+            })
+            
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     dismiss(animated: true, completion:nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
+        
+        let contextImage: UIImage = UIImage(cgImage: image.cgImage!)
+        
+        let contextSize: CGSize = contextImage.size
+        
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        var cgwidth: CGFloat = CGFloat(width)
+        var cgheight: CGFloat = CGFloat(height)
+        
+        // See what size is longer and create the center off of that
+        if contextSize.width > contextSize.height {
+            posX = ((contextSize.width - contextSize.height) / 2)
+            posY = 0
+            cgwidth = contextSize.height
+            cgheight = contextSize.height
+        } else {
+            posX = 0
+            posY = ((contextSize.height - contextSize.width) / 2)
+            cgwidth = contextSize.width
+            cgheight = contextSize.width
+        }
+        
+        let rect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImage = contextImage.cgImage!.cropping(to: rect)!
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        return image
     }
-    */
 
 }
