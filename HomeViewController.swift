@@ -269,6 +269,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
         imagePicker.mediaTypes = [kUTTypeMovie as NSString as String]
+        imagePicker.videoQuality = .typeLow
         
         present(imagePicker, animated: true, completion:nil)
     }
