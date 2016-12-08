@@ -23,8 +23,18 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.definitionTextField.delegate = self
+        self.wordTextField.delegate = self
+        self.subtitleTextField.delegate = self
+        self.captionTextField.delegate = self
         self.proceedButton.alpha = 0
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
     static func instantiateCustom(movieURL: URL, count: Int) -> UserInputViewController
@@ -70,13 +80,35 @@ class UserInputViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if definitionTextField.text != ""  {
+    @IBAction func onEditing(_ sender: UITextField) {
+        if sender.text != ""{
             unHideProceed()
-
+            proceedButton.isHidden = false
+        }
+            
+        else{
+            proceedButton.isHidden = true
+        }
+ 
     }
+    
+    /*
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("Something Happened")
+        if textField == definitionTextField{
+            if definitionTextField.text != ""  {
+                unHideProceed()
+                
+            }
+                /*
+            else{
+                proceedButton.isHidden = true
+            }
+ */
+        }
+        
     }
-
+*/
 
 }
 

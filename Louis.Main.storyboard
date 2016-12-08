@@ -24,6 +24,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailbackground" translatesAutoresizingMaskIntoConstraints="NO" id="cuJ-AB-bbp">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eYj-r9-i2w">
                                 <rect key="frame" x="16" y="81" width="343" height="35"/>
@@ -36,7 +37,6 @@
                                 <connections>
                                     <action selector="onEditing:" destination="dkx-z0-nzr" eventType="editingDidEnd" id="zOy-qU-qct"/>
                                     <action selector="onTextFieldTouched:" destination="BYZ-38-t0r" eventType="editingChanged" id="Q6L-j4-Vad"/>
-                                    <action selector="touchOutsideField:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="irB-rq-7vm"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc1-Z4-SgX">
@@ -204,7 +204,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JLB-FY-ipQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ieq-DU-YaM">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -887,7 +887,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-1i-mxe">
-                                                    <rect key="frame" x="8" y="8" width="359" height="67.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="68"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B4N-dH-xKo">
                                                         <size key="itemSize" width="50" height="50"/>
