@@ -15,6 +15,7 @@ class SynonymTableViewCell: UITableViewCell {
     @IBOutlet weak var synonym: UILabel!
     
     override func awakeFromNib() {
+        self.backgroundColor = UIColor.clear
         super.awakeFromNib()
         // Initialization code
     }

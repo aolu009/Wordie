@@ -45,6 +45,20 @@ class SearchViewController: UIViewController,UITextFieldDelegate,DefinitionTabVi
                 if let result = oxfordWord.dictionary{
                     self.wordDictionary = Word(dictionary: result)
                     self.wordDictionary.word = self.searchTextField.text
+                    OxfordClient.sharedInstance.syninymAntonymFromOxford(searchInput: textField.text, success: {(answer) in
+                        print("Succes:",answer.antonym)
+                        print("Succes:",answer.synonym)
+                        self.wordDictionary.synonym = answer.synonym
+                        self.wordDictionary.antonym = answer.antonym
+                        let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
+                        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "DefinitionTabViewController") as! DefinitionTabViewController
+                        nxtNVC.dataSource = self
+                        self.present( nxtNVC, animated: true, completion: nil)
+                    }, failure: {(Error) in
+                    
+                    
+                    })
+                    
                     //Tesing at log
 /*
                     for category in self.wordDictionary.categories{
@@ -57,12 +71,6 @@ class SearchViewController: UIViewController,UITextFieldDelegate,DefinitionTabVi
                         }
                     }
 */
-                    
-                    let storyboard = UIStoryboard(name: "Louis.Main", bundle: nil)
-                    let nxtNVC = storyboard.instantiateViewController(withIdentifier: "DefinitionTabViewController") as! DefinitionTabViewController
-                    nxtNVC.dataSource = self
-                    self.present( nxtNVC, animated: true, completion: nil)
-                    
                 }
                 else{
                     print("No such word in the Oxford Dictionary")

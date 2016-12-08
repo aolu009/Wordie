@@ -22,6 +22,8 @@ class Word: NSObject {
     var categories: [String] = [String]()
     //var audiourlDic = [String:String]()
     var audiourl = [String]()
+    var synonym = [String]()
+    var antonym = [String]()
     
     init(dictionary: NSDictionary){
         self.dictionary = dictionary

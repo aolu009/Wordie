@@ -49,6 +49,7 @@
 		BFCED8CA1DF673B300A26AB3 /* VideoForNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8C91DF673B300A26AB3 /* VideoForNoteTableViewCell.swift */; };
 		BFCED8CC1DF6B87700A26AB3 /* NoteVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */; };
 		BFCED8CE1DF77B9000A26AB3 /* Louis.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCED8CD1DF77B9000A26AB3 /* Louis.Main.storyboard */; };
+		BFCED8D21DF939EF00A26AB3 /* SynonymAntonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8D11DF939EF00A26AB3 /* SynonymAntonym.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		BFCED8CB1DF6B87700A26AB3 /* NoteVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteVideo.swift; sourceTree = "<group>"; };
 		BFCED8CD1DF77B9000A26AB3 /* Louis.Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Louis.Main.storyboard; sourceTree = "<group>"; };
 		BFCED8CF1DF7844000A26AB3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BFCED8D11DF939EF00A26AB3 /* SynonymAntonym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymAntonym.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		BF1EA9E21DE26F7C00A4B3A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BFCED8D11DF939EF00A26AB3 /* SynonymAntonym.swift */,
 				BF1EA9F11DE2703600A4B3A3 /* Word.swift */,
 				BF1EAA031DE9796B00A4B3A3 /* User.swift */,
 				423D6D7E1DECF35500F66EA4 /* MoviePost.swift */,
@@ -418,6 +421,7 @@
 				42215D9F1DF50877001B90C4 /* SwipeableTableViewCell.swift in Sources */,
 				BFCED8B11DEEC1C700A26AB3 /* RadioButton.swift in Sources */,
 				BFCED8AF1DEEBE2C00A26AB3 /* SSRadioButtonsController.swift in Sources */,
+				BFCED8D21DF939EF00A26AB3 /* SynonymAntonym.swift in Sources */,
 				BF1EA9F61DE2709400A4B3A3 /* AppDelegate.swift in Sources */,
 				BFCED8C11DF40D5200A26AB3 /* AntonymTableViewCell.swift in Sources */,
 				BFCED8BF1DF40CFB00A26AB3 /* SynonymTableViewCell.swift in Sources */,

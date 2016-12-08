@@ -123,6 +123,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
                 if let word = self.word{
                     cell.word.text = word.word
                 }
+                cell.url = self.word?.audiourl[0]
                 return cell
             }
             else {
@@ -197,7 +198,7 @@ class WordDetailViewController: UIViewController, UITabBarControllerDelegate, UI
 extension WordDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //        return videoArray.count ?? 0
-        return 40
+        return 4
         
     }
     

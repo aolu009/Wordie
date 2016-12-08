@@ -59,8 +59,11 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
         self.synonymTable.dataSource = self
         self.antonymTable.delegate = self
         self.antonymTable.dataSource = self
-        
-        pronounceButton.backgroundColor = UIColor.white
+        self.antonymTable.estimatedRowHeight = 400
+        self.antonymTable.rowHeight = UITableViewAutomaticDimension
+        self.synonymTable.estimatedRowHeight = 400
+        self.synonymTable.rowHeight = UITableViewAutomaticDimension
+        //pronounceButton.backgroundColor = UIColor.white
         pronounceButton.layer.cornerRadius = 0.5 * pronounceButton.bounds.size.width
         pronounceButton.layer.borderColor = UIColor.black.cgColor
         buttonOutlet.layer.cornerRadius = 0.5 * buttonOutlet.bounds.size.width
@@ -68,19 +71,13 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
         
         if let word = self.word{
             self.wordText.text = word.word
+            
             self.soundUrl = word.audiourl[0]
-            self.pronounceButton.setTitle(word.categories[0], for: .normal)
+            self.pronounceButton.setTitle(word.word, for: .normal)
         }
         else{
             print("Error:Nothing Passed to here")
         }
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
     }
     
     
@@ -133,35 +130,51 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
             })
             FirebaseClient.sharedInstance.getSelfDefinedSynonymOnWord(word: vocabulary, complete: {(synonyms,synonymToDisplay) in
                 if let synonyms = synonyms{
-                    self.synonymWord = synonyms
+                    if synonyms.count==0{
+                        self.synonymWord = self.word?.synonym
+                        print("Please Enter Synonyms here",synonyms)
+                    }
+                    else{
+                        self.synonymWord = synonyms
+                        print("Please Enter Synonyms",synonyms)
+                    }
                     
                 }
                 else{
+                    self.synonymWord = self.word?.synonym
                     print("Please Enter Synonym")
                 }
                 if let synonymToDisplay = synonymToDisplay{
                     self.synonymToDisplay = synonymToDisplay
                 }
-
             })
             FirebaseClient.sharedInstance.getSynonymDisplayList(word: vocabulary, complete: {(synonymToDisplay) in
-                var idx = 0
-                self.synonymOnScreen = [String]()
-                for synonym in self.synonymWord!{
-                    if  (idx < (self.synonymToDisplay?.count)! && (self.synonymToDisplay?[idx])! == true){
-                        self.synonymOnScreen.append(synonym)
+                if self.synonymWord != nil{
+                    var idx = 0
+                    self.synonymOnScreen = [String]()
+                    for synonym in self.synonymWord!{
+                        if  (idx < (self.synonymToDisplay?.count)! && (self.synonymToDisplay?[idx])! == true){
+                            self.synonymOnScreen.append(synonym)
+                        }
+                        idx+=1
                     }
-                    idx+=1
                 }
                 self.synonymTable.reloadData()
             })
             
             FirebaseClient.sharedInstance.getSelfDefinedAntonymOnWord(word: vocabulary, complete: {(antonyms,antonymToDisplay) in
-                if let antonyms = antonyms{
-                    self.antonymWord = antonyms
+                if let antonyms = antonyms {
+                    if antonyms.count==0{
+                        self.antonymWord = self.word?.antonym
+                    }
+                    else{
+                        self.antonymWord = antonyms
+                        print("Please Enter Antonym",antonyms)
+                    }
                     
                 }
                 else{
+                    
                     print("Please Enter Antonym")
                 }
                 if let antonymToDisplay = antonymToDisplay{
@@ -169,14 +182,17 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
                 }
             })
             FirebaseClient.sharedInstance.getAntonymDisplayList(word: vocabulary, complete: {(antonymToDisplay) in
-                var idx = 0
-                self.antonymOnScreen = [String]()
-                for antonym in self.antonymWord!{
-                    if  (idx < (self.antonymToDisplay?.count)! && (self.antonymToDisplay?[idx])! == true){
-                        self.antonymOnScreen.append(antonym)
+                if self.antonymWord != nil{
+                    var idx = 0
+                    self.antonymOnScreen = [String]()
+                    for antonym in self.antonymWord!{
+                        if  (idx < (self.antonymToDisplay?.count)! && (self.antonymToDisplay?[idx])! == true){
+                            self.antonymOnScreen.append(antonym)
+                        }
+                        idx+=1
                     }
-                    idx+=1
                 }
+                
                 self.antonymTable.reloadData()
             })
             
@@ -314,7 +330,7 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
                 cell.synonym?.text = self.synonymOnScreen[indexPath.row]
             }
             else{
-                cell.synonym?.text = "Tab here to add"
+                cell.synonym?.text = self.synonymWord?[indexPath.row]//"Tab here to add"
             }
             
             return cell
@@ -325,7 +341,7 @@ class NoteViewController: UIViewController, EditDetailViewControllerDataSource,U
                 cell.antonym?.text = self.antonymOnScreen[indexPath.row]
             }
             else{
-                cell.antonym?.text = "Tab here to add"
+                cell.antonym?.text = self.antonymWord?[indexPath.row]//"Tab here to add"
             }
             
             return cell
