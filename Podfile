@@ -11,6 +11,8 @@ target 'Wordie' do
   pod 'MBProgressHUD'
   pod 'Firebase/Storage'
   pod 'NVActivityIndicatorView'
+  pod 'MarqueeLabel/Swift'
+
 
 # Pods for FB
 pod 'FacebookCore'

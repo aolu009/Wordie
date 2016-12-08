@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import MobileCoreServices
 import Photos
+import FirebaseAuth
 
 class ProfileViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -125,6 +126,14 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate, UI
         let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
         
         return image
+    }
+    @IBAction func onLogoutButtonPressed(_ sender: Any) {
+        
+        try! FIRAuth.auth()!.signOut()
+        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+       let vc = storyboard.instantiateViewController(withIdentifier: "WelcomeNav") as! UINavigationController
+            self.present(vc, animated: false, completion: nil)
+
     }
 
 }

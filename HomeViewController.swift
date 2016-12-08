@@ -12,6 +12,7 @@ import AVFoundation
 import MobileCoreServices
 import Photos
 import AFNetworking
+import MarqueeLabel
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeCellDelegate {
     
@@ -64,6 +65,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Observe
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.LoadObserver), name: NSNotification.Name(rawValue: "Upload"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.tabBarControllerDidSelect), name: NSNotification.Name(rawValue: "tabBarControllerDidSelect"), object: nil)
+        
     }
     
     func LoadObserver()
@@ -145,13 +147,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let post = videoArray[indexPath.row]
         let videoURL = post.url
         let userID = post.userID
-        let postUser: User?
+        var postUser: User?
         
         //once users start making posts
-//        FirebaseClient.sharedInstance.getUserWithID(id: userID!, success: { (User) in
-//            postUser = User
-//            
-//        })
+        FirebaseClient.sharedInstance.getUserWithID(id: userID!, success: { (User) in
+            postUser = User
+            cell.usernameLabel.text = "@" + (postUser?.username)!
+            cell.profilePhotoImageView.setImageWith(URL(string: (postUser?.profilePhoto)!)!)
+
+            
+        })
 
         
         if cell.player != nil {
@@ -165,34 +170,30 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.playerLayer = AVPlayerLayer(player: cell.player)
             
         }
-//     //        
+
         cell.shortDefintionLabel.isHidden = true
         
         cell.descriptionLabel.text = post.postBody
         cell.featuredLabel.text = post.featured
         cell.likeCountLabel.text = String(post.likes)
-        cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
+//        cell.profilePhotoImageView.image = #imageLiteral(resourceName: "Bitmap")
 
         
-        
-        cell.subtitleLabel.text = post.subtitles
+        cell.testlabel.text = post.subtitles
+//        cell.subtitleLabel.labelize = true
+
         cell.wordButton.setTitle(post.word, for: .normal)
-        cell.usernameLabel.text = "@chantellepaige"
+//        cell.usernameLabel.text = "@chantellepaige"
         cell.shortDefintionLabel.text = post.shortDefinition
         cell.delegate = self
         
-        //once users start making posts
-//        if let usr = postUser {
-//            cell.usernameLabel.text = usr.username
-//            cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto)!)
+
 //
+//        if let usr = self.user {
+//            cell.usernameLabel.text = "@" + (usr.username)!
+//            cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto)!)
+//            
 //        }
-//    
-        if let usr = self.user {
-            cell.usernameLabel.text = "@" + (usr.username)!
-            cell.profilePhotoImageView.setImageWith(URL(string: usr.profilePhoto)!)
-            
-        }
         
         
         // Set the initial last playing cell value
@@ -215,7 +216,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 //play first cell
                 if indexPath.row == 0 {
                     //bring view back
-//                    cell.contentView.layer.insertSublayer(cell.playerLayer!, at: 0)
                     cell.playVideo()
                     
                     
@@ -234,6 +234,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+       var cell:HomeTableViewCell = cell as! HomeTableViewCell
+        
+
     }
     
     
@@ -259,6 +266,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.lastPlayingCell?.pauseVideo()
             self.lastPlayingCell = cell
             cell.playVideo()
+        }
+    }
+    
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Re-labelize all scrolling labels on tableview scroll
+        for cell in customTableView.visibleCells as! [HomeTableViewCell] {
+//            cell.subtitleLabel.labelize = true
         }
     }
     

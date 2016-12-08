@@ -52,13 +52,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         player?.play()
         
         NotificationCenter.default.addObserver(self, selector: #selector(WelcomeViewController.playerItemDidReachEnd(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem)
-
-        
-//        NotificationCenter.default.addObserver(self,
-//                                                         selector: "playerItemDidReachEnd:",
-//                                                         name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-//                                                         object: self.player?.currentItem)
-        
         
     }
     
@@ -71,15 +64,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     func playerItemDidReachEnd(notification: NSNotification) {
         self.player?.seek(to: kCMTimeZero)
         self.player?.play()
-    }
-    
-
-        @IBAction func onLoginPressed(_ sender: UIButton) {
-            pauseVideos()
-        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
-        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            navigationController?.pushViewController(nxtNVC, animated: true)
-
     }
     
     @IBAction func onSignUpPressed(_ sender: UIButton) {
