@@ -152,7 +152,7 @@ class HomeTableViewCell: UITableViewCell {
         bringSubview(toFront: testlabel)
         
         let btnFrame = wordButton.frame
-        testlabel.frame = CGRect(x: btnFrame.origin.x, y: btnFrame.origin.y + 30, width: 170, height: 21)
+        testlabel.frame = CGRect(x: btnFrame.origin.x, y: btnFrame.origin.y + 40, width: 170, height: 21)
         
         activityIndicatorView?.center = contentView.center
         
