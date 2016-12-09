@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         
         UIApplication.shared.statusBarStyle = .lightContent
 
+        var navigationBarAppearace = UINavigationBar.appearance()
+        
+        navigationBarAppearace.tintColor = UIColor.green
         
         let tabBar = UITabBar.appearance()
         tabBar.barTintColor = UIColor.clear

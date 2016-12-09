@@ -104,7 +104,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate,DefinitionTabVi
     }
     
     
-    @IBAction func onHome(_ sender: Any) {
+    @IBAction func onHome(_ sender: UIBarButtonItem) {
         let storyboardM = UIStoryboard(name: "Malcolm.Main", bundle: nil)
         let vc1 = storyboardM.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
         self.present(vc1, animated: true, completion: nil)
