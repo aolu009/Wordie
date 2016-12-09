@@ -80,7 +80,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate,DefinitionTabVi
                 // Added logic to display different message depend on whether the word is in your own library
                 // Will be complete when self library/word set function is accomplished
                 self.errorMessage.text = Error
-                //self.errorMessage.isHidden = false
+                self.errorMessage.isHidden = false
                 
                 UIView.animate(withDuration: 3, animations: {
                     self.errorMessage.isHidden = false
