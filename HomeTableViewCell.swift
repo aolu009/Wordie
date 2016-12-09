@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 import MBProgressHUD
 import NVActivityIndicatorView
-
+import MarqueeLabel
 
 protocol HomeCellDelegate: class {
     func wordButtonTapped(word: String)
@@ -28,6 +28,7 @@ class HomeTableViewCell: UITableViewCell {
 
     weak var delegate: HomeCellDelegate?
     
+    @IBOutlet weak var testlabel: MarqueeLabel!
     
     @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var profilePhotoImageView: UIImageView!
@@ -42,7 +43,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var shortDefintionLabel: UILabel!
     
-    @IBOutlet weak var subtitleLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -56,6 +56,9 @@ class HomeTableViewCell: UITableViewCell {
         
         setupActivityIndicator()
         controlsContainerView.alpha = 0
+        
+//        self.testlabel.labelize = true
+
     }
     
     func setupActivityIndicator()
@@ -86,6 +89,16 @@ class HomeTableViewCell: UITableViewCell {
     func showControls() {
         UIView.animate(withDuration: 0.3, animations: {
             self.controlsContainerView.alpha = 1.0
+            
+        }, completion: { finished in
+//            self.testlabel.labelize = false
+//            self.testlabel.resetLabel()
+            
+            self.testlabel.labelize = false
+            self.testlabel.restartLabel()
+
+
+
         })
     }
     
@@ -135,13 +148,21 @@ class HomeTableViewCell: UITableViewCell {
         bringSubview(toFront: featuredLabel)
         bringSubview(toFront: descriptionLabel)
         bringSubview(toFront: wordButton)
-        bringSubview(toFront: subtitleLabel)
         bringSubview(toFront: controlsContainerView)
-
+        bringSubview(toFront: testlabel)
+        
+        let btnFrame = wordButton.frame
+        testlabel.frame = CGRect(x: btnFrame.origin.x, y: btnFrame.origin.y + 40, width: 170, height: 21)
+        
         activityIndicatorView?.center = contentView.center
         
     }
     
+    @IBAction func onLikeButtonTapped(_ sender: UIButton) {
+        self.testlabel.labelize = false
+        self.testlabel.resetLabel()
+
+    }
     
     func Long() {
         
