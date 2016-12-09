@@ -53,6 +53,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>MarqueeLabel.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>NVActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -69,6 +74,16 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>070374204E491EF7E794313D14C6950B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0E7D1EFF1D51CC9945FC56699E2019A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19E8873F651E65E0169DE1F789AAE1A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

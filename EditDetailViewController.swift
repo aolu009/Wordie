@@ -111,7 +111,15 @@ class EditDetailViewController: UIViewController,UITextViewDelegate, UITableView
                 self.type.text = "Antonym:"
             default : print("It is empty")
         }
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
