@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         tabBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         UITextField.appearance().tintColor = UIColor.green
-        
+        UINavigationBar.appearance().tintColor = UIColor.green
+
         if FIRAuth.auth()?.currentUser != nil {
             // User is signed in.
             self.showHomeScreen()
