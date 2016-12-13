@@ -67,29 +67,11 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    
-    func getCurrentUser() {
-        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            if let user = user {
-                // User is signed in.
-                self.currentUserID = user.uid
-
-            } else {
-                // No user is signed in.
-            }
-        }
-        
-    }
-    
-    func storeUser()
+    func presentHomeScreen()
     {
-        let email = cell1!.textField.text
-        let pw = cell2!.textField.text
-        
-        UserDefaults.standard.setValue(false, forKey: "facebook")
-        UserDefaults.standard.setValue(email!, forKey: "email")
-        UserDefaults.standard.setValue(pw!, forKey: "password")
-
+        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+        navigationController?.pushViewController(homeVC, animated: true)
     }
     
     
@@ -101,19 +83,14 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         FIRAuth.auth()!.signIn(withEmail: email!,
                                password: pw!)
-        storeUser()
-        
-        self.getCurrentUser()
-
-        performSegue(withIdentifier: "homeSegue", sender: nil)
-        
+    
+        presentHomeScreen()
     }
     
     
     @IBAction func onFBLoginPressed(_ sender: UIButton) {
         
         let facebookLogin = FBSDKLoginManager()
-        print("Logging In")
         
         facebookLogin.logIn(withReadPermissions: ["email"], from: self, handler:{(facebookResult, facebookError) -> Void in
             if facebookError != nil {
@@ -124,20 +101,11 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 let accessToken = FBSDKAccessToken.current().tokenString
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken!)
-
-                
-                UserDefaults.standard.setValue(true, forKey: "facebook")
-                UserDefaults.standard.setValue(accessToken, forKey: "accesstoken")
-                
-                print(UserDefaults.standard.data(forKey: "accesstoken"))
-                
                 self.fetchCurrentUserFBData()
-                
-
                 
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                   
-                    self.performSegue(withIdentifier: "homeSegue", sender: nil)
+                    self.presentHomeScreen()
 
                 }
             }
@@ -148,7 +116,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func fetchCurrentUserFBData()
         {
-           let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large), username"])
+           let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large)"])
             graphRequest.start(completionHandler: { (connection, result, error) -> Void in
     
                 if ((error) != nil)
@@ -158,7 +126,6 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 else
                 {
                     let data:[String:AnyObject] = result as! [String : AnyObject]
-                    print(data)
                     
 
                }

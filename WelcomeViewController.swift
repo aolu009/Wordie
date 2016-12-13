@@ -28,7 +28,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
 
 
         
-        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-fd9cb.appspot.com/o/IMG_3445.mov?alt=media&token=d686e5c5-6f3a-4f99-a02c-fe530c7745fe")
+        let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/wordie-fd9cb.appspot.com/o/IMG_4904.MOV-1.mov?alt=media&token=97463f69-4a25-40ad-ae1b-7f1af6c7ff9b")
         
         
         
@@ -71,8 +71,14 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
         let nxtNVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         navigationController?.pushViewController(nxtNVC, animated: true)
+    }
+    
+    @IBAction func onLoginPressed(_ sender: UIButton) {
+        pauseVideos()
+        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+        let nxtNVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        navigationController?.pushViewController(nxtNVC, animated: true)
         
-
     }
     
     func pauseVideos()

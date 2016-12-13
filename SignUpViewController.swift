@@ -100,10 +100,20 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    
+    func presentUsernameVC()
+    {
+        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+        let usernameVC = storyboard.instantiateViewController(withIdentifier: "FacebookUsernameViewController") as! FacebookUsernameViewController
+        usernameVC.email = email
+        usernameVC.photoURL = userProfilePicURL
+        navigationController?.pushViewController(usernameVC, animated: true)
+    }
+    
         
     
     
-    @IBAction func onFBLoginPressed(_ sender: UIButton) {
+    @IBAction func onFBSignupPressed(_ sender: UIButton) {
         
         let facebookLogin = FBSDKLoginManager()
         print("Logging In")
@@ -125,27 +135,13 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     
-                    self.performSegue(withIdentifier: "homeSegue3", sender: nil)
-                    
+                    self.presentUsernameVC()
                 }
             }
         })
         
     }
 
-    func getCurrentUser() {
-        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            if let user = user {
-                // User is signed in.
-                self.currentUserID = user.uid
-                
-            } else {
-                // No user is signed in.
-            }
-        }
-        
-    }
-    
 
     
     func fetchCurrentUserFBData()
@@ -160,7 +156,6 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
             else
             {
                 let data:[String:AnyObject] = result as! [String : AnyObject]
-                print(data)
                 
                 let dummy = data["picture"]?["data"] as! NSDictionary
                 self.userProfilePicURL = dummy["url"] as! String?
@@ -169,16 +164,6 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
             }
         })
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "homeSegue3" {
-            let destinationVC = segue.destination as! FacebookUsernameViewController
-            destinationVC.email = email
-            destinationVC.photoURL = userProfilePicURL
-
-        }
     }
     
 
