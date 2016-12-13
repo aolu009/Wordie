@@ -451,7 +451,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailbackground" translatesAutoresizingMaskIntoConstraints="NO" id="Txi-pn-nqU">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QuT-Pl-7FC">
                                 <rect key="frame" x="0.0" y="20" width="375" height="5"/>
@@ -650,7 +650,6 @@
                             <constraint firstItem="Txi-pn-nqU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Gif-HU-cbt"/>
                             <constraint firstItem="JPC-md-eyZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gl8-cP-jUT"/>
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="1" id="GyY-Vs-QL1"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Txi-pn-nqU" secondAttribute="bottom" id="HUj-fr-MSV"/>
                             <constraint firstItem="WEf-Qx-etb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hrh-Ld-4nL"/>
                             <constraint firstAttribute="bottom" secondItem="WEf-Qx-etb" secondAttribute="bottom" id="L7F-Qu-VO5"/>
                             <constraint firstItem="x7C-mU-CCw" firstAttribute="leading" secondItem="JPC-md-eyZ" secondAttribute="leading" constant="10" id="LBq-hp-W8l"/>
@@ -663,6 +662,7 @@
                             <constraint firstItem="0fr-Mb-0tl" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="5" id="hRG-08-Z2j"/>
                             <constraint firstItem="j8N-9i-Qvq" firstAttribute="trailing" secondItem="0fr-Mb-0tl" secondAttribute="leading" constant="1" id="ia0-dQ-zC3"/>
                             <constraint firstAttribute="trailing" secondItem="Txi-pn-nqU" secondAttribute="trailing" id="nQ6-9L-YvZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Txi-pn-nqU" secondAttribute="bottom" id="own-ld-Xd5"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="top" secondItem="JPC-md-eyZ" secondAttribute="bottom" constant="1" id="r4h-PG-Uhc"/>
                             <constraint firstItem="js2-i1-ae2" firstAttribute="leading" secondItem="JPC-md-eyZ" secondAttribute="leading" constant="10" id="tbs-MN-Opl"/>
                             <constraint firstAttribute="trailing" secondItem="WEf-Qx-etb" secondAttribute="trailing" id="wEK-T3-irE"/>
