@@ -13,6 +13,7 @@
 		42215D9F1DF50877001B90C4 /* SwipeableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42215D9E1DF50877001B90C4 /* SwipeableTableViewCell.swift */; };
 		42215DA11DF508EC001B90C4 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42215DA01DF508EC001B90C4 /* VideoCollectionViewCell.swift */; };
 		4222C56A1DFFA098006D99E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222C5691DFFA098006D99E1 /* LoginViewController.swift */; };
+		4222C56C1DFFC66E006D99E1 /* Pods_Wordie.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		423D6D7F1DECF35500F66EA4 /* MoviePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D6D7E1DECF35500F66EA4 /* MoviePost.swift */; };
 		4250867D1DE3067C00D3B202 /* Malcolm.Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250867C1DE3067C00D3B202 /* Malcolm.Main.storyboard */; };
 		4250867F1DE309DB00D3B202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250867E1DE309DB00D3B202 /* HomeViewController.swift */; };
@@ -52,6 +53,19 @@
 		BFCED8D21DF939EF00A26AB3 /* SynonymAntonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED8D11DF939EF00A26AB3 /* SynonymAntonym.swift */; };
 		FED89AC8B317F252BDA33430 /* Pods_Wordie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4222C56B1DFFC656006D99E1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4222C56C1DFFC66E006D99E1 /* Pods_Wordie.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		194803FA9A5A04B1AC0116C2 /* Pods_Wordie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wordie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,7 +285,7 @@
 				BF1EA9C21DE26DC200A4B3A3 /* Frameworks */,
 				BF1EA9C31DE26DC200A4B3A3 /* Resources */,
 				0A44FC212BA3B3CC17FA8BB1 /* [CP] Embed Pods Frameworks */,
-				63DFFC41D6B5F89C088FAD14 /* [CP] Copy Pods Resources */,
+				4222C56B1DFFC656006D99E1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -294,7 +308,6 @@
 				TargetAttributes = {
 					BF1EA9C41DE26DC200A4B3A3 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = JC68KFVHSJ;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -352,21 +365,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wordie/Pods-Wordie-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		63DFFC41D6B5F89C088FAD14 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wordie/Pods-Wordie-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BF682A43550CFA37066D4792 /* [CP] Check Pods Manifest.lock */ = {

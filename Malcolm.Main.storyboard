@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0G-To-2Pp">
-                                <rect key="frame" x="-1" y="627" width="188" height="40"/>
+                                <rect key="frame" x="0.0" y="627" width="187.5" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6mx-bE-Afi"/>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUU-iR-F7a">
-                                <rect key="frame" x="187" y="627" width="188" height="40"/>
+                                <rect key="frame" x="187.5" y="627" width="187.5" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="SIGN UP">
@@ -56,8 +56,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="E0G-To-2Pp" firstAttribute="leading" secondItem="ImU-TM-IKX" secondAttribute="leadingMargin" constant="-17" id="2cB-f0-lq6"/>
+                            <constraint firstAttribute="trailing" secondItem="qUU-iR-F7a" secondAttribute="trailing" id="0ug-IY-wbg"/>
                             <constraint firstItem="E0G-To-2Pp" firstAttribute="baseline" secondItem="qUU-iR-F7a" secondAttribute="baseline" id="87S-fZ-s4n"/>
+                            <constraint firstItem="E0G-To-2Pp" firstAttribute="leading" secondItem="ImU-TM-IKX" secondAttribute="leading" id="H0i-ay-XPg"/>
                             <constraint firstItem="o3p-dg-rHE" firstAttribute="centerX" secondItem="ImU-TM-IKX" secondAttribute="centerX" id="Say-rv-t6O"/>
                             <constraint firstItem="qUU-iR-F7a" firstAttribute="height" secondItem="E0G-To-2Pp" secondAttribute="height" id="X8V-qP-iRk"/>
                             <constraint firstItem="o3p-dg-rHE" firstAttribute="centerY" secondItem="ImU-TM-IKX" secondAttribute="centerY" constant="-200" id="Xd6-1L-Pxb"/>
