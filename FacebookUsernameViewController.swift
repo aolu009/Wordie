@@ -33,13 +33,7 @@ class FacebookUsernameViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    func presentHomeScreen()
-    {
-        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
-        navigationController?.pushViewController(homeVC, animated: true)
-    }
-    
+
     
     
     func onProceedPressed(_ sender: UIButton) {
@@ -51,7 +45,7 @@ class FacebookUsernameViewController: UIViewController, UITextFieldDelegate {
         let navVC = self.presentingViewController as! UINavigationController
         let signUpVC = navVC.viewControllers[1] as! SignUpViewController
 
-        self.dismiss(animated: true, completion: {self.presentHomeScreen()})
+        self.dismiss(animated: true, completion: {signUpVC.presentHomeScreen()})
         
     }
 

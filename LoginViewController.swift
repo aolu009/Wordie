@@ -71,7 +71,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     {
         let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
         let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
-        navigationController?.pushViewController(homeVC, animated: true)
+        navigationController?.present(homeVC, animated: true, completion: nil)
     }
     
     
@@ -81,10 +81,15 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let email = cell1!.textField.text
         let pw = cell2!.textField.text
 
-        FIRAuth.auth()!.signIn(withEmail: email!,
-                               password: pw!)
-    
-        presentHomeScreen()
+        FIRAuth.auth()!.signIn(withEmail: email!, password: pw!, completion: { (user, err) in
+            if let error = err {
+                print(error.localizedDescription)
+            } else {
+                self.presentHomeScreen()
+                
+            }
+        })
+        
     }
     
     

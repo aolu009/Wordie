@@ -82,19 +82,18 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let email = cell1!.textField.text
         let pw = cell2!.textField.text
         let username = cell3!.textField.text
-
+        
         FIRAuth.auth()!.createUser(withEmail: email!,
                                    password: pw!) { user, error in
                                     if error == nil {
                                         FIRAuth.auth()!.signIn(withEmail: email!,
                                                                password: pw!)
                                         
-                                        
-                                        self.getCurrentUser()
                                         FirebaseClient.sharedInstance.createNewUser(userEmail: email!, userID: user?.uid, userName: username, photoURL: nil)
                                         
-                                        self.performSegue(withIdentifier: "homeSegue2", sender: nil)
-
+                                        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+                                        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+                                        self.navigationController?.present(homeVC, animated: true, completion: nil)
                                     }
         }
         
@@ -107,8 +106,16 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let usernameVC = storyboard.instantiateViewController(withIdentifier: "FacebookUsernameViewController") as! FacebookUsernameViewController
         usernameVC.email = email
         usernameVC.photoURL = userProfilePicURL
-        navigationController?.pushViewController(usernameVC, animated: true)
+        navigationController?.present(usernameVC, animated: true, completion: nil)
     }
+    
+    func presentHomeScreen()
+    {
+        let storyboard = UIStoryboard(name: "Malcolm.Main", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+        navigationController?.present(homeVC, animated: true, completion: nil)
+    }
+    
     
         
     

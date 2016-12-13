@@ -49,6 +49,9 @@
                                 <state key="normal" title="SIGN UP">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSignUpPressed:" destination="snj-8U-EOa" eventType="touchUpInside" id="zY1-eb-ez8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -719,8 +722,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onFBLoginPressed:" destination="heT-un-but" eventType="touchUpInside" id="A1W-5z-1DI"/>
-                                    <action selector="onFBSignupPressed:" destination="heT-un-but" eventType="touchUpInside" id="xrM-JE-692"/>
+                                    <action selector="onFBSignupPressed:" destination="heT-un-but" eventType="touchUpInside" id="0rz-gz-uzS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with e-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="085-4i-9OP">
@@ -831,6 +833,7 @@
         <!--Login View Controller-->
         <scene sceneID="7vL-wp-h5F">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uu8-OB-ZKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" id="sD9-1F-lla" customClass="LoginViewController" customModule="Wordie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YB9-Ht-if8"/>
@@ -847,7 +850,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onFBLoginPressed:" destination="sD9-1F-lla" eventType="touchUpInside" id="vPy-V2-Kzl"/>
+                                    <action selector="onFBLoginPressed:" destination="sD9-1F-lla" eventType="touchUpInside" id="6pF-i2-VcR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edr-EZ-DvA">
@@ -923,9 +926,6 @@
                                 <state key="normal" title="LOG IN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="onLoginButtonPressed:" destination="sD9-1F-lla" eventType="touchUpInside" id="qQm-cX-X8w"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -950,7 +950,6 @@
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uu8-OB-ZKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1287" y="-2040"/>
         </scene>
